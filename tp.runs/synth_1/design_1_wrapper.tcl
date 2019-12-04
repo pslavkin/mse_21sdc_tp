@@ -18,6 +18,8 @@ proc create_report { reportName command } {
   }
 }
 set_param chipscope.maxJobs 1
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7z020clg400-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -41,6 +43,8 @@ set_property used_in_implementation false [get_files -all /home/pslavkin/mse_3_2
 set_property used_in_implementation false [get_files -all /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_10M_0/design_1_rst_ps7_0_10M_0_board.xdc]
 set_property used_in_implementation false [get_files -all /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_10M_0/design_1_rst_ps7_0_10M_0.xdc]
 set_property used_in_implementation false [get_files -all /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_10M_0/design_1_rst_ps7_0_10M_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_xbar_0/design_1_xbar_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1_ooc.xdc]
 

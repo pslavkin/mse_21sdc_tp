@@ -452,3 +452,1326 @@ make pre-build main-build
 a9-linaro-pre-build-step
  
 make: Nothing to be done for 'main-build'.
+23:46:14 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:66:6: warning: implicit declaration of function 'XUartPs_RecvByte' [-Wimplicit-function-declaration]
+      XUartPs_RecvByte();
+      ^~~~~~~~~~~~~~~~
+Finished building: ../src/helloworld.c
+ 
+Building target: tp.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../tp_bsp/ps7_cortexa9_0/lib -o "tp.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: tp.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size tp.elf  |tee "tp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  20456	   1160	  22600	  44216	   acb8	tp.elf
+Finished building: tp.elf.size
+ 
+23:46:31 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+Finished building: ../src/helloworld.c
+ 
+Building target: tp.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../tp_bsp/ps7_cortexa9_0/lib -o "tp.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: tp.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size tp.elf  |tee "tp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  20452	   1160	  22600	  44212	   acb4	tp.elf
+Finished building: tp.elf.size
+ 
+23:46:48 **** Incremental Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+23:48:44 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:66:6: warning: implicit declaration of function 'XUartPs_RecvByte' [-Wimplicit-function-declaration]
+      XUartPs_RecvByte(STDIN_BASEADDRESS);
+      ^~~~~~~~~~~~~~~~
+Finished building: ../src/helloworld.c
+ 
+Building target: tp.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../tp_bsp/ps7_cortexa9_0/lib -o "tp.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: tp.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size tp.elf  |tee "tp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  20316	   1160	  22600	  44076	   ac2c	tp.elf
+Finished building: tp.elf.size
+ 
+23:48:55 **** Incremental Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+23:52:44 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:67:6: warning: implicit declaration of function 'XUartPs_RecvByte' [-Wimplicit-function-declaration]
+      XUartPs_RecvByte(STDIN_BASEADDRESS);
+      ^~~~~~~~~~~~~~~~
+../src/helloworld.c:69:9: error: empty character constant
+      i++''
+         ^~
+../src/helloworld.c:69:9: error: expected ';' before '\x0'
+      i++''
+         ^~
+         ;
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+23:52:50 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:67:6: warning: implicit declaration of function 'XUartPs_RecvByte' [-Wimplicit-function-declaration]
+      XUartPs_RecvByte(STDIN_BASEADDRESS);
+      ^~~~~~~~~~~~~~~~
+Finished building: ../src/helloworld.c
+ 
+Building target: tp.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../tp_bsp/ps7_cortexa9_0/lib -o "tp.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: tp.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size tp.elf  |tee "tp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  20332	   1160	  22600	  44092	   ac3c	tp.elf
+Finished building: tp.elf.size
+ 
+23:53:02 **** Incremental Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+23:54:50 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:68:39: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+      if(XGpio_DiscreteRead(&led_btn,1)&0x0F==0x01) {
+                                       ^
+Finished building: ../src/helloworld.c
+ 
+Building target: tp.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../tp_bsp/ps7_cortexa9_0/lib -o "tp.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: tp.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size tp.elf  |tee "tp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  20288	   1160	  22600	  44048	   ac10	tp.elf
+Finished building: tp.elf.size
+ 
+23:54:59 **** Incremental Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+23:55:24 **** Incremental Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+23:56:10 **** Incremental Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+23:57:41 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:66:9: warning: variable 'a' set but not used [-Wunused-but-set-variable]
+     int a=0;
+         ^
+../src/helloworld.c: At top level:
+../src/helloworld.c:75:5: warning: data definition has no type or storage class
+     cleanup_platform();
+     ^~~~~~~~~~~~~~~~
+../src/helloworld.c:75:5: warning: type defaults to 'int' in declaration of 'cleanup_platform' [-Wimplicit-int]
+../src/helloworld.c:75:5: error: conflicting types for 'cleanup_platform'
+In file included from ../src/helloworld.c:50:
+../src/platform.h:39:6: note: previous declaration of 'cleanup_platform' was here
+ void cleanup_platform();
+      ^~~~~~~~~~~~~~~~
+../src/helloworld.c:76:5: error: expected identifier or '(' before 'return'
+     return 0;
+     ^~~~~~
+../src/helloworld.c:77:1: error: expected identifier or '(' before '}' token
+ }
+ ^
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+23:58:01 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:66:9: warning: variable 'a' set but not used [-Wunused-but-set-variable]
+     int a=0;
+         ^
+Finished building: ../src/helloworld.c
+ 
+Building target: tp.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../tp_bsp/ps7_cortexa9_0/lib -o "tp.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: tp.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size tp.elf  |tee "tp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  20356	   1160	  22600	  44116	   ac54	tp.elf
+Finished building: tp.elf.size
+ 
+23:58:40 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+Finished building: ../src/helloworld.c
+ 
+Building target: tp.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../tp_bsp/ps7_cortexa9_0/lib -o "tp.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: tp.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size tp.elf  |tee "tp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  20392	   1160	  22600	  44152	   ac78	tp.elf
+Finished building: tp.elf.size
+ 
+23:58:45 **** Incremental Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+23:59:55 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+Finished building: ../src/helloworld.c
+ 
+Building target: tp.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../tp_bsp/ps7_cortexa9_0/lib -o "tp.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: tp.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size tp.elf  |tee "tp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  20352	   1160	  22600	  44112	   ac50	tp.elf
+Finished building: tp.elf.size
+ 
+00:00:08 **** Incremental Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+00:00:56 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+Finished building: ../src/helloworld.c
+ 
+Building target: tp.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../tp_bsp/ps7_cortexa9_0/lib -o "tp.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: tp.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size tp.elf  |tee "tp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  20340	   1160	  22600	  44100	   ac44	tp.elf
+Finished building: tp.elf.size
+ 
+00:01:00 **** Incremental Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+13:16:29 **** Incremental Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+In file included from ../src/helloworld.c:48:
+../../tp_bsp/ps7_cortexa9_0/include/xparameters.h:19:10: fatal error: xparameters_ps.h: No such file or directory
+ #include "xparameters_ps.h"
+          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+13:17:22 **** Auto Build of project tp_bsp ****
+make -k all 
+Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/spips_v3_2/src
+make -C ps7_cortexa9_0/libsrc/spips_v3_2/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_4/src
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_4/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/scugic_v4_0/src
+make -C ps7_cortexa9_0/libsrc/scugic_v4_0/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/gpiops_v3_5/src
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_5/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/standalone_v7_0/src
+make -C ps7_cortexa9_0/libsrc/standalone_v7_0/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_3/src
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_3/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_5/src
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/gpio_v4_4/src
+make -C ps7_cortexa9_0/libsrc/gpio_v4_4/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_7/src
+make -C ps7_cortexa9_0/libsrc/uartps_v3_7/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_1/src
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_0/src
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling ddrps
+arm-none-eabi-ar: creating ../../../lib/libxil.a
+Running Make libs in ps7_cortexa9_0/libsrc/spips_v3_2/src
+make -C ps7_cortexa9_0/libsrc/spips_v3_2/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling spips
+Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_4/src
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_4/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling dmaps
+Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling cpu_cortexa9
+Running Make libs in ps7_cortexa9_0/libsrc/scugic_v4_0/src
+make -C ps7_cortexa9_0/libsrc/scugic_v4_0/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling scugic
+Running Make libs in ps7_cortexa9_0/libsrc/gpiops_v3_5/src
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_5/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling gpiops
+Running Make libs in ps7_cortexa9_0/libsrc/standalone_v7_0/src
+make -C ps7_cortexa9_0/libsrc/standalone_v7_0/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling standalone
+In file included from xtime_l.c:49:
+xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
+ #pragma message ("For the sleep routines, Global timer is being used")
+         ^~~~~~~
+In file included from sleep.c:53:
+xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
+ #pragma message ("For the sleep routines, Global timer is being used")
+         ^~~~~~~
+In file included from xil_sleeptimer.c:51:
+xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
+ #pragma message ("For the sleep routines, Global timer is being used")
+         ^~~~~~~
+In file included from usleep.c:56:
+xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
+ #pragma message ("For the sleep routines, Global timer is being used")
+         ^~~~~~~
+Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_3/src
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_3/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling xadcps
+Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_5/src
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling devcfg
+Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling scuwdt
+Running Make libs in ps7_cortexa9_0/libsrc/gpio_v4_4/src
+make -C ps7_cortexa9_0/libsrc/gpio_v4_4/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling gpio
+Running Make libs in ps7_cortexa9_0/libsrc/uartps_v3_7/src
+make -C ps7_cortexa9_0/libsrc/uartps_v3_7/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling uartps
+Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_1/src
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling scutimer
+Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling coresightps_dcc
+Finished building libraries
+13:17:32 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+Finished building: ../src/helloworld.c
+ 
+Building file: ../src/platform.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+Finished building: ../src/platform.c
+ 
+Building target: tp.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../tp_bsp/ps7_cortexa9_0/lib -o "tp.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: tp.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size tp.elf  |tee "tp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  20340	   1160	  22600	  44100	   ac44	tp.elf
+Finished building: tp.elf.size
+ 
+13:30:46 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c:53:10: fatal error: xspi.h: No such file or directory
+ #include "xspi.h"  /* SPI device driver */
+          ^~~~~~~~
+compilation terminated.
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+13:31:47 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c:53:10: fatal error: xspips_l.h: No such file or directory
+ #include "xspips_l.h"
+          ^~~~~~~~~~~~
+compilation terminated.
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+13:31:53 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c:56:23: error: 'BUFFER_SIZE' undeclared here (not in a function); did you mean 'BUFSIZ'?
+ typedef u8 DataBuffer[BUFFER_SIZE];
+                       ^~~~~~~~~~~
+                       BUFSIZ
+../src/helloworld.c:59:8: error: unknown type name 'XSpi'
+ static XSpi  SpiInstance;  /* The instance of the SPI device */
+        ^~~~
+../src/helloworld.c:61:22: error: unknown type name 'XSpi'; did you mean 'XSpiPs'?
+ int SpiPolledExample(XSpi *SpiInstancePtr, u16 SpiDeviceId)
+                      ^~~~
+                      XSpiPs
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:160:14: warning: implicit declaration of function 'SpiPolledExample'; did you mean 'XSpiPs_PolledTransfer'? [-Wimplicit-function-declaration]
+     Status = SpiPolledExample(&SpiInstance, SPI_DEVICE_ID);
+              ^~~~~~~~~~~~~~~~
+              XSpiPs_PolledTransfer
+../src/helloworld.c:160:45: error: 'SPI_DEVICE_ID' undeclared (first use in this function); did you mean 'UART_DEVICE_ID'?
+     Status = SpiPolledExample(&SpiInstance, SPI_DEVICE_ID);
+                                             ^~~~~~~~~~~~~
+                                             UART_DEVICE_ID
+../src/helloworld.c:160:45: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+13:32:33 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c:63:8: error: unknown type name 'XSpi'
+ static XSpi  SpiInstance;  /* The instance of the SPI device */
+        ^~~~
+../src/helloworld.c:65:22: error: unknown type name 'XSpi'; did you mean 'XSpiPs'?
+ int SpiPolledExample(XSpi *SpiInstancePtr, u16 SpiDeviceId)
+                      ^~~~
+                      XSpiPs
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:164:14: warning: implicit declaration of function 'SpiPolledExample'; did you mean 'XSpiPs_PolledTransfer'? [-Wimplicit-function-declaration]
+     Status = SpiPolledExample(&SpiInstance, SPI_DEVICE_ID);
+              ^~~~~~~~~~~~~~~~
+              XSpiPs_PolledTransfer
+../src/helloworld.c:55:24: error: 'XPAR_SPI_0_DEVICE_ID' undeclared (first use in this function); did you mean 'XPAR_GPIO_0_DEVICE_ID'?
+ #define SPI_DEVICE_ID  XPAR_SPI_0_DEVICE_ID
+                        ^~~~~~~~~~~~~~~~~~~~
+../src/helloworld.c:164:45: note: in expansion of macro 'SPI_DEVICE_ID'
+     Status = SpiPolledExample(&SpiInstance, SPI_DEVICE_ID);
+                                             ^~~~~~~~~~~~~
+../src/helloworld.c:55:24: note: each undeclared identifier is reported only once for each function it appears in
+ #define SPI_DEVICE_ID  XPAR_SPI_0_DEVICE_ID
+                        ^~~~~~~~~~~~~~~~~~~~
+../src/helloworld.c:164:45: note: in expansion of macro 'SPI_DEVICE_ID'
+     Status = SpiPolledExample(&SpiInstance, SPI_DEVICE_ID);
+                                             ^~~~~~~~~~~~~
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+13:34:37 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c:59:23: error: 'BUFFER_SIZE' undeclared here (not in a function); did you mean 'BUFSIZ'?
+ typedef u8 DataBuffer[BUFFER_SIZE];
+                       ^~~~~~~~~~~
+                       BUFSIZ
+../src/helloworld.c:62:8: error: unknown type name 'XSpi'
+ static XSpi  SpiInstance;  /* The instance of the SPI device */
+        ^~~~
+../src/helloworld.c:64:22: error: unknown type name 'XSpi'; did you mean 'XSpiPs'?
+ int SpiPolledExample(XSpi *SpiInstancePtr, u16 SpiDeviceId)
+                      ^~~~
+                      XSpiPs
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:163:14: warning: implicit declaration of function 'SpiPolledExample'; did you mean 'XSpiPs_PolledTransfer'? [-Wimplicit-function-declaration]
+     Status = SpiPolledExample(&SpiInstance, SPI_DEVICE_ID);
+              ^~~~~~~~~~~~~~~~
+              XSpiPs_PolledTransfer
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+13:35:14 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c:58:23: error: 'BUFFER_SIZE' undeclared here (not in a function); did you mean 'BUFSIZ'?
+ typedef u8 DataBuffer[BUFFER_SIZE];
+                       ^~~~~~~~~~~
+                       BUFSIZ
+../src/helloworld.c:61:8: error: unknown type name 'XSpi'
+ static XSpi  SpiInstance;  /* The instance of the SPI device */
+        ^~~~
+../src/helloworld.c:63:22: error: unknown type name 'XSpi'; did you mean 'XSpiPs'?
+ int SpiPolledExample(XSpi *SpiInstancePtr, u16 SpiDeviceId)
+                      ^~~~
+                      XSpiPs
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:162:14: warning: implicit declaration of function 'SpiPolledExample'; did you mean 'XSpiPs_PolledTransfer'? [-Wimplicit-function-declaration]
+     Status = SpiPolledExample(&SpiInstance, SPI_DEVICE_ID);
+              ^~~~~~~~~~~~~~~~
+              XSpiPs_PolledTransfer
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+13:35:39 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c:63:8: error: unknown type name 'XSpi'
+ static XSpi  SpiInstance;  /* The instance of the SPI device */
+        ^~~~
+../src/helloworld.c:65:22: error: unknown type name 'XSpi'; did you mean 'XSpiPs'?
+ int SpiPolledExample(XSpi *SpiInstancePtr, u16 SpiDeviceId)
+                      ^~~~
+                      XSpiPs
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:164:14: warning: implicit declaration of function 'SpiPolledExample'; did you mean 'XSpiPs_PolledTransfer'? [-Wimplicit-function-declaration]
+     Status = SpiPolledExample(&SpiInstance, SPI_DEVICE_ID);
+              ^~~~~~~~~~~~~~~~
+              XSpiPs_PolledTransfer
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+13:36:38 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c:65:22: error: unknown type name 'XSpi'; did you mean 'XSpiPs'?
+ int SpiPolledExample(XSpi *SpiInstancePtr, u16 SpiDeviceId)
+                      ^~~~
+                      XSpiPs
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:164:14: warning: implicit declaration of function 'SpiPolledExample'; did you mean 'XSpiPs_PolledTransfer'? [-Wimplicit-function-declaration]
+     Status = SpiPolledExample(&SpiInstance, SPI_DEVICE_ID);
+              ^~~~~~~~~~~~~~~~
+              XSpiPs_PolledTransfer
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+13:36:45 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'SpiPolledExample':
+../src/helloworld.c:70:2: error: unknown type name 'XSpi_Config'; did you mean 'XSpiPs_Config'?
+  XSpi_Config *ConfigPtr; /* Pointer to Configuration data */
+  ^~~~~~~~~~~
+  XSpiPs_Config
+../src/helloworld.c:75:14: warning: implicit declaration of function 'XSpi_LookupConfig'; did you mean 'XSpiPs_LookupConfig'? [-Wimplicit-function-declaration]
+  ConfigPtr = XSpi_LookupConfig(SpiDeviceId);
+              ^~~~~~~~~~~~~~~~~
+              XSpiPs_LookupConfig
+../src/helloworld.c:75:12: warning: assignment to 'int *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  ConfigPtr = XSpi_LookupConfig(SpiDeviceId);
+            ^
+../src/helloworld.c:80:11: warning: implicit declaration of function 'XSpi_CfgInitialize'; did you mean 'XSpiPs_CfgInitialize'? [-Wimplicit-function-declaration]
+  Status = XSpi_CfgInitialize(SpiInstancePtr, ConfigPtr,
+           ^~~~~~~~~~~~~~~~~~
+           XSpiPs_CfgInitialize
+../src/helloworld.c:81:16: error: request for member 'BaseAddress' in something not a structure or union
+       ConfigPtr->BaseAddress);
+                ^~
+../src/helloworld.c:89:11: warning: implicit declaration of function 'XSpi_SelfTest'; did you mean 'XSpiPs_SelfTest'? [-Wimplicit-function-declaration]
+  Status = XSpi_SelfTest(SpiInstancePtr);
+           ^~~~~~~~~~~~~
+           XSpiPs_SelfTest
+../src/helloworld.c:97:20: error: 'XSpiPs' {aka 'struct <anonymous>'} has no member named 'SpiMode'
+  if (SpiInstancePtr->SpiMode != XSP_STANDARD_MODE) {
+                    ^~
+../src/helloworld.c:97:33: error: 'XSP_STANDARD_MODE' undeclared (first use in this function); did you mean 'XST_SPI_SLAVE_MODE'?
+  if (SpiInstancePtr->SpiMode != XSP_STANDARD_MODE) {
+                                 ^~~~~~~~~~~~~~~~~
+                                 XST_SPI_SLAVE_MODE
+../src/helloworld.c:97:33: note: each undeclared identifier is reported only once for each function it appears in
+../src/helloworld.c:104:11: warning: implicit declaration of function 'XSpi_SetOptions'; did you mean 'XSpiPs_SetOptions'? [-Wimplicit-function-declaration]
+  Status = XSpi_SetOptions(SpiInstancePtr, XSP_MASTER_OPTION |
+           ^~~~~~~~~~~~~~~
+           XSpiPs_SetOptions
+../src/helloworld.c:104:43: error: 'XSP_MASTER_OPTION' undeclared (first use in this function); did you mean 'XSPIPS_MASTER_OPTION'?
+  Status = XSpi_SetOptions(SpiInstancePtr, XSP_MASTER_OPTION |
+                                           ^~~~~~~~~~~~~~~~~
+                                           XSPIPS_MASTER_OPTION
+../src/helloworld.c:105:7: error: 'XSP_LOOPBACK_OPTION' undeclared (first use in this function); did you mean 'XST_LOOPBACK_ERROR'?
+       XSP_LOOPBACK_OPTION);
+       ^~~~~~~~~~~~~~~~~~~
+       XST_LOOPBACK_ERROR
+../src/helloworld.c:114:2: warning: implicit declaration of function 'XSpi_Start'; did you mean 'XSpiPs_Abort'? [-Wimplicit-function-declaration]
+  XSpi_Start(SpiInstancePtr);
+  ^~~~~~~~~~
+  XSpiPs_Abort
+../src/helloworld.c:119:2: warning: implicit declaration of function 'XSpi_IntrGlobalDisable'; did you mean 'XGpio_InterruptGlobalDisable'? [-Wimplicit-function-declaration]
+  XSpi_IntrGlobalDisable(SpiInstancePtr);
+  ^~~~~~~~~~~~~~~~~~~~~~
+  XGpio_InterruptGlobalDisable
+../src/helloworld.c:137:2: warning: implicit declaration of function 'XSpi_Transfer'; did you mean 'XSpiPs_Transfer'? [-Wimplicit-function-declaration]
+  XSpi_Transfer(SpiInstancePtr, WriteBuffer, ReadBuffer, BUFFER_SIZE);
+  ^~~~~~~~~~~~~
+  XSpiPs_Transfer
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+13:37:09 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'SpiPolledExample':
+../src/helloworld.c:75:14: warning: implicit declaration of function 'XSpi_LookupConfig'; did you mean 'XSpiPs_LookupConfig'? [-Wimplicit-function-declaration]
+  ConfigPtr = XSpi_LookupConfig(SpiDeviceId);
+              ^~~~~~~~~~~~~~~~~
+              XSpiPs_LookupConfig
+../src/helloworld.c:75:12: warning: assignment to 'XSpiPs_Config *' {aka 'struct <anonymous> *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  ConfigPtr = XSpi_LookupConfig(SpiDeviceId);
+            ^
+../src/helloworld.c:80:11: warning: implicit declaration of function 'XSpi_CfgInitialize'; did you mean 'XSpiPs_CfgInitialize'? [-Wimplicit-function-declaration]
+  Status = XSpi_CfgInitialize(SpiInstancePtr, ConfigPtr,
+           ^~~~~~~~~~~~~~~~~~
+           XSpiPs_CfgInitialize
+../src/helloworld.c:89:11: warning: implicit declaration of function 'XSpi_SelfTest'; did you mean 'XSpiPs_SelfTest'? [-Wimplicit-function-declaration]
+  Status = XSpi_SelfTest(SpiInstancePtr);
+           ^~~~~~~~~~~~~
+           XSpiPs_SelfTest
+../src/helloworld.c:97:20: error: 'XSpiPs' {aka 'struct <anonymous>'} has no member named 'SpiMode'
+  if (SpiInstancePtr->SpiMode != XSP_STANDARD_MODE) {
+                    ^~
+../src/helloworld.c:97:33: error: 'XSP_STANDARD_MODE' undeclared (first use in this function); did you mean 'XST_SPI_SLAVE_MODE'?
+  if (SpiInstancePtr->SpiMode != XSP_STANDARD_MODE) {
+                                 ^~~~~~~~~~~~~~~~~
+                                 XST_SPI_SLAVE_MODE
+../src/helloworld.c:97:33: note: each undeclared identifier is reported only once for each function it appears in
+../src/helloworld.c:104:11: warning: implicit declaration of function 'XSpi_SetOptions'; did you mean 'XSpiPs_SetOptions'? [-Wimplicit-function-declaration]
+  Status = XSpi_SetOptions(SpiInstancePtr, XSP_MASTER_OPTION |
+           ^~~~~~~~~~~~~~~
+           XSpiPs_SetOptions
+../src/helloworld.c:104:43: error: 'XSP_MASTER_OPTION' undeclared (first use in this function); did you mean 'XSPIPS_MASTER_OPTION'?
+  Status = XSpi_SetOptions(SpiInstancePtr, XSP_MASTER_OPTION |
+                                           ^~~~~~~~~~~~~~~~~
+                                           XSPIPS_MASTER_OPTION
+../src/helloworld.c:105:7: error: 'XSP_LOOPBACK_OPTION' undeclared (first use in this function); did you mean 'XST_LOOPBACK_ERROR'?
+       XSP_LOOPBACK_OPTION);
+       ^~~~~~~~~~~~~~~~~~~
+       XST_LOOPBACK_ERROR
+../src/helloworld.c:114:2: warning: implicit declaration of function 'XSpi_Start'; did you mean 'XSpiPs_Abort'? [-Wimplicit-function-declaration]
+  XSpi_Start(SpiInstancePtr);
+  ^~~~~~~~~~
+  XSpiPs_Abort
+../src/helloworld.c:119:2: warning: implicit declaration of function 'XSpi_IntrGlobalDisable'; did you mean 'XGpio_InterruptGlobalDisable'? [-Wimplicit-function-declaration]
+  XSpi_IntrGlobalDisable(SpiInstancePtr);
+  ^~~~~~~~~~~~~~~~~~~~~~
+  XGpio_InterruptGlobalDisable
+../src/helloworld.c:137:2: warning: implicit declaration of function 'XSpi_Transfer'; did you mean 'XSpiPs_Transfer'? [-Wimplicit-function-declaration]
+  XSpi_Transfer(SpiInstancePtr, WriteBuffer, ReadBuffer, BUFFER_SIZE);
+  ^~~~~~~~~~~~~
+  XSpiPs_Transfer
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+13:37:25 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'SpiPolledExample':
+../src/helloworld.c:80:11: warning: implicit declaration of function 'XSpi_CfgInitialize'; did you mean 'XSpiPs_CfgInitialize'? [-Wimplicit-function-declaration]
+  Status = XSpi_CfgInitialize(SpiInstancePtr, ConfigPtr,
+           ^~~~~~~~~~~~~~~~~~
+           XSpiPs_CfgInitialize
+../src/helloworld.c:89:11: warning: implicit declaration of function 'XSpi_SelfTest'; did you mean 'XSpiPs_SelfTest'? [-Wimplicit-function-declaration]
+  Status = XSpi_SelfTest(SpiInstancePtr);
+           ^~~~~~~~~~~~~
+           XSpiPs_SelfTest
+../src/helloworld.c:97:20: error: 'XSpiPs' {aka 'struct <anonymous>'} has no member named 'SpiMode'
+  if (SpiInstancePtr->SpiMode != XSP_STANDARD_MODE) {
+                    ^~
+../src/helloworld.c:97:33: error: 'XSP_STANDARD_MODE' undeclared (first use in this function); did you mean 'XST_SPI_SLAVE_MODE'?
+  if (SpiInstancePtr->SpiMode != XSP_STANDARD_MODE) {
+                                 ^~~~~~~~~~~~~~~~~
+                                 XST_SPI_SLAVE_MODE
+../src/helloworld.c:97:33: note: each undeclared identifier is reported only once for each function it appears in
+../src/helloworld.c:104:11: warning: implicit declaration of function 'XSpi_SetOptions'; did you mean 'XSpiPs_SetOptions'? [-Wimplicit-function-declaration]
+  Status = XSpi_SetOptions(SpiInstancePtr, XSP_MASTER_OPTION |
+           ^~~~~~~~~~~~~~~
+           XSpiPs_SetOptions
+../src/helloworld.c:104:43: error: 'XSP_MASTER_OPTION' undeclared (first use in this function); did you mean 'XSPIPS_MASTER_OPTION'?
+  Status = XSpi_SetOptions(SpiInstancePtr, XSP_MASTER_OPTION |
+                                           ^~~~~~~~~~~~~~~~~
+                                           XSPIPS_MASTER_OPTION
+../src/helloworld.c:105:7: error: 'XSP_LOOPBACK_OPTION' undeclared (first use in this function); did you mean 'XST_LOOPBACK_ERROR'?
+       XSP_LOOPBACK_OPTION);
+       ^~~~~~~~~~~~~~~~~~~
+       XST_LOOPBACK_ERROR
+../src/helloworld.c:114:2: warning: implicit declaration of function 'XSpi_Start'; did you mean 'XSpiPs_Abort'? [-Wimplicit-function-declaration]
+  XSpi_Start(SpiInstancePtr);
+  ^~~~~~~~~~
+  XSpiPs_Abort
+../src/helloworld.c:119:2: warning: implicit declaration of function 'XSpi_IntrGlobalDisable'; did you mean 'XGpio_InterruptGlobalDisable'? [-Wimplicit-function-declaration]
+  XSpi_IntrGlobalDisable(SpiInstancePtr);
+  ^~~~~~~~~~~~~~~~~~~~~~
+  XGpio_InterruptGlobalDisable
+../src/helloworld.c:137:2: warning: implicit declaration of function 'XSpi_Transfer'; did you mean 'XSpiPs_Transfer'? [-Wimplicit-function-declaration]
+  XSpi_Transfer(SpiInstancePtr, WriteBuffer, ReadBuffer, BUFFER_SIZE);
+  ^~~~~~~~~~~~~
+  XSpiPs_Transfer
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+13:37:37 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'SpiPolledExample':
+../src/helloworld.c:89:11: warning: implicit declaration of function 'XSpi_SelfTest'; did you mean 'XSpiPs_SelfTest'? [-Wimplicit-function-declaration]
+  Status = XSpi_SelfTest(SpiInstancePtr);
+           ^~~~~~~~~~~~~
+           XSpiPs_SelfTest
+../src/helloworld.c:97:20: error: 'XSpiPs' {aka 'struct <anonymous>'} has no member named 'SpiMode'
+  if (SpiInstancePtr->SpiMode != XSP_STANDARD_MODE) {
+                    ^~
+../src/helloworld.c:97:33: error: 'XSP_STANDARD_MODE' undeclared (first use in this function); did you mean 'XST_SPI_SLAVE_MODE'?
+  if (SpiInstancePtr->SpiMode != XSP_STANDARD_MODE) {
+                                 ^~~~~~~~~~~~~~~~~
+                                 XST_SPI_SLAVE_MODE
+../src/helloworld.c:97:33: note: each undeclared identifier is reported only once for each function it appears in
+../src/helloworld.c:104:11: warning: implicit declaration of function 'XSpi_SetOptions'; did you mean 'XSpiPs_SetOptions'? [-Wimplicit-function-declaration]
+  Status = XSpi_SetOptions(SpiInstancePtr, XSP_MASTER_OPTION |
+           ^~~~~~~~~~~~~~~
+           XSpiPs_SetOptions
+../src/helloworld.c:104:43: error: 'XSP_MASTER_OPTION' undeclared (first use in this function); did you mean 'XSPIPS_MASTER_OPTION'?
+  Status = XSpi_SetOptions(SpiInstancePtr, XSP_MASTER_OPTION |
+                                           ^~~~~~~~~~~~~~~~~
+                                           XSPIPS_MASTER_OPTION
+../src/helloworld.c:105:7: error: 'XSP_LOOPBACK_OPTION' undeclared (first use in this function); did you mean 'XST_LOOPBACK_ERROR'?
+       XSP_LOOPBACK_OPTION);
+       ^~~~~~~~~~~~~~~~~~~
+       XST_LOOPBACK_ERROR
+../src/helloworld.c:114:2: warning: implicit declaration of function 'XSpi_Start'; did you mean 'XSpiPs_Abort'? [-Wimplicit-function-declaration]
+  XSpi_Start(SpiInstancePtr);
+  ^~~~~~~~~~
+  XSpiPs_Abort
+../src/helloworld.c:119:2: warning: implicit declaration of function 'XSpi_IntrGlobalDisable'; did you mean 'XGpio_InterruptGlobalDisable'? [-Wimplicit-function-declaration]
+  XSpi_IntrGlobalDisable(SpiInstancePtr);
+  ^~~~~~~~~~~~~~~~~~~~~~
+  XGpio_InterruptGlobalDisable
+../src/helloworld.c:137:2: warning: implicit declaration of function 'XSpi_Transfer'; did you mean 'XSpiPs_Transfer'? [-Wimplicit-function-declaration]
+  XSpi_Transfer(SpiInstancePtr, WriteBuffer, ReadBuffer, BUFFER_SIZE);
+  ^~~~~~~~~~~~~
+  XSpiPs_Transfer
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+13:37:53 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'SpiPolledExample':
+../src/helloworld.c:97:20: error: 'XSpiPs' {aka 'struct <anonymous>'} has no member named 'SpiMode'
+  if (SpiInstancePtr->SpiMode != XSP_STANDARD_MODE) {
+                    ^~
+../src/helloworld.c:97:33: error: 'XSP_STANDARD_MODE' undeclared (first use in this function); did you mean 'XST_SPI_SLAVE_MODE'?
+  if (SpiInstancePtr->SpiMode != XSP_STANDARD_MODE) {
+                                 ^~~~~~~~~~~~~~~~~
+                                 XST_SPI_SLAVE_MODE
+../src/helloworld.c:97:33: note: each undeclared identifier is reported only once for each function it appears in
+../src/helloworld.c:104:11: warning: implicit declaration of function 'XSpi_SetOptions'; did you mean 'XSpiPs_SetOptions'? [-Wimplicit-function-declaration]
+  Status = XSpi_SetOptions(SpiInstancePtr, XSP_MASTER_OPTION |
+           ^~~~~~~~~~~~~~~
+           XSpiPs_SetOptions
+../src/helloworld.c:104:43: error: 'XSP_MASTER_OPTION' undeclared (first use in this function); did you mean 'XSPIPS_MASTER_OPTION'?
+  Status = XSpi_SetOptions(SpiInstancePtr, XSP_MASTER_OPTION |
+                                           ^~~~~~~~~~~~~~~~~
+                                           XSPIPS_MASTER_OPTION
+../src/helloworld.c:105:7: error: 'XSP_LOOPBACK_OPTION' undeclared (first use in this function); did you mean 'XST_LOOPBACK_ERROR'?
+       XSP_LOOPBACK_OPTION);
+       ^~~~~~~~~~~~~~~~~~~
+       XST_LOOPBACK_ERROR
+../src/helloworld.c:114:2: warning: implicit declaration of function 'XSpi_Start'; did you mean 'XSpiPs_Abort'? [-Wimplicit-function-declaration]
+  XSpi_Start(SpiInstancePtr);
+  ^~~~~~~~~~
+  XSpiPs_Abort
+../src/helloworld.c:119:2: warning: implicit declaration of function 'XSpi_IntrGlobalDisable'; did you mean 'XGpio_InterruptGlobalDisable'? [-Wimplicit-function-declaration]
+  XSpi_IntrGlobalDisable(SpiInstancePtr);
+  ^~~~~~~~~~~~~~~~~~~~~~
+  XGpio_InterruptGlobalDisable
+../src/helloworld.c:137:2: warning: implicit declaration of function 'XSpi_Transfer'; did you mean 'XSpiPs_Transfer'? [-Wimplicit-function-declaration]
+  XSpi_Transfer(SpiInstancePtr, WriteBuffer, ReadBuffer, BUFFER_SIZE);
+  ^~~~~~~~~~~~~
+  XSpiPs_Transfer
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+13:38:40 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'SpiPolledExample':
+../src/helloworld.c:97:20: error: 'XSpiPs' {aka 'struct <anonymous>'} has no member named 'SpiMode'
+  if (SpiInstancePtr->SpiMode != XSP_STANDARD_MODE) {
+                    ^~
+../src/helloworld.c:97:33: error: 'XSP_STANDARD_MODE' undeclared (first use in this function); did you mean 'XST_SPI_SLAVE_MODE'?
+  if (SpiInstancePtr->SpiMode != XSP_STANDARD_MODE) {
+                                 ^~~~~~~~~~~~~~~~~
+                                 XST_SPI_SLAVE_MODE
+../src/helloworld.c:97:33: note: each undeclared identifier is reported only once for each function it appears in
+../src/helloworld.c:104:11: warning: implicit declaration of function 'XSpi_SetOptions'; did you mean 'XSpiPs_SetOptions'? [-Wimplicit-function-declaration]
+  Status = XSpi_SetOptions(SpiInstancePtr, XSPIPS_MASTER_OPTION |
+           ^~~~~~~~~~~~~~~
+           XSpiPs_SetOptions
+../src/helloworld.c:105:7: error: 'XSP_LOOPBACK_OPTION' undeclared (first use in this function); did you mean 'XST_LOOPBACK_ERROR'?
+       XSP_LOOPBACK_OPTION);
+       ^~~~~~~~~~~~~~~~~~~
+       XST_LOOPBACK_ERROR
+../src/helloworld.c:114:2: warning: implicit declaration of function 'XSpi_Start'; did you mean 'XSpiPs_Abort'? [-Wimplicit-function-declaration]
+  XSpi_Start(SpiInstancePtr);
+  ^~~~~~~~~~
+  XSpiPs_Abort
+../src/helloworld.c:119:2: warning: implicit declaration of function 'XSpi_IntrGlobalDisable'; did you mean 'XGpio_InterruptGlobalDisable'? [-Wimplicit-function-declaration]
+  XSpi_IntrGlobalDisable(SpiInstancePtr);
+  ^~~~~~~~~~~~~~~~~~~~~~
+  XGpio_InterruptGlobalDisable
+../src/helloworld.c:137:2: warning: implicit declaration of function 'XSpi_Transfer'; did you mean 'XSpiPs_Transfer'? [-Wimplicit-function-declaration]
+  XSpi_Transfer(SpiInstancePtr, WriteBuffer, ReadBuffer, BUFFER_SIZE);
+  ^~~~~~~~~~~~~
+  XSpiPs_Transfer
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+13:38:51 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'SpiPolledExample':
+../src/helloworld.c:97:20: error: 'XSpiPs' {aka 'struct <anonymous>'} has no member named 'SpiMode'
+  if (SpiInstancePtr->SpiMode != XSP_STANDARD_MODE) {
+                    ^~
+../src/helloworld.c:97:33: error: 'XSP_STANDARD_MODE' undeclared (first use in this function); did you mean 'XST_SPI_SLAVE_MODE'?
+  if (SpiInstancePtr->SpiMode != XSP_STANDARD_MODE) {
+                                 ^~~~~~~~~~~~~~~~~
+                                 XST_SPI_SLAVE_MODE
+../src/helloworld.c:97:33: note: each undeclared identifier is reported only once for each function it appears in
+../src/helloworld.c:104:11: warning: implicit declaration of function 'XSpi_SetOptions'; did you mean 'XSpiPs_SetOptions'? [-Wimplicit-function-declaration]
+  Status = XSpi_SetOptions(SpiInstancePtr, XSPIPS_MASTER_OPTION |
+           ^~~~~~~~~~~~~~~
+           XSpiPs_SetOptions
+../src/helloworld.c:105:7: error: 'XSPIPS_LOOPBACK_OPTION' undeclared (first use in this function); did you mean 'XSPIPS_MASTER_OPTION'?
+       XSPIPS_LOOPBACK_OPTION);
+       ^~~~~~~~~~~~~~~~~~~~~~
+       XSPIPS_MASTER_OPTION
+../src/helloworld.c:114:2: warning: implicit declaration of function 'XSpi_Start'; did you mean 'XSpiPs_Abort'? [-Wimplicit-function-declaration]
+  XSpi_Start(SpiInstancePtr);
+  ^~~~~~~~~~
+  XSpiPs_Abort
+../src/helloworld.c:119:2: warning: implicit declaration of function 'XSpi_IntrGlobalDisable'; did you mean 'XGpio_InterruptGlobalDisable'? [-Wimplicit-function-declaration]
+  XSpi_IntrGlobalDisable(SpiInstancePtr);
+  ^~~~~~~~~~~~~~~~~~~~~~
+  XGpio_InterruptGlobalDisable
+../src/helloworld.c:137:2: warning: implicit declaration of function 'XSpi_Transfer'; did you mean 'XSpiPs_Transfer'? [-Wimplicit-function-declaration]
+  XSpi_Transfer(SpiInstancePtr, WriteBuffer, ReadBuffer, BUFFER_SIZE);
+  ^~~~~~~~~~~~~
+  XSpiPs_Transfer
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+13:39:05 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'SpiPolledExample':
+../src/helloworld.c:97:20: error: 'XSpiPs' {aka 'struct <anonymous>'} has no member named 'SpiMode'
+  if (SpiInstancePtr->SpiMode != XSP_STANDARD_MODE) {
+                    ^~
+../src/helloworld.c:97:33: error: 'XSP_STANDARD_MODE' undeclared (first use in this function); did you mean 'XST_SPI_SLAVE_MODE'?
+  if (SpiInstancePtr->SpiMode != XSP_STANDARD_MODE) {
+                                 ^~~~~~~~~~~~~~~~~
+                                 XST_SPI_SLAVE_MODE
+../src/helloworld.c:97:33: note: each undeclared identifier is reported only once for each function it appears in
+../src/helloworld.c:105:7: error: 'XSPIPS_LOOPBACK_OPTION' undeclared (first use in this function); did you mean 'XSPIPS_MASTER_OPTION'?
+       XSPIPS_LOOPBACK_OPTION);
+       ^~~~~~~~~~~~~~~~~~~~~~
+       XSPIPS_MASTER_OPTION
+../src/helloworld.c:114:2: warning: implicit declaration of function 'XSpi_Start'; did you mean 'XSpiPs_Abort'? [-Wimplicit-function-declaration]
+  XSpi_Start(SpiInstancePtr);
+  ^~~~~~~~~~
+  XSpiPs_Abort
+../src/helloworld.c:119:2: warning: implicit declaration of function 'XSpi_IntrGlobalDisable'; did you mean 'XGpio_InterruptGlobalDisable'? [-Wimplicit-function-declaration]
+  XSpi_IntrGlobalDisable(SpiInstancePtr);
+  ^~~~~~~~~~~~~~~~~~~~~~
+  XGpio_InterruptGlobalDisable
+../src/helloworld.c:137:2: warning: implicit declaration of function 'XSpi_Transfer'; did you mean 'XSpiPs_Transfer'? [-Wimplicit-function-declaration]
+  XSpi_Transfer(SpiInstancePtr, WriteBuffer, ReadBuffer, BUFFER_SIZE);
+  ^~~~~~~~~~~~~
+  XSpiPs_Transfer
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+13:39:34 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'SpiPolledExample':
+../src/helloworld.c:97:20: error: 'XSpiPs' {aka 'struct <anonymous>'} has no member named 'SpiMode'
+  if (SpiInstancePtr->SpiMode != XSP_STANDARD_MODE) {
+                    ^~
+../src/helloworld.c:97:33: error: 'XSP_STANDARD_MODE' undeclared (first use in this function); did you mean 'XST_SPI_SLAVE_MODE'?
+  if (SpiInstancePtr->SpiMode != XSP_STANDARD_MODE) {
+                                 ^~~~~~~~~~~~~~~~~
+                                 XST_SPI_SLAVE_MODE
+../src/helloworld.c:97:33: note: each undeclared identifier is reported only once for each function it appears in
+../src/helloworld.c:113:2: warning: implicit declaration of function 'XSpi_Start'; did you mean 'XSpiPs_Abort'? [-Wimplicit-function-declaration]
+  XSpi_Start(SpiInstancePtr);
+  ^~~~~~~~~~
+  XSpiPs_Abort
+../src/helloworld.c:118:2: warning: implicit declaration of function 'XSpi_IntrGlobalDisable'; did you mean 'XGpio_InterruptGlobalDisable'? [-Wimplicit-function-declaration]
+  XSpi_IntrGlobalDisable(SpiInstancePtr);
+  ^~~~~~~~~~~~~~~~~~~~~~
+  XGpio_InterruptGlobalDisable
+../src/helloworld.c:136:2: warning: implicit declaration of function 'XSpi_Transfer'; did you mean 'XSpiPs_Transfer'? [-Wimplicit-function-declaration]
+  XSpi_Transfer(SpiInstancePtr, WriteBuffer, ReadBuffer, BUFFER_SIZE);
+  ^~~~~~~~~~~~~
+  XSpiPs_Transfer
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+13:39:45 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'SpiPolledExample':
+../src/helloworld.c:97:20: error: 'XSpiPs' {aka 'struct <anonymous>'} has no member named 'SpiMode'
+  if (SpiInstancePtr->SpiMode != XSP_STANDARD_MODE) {
+                    ^~
+../src/helloworld.c:97:33: error: 'XSP_STANDARD_MODE' undeclared (first use in this function); did you mean 'XST_SPI_SLAVE_MODE'?
+  if (SpiInstancePtr->SpiMode != XSP_STANDARD_MODE) {
+                                 ^~~~~~~~~~~~~~~~~
+                                 XST_SPI_SLAVE_MODE
+../src/helloworld.c:97:33: note: each undeclared identifier is reported only once for each function it appears in
+../src/helloworld.c:113:2: warning: implicit declaration of function 'XSpiPs_Start'; did you mean 'XSpiPs_Abort'? [-Wimplicit-function-declaration]
+  XSpiPs_Start(SpiInstancePtr);
+  ^~~~~~~~~~~~
+  XSpiPs_Abort
+../src/helloworld.c:118:2: warning: implicit declaration of function 'XSpi_IntrGlobalDisable'; did you mean 'XGpio_InterruptGlobalDisable'? [-Wimplicit-function-declaration]
+  XSpi_IntrGlobalDisable(SpiInstancePtr);
+  ^~~~~~~~~~~~~~~~~~~~~~
+  XGpio_InterruptGlobalDisable
+../src/helloworld.c:136:2: warning: implicit declaration of function 'XSpi_Transfer'; did you mean 'XSpiPs_Transfer'? [-Wimplicit-function-declaration]
+  XSpi_Transfer(SpiInstancePtr, WriteBuffer, ReadBuffer, BUFFER_SIZE);
+  ^~~~~~~~~~~~~
+  XSpiPs_Transfer
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+13:42:22 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'SpiPolledExample':
+../src/helloworld.c:97:20: error: 'XSpiPs' {aka 'struct <anonymous>'} has no member named 'SpiMode'
+  if (SpiInstancePtr->SpiMode != XSP_STANDARD_MODE) {
+                    ^~
+../src/helloworld.c:97:33: error: 'XSP_STANDARD_MODE' undeclared (first use in this function); did you mean 'XST_SPI_SLAVE_MODE'?
+  if (SpiInstancePtr->SpiMode != XSP_STANDARD_MODE) {
+                                 ^~~~~~~~~~~~~~~~~
+                                 XST_SPI_SLAVE_MODE
+../src/helloworld.c:97:33: note: each undeclared identifier is reported only once for each function it appears in
+../src/helloworld.c:113:2: warning: implicit declaration of function 'XSpiPs_Start'; did you mean 'XSpiPs_Abort'? [-Wimplicit-function-declaration]
+  XSpiPs_Start(SpiPSInstancePtr);
+  ^~~~~~~~~~~~
+  XSpiPs_Abort
+../src/helloworld.c:113:15: error: 'SpiPSInstancePtr' undeclared (first use in this function); did you mean 'SpiInstancePtr'?
+  XSpiPs_Start(SpiPSInstancePtr);
+               ^~~~~~~~~~~~~~~~
+               SpiInstancePtr
+../src/helloworld.c:118:2: warning: implicit declaration of function 'XSpi_IntrGlobalDisable'; did you mean 'XGpio_InterruptGlobalDisable'? [-Wimplicit-function-declaration]
+  XSpi_IntrGlobalDisable(SpiInstancePtr);
+  ^~~~~~~~~~~~~~~~~~~~~~
+  XGpio_InterruptGlobalDisable
+../src/helloworld.c:136:2: warning: implicit declaration of function 'XSpi_Transfer'; did you mean 'XSpiPs_Transfer'? [-Wimplicit-function-declaration]
+  XSpi_Transfer(SpiInstancePtr, WriteBuffer, ReadBuffer, BUFFER_SIZE);
+  ^~~~~~~~~~~~~
+  XSpiPs_Transfer
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+13:42:35 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'SpiPolledExample':
+../src/helloworld.c:97:20: error: 'XSpiPs' {aka 'struct <anonymous>'} has no member named 'SpiMode'
+  if (SpiInstancePtr->SpiMode != XSP_STANDARD_MODE) {
+                    ^~
+../src/helloworld.c:97:33: error: 'XSP_STANDARD_MODE' undeclared (first use in this function); did you mean 'XST_SPI_SLAVE_MODE'?
+  if (SpiInstancePtr->SpiMode != XSP_STANDARD_MODE) {
+                                 ^~~~~~~~~~~~~~~~~
+                                 XST_SPI_SLAVE_MODE
+../src/helloworld.c:97:33: note: each undeclared identifier is reported only once for each function it appears in
+../src/helloworld.c:113:2: warning: implicit declaration of function 'XSpiPs_Start'; did you mean 'XSpiPs_Abort'? [-Wimplicit-function-declaration]
+  XSpiPs_Start(SpiInstancePtr);
+  ^~~~~~~~~~~~
+  XSpiPs_Abort
+../src/helloworld.c:118:2: warning: implicit declaration of function 'XSpi_IntrGlobalDisable'; did you mean 'XGpio_InterruptGlobalDisable'? [-Wimplicit-function-declaration]
+  XSpi_IntrGlobalDisable(SpiInstancePtr);
+  ^~~~~~~~~~~~~~~~~~~~~~
+  XGpio_InterruptGlobalDisable
+../src/helloworld.c:136:2: warning: implicit declaration of function 'XSpi_Transfer'; did you mean 'XSpiPs_Transfer'? [-Wimplicit-function-declaration]
+  XSpi_Transfer(SpiInstancePtr, WriteBuffer, ReadBuffer, BUFFER_SIZE);
+  ^~~~~~~~~~~~~
+  XSpiPs_Transfer
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+13:45:50 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'SpiPolledExample':
+../src/helloworld.c:106:2: warning: implicit declaration of function 'XSpiPs_'; did you mean 'XSPIPS_H'? [-Wimplicit-function-declaration]
+  XSpiPs_(SpiInstancePtr);
+  ^~~~~~~
+  XSPIPS_H
+../src/helloworld.c:111:2: warning: implicit declaration of function 'XSpi_IntrGlobalDisable'; did you mean 'XGpio_InterruptGlobalDisable'? [-Wimplicit-function-declaration]
+  XSpi_IntrGlobalDisable(SpiInstancePtr);
+  ^~~~~~~~~~~~~~~~~~~~~~
+  XGpio_InterruptGlobalDisable
+../src/helloworld.c:129:2: warning: implicit declaration of function 'XSpi_Transfer'; did you mean 'XSpiPs_Transfer'? [-Wimplicit-function-declaration]
+  XSpi_Transfer(SpiInstancePtr, WriteBuffer, ReadBuffer, BUFFER_SIZE);
+  ^~~~~~~~~~~~~
+  XSpiPs_Transfer
+Finished building: ../src/helloworld.c
+ 
+Building target: tp.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../tp_bsp/ps7_cortexa9_0/lib -o "tp.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+/opt/Xilinx_2019/SDK/2019.1/gnu/aarch32/lin/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld: ./src/helloworld.o: in function `SpiPolledExample':
+/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/../src/helloworld.c:106: undefined reference to `XSpiPs_'
+/opt/Xilinx_2019/SDK/2019.1/gnu/aarch32/lin/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld: /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/../src/helloworld.c:111: undefined reference to `XSpi_IntrGlobalDisable'
+/opt/Xilinx_2019/SDK/2019.1/gnu/aarch32/lin/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld: /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/../src/helloworld.c:129: undefined reference to `XSpi_Transfer'
+collect2: error: ld returned 1 exit status
+make: *** [makefile:41: tp.elf] Error 1
+13:46:40 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'SpiPolledExample':
+../src/helloworld.c:105:2: warning: implicit declaration of function 'XSpiPS_IntrGlobalDisable'; did you mean 'XGpio_InterruptGlobalDisable'? [-Wimplicit-function-declaration]
+  XSpiPS_IntrGlobalDisable(SpiInstancePtr);
+  ^~~~~~~~~~~~~~~~~~~~~~~~
+  XGpio_InterruptGlobalDisable
+../src/helloworld.c:123:2: warning: implicit declaration of function 'XSpi_Transfer'; did you mean 'XSpiPs_Transfer'? [-Wimplicit-function-declaration]
+  XSpi_Transfer(SpiInstancePtr, WriteBuffer, ReadBuffer, BUFFER_SIZE);
+  ^~~~~~~~~~~~~
+  XSpiPs_Transfer
+Finished building: ../src/helloworld.c
+ 
+Building target: tp.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../tp_bsp/ps7_cortexa9_0/lib -o "tp.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+/opt/Xilinx_2019/SDK/2019.1/gnu/aarch32/lin/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld: ./src/helloworld.o: in function `SpiPolledExample':
+/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/../src/helloworld.c:105: undefined reference to `XSpiPS_IntrGlobalDisable'
+/opt/Xilinx_2019/SDK/2019.1/gnu/aarch32/lin/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/8.2.0/../../../../arm-none-eabi/bin/ld: /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/../src/helloworld.c:123: undefined reference to `XSpi_Transfer'
+collect2: error: ld returned 1 exit status
+make: *** [makefile:41: tp.elf] Error 1
+13:48:00 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+Finished building: ../src/helloworld.c
+ 
+Building target: tp.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../tp_bsp/ps7_cortexa9_0/lib -o "tp.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: tp.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size tp.elf  |tee "tp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  35604	   1576	  23368	  60548	   ec84	tp.elf
+Finished building: tp.elf.size
+ 
+13:54:33 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+Finished building: ../src/helloworld.c
+ 
+Building target: tp.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../tp_bsp/ps7_cortexa9_0/lib -o "tp.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: tp.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size tp.elf  |tee "tp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  35604	   1576	  23368	  60548	   ec84	tp.elf
+Finished building: tp.elf.size
+ 
+13:55:14 **** Incremental Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+13:55:44 **** Incremental Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+13:56:15 **** Incremental Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+13:57:06 **** Incremental Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+13:59:37 **** Incremental Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+17:51:17 **** Auto Build of project tp_bsp ****
+make -k all 
+Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/spips_v3_2/src
+make -C ps7_cortexa9_0/libsrc/spips_v3_2/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_4/src
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_4/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/scugic_v4_0/src
+make -C ps7_cortexa9_0/libsrc/scugic_v4_0/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/gpiops_v3_5/src
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_5/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/standalone_v7_0/src
+make -C ps7_cortexa9_0/libsrc/standalone_v7_0/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_3/src
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_3/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_5/src
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/gpio_v4_4/src
+make -C ps7_cortexa9_0/libsrc/gpio_v4_4/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_7/src
+make -C ps7_cortexa9_0/libsrc/uartps_v3_7/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_1/src
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_0/src
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling ddrps
+arm-none-eabi-ar: creating ../../../lib/libxil.a
+Running Make libs in ps7_cortexa9_0/libsrc/spips_v3_2/src
+make -C ps7_cortexa9_0/libsrc/spips_v3_2/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling spips
+Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_4/src
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_4/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling dmaps
+Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling cpu_cortexa9
+Running Make libs in ps7_cortexa9_0/libsrc/scugic_v4_0/src
+make -C ps7_cortexa9_0/libsrc/scugic_v4_0/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling scugic
+Running Make libs in ps7_cortexa9_0/libsrc/gpiops_v3_5/src
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_5/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling gpiops
+Running Make libs in ps7_cortexa9_0/libsrc/standalone_v7_0/src
+make -C ps7_cortexa9_0/libsrc/standalone_v7_0/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling standalone
+In file included from xtime_l.c:49:
+xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
+ #pragma message ("For the sleep routines, Global timer is being used")
+         ^~~~~~~
+In file included from sleep.c:53:
+xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
+ #pragma message ("For the sleep routines, Global timer is being used")
+         ^~~~~~~
+In file included from xil_sleeptimer.c:51:
+xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
+ #pragma message ("For the sleep routines, Global timer is being used")
+         ^~~~~~~
+In file included from usleep.c:56:
+xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
+ #pragma message ("For the sleep routines, Global timer is being used")
+         ^~~~~~~
+Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_3/src
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_3/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling xadcps
+Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_5/src
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling devcfg
+Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling scuwdt
+Running Make libs in ps7_cortexa9_0/libsrc/gpio_v4_4/src
+make -C ps7_cortexa9_0/libsrc/gpio_v4_4/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling gpio
+Running Make libs in ps7_cortexa9_0/libsrc/uartps_v3_7/src
+make -C ps7_cortexa9_0/libsrc/uartps_v3_7/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling uartps
+Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_1/src
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling scutimer
+Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_5/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling coresightps_dcc
+Finished building libraries
+17:51:27 **** Auto Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/helloworld.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+Finished building: ../src/helloworld.c
+ 
+Building file: ../src/platform.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+Finished building: ../src/platform.c
+ 
+Building target: tp.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../tp_bsp/ps7_cortexa9_0/lib -o "tp.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: tp.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size tp.elf  |tee "tp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  35604	   1576	  23368	  60548	   ec84	tp.elf
+Finished building: tp.elf.size
+ 
+17:51:57 **** Incremental Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+17:52:21 **** Incremental Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+17:52:44 **** Incremental Build of configuration Debug for project tp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.

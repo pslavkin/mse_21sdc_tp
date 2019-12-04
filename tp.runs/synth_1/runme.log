@@ -12,49 +12,70 @@ source design_1_wrapper.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx_2019/Vivado/2019.1/data/ip'.
+add_files: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1424.109 ; gain = 8.012 ; free physical = 214 ; free virtual = 2001
 Command: synth_design -top design_1_wrapper -part xc7z020clg400-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Device 21-403] Loading part xc7z020clg400-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 6718 
+INFO: Helper process launched with PID 13333 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1696.391 ; gain = 152.715 ; free physical = 115 ; free virtual = 1951
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1697.133 ; gain = 153.684 ; free physical = 125 ; free virtual = 1563
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'design_1_wrapper' [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:42]
-INFO: [Synth 8-3491] module 'design_1' declared at '/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd:579' bound to instance 'design_1_i' of component 'design_1' [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:97]
-INFO: [Synth 8-638] synthesizing module 'design_1' [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd:613]
-INFO: [Synth 8-3491] module 'design_1_axi_gpio_0_0' declared at '/home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/.Xil/Vivado-6665-work1/realtime/design_1_axi_gpio_0_0_stub.vhdl:5' bound to instance 'axi_gpio_0' of component 'design_1_axi_gpio_0_0' [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd:842]
-INFO: [Synth 8-638] synthesizing module 'design_1_axi_gpio_0_0' [/home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/.Xil/Vivado-6665-work1/realtime/design_1_axi_gpio_0_0_stub.vhdl:34]
-INFO: [Synth 8-3491] module 'design_1_processing_system7_0_0' declared at '/home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/.Xil/Vivado-6665-work1/realtime/design_1_processing_system7_0_0_stub.vhdl:5' bound to instance 'processing_system7_0' of component 'design_1_processing_system7_0_0' [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd:868]
-INFO: [Synth 8-638] synthesizing module 'design_1_processing_system7_0_0' [/home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/.Xil/Vivado-6665-work1/realtime/design_1_processing_system7_0_0_stub.vhdl:73]
-INFO: [Synth 8-638] synthesizing module 'design_1_ps7_0_axi_periph_0' [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd:392]
-INFO: [Synth 8-638] synthesizing module 's00_couplers_imp_UYSKKA' [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd:78]
-INFO: [Synth 8-3491] module 'design_1_auto_pc_0' declared at '/home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/.Xil/Vivado-6665-work1/realtime/design_1_auto_pc_0_stub.vhdl:5' bound to instance 'auto_pc' of component 'design_1_auto_pc_0' [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd:259]
-INFO: [Synth 8-638] synthesizing module 'design_1_auto_pc_0' [/home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/.Xil/Vivado-6665-work1/realtime/design_1_auto_pc_0_stub.vhdl:70]
-INFO: [Synth 8-256] done synthesizing module 's00_couplers_imp_UYSKKA' (1#1) [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd:78]
-INFO: [Synth 8-256] done synthesizing module 'design_1_ps7_0_axi_periph_0' (2#1) [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd:392]
-INFO: [Synth 8-3491] module 'design_1_rst_ps7_0_10M_0' declared at '/home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/.Xil/Vivado-6665-work1/realtime/design_1_rst_ps7_0_10M_0_stub.vhdl:5' bound to instance 'rst_ps7_0_10M' of component 'design_1_rst_ps7_0_10M_0' [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd:997]
-INFO: [Synth 8-638] synthesizing module 'design_1_rst_ps7_0_10M_0' [/home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/.Xil/Vivado-6665-work1/realtime/design_1_rst_ps7_0_10M_0_stub.vhdl:21]
-INFO: [Synth 8-256] done synthesizing module 'design_1' (3#1) [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd:613]
+INFO: [Synth 8-3491] module 'design_1' declared at '/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd:1862' bound to instance 'design_1_i' of component 'design_1' [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:97]
+INFO: [Synth 8-638] synthesizing module 'design_1' [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd:1896]
+INFO: [Synth 8-3491] module 'design_1_axi_gpio_0_0' declared at '/home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/.Xil/Vivado-13269-work1/realtime/design_1_axi_gpio_0_0_stub.vhdl:5' bound to instance 'axi_gpio_0' of component 'design_1_axi_gpio_0_0' [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd:2185]
+INFO: [Synth 8-638] synthesizing module 'design_1_axi_gpio_0_0' [/home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/.Xil/Vivado-13269-work1/realtime/design_1_axi_gpio_0_0_stub.vhdl:34]
+INFO: [Synth 8-3491] module 'design_1_processing_system7_0_0' declared at '/home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/.Xil/Vivado-13269-work1/realtime/design_1_processing_system7_0_0_stub.vhdl:5' bound to instance 'processing_system7_0' of component 'design_1_processing_system7_0_0' [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd:2211]
+INFO: [Synth 8-638] synthesizing module 'design_1_processing_system7_0_0' [/home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/.Xil/Vivado-13269-work1/realtime/design_1_processing_system7_0_0_stub.vhdl:87]
+INFO: [Synth 8-638] synthesizing module 'design_1_ps7_0_axi_periph_0' [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd:1061]
+INFO: [Synth 8-638] synthesizing module 'm00_couplers_imp_15SPJYW' [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd:79]
+INFO: [Synth 8-3491] module 'design_1_auto_pc_0' declared at '/home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/.Xil/Vivado-13269-work1/realtime/design_1_auto_pc_0_stub.vhdl:5' bound to instance 'auto_pc' of component 'design_1_auto_pc_0' [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd:263]
+INFO: [Synth 8-638] synthesizing module 'design_1_auto_pc_0' [/home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/.Xil/Vivado-13269-work1/realtime/design_1_auto_pc_0_stub.vhdl:71]
+INFO: [Synth 8-256] done synthesizing module 'm00_couplers_imp_15SPJYW' (1#1) [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd:79]
+INFO: [Synth 8-638] synthesizing module 'm01_couplers_imp_XU9C55' [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd:418]
+INFO: [Synth 8-256] done synthesizing module 'm01_couplers_imp_XU9C55' (2#1) [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd:418]
+INFO: [Synth 8-638] synthesizing module 's00_couplers_imp_UYSKKA' [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd:626]
+INFO: [Synth 8-3491] module 'design_1_auto_pc_1' declared at '/home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/.Xil/Vivado-13269-work1/realtime/design_1_auto_pc_1_stub.vhdl:5' bound to instance 'auto_pc' of component 'design_1_auto_pc_1' [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd:867]
+INFO: [Synth 8-638] synthesizing module 'design_1_auto_pc_1' [/home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/.Xil/Vivado-13269-work1/realtime/design_1_auto_pc_1_stub.vhdl:90]
+INFO: [Synth 8-256] done synthesizing module 's00_couplers_imp_UYSKKA' (3#1) [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd:626]
+INFO: [Synth 8-3491] module 'design_1_xbar_0' declared at '/home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/.Xil/Vivado-13269-work1/realtime/design_1_xbar_0_stub.vhdl:5' bound to instance 'xbar' of component 'design_1_xbar_0' [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd:1682]
+INFO: [Synth 8-638] synthesizing module 'design_1_xbar_0' [/home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/.Xil/Vivado-13269-work1/realtime/design_1_xbar_0_stub.vhdl:89]
+INFO: [Synth 8-256] done synthesizing module 'design_1_ps7_0_axi_periph_0' (4#1) [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd:1061]
+INFO: [Synth 8-3491] module 'design_1_rst_ps7_0_10M_0' declared at '/home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/.Xil/Vivado-13269-work1/realtime/design_1_rst_ps7_0_10M_0_stub.vhdl:5' bound to instance 'rst_ps7_0_10M' of component 'design_1_rst_ps7_0_10M_0' [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd:2395]
+INFO: [Synth 8-638] synthesizing module 'design_1_rst_ps7_0_10M_0' [/home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/.Xil/Vivado-13269-work1/realtime/design_1_rst_ps7_0_10M_0_stub.vhdl:21]
+INFO: [Synth 8-3491] module 'design_1_spi28b_0_0' declared at '/home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/.Xil/Vivado-13269-work1/realtime/design_1_spi28b_0_0_stub.vhdl:5' bound to instance 'spi28b_0' of component 'design_1_spi28b_0_0' [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd:2408]
+INFO: [Synth 8-638] synthesizing module 'design_1_spi28b_0_0' [/home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/.Xil/Vivado-13269-work1/realtime/design_1_spi28b_0_0_stub.vhdl:14]
+INFO: [Synth 8-256] done synthesizing module 'design_1' (5#1) [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd:1896]
 INFO: [Synth 8-3491] module 'IOBUF' declared at '/opt/Xilinx_2019/Vivado/2019.1/scripts/rt/data/unisim_comp.v:36115' bound to instance 'leds_4bits_tri_iobuf_0' of component 'IOBUF' [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:134]
 INFO: [Synth 8-6157] synthesizing module 'IOBUF' [/opt/Xilinx_2019/Vivado/2019.1/scripts/rt/data/unisim_comp.v:36115]
 	Parameter DRIVE bound to: 12 - type: integer 
 	Parameter IBUF_LOW_PWR bound to: TRUE - type: string 
 	Parameter IOSTANDARD bound to: DEFAULT - type: string 
 	Parameter SLEW bound to: SLOW - type: string 
-INFO: [Synth 8-6155] done synthesizing module 'IOBUF' (4#1) [/opt/Xilinx_2019/Vivado/2019.1/scripts/rt/data/unisim_comp.v:36115]
+INFO: [Synth 8-6155] done synthesizing module 'IOBUF' (6#1) [/opt/Xilinx_2019/Vivado/2019.1/scripts/rt/data/unisim_comp.v:36115]
 INFO: [Synth 8-3491] module 'IOBUF' declared at '/opt/Xilinx_2019/Vivado/2019.1/scripts/rt/data/unisim_comp.v:36115' bound to instance 'leds_4bits_tri_iobuf_1' of component 'IOBUF' [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:141]
 INFO: [Synth 8-3491] module 'IOBUF' declared at '/opt/Xilinx_2019/Vivado/2019.1/scripts/rt/data/unisim_comp.v:36115' bound to instance 'leds_4bits_tri_iobuf_2' of component 'IOBUF' [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:148]
 INFO: [Synth 8-3491] module 'IOBUF' declared at '/opt/Xilinx_2019/Vivado/2019.1/scripts/rt/data/unisim_comp.v:36115' bound to instance 'leds_4bits_tri_iobuf_3' of component 'IOBUF' [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:155]
-INFO: [Synth 8-256] done synthesizing module 'design_1_wrapper' (5#1) [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:42]
+INFO: [Synth 8-256] done synthesizing module 'design_1_wrapper' (7#1) [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:42]
 WARNING: [Synth 8-3331] design s00_couplers_imp_UYSKKA has unconnected port M_ACLK
 WARNING: [Synth 8-3331] design s00_couplers_imp_UYSKKA has unconnected port M_ARESETN
-WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_0 has unconnected port ACLK
-WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_0 has unconnected port ARESETN
+WARNING: [Synth 8-3331] design m01_couplers_imp_XU9C55 has unconnected port M_ACLK
+WARNING: [Synth 8-3331] design m01_couplers_imp_XU9C55 has unconnected port M_ARESETN
+WARNING: [Synth 8-3331] design m01_couplers_imp_XU9C55 has unconnected port S_ACLK
+WARNING: [Synth 8-3331] design m01_couplers_imp_XU9C55 has unconnected port S_ARESETN
+WARNING: [Synth 8-3331] design m00_couplers_imp_15SPJYW has unconnected port M_ACLK
+WARNING: [Synth 8-3331] design m00_couplers_imp_15SPJYW has unconnected port M_ARESETN
+WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_0 has unconnected port M00_ACLK
+WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_0 has unconnected port M00_ARESETN
+WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_0 has unconnected port M01_ACLK
+WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_0 has unconnected port M01_ARESETN
+WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_0 has unconnected port S00_ACLK
+WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_0 has unconnected port S00_ARESETN
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1753.109 ; gain = 209.434 ; free physical = 200 ; free virtual = 1977
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1755.852 ; gain = 212.402 ; free physical = 193 ; free virtual = 1590
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -67,10 +88,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1759.047 ; gain = 215.371 ; free physical = 196 ; free virtual = 1976
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1759.820 ; gain = 216.371 ; free physical = 189 ; free virtual = 1588
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1759.047 ; gain = 215.371 ; free physical = 196 ; free virtual = 1976
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1759.820 ; gain = 216.371 ; free physical = 189 ; free virtual = 1588
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 4 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -84,8 +105,14 @@ Parsing XDC File [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip
 Finished Parsing XDC File [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_axi_gpio_0_0/design_1_axi_gpio_0_0/design_1_axi_gpio_0_0_in_context.xdc] for cell 'design_1_i/axi_gpio_0'
 Parsing XDC File [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_10M_0/design_1_rst_ps7_0_10M_0/design_1_rst_ps7_0_10M_0_in_context.xdc] for cell 'design_1_i/rst_ps7_0_10M'
 Finished Parsing XDC File [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_10M_0/design_1_rst_ps7_0_10M_0/design_1_rst_ps7_0_10M_0_in_context.xdc] for cell 'design_1_i/rst_ps7_0_10M'
-Parsing XDC File [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0/design_1_auto_pc_0_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s00_couplers/auto_pc'
-Finished Parsing XDC File [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0/design_1_auto_pc_0_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s00_couplers/auto_pc'
+Parsing XDC File [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_xbar_0/design_1_xbar_0/design_1_xbar_0_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/xbar'
+Finished Parsing XDC File [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_xbar_0/design_1_xbar_0/design_1_xbar_0_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/xbar'
+Parsing XDC File [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_spi28b_0_0/design_1_spi28b_0_0/design_1_spi28b_0_0_in_context.xdc] for cell 'design_1_i/spi28b_0'
+Finished Parsing XDC File [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_spi28b_0_0/design_1_spi28b_0_0/design_1_spi28b_0_0_in_context.xdc] for cell 'design_1_i/spi28b_0'
+Parsing XDC File [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1/design_1_auto_pc_1_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s00_couplers/auto_pc'
+Finished Parsing XDC File [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1/design_1_auto_pc_1_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/s00_couplers/auto_pc'
+Parsing XDC File [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0/design_1_auto_pc_0_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/m00_couplers/auto_pc'
+Finished Parsing XDC File [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0/design_1_auto_pc_0_in_context.xdc] for cell 'design_1_i/ps7_0_axi_periph/m00_couplers/auto_pc'
 Parsing XDC File [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/constrs_1/imports/test_clk1/Arty-Z7-20-Master.xdc]
 WARNING: [Vivado 12-584] No ports matched 'led_0[0]'. [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/constrs_1/imports/test_clk1/Arty-Z7-20-Master.xdc:23]
 WARNING: [Vivado 12-584] No ports matched 'led_0[1]'. [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/constrs_1/imports/test_clk1/Arty-Z7-20-Master.xdc:24]
@@ -101,21 +128,21 @@ Parsing XDC File [/home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/dont_touch.xdc]
 Finished Parsing XDC File [/home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1830.688 ; gain = 0.000 ; free physical = 110 ; free virtual = 1857
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1838.457 ; gain = 0.000 ; free physical = 122 ; free virtual = 1501
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 4 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 4 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1830.688 ; gain = 0.000 ; free physical = 110 ; free virtual = 1857
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1838.457 ; gain = 0.000 ; free physical = 122 ; free virtual = 1501
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 1830.688 ; gain = 287.012 ; free physical = 174 ; free virtual = 1928
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 1838.457 ; gain = 295.008 ; free physical = 187 ; free virtual = 1573
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 1830.688 ; gain = 287.012 ; free physical = 174 ; free virtual = 1928
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 1838.457 ; gain = 295.008 ; free physical = 187 ; free virtual = 1573
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -385,12 +412,15 @@ Applied set_property DONT_TOUCH = true for design_1_i/processing_system7_0. (con
 Applied set_property DONT_TOUCH = true for design_1_i/axi_gpio_0. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_1_i/ps7_0_axi_periph. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_1_i/rst_ps7_0_10M. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for design_1_i/ps7_0_axi_periph/xbar. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for design_1_i/spi28b_0. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_1_i/ps7_0_axi_periph/s00_couplers/auto_pc. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for design_1_i/ps7_0_axi_periph/m00_couplers/auto_pc. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 1830.688 ; gain = 287.012 ; free physical = 174 ; free virtual = 1928
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:16 . Memory (MB): peak = 1838.457 ; gain = 295.008 ; free physical = 186 ; free virtual = 1572
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:16 . Memory (MB): peak = 1830.688 ; gain = 287.012 ; free physical = 172 ; free virtual = 1928
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 1838.457 ; gain = 295.008 ; free physical = 185 ; free virtual = 1572
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -425,12 +455,14 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_0 has unconnected port ACLK
-WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_0 has unconnected port ARESETN
 WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_0 has unconnected port M00_ACLK
 WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_0 has unconnected port M00_ARESETN
+WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_0 has unconnected port M01_ACLK
+WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_0 has unconnected port M01_ARESETN
+WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_0 has unconnected port S00_ACLK
+WARNING: [Synth 8-3331] design design_1_ps7_0_axi_periph_0 has unconnected port S00_ARESETN
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 1830.688 ; gain = 287.012 ; free physical = 167 ; free virtual = 1928
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:17 . Memory (MB): peak = 1838.457 ; gain = 295.008 ; free physical = 180 ; free virtual = 1572
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -444,13 +476,13 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'design_1_i/processing_system7_0/FCLK_CLK0' to pin 'design_1_i/processing_system7_0/bbstub_FCLK_CLK0/O'
 INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:24 . Memory (MB): peak = 1831.688 ; gain = 288.012 ; free physical = 120 ; free virtual = 1805
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:25 . Memory (MB): peak = 1838.457 ; gain = 295.008 ; free physical = 147 ; free virtual = 1454
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:24 . Memory (MB): peak = 1831.688 ; gain = 288.012 ; free physical = 117 ; free virtual = 1804
+Finished Timing Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:25 . Memory (MB): peak = 1838.457 ; gain = 295.008 ; free physical = 147 ; free virtual = 1454
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -462,7 +494,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:21 ; elapsed = 00:00:24 . Memory (MB): peak = 1841.703 ; gain = 298.027 ; free physical = 115 ; free virtual = 1802
+Finished Technology Mapping : Time (s): cpu = 00:00:21 ; elapsed = 00:00:25 . Memory (MB): peak = 1838.457 ; gain = 295.008 ; free physical = 145 ; free virtual = 1453
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -486,7 +518,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 1855.578 ; gain = 311.902 ; free physical = 113 ; free virtual = 1802
+Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 1849.363 ; gain = 305.914 ; free physical = 145 ; free virtual = 1454
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -499,7 +531,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 1855.578 ; gain = 311.902 ; free physical = 113 ; free virtual = 1802
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 1849.363 ; gain = 305.914 ; free physical = 145 ; free virtual = 1454
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -511,25 +543,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 1855.578 ; gain = 311.902 ; free physical = 113 ; free virtual = 1803
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 1849.363 ; gain = 305.914 ; free physical = 145 ; free virtual = 1454
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 1855.578 ; gain = 311.902 ; free physical = 113 ; free virtual = 1803
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 1849.363 ; gain = 305.914 ; free physical = 145 ; free virtual = 1454
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 1855.578 ; gain = 311.902 ; free physical = 113 ; free virtual = 1803
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 1849.363 ; gain = 305.914 ; free physical = 145 ; free virtual = 1454
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 1855.578 ; gain = 311.902 ; free physical = 113 ; free virtual = 1803
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 1849.363 ; gain = 305.914 ; free physical = 145 ; free virtual = 1454
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -539,10 +571,13 @@ Report BlackBoxes:
 +------+--------------------------------+----------+
 |      |BlackBox name                   |Instances |
 +------+--------------------------------+----------+
-|1     |design_1_auto_pc_0              |         1|
-|2     |design_1_axi_gpio_0_0           |         1|
-|3     |design_1_processing_system7_0_0 |         1|
-|4     |design_1_rst_ps7_0_10M_0        |         1|
+|1     |design_1_xbar_0                 |         1|
+|2     |design_1_auto_pc_0              |         1|
+|3     |design_1_auto_pc_1              |         1|
+|4     |design_1_axi_gpio_0_0           |         1|
+|5     |design_1_processing_system7_0_0 |         1|
+|6     |design_1_rst_ps7_0_10M_0        |         1|
+|7     |design_1_spi28b_0_0             |         1|
 +------+--------------------------------+----------+
 
 Report Cell Usage: 
@@ -550,45 +585,49 @@ Report Cell Usage:
 |      |Cell                                   |Count |
 +------+---------------------------------------+------+
 |1     |design_1_auto_pc_0_bbox_2              |     1|
-|2     |design_1_axi_gpio_0_0_bbox_0           |     1|
-|3     |design_1_processing_system7_0_0_bbox_1 |     1|
-|4     |design_1_rst_ps7_0_10M_0_bbox_3        |     1|
-|5     |IBUF                                   |     4|
-|6     |IOBUF                                  |     4|
+|2     |design_1_auto_pc_1_bbox_3              |     1|
+|3     |design_1_axi_gpio_0_0_bbox_0           |     1|
+|4     |design_1_processing_system7_0_0_bbox_1 |     1|
+|5     |design_1_rst_ps7_0_10M_0_bbox_5        |     1|
+|6     |design_1_spi28b_0_0_bbox_6             |     1|
+|7     |design_1_xbar_0_bbox_4                 |     1|
+|8     |IBUF                                   |     4|
+|9     |IOBUF                                  |     4|
 +------+---------------------------------------+------+
 
 Report Instance Areas: 
 +------+---------------------+----------------------------+------+
 |      |Instance             |Module                      |Cells |
 +------+---------------------+----------------------------+------+
-|1     |top                  |                            |   427|
-|2     |  design_1_i         |design_1                    |   419|
-|3     |    ps7_0_axi_periph |design_1_ps7_0_axi_periph_0 |   177|
-|4     |      s00_couplers   |s00_couplers_imp_UYSKKA     |   177|
+|1     |top                  |                            |  1134|
+|2     |  design_1_i         |design_1                    |  1126|
+|3     |    ps7_0_axi_periph |design_1_ps7_0_axi_periph_0 |   873|
+|4     |      m00_couplers   |m00_couplers_imp_15SPJYW    |   177|
+|5     |      s00_couplers   |s00_couplers_imp_UYSKKA     |   254|
 +------+---------------------+----------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 1855.578 ; gain = 311.902 ; free physical = 113 ; free virtual = 1803
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 1849.363 ; gain = 305.914 ; free physical = 145 ; free virtual = 1454
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 4 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1855.578 ; gain = 240.262 ; free physical = 167 ; free virtual = 1858
-Synthesis Optimization Complete : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 1855.586 ; gain = 311.902 ; free physical = 167 ; free virtual = 1858
+Synthesis finished with 0 errors, 0 critical warnings and 6 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 1849.363 ; gain = 227.277 ; free physical = 201 ; free virtual = 1510
+Synthesis Optimization Complete : Time (s): cpu = 00:00:23 ; elapsed = 00:00:27 . Memory (MB): peak = 1849.371 ; gain = 305.914 ; free physical = 201 ; free virtual = 1510
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 4 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1869.453 ; gain = 0.000 ; free physical = 105 ; free virtual = 1803
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1862.238 ; gain = 0.000 ; free physical = 140 ; free virtual = 1455
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 4 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 4 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-41 Infos, 17 Warnings, 0 Critical Warnings and 0 Errors encountered.
+51 Infos, 29 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 1869.453 ; gain = 538.375 ; free physical = 190 ; free virtual = 1889
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1869.453 ; gain = 0.000 ; free physical = 190 ; free virtual = 1890
+synth_design: Time (s): cpu = 00:00:29 ; elapsed = 00:00:34 . Memory (MB): peak = 1862.238 ; gain = 438.129 ; free physical = 227 ; free virtual = 1542
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1862.238 ; gain = 0.000 ; free physical = 227 ; free virtual = 1543
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint '/home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/design_1_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Nov 29 17:35:50 2019...
+INFO: [Common 17-206] Exiting Vivado at Wed Dec  4 17:47:44 2019...

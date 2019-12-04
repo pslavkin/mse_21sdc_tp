@@ -1,10 +1,10 @@
 -- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
--- Date        : Fri Nov 29 17:35:01 2019
+-- Date        : Wed Dec  4 12:56:39 2019
 -- Host        : work1 running 64-bit Debian GNU/Linux 10 (buster)
--- Command     : write_vhdl -force -mode funcsim
---               /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top design_1_processing_system7_0_0 -prefix
+--               design_1_processing_system7_0_0_ design_1_processing_system7_0_0_sim_netlist.vhdl
 -- Design      : design_1_processing_system7_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -814,10 +814,8 @@ entity design_1_processing_system7_0_0_processing_system7_v5_5_processing_system
   attribute C_USE_S_AXI_HP3 of design_1_processing_system7_0_0_processing_system7_v5_5_processing_system7 : entity is 0;
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of design_1_processing_system7_0_0_processing_system7_v5_5_processing_system7 : entity is "design_1_processing_system7_0_0.hwdef";
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_processing_system7_0_0_processing_system7_v5_5_processing_system7 : entity is "processing_system7_v5_5_processing_system7";
   attribute POWER : string;
-  attribute POWER of design_1_processing_system7_0_0_processing_system7_v5_5_processing_system7 : entity is "<PROCESSOR name={system} numA9Cores={2} clockFreq={650} load={0.5} /><MEMORY name={code} memType={DDR3} dataWidth={16} clockFreq={525} readRate={0.5} writeRate={0.5} /><IO interface={GPIO_Bank_1} ioStandard={LVCMOS18} bidis={38} ioBank={Vcco_p1} clockFreq={1} usageRate={0.5} /><IO interface={GPIO_Bank_0} ioStandard={LVCMOS33} bidis={14} ioBank={Vcco_p0} clockFreq={1} usageRate={0.5} /><IO interface={UART} ioStandard={LVCMOS33} bidis={2} ioBank={Vcco_p0} clockFreq={100.000000} usageRate={0.5} /><PLL domain={Processor} vco={1300.000} /><PLL domain={Memory} vco={1050.000} /><PLL domain={IO} vco={1600.000} /><AXI interface={M_AXI_GP0} dataWidth={32} clockFreq={10} usageRate={0.5} />/>";
+  attribute POWER of design_1_processing_system7_0_0_processing_system7_v5_5_processing_system7 : entity is "<PROCESSOR name={system} numA9Cores={2} clockFreq={650} load={0.5} /><MEMORY name={code} memType={DDR3} dataWidth={16} clockFreq={525} readRate={0.5} writeRate={0.5} /><IO interface={GPIO_Bank_1} ioStandard={LVCMOS18} bidis={38} ioBank={Vcco_p1} clockFreq={1} usageRate={0.5} /><IO interface={GPIO_Bank_0} ioStandard={LVCMOS33} bidis={14} ioBank={Vcco_p0} clockFreq={1} usageRate={0.5} /><IO interface={SPI} ioStandard={} bidis={0} ioBank={} clockFreq={120.000000} usageRate={0.5} /><IO interface={UART} ioStandard={LVCMOS33} bidis={2} ioBank={Vcco_p0} clockFreq={100.000000} usageRate={0.5} /><PLL domain={Processor} vco={1300.000} /><PLL domain={Memory} vco={1050.000} /><PLL domain={IO} vco={1200.000} /><AXI interface={M_AXI_GP0} dataWidth={32} clockFreq={10} usageRate={0.5} />/>";
   attribute USE_TRACE_DATA_EDGE_DETECTOR : integer;
   attribute USE_TRACE_DATA_EDGE_DETECTOR of design_1_processing_system7_0_0_processing_system7_v5_5_processing_system7 : entity is 0;
 end design_1_processing_system7_0_0_processing_system7_v5_5_processing_system7;
@@ -3359,6 +3357,20 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity design_1_processing_system7_0_0 is
   port (
+    SPI0_SCLK_I : in STD_LOGIC;
+    SPI0_SCLK_O : out STD_LOGIC;
+    SPI0_SCLK_T : out STD_LOGIC;
+    SPI0_MOSI_I : in STD_LOGIC;
+    SPI0_MOSI_O : out STD_LOGIC;
+    SPI0_MOSI_T : out STD_LOGIC;
+    SPI0_MISO_I : in STD_LOGIC;
+    SPI0_MISO_O : out STD_LOGIC;
+    SPI0_MISO_T : out STD_LOGIC;
+    SPI0_SS_I : in STD_LOGIC;
+    SPI0_SS_O : out STD_LOGIC;
+    SPI0_SS1_O : out STD_LOGIC;
+    SPI0_SS2_O : out STD_LOGIC;
+    SPI0_SS_T : out STD_LOGIC;
     M_AXI_GP0_ARVALID : out STD_LOGIC;
     M_AXI_GP0_AWVALID : out STD_LOGIC;
     M_AXI_GP0_BREADY : out STD_LOGIC;
@@ -3548,16 +3560,6 @@ architecture STRUCTURE of design_1_processing_system7_0_0 is
   signal NLW_inst_SDIO1_CMD_O_UNCONNECTED : STD_LOGIC;
   signal NLW_inst_SDIO1_CMD_T_UNCONNECTED : STD_LOGIC;
   signal NLW_inst_SDIO1_LED_UNCONNECTED : STD_LOGIC;
-  signal NLW_inst_SPI0_MISO_O_UNCONNECTED : STD_LOGIC;
-  signal NLW_inst_SPI0_MISO_T_UNCONNECTED : STD_LOGIC;
-  signal NLW_inst_SPI0_MOSI_O_UNCONNECTED : STD_LOGIC;
-  signal NLW_inst_SPI0_MOSI_T_UNCONNECTED : STD_LOGIC;
-  signal NLW_inst_SPI0_SCLK_O_UNCONNECTED : STD_LOGIC;
-  signal NLW_inst_SPI0_SCLK_T_UNCONNECTED : STD_LOGIC;
-  signal NLW_inst_SPI0_SS1_O_UNCONNECTED : STD_LOGIC;
-  signal NLW_inst_SPI0_SS2_O_UNCONNECTED : STD_LOGIC;
-  signal NLW_inst_SPI0_SS_O_UNCONNECTED : STD_LOGIC;
-  signal NLW_inst_SPI0_SS_T_UNCONNECTED : STD_LOGIC;
   signal NLW_inst_SPI1_MISO_O_UNCONNECTED : STD_LOGIC;
   signal NLW_inst_SPI1_MISO_T_UNCONNECTED : STD_LOGIC;
   signal NLW_inst_SPI1_MOSI_O_UNCONNECTED : STD_LOGIC;
@@ -3839,7 +3841,7 @@ architecture STRUCTURE of design_1_processing_system7_0_0 is
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of inst : label is "design_1_processing_system7_0_0.hwdef";
   attribute POWER : string;
-  attribute POWER of inst : label is "<PROCESSOR name={system} numA9Cores={2} clockFreq={650} load={0.5} /><MEMORY name={code} memType={DDR3} dataWidth={16} clockFreq={525} readRate={0.5} writeRate={0.5} /><IO interface={GPIO_Bank_1} ioStandard={LVCMOS18} bidis={38} ioBank={Vcco_p1} clockFreq={1} usageRate={0.5} /><IO interface={GPIO_Bank_0} ioStandard={LVCMOS33} bidis={14} ioBank={Vcco_p0} clockFreq={1} usageRate={0.5} /><IO interface={UART} ioStandard={LVCMOS33} bidis={2} ioBank={Vcco_p0} clockFreq={100.000000} usageRate={0.5} /><PLL domain={Processor} vco={1300.000} /><PLL domain={Memory} vco={1050.000} /><PLL domain={IO} vco={1600.000} /><AXI interface={M_AXI_GP0} dataWidth={32} clockFreq={10} usageRate={0.5} />/>";
+  attribute POWER of inst : label is "<PROCESSOR name={system} numA9Cores={2} clockFreq={650} load={0.5} /><MEMORY name={code} memType={DDR3} dataWidth={16} clockFreq={525} readRate={0.5} writeRate={0.5} /><IO interface={GPIO_Bank_1} ioStandard={LVCMOS18} bidis={38} ioBank={Vcco_p1} clockFreq={1} usageRate={0.5} /><IO interface={GPIO_Bank_0} ioStandard={LVCMOS33} bidis={14} ioBank={Vcco_p0} clockFreq={1} usageRate={0.5} /><IO interface={SPI} ioStandard={} bidis={0} ioBank={} clockFreq={120.000000} usageRate={0.5} /><IO interface={UART} ioStandard={LVCMOS33} bidis={2} ioBank={Vcco_p0} clockFreq={100.000000} usageRate={0.5} /><PLL domain={Processor} vco={1300.000} /><PLL domain={Memory} vco={1050.000} /><PLL domain={IO} vco={1200.000} /><AXI interface={M_AXI_GP0} dataWidth={32} clockFreq={10} usageRate={0.5} />/>";
   attribute USE_TRACE_DATA_EDGE_DETECTOR : integer;
   attribute USE_TRACE_DATA_EDGE_DETECTOR of inst : label is 0;
   attribute X_INTERFACE_INFO : string;
@@ -3877,6 +3879,20 @@ architecture STRUCTURE of design_1_processing_system7_0_0 is
   attribute X_INTERFACE_INFO of PS_PORB : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_PORB";
   attribute X_INTERFACE_PARAMETER of PS_PORB : signal is "XIL_INTERFACENAME FIXED_IO, CAN_DEBUG false";
   attribute X_INTERFACE_INFO of PS_SRSTB : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_SRSTB";
+  attribute X_INTERFACE_INFO of SPI0_MISO_I : signal is "xilinx.com:interface:spi:1.0 SPI_0 IO1_I";
+  attribute X_INTERFACE_INFO of SPI0_MISO_O : signal is "xilinx.com:interface:spi:1.0 SPI_0 IO1_O";
+  attribute X_INTERFACE_INFO of SPI0_MISO_T : signal is "xilinx.com:interface:spi:1.0 SPI_0 IO1_T";
+  attribute X_INTERFACE_INFO of SPI0_MOSI_I : signal is "xilinx.com:interface:spi:1.0 SPI_0 IO0_I";
+  attribute X_INTERFACE_INFO of SPI0_MOSI_O : signal is "xilinx.com:interface:spi:1.0 SPI_0 IO0_O";
+  attribute X_INTERFACE_INFO of SPI0_MOSI_T : signal is "xilinx.com:interface:spi:1.0 SPI_0 IO0_T";
+  attribute X_INTERFACE_INFO of SPI0_SCLK_I : signal is "xilinx.com:interface:spi:1.0 SPI_0 SCK_I";
+  attribute X_INTERFACE_INFO of SPI0_SCLK_O : signal is "xilinx.com:interface:spi:1.0 SPI_0 SCK_O";
+  attribute X_INTERFACE_INFO of SPI0_SCLK_T : signal is "xilinx.com:interface:spi:1.0 SPI_0 SCK_T";
+  attribute X_INTERFACE_INFO of SPI0_SS1_O : signal is "xilinx.com:interface:spi:1.0 SPI_0 SS1_O";
+  attribute X_INTERFACE_INFO of SPI0_SS2_O : signal is "xilinx.com:interface:spi:1.0 SPI_0 SS2_O";
+  attribute X_INTERFACE_INFO of SPI0_SS_I : signal is "xilinx.com:interface:spi:1.0 SPI_0 SS_I";
+  attribute X_INTERFACE_INFO of SPI0_SS_O : signal is "xilinx.com:interface:spi:1.0 SPI_0 SS_O";
+  attribute X_INTERFACE_INFO of SPI0_SS_T : signal is "xilinx.com:interface:spi:1.0 SPI_0 SS_T";
   attribute X_INTERFACE_INFO of DDR_Addr : signal is "xilinx.com:interface:ddrx:1.0 DDR ADDR";
   attribute X_INTERFACE_INFO of DDR_BankAddr : signal is "xilinx.com:interface:ddrx:1.0 DDR BA";
   attribute X_INTERFACE_INFO of DDR_DM : signal is "xilinx.com:interface:ddrx:1.0 DDR DM";
@@ -4225,20 +4241,20 @@ inst: entity work.design_1_processing_system7_0_0_processing_system7_v5_5_proces
       SDIO1_DATA_T(3 downto 0) => NLW_inst_SDIO1_DATA_T_UNCONNECTED(3 downto 0),
       SDIO1_LED => NLW_inst_SDIO1_LED_UNCONNECTED,
       SDIO1_WP => '0',
-      SPI0_MISO_I => '0',
-      SPI0_MISO_O => NLW_inst_SPI0_MISO_O_UNCONNECTED,
-      SPI0_MISO_T => NLW_inst_SPI0_MISO_T_UNCONNECTED,
-      SPI0_MOSI_I => '0',
-      SPI0_MOSI_O => NLW_inst_SPI0_MOSI_O_UNCONNECTED,
-      SPI0_MOSI_T => NLW_inst_SPI0_MOSI_T_UNCONNECTED,
-      SPI0_SCLK_I => '0',
-      SPI0_SCLK_O => NLW_inst_SPI0_SCLK_O_UNCONNECTED,
-      SPI0_SCLK_T => NLW_inst_SPI0_SCLK_T_UNCONNECTED,
-      SPI0_SS1_O => NLW_inst_SPI0_SS1_O_UNCONNECTED,
-      SPI0_SS2_O => NLW_inst_SPI0_SS2_O_UNCONNECTED,
-      SPI0_SS_I => '0',
-      SPI0_SS_O => NLW_inst_SPI0_SS_O_UNCONNECTED,
-      SPI0_SS_T => NLW_inst_SPI0_SS_T_UNCONNECTED,
+      SPI0_MISO_I => SPI0_MISO_I,
+      SPI0_MISO_O => SPI0_MISO_O,
+      SPI0_MISO_T => SPI0_MISO_T,
+      SPI0_MOSI_I => SPI0_MOSI_I,
+      SPI0_MOSI_O => SPI0_MOSI_O,
+      SPI0_MOSI_T => SPI0_MOSI_T,
+      SPI0_SCLK_I => SPI0_SCLK_I,
+      SPI0_SCLK_O => SPI0_SCLK_O,
+      SPI0_SCLK_T => SPI0_SCLK_T,
+      SPI0_SS1_O => SPI0_SS1_O,
+      SPI0_SS2_O => SPI0_SS2_O,
+      SPI0_SS_I => SPI0_SS_I,
+      SPI0_SS_O => SPI0_SS_O,
+      SPI0_SS_T => SPI0_SS_T,
       SPI1_MISO_I => '0',
       SPI1_MISO_O => NLW_inst_SPI1_MISO_O_UNCONNECTED,
       SPI1_MISO_T => NLW_inst_SPI1_MISO_T_UNCONNECTED,
