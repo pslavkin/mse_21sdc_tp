@@ -57,6 +57,10 @@ ENTITY design_1_spi28b_0_0 IS
   PORT (
     spi_mosi : IN STD_LOGIC;
     spi_miso : OUT STD_LOGIC;
+    cs : IN STD_LOGIC;
+    outData : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+    inData : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+    ledsData : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     clk : IN STD_LOGIC
   );
 END design_1_spi28b_0_0;
@@ -68,6 +72,10 @@ ARCHITECTURE design_1_spi28b_0_0_arch OF design_1_spi28b_0_0 IS
     PORT (
       spi_mosi : IN STD_LOGIC;
       spi_miso : OUT STD_LOGIC;
+      cs : IN STD_LOGIC;
+      outData : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+      inData : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+      ledsData : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
       clk : IN STD_LOGIC
     );
   END COMPONENT spi28b;
@@ -82,6 +90,10 @@ BEGIN
     PORT MAP (
       spi_mosi => spi_mosi,
       spi_miso => spi_miso,
+      cs => cs,
+      outData => outData,
+      inData => inData,
+      ledsData => ledsData,
       clk => clk
     );
 END design_1_spi28b_0_0_arch;

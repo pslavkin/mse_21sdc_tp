@@ -46,11 +46,11 @@
  */
 
 #include "xparameters.h"
-#include <stdio.h>
 #include "platform.h"
 #include "xil_printf.h"
 #include "xgpio.h"
 #include "xspips.h"
+#include <stdio.h>
 
 #define SPI_DEVICE_ID	XPAR_PS7_SPI_0_DEVICE_ID
 #define BUFFER_SIZE		12
@@ -82,7 +82,7 @@ int SpiPolledExample(XSpiPs *SpiInstancePtr, u16 SpiDeviceId)
 	if (Status != XST_SUCCESS) {
 		return XST_FAILURE;
 	}
-
+	XSpiPs_SetClkPrescaler(SpiInstancePtr,XSPIPS_CLK_PRESCALE_256);
 	/*
 	 * Perform a self-test to ensure that the hardware was built correctly.
 	 */
@@ -100,8 +100,7 @@ int SpiPolledExample(XSpiPs *SpiInstancePtr, u16 SpiDeviceId)
 	}
 
 
-
-	Test = 0x10;
+	Test = 0x00;
 	for (Count = 0; Count < BUFFER_SIZE; Count++) {
 		WriteBuffer[Count] = (u8)(Count + Test);
 		ReadBuffer[Count] = 0;
@@ -113,44 +112,45 @@ int SpiPolledExample(XSpiPs *SpiInstancePtr, u16 SpiDeviceId)
 	 */
 	XSpiPs_PolledTransfer(SpiInstancePtr, WriteBuffer, ReadBuffer, BUFFER_SIZE);
 
-	/*
-	 * Compare the data received with the data that was transmitted.
-	 */
-	for (Count = 0; Count < BUFFER_SIZE; Count++) {
-		if (WriteBuffer[Count] != ReadBuffer[Count]) {
-			return XST_FAILURE;
-		}
-	}
-
 	return XST_SUCCESS;
 }
 
 int i;
 int main()
 {
+    int i=0,j;
+
     init_platform();
     XGpio_Initialize(&led_btn,XPAR_AXI_GPIO_0_DEVICE_ID);
-    XGpio_SetDataDirection(&led_btn,2,~0x0F); //leds como salida (0 es salida)
+    //XGpio_SetDataDirection(&led_btn,2,~0x0F); //leds como salida (0 es salida)
     XGpio_SetDataDirection(&led_btn,1,0x0F);	//botones como entrada (1 es entrada)
 
     print("Hello World\n\r");
-    int i=0;
-    int a=0;
 
-    int Status;
-    Status = SpiPolledExample(&SpiInstance, SPI_DEVICE_ID);
-    	if (Status != XST_SUCCESS) {
-    		xil_printf("Spi polled Example Failed\r\n");
-    		return XST_FAILURE;
-    	}
+
+   // int Status;
+
+    SpiPolledExample(&SpiInstance, SPI_DEVICE_ID);
+    unsigned char dato=0;
 
     while(1) {
     	//XUartPs_RecvByte(STDIN_BASEADDRESS);
-    	  a=XGpio_DiscreteRead(&led_btn,1);
-       	  XGpio_DiscreteWrite(&led_btn,2,a);
+    	  XGpio_DiscreteRead(&led_btn,1);
+       	  //XGpio_DiscreteWrite(&led_btn,2,a);
     	  //XGpio_DiscreteWrite(&led_btn,2,i%16);
-    	  i++;
+
+    	  for(i=0;i<0xFFFFFF;i++);
+
+    	  for(j=0;j<20;j++) {
+    		  //dato=0x01;
+    		  for(i=0;i<0xFFFFFF;i++);
+    		  XSpiPs_PolledTransfer(&SpiInstance,&dato, ReadBuffer, 1);
+    		  printf("envio %x y recibo %x \n\r", dato,ReadBuffer[0]);
+    	  }
+    	  dato++;
+
     	}
+
     cleanup_platform();
     return 0;
 }

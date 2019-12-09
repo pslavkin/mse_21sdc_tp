@@ -857,3 +857,2505 @@ dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
 configparams force-mem-access 0
 ----------------End of Script----------------
 
+18:05:24 INFO  : Registering command handlers for SDK TCF services
+18:05:25 INFO  : Launching XSCT server: xsct -n -interactive /home/pslavkin/mse_3_21sdc/tp/tp.sdk/temp_xsdb_launch_script.tcl
+18:05:27 INFO  : XSCT server has started successfully.
+18:05:27 INFO  : Successfully done setting XSCT server connection channel  
+18:05:28 INFO  : Successfully done setting SDK workspace  
+18:05:28 INFO  : Processing command line option -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+18:05:28 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+18:05:30 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1575493461000,  Project:1575492592000
+18:05:30 INFO  : The hardware specification for project 'design_1_wrapper_hw_platform_0' is different from /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+18:05:30 INFO  : Copied contents of /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf into /design_1_wrapper_hw_platform_0/system.hdf.
+18:05:37 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+18:05:38 INFO  : 
+18:05:39 INFO  : Updating hardware inferred compiler options for tp.
+18:05:39 INFO  : Clearing existing target manager status.
+19:30:58 INFO  : Registering command handlers for SDK TCF services
+19:30:59 INFO  : Launching XSCT server: xsct -n -interactive /home/pslavkin/mse_3_21sdc/tp/tp.sdk/temp_xsdb_launch_script.tcl
+19:31:01 INFO  : XSCT server has started successfully.
+19:31:01 INFO  : Successfully done setting XSCT server connection channel  
+19:31:01 INFO  : Successfully done setting SDK workspace  
+19:31:01 INFO  : Processing command line option -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+19:31:01 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+19:31:03 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1575498633000,  Project:1575493461000
+19:31:03 INFO  : The hardware specification for project 'design_1_wrapper_hw_platform_0' is different from /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+19:31:03 INFO  : Copied contents of /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf into /design_1_wrapper_hw_platform_0/system.hdf.
+19:31:05 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+19:31:06 INFO  : 
+19:31:07 INFO  : Updating hardware inferred compiler options for tp.
+19:31:07 INFO  : Clearing existing target manager status.
+19:37:34 ERROR : Failed to connect to hardware server on host '192.168.2.3' and port '3121'.
+Reason: Connection refused
+19:38:30 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+19:38:31 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+19:38:31 INFO  : 'jtag frequency' command is executed.
+19:38:31 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+19:38:31 INFO  : Context for 'APU' is selected.
+19:38:31 INFO  : System reset is completed.
+19:38:34 INFO  : 'after 3000' command is executed.
+19:38:34 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+19:38:36 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+19:38:36 INFO  : Context for 'APU' is selected.
+19:38:36 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+19:38:37 INFO  : 'configparams force-mem-access 1' command is executed.
+19:38:37 INFO  : Context for 'APU' is selected.
+19:38:38 INFO  : 'ps7_init' command is executed.
+19:38:38 INFO  : 'ps7_post_config' command is executed.
+19:38:38 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:38:39 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+19:38:39 INFO  : 'configparams force-mem-access 0' command is executed.
+19:38:39 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+19:39:46 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+19:39:46 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+19:39:46 INFO  : 'jtag frequency' command is executed.
+19:39:46 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+19:39:46 INFO  : Context for 'APU' is selected.
+19:39:47 INFO  : System reset is completed.
+19:39:50 INFO  : 'after 3000' command is executed.
+19:39:50 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+19:39:52 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+19:39:52 INFO  : Context for 'APU' is selected.
+19:39:52 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+19:39:52 INFO  : 'configparams force-mem-access 1' command is executed.
+19:39:52 INFO  : Context for 'APU' is selected.
+19:39:54 INFO  : 'ps7_init' command is executed.
+19:39:54 INFO  : 'ps7_post_config' command is executed.
+19:39:54 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:39:54 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+19:39:54 INFO  : 'configparams force-mem-access 0' command is executed.
+19:39:54 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+19:39:54 INFO  : Memory regions updated for context APU
+19:39:55 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:39:55 INFO  : 'con' command is executed.
+19:39:55 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+19:39:55 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+19:46:37 INFO  : Disconnected from the channel tcfchan#1.
+23:40:38 INFO  : Registering command handlers for SDK TCF services
+23:40:40 INFO  : Launching XSCT server: xsct -n -interactive /home/pslavkin/mse_3_21sdc/tp/tp.sdk/temp_xsdb_launch_script.tcl
+23:40:42 INFO  : XSCT server has started successfully.
+23:40:42 INFO  : Successfully done setting XSCT server connection channel  
+23:40:42 INFO  : Successfully done setting SDK workspace  
+23:40:42 INFO  : Processing command line option -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+23:40:42 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+23:40:45 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1575499823000,  Project:1575498633000
+23:40:45 INFO  : The hardware specification for project 'design_1_wrapper_hw_platform_0' is different from /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+23:40:45 INFO  : Copied contents of /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf into /design_1_wrapper_hw_platform_0/system.hdf.
+23:40:47 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+23:40:48 INFO  : 
+23:40:48 INFO  : Updating hardware inferred compiler options for tp.
+23:40:48 INFO  : Clearing existing target manager status.
+23:40:48 INFO  : Closing and re-opening the MSS file of ther project tp_bsp
+23:43:07 INFO  : Registering command handlers for SDK TCF services
+23:43:08 INFO  : Launching XSCT server: xsct -n -interactive /home/pslavkin/mse_3_21sdc/tp/tp.sdk/temp_xsdb_launch_script.tcl
+23:43:10 INFO  : XSCT server has started successfully.
+23:43:10 INFO  : Successfully done setting XSCT server connection channel  
+23:43:10 INFO  : Successfully done setting SDK workspace  
+23:43:10 INFO  : Processing command line option -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+23:43:10 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+23:43:48 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+23:43:48 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+23:43:48 INFO  : 'jtag frequency' command is executed.
+23:43:48 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+23:43:48 INFO  : Context for 'APU' is selected.
+23:43:48 INFO  : System reset is completed.
+23:43:51 INFO  : 'after 3000' command is executed.
+23:43:52 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+23:43:54 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+23:43:54 INFO  : Context for 'APU' is selected.
+23:43:54 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+23:43:54 INFO  : 'configparams force-mem-access 1' command is executed.
+23:43:54 INFO  : Context for 'APU' is selected.
+23:43:55 INFO  : 'ps7_init' command is executed.
+23:43:55 INFO  : 'ps7_post_config' command is executed.
+23:43:55 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+23:43:55 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+23:43:55 INFO  : 'configparams force-mem-access 0' command is executed.
+23:43:55 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+23:43:56 INFO  : Memory regions updated for context APU
+23:43:56 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+23:43:56 INFO  : 'con' command is executed.
+23:43:56 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+23:43:56 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+23:48:31 INFO  : Disconnected from the channel tcfchan#1.
+23:49:54 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+23:49:54 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+23:49:54 INFO  : 'jtag frequency' command is executed.
+23:49:54 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+23:49:54 INFO  : Context for 'APU' is selected.
+23:49:54 INFO  : System reset is completed.
+23:49:57 INFO  : 'after 3000' command is executed.
+23:49:57 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+23:50:00 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+23:50:00 INFO  : Context for 'APU' is selected.
+23:50:01 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+23:50:01 INFO  : 'configparams force-mem-access 1' command is executed.
+23:50:01 INFO  : Context for 'APU' is selected.
+23:50:02 INFO  : 'ps7_init' command is executed.
+23:50:02 INFO  : 'ps7_post_config' command is executed.
+23:50:02 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+23:50:02 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+23:50:02 INFO  : 'configparams force-mem-access 0' command is executed.
+23:50:02 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+23:50:02 INFO  : Memory regions updated for context APU
+23:50:02 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+23:50:02 INFO  : 'con' command is executed.
+23:50:02 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+23:50:02 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+23:51:31 INFO  : Disconnected from the channel tcfchan#2.
+23:58:04 INFO  : Registering command handlers for SDK TCF services
+23:58:05 INFO  : Launching XSCT server: xsct -n -interactive /home/pslavkin/mse_3_21sdc/tp/tp.sdk/temp_xsdb_launch_script.tcl
+23:58:07 INFO  : XSCT server has started successfully.
+23:58:07 INFO  : Successfully done setting XSCT server connection channel  
+23:58:07 INFO  : Successfully done setting SDK workspace  
+23:58:07 INFO  : Processing command line option -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+23:58:07 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+23:58:09 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1575514608000,  Project:1575499823000
+23:58:09 INFO  : The hardware specification for project 'design_1_wrapper_hw_platform_0' is different from /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+23:58:09 INFO  : Copied contents of /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf into /design_1_wrapper_hw_platform_0/system.hdf.
+23:58:11 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+23:58:12 INFO  : 
+23:58:13 INFO  : Updating hardware inferred compiler options for tp.
+23:58:13 INFO  : Clearing existing target manager status.
+00:00:49 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+00:00:49 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+00:00:49 INFO  : 'jtag frequency' command is executed.
+00:00:49 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+00:00:49 INFO  : Context for 'APU' is selected.
+00:00:49 INFO  : System reset is completed.
+00:00:52 INFO  : 'after 3000' command is executed.
+00:00:52 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+00:01:04 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+00:01:04 INFO  : Context for 'APU' is selected.
+00:01:05 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+00:01:05 INFO  : 'configparams force-mem-access 1' command is executed.
+00:01:05 INFO  : Context for 'APU' is selected.
+00:01:07 INFO  : 'ps7_init' command is executed.
+00:01:07 INFO  : 'ps7_post_config' command is executed.
+00:01:07 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:01:07 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+00:01:07 INFO  : 'configparams force-mem-access 0' command is executed.
+00:01:07 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+00:01:07 INFO  : Memory regions updated for context APU
+00:01:07 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:01:07 INFO  : 'con' command is executed.
+00:01:07 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+00:01:07 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+00:02:39 INFO  : Disconnected from the channel tcfchan#1.
+00:02:47 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+00:02:47 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+00:02:47 INFO  : 'jtag frequency' command is executed.
+00:02:47 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+00:02:47 INFO  : Context for 'APU' is selected.
+00:02:47 INFO  : System reset is completed.
+00:02:50 INFO  : 'after 3000' command is executed.
+00:02:50 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+00:02:53 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+00:02:53 INFO  : Context for 'APU' is selected.
+00:02:53 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+00:02:53 INFO  : 'configparams force-mem-access 1' command is executed.
+00:02:53 INFO  : Context for 'APU' is selected.
+00:02:55 INFO  : 'ps7_init' command is executed.
+00:02:55 INFO  : 'ps7_post_config' command is executed.
+00:02:55 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:02:55 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+00:02:55 INFO  : 'configparams force-mem-access 0' command is executed.
+00:02:55 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+00:02:56 INFO  : Memory regions updated for context APU
+00:02:56 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:02:56 INFO  : 'con' command is executed.
+00:02:56 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+00:02:56 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+00:03:57 INFO  : Disconnected from the channel tcfchan#2.
+00:03:58 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+00:04:07 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+----------------End of Script----------------
+
+00:04:32 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+00:04:32 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+00:04:32 INFO  : 'jtag frequency' command is executed.
+00:04:32 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+00:04:32 INFO  : Context for 'APU' is selected.
+00:04:32 INFO  : System reset is completed.
+00:04:35 INFO  : 'after 3000' command is executed.
+00:04:35 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+00:04:37 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+00:04:37 INFO  : Context for 'APU' is selected.
+00:04:37 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+00:04:37 INFO  : 'configparams force-mem-access 1' command is executed.
+00:04:38 INFO  : Context for 'APU' is selected.
+00:04:39 INFO  : 'ps7_init' command is executed.
+00:04:39 INFO  : 'ps7_post_config' command is executed.
+00:04:39 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:04:39 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+00:04:39 INFO  : 'configparams force-mem-access 0' command is executed.
+00:04:39 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+00:04:40 INFO  : Memory regions updated for context APU
+00:04:40 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+00:08:18 INFO  : Disconnected from the channel tcfchan#3.
+00:08:19 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+00:08:19 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+00:08:19 INFO  : 'jtag frequency' command is executed.
+00:08:19 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+00:08:19 INFO  : Context for 'APU' is selected.
+00:08:20 INFO  : System reset is completed.
+00:08:23 INFO  : 'after 3000' command is executed.
+00:08:23 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+00:08:25 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+00:08:25 INFO  : Context for 'APU' is selected.
+00:08:25 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+00:08:25 INFO  : 'configparams force-mem-access 1' command is executed.
+00:08:25 INFO  : Context for 'APU' is selected.
+00:08:27 INFO  : 'ps7_init' command is executed.
+00:08:27 INFO  : 'ps7_post_config' command is executed.
+00:08:27 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:08:27 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+00:08:27 INFO  : 'configparams force-mem-access 0' command is executed.
+00:08:27 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+00:08:27 INFO  : Memory regions updated for context APU
+00:08:27 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+00:09:10 INFO  : Disconnected from the channel tcfchan#4.
+00:10:06 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+00:10:06 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+00:10:06 INFO  : 'jtag frequency' command is executed.
+00:10:06 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+00:10:06 INFO  : Context for 'APU' is selected.
+00:10:06 INFO  : System reset is completed.
+00:10:09 INFO  : 'after 3000' command is executed.
+00:10:09 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+00:10:12 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+00:10:12 INFO  : Context for 'APU' is selected.
+00:10:12 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+00:10:12 INFO  : 'configparams force-mem-access 1' command is executed.
+00:10:12 INFO  : Context for 'APU' is selected.
+00:10:13 INFO  : 'ps7_init' command is executed.
+00:10:13 INFO  : 'ps7_post_config' command is executed.
+00:10:14 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:10:14 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+00:10:14 INFO  : 'configparams force-mem-access 0' command is executed.
+00:10:14 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+00:10:14 INFO  : Memory regions updated for context APU
+00:10:14 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:10:14 INFO  : 'con' command is executed.
+00:10:14 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+00:10:14 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+00:11:01 INFO  : Disconnected from the channel tcfchan#5.
+00:11:07 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+00:11:07 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+00:11:07 INFO  : 'jtag frequency' command is executed.
+00:11:07 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+00:11:07 INFO  : Context for 'APU' is selected.
+00:11:08 INFO  : System reset is completed.
+00:11:11 INFO  : 'after 3000' command is executed.
+00:11:11 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+00:11:13 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+00:11:13 INFO  : Context for 'APU' is selected.
+00:11:13 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+00:11:13 INFO  : 'configparams force-mem-access 1' command is executed.
+00:11:13 INFO  : Context for 'APU' is selected.
+00:11:15 INFO  : 'ps7_init' command is executed.
+00:11:15 INFO  : 'ps7_post_config' command is executed.
+00:11:15 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:11:15 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+00:11:15 INFO  : 'configparams force-mem-access 0' command is executed.
+00:11:15 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+00:11:15 INFO  : Memory regions updated for context APU
+00:11:15 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:11:15 INFO  : 'con' command is executed.
+00:11:15 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+00:11:15 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+00:14:21 INFO  : Disconnected from the channel tcfchan#6.
+00:14:23 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+00:14:23 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+00:14:23 INFO  : 'jtag frequency' command is executed.
+00:14:23 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+00:14:23 INFO  : Context for 'APU' is selected.
+00:14:23 INFO  : System reset is completed.
+00:14:26 INFO  : 'after 3000' command is executed.
+00:14:26 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+00:14:28 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+00:14:28 INFO  : Context for 'APU' is selected.
+00:14:28 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+00:14:28 INFO  : 'configparams force-mem-access 1' command is executed.
+00:14:28 INFO  : Context for 'APU' is selected.
+00:14:30 INFO  : 'ps7_init' command is executed.
+00:14:30 INFO  : 'ps7_post_config' command is executed.
+00:14:30 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:14:30 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+00:14:30 INFO  : 'configparams force-mem-access 0' command is executed.
+00:14:30 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+00:14:30 INFO  : Memory regions updated for context APU
+00:14:31 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:14:31 INFO  : 'con' command is executed.
+00:14:31 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+00:14:31 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+00:15:28 INFO  : Disconnected from the channel tcfchan#7.
+00:15:40 INFO  : Registering command handlers for SDK TCF services
+00:15:41 INFO  : Launching XSCT server: xsct -n -interactive /home/pslavkin/mse_3_21sdc/tp/tp.sdk/temp_xsdb_launch_script.tcl
+00:15:43 INFO  : XSCT server has started successfully.
+00:15:43 INFO  : Successfully done setting XSCT server connection channel  
+00:15:43 INFO  : Successfully done setting SDK workspace  
+00:15:43 INFO  : Processing command line option -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+00:15:43 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+00:16:13 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+00:16:14 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+00:16:14 INFO  : 'jtag frequency' command is executed.
+00:16:14 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+00:16:14 INFO  : Context for 'APU' is selected.
+00:16:14 INFO  : System reset is completed.
+00:16:17 INFO  : 'after 3000' command is executed.
+00:16:17 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+00:16:19 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+00:16:19 INFO  : Context for 'APU' is selected.
+00:16:19 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+00:16:19 INFO  : 'configparams force-mem-access 1' command is executed.
+00:16:19 INFO  : Context for 'APU' is selected.
+00:16:21 INFO  : 'ps7_init' command is executed.
+00:16:21 INFO  : 'ps7_post_config' command is executed.
+00:16:21 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:16:21 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+00:16:21 INFO  : 'configparams force-mem-access 0' command is executed.
+00:16:21 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+00:16:55 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+00:16:55 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+00:16:55 INFO  : 'jtag frequency' command is executed.
+00:16:55 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+00:16:55 INFO  : Context for 'APU' is selected.
+00:16:55 INFO  : System reset is completed.
+00:16:58 INFO  : 'after 3000' command is executed.
+00:16:58 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+00:17:01 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+00:17:01 INFO  : Context for 'APU' is selected.
+00:17:01 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+00:17:01 INFO  : 'configparams force-mem-access 1' command is executed.
+00:17:01 INFO  : Context for 'APU' is selected.
+00:17:02 INFO  : 'ps7_init' command is executed.
+00:17:02 INFO  : 'ps7_post_config' command is executed.
+00:17:03 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:17:03 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+00:17:03 INFO  : 'configparams force-mem-access 0' command is executed.
+00:17:03 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+00:17:54 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+00:17:54 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+00:17:54 INFO  : 'jtag frequency' command is executed.
+00:17:54 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+00:17:54 INFO  : Context for 'APU' is selected.
+00:17:54 INFO  : System reset is completed.
+00:17:57 INFO  : 'after 3000' command is executed.
+00:17:57 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+00:18:00 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+00:18:00 INFO  : Context for 'APU' is selected.
+00:18:00 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+00:18:00 INFO  : 'configparams force-mem-access 1' command is executed.
+00:18:00 INFO  : Context for 'APU' is selected.
+00:18:01 INFO  : 'ps7_init' command is executed.
+00:18:01 INFO  : 'ps7_post_config' command is executed.
+00:18:01 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:18:01 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+00:18:01 INFO  : 'configparams force-mem-access 0' command is executed.
+00:18:01 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+00:19:10 INFO  : Registering command handlers for SDK TCF services
+00:19:11 INFO  : Launching XSCT server: xsct -n -interactive /home/pslavkin/mse_3_21sdc/tp/tp.sdk/temp_xsdb_launch_script.tcl
+00:19:13 INFO  : XSCT server has started successfully.
+00:19:13 INFO  : Successfully done setting XSCT server connection channel  
+00:19:13 INFO  : Successfully done setting SDK workspace  
+00:19:13 INFO  : Processing command line option -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+00:19:13 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+00:19:45 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+00:19:45 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+00:19:45 INFO  : 'jtag frequency' command is executed.
+00:19:45 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+00:19:45 INFO  : Context for 'APU' is selected.
+00:19:45 INFO  : System reset is completed.
+00:19:48 INFO  : 'after 3000' command is executed.
+00:19:48 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+00:19:51 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+00:19:51 INFO  : Context for 'APU' is selected.
+00:19:51 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+00:19:51 INFO  : 'configparams force-mem-access 1' command is executed.
+00:19:51 INFO  : Context for 'APU' is selected.
+00:19:53 INFO  : 'ps7_init' command is executed.
+00:19:53 INFO  : 'ps7_post_config' command is executed.
+00:19:53 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:19:53 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+00:19:53 INFO  : 'configparams force-mem-access 0' command is executed.
+00:19:53 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+00:20:21 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+00:20:21 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+00:20:21 INFO  : 'jtag frequency' command is executed.
+00:20:21 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+00:20:21 INFO  : Context for 'APU' is selected.
+00:20:21 INFO  : System reset is completed.
+00:20:24 INFO  : 'after 3000' command is executed.
+00:20:24 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+00:20:27 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+00:20:27 INFO  : Context for 'APU' is selected.
+00:20:27 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+00:20:27 INFO  : 'configparams force-mem-access 1' command is executed.
+00:20:27 INFO  : Context for 'APU' is selected.
+00:20:29 INFO  : 'ps7_init' command is executed.
+00:20:29 INFO  : 'ps7_post_config' command is executed.
+00:20:29 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:20:29 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+00:20:29 INFO  : 'configparams force-mem-access 0' command is executed.
+00:20:29 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+00:20:29 INFO  : Memory regions updated for context APU
+00:20:29 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:20:29 INFO  : 'con' command is executed.
+00:20:29 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+00:20:29 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+00:22:19 INFO  : Disconnected from the channel tcfchan#1.
+13:38:54 INFO  : Registering command handlers for SDK TCF services
+13:38:55 INFO  : Launching XSCT server: xsct -n -interactive /home/pslavkin/mse_3_21sdc/tp/tp.sdk/temp_xsdb_launch_script.tcl
+13:38:57 INFO  : XSCT server has started successfully.
+13:38:57 INFO  : Successfully done setting XSCT server connection channel  
+13:38:57 INFO  : Successfully done setting SDK workspace  
+13:38:57 INFO  : Processing command line option -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+13:38:57 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+13:38:59 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1575563893000,  Project:1575514608000
+13:38:59 INFO  : The hardware specification for project 'design_1_wrapper_hw_platform_0' is different from /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+13:38:59 INFO  : Copied contents of /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf into /design_1_wrapper_hw_platform_0/system.hdf.
+13:39:01 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+13:39:02 INFO  : 
+13:39:03 INFO  : Updating hardware inferred compiler options for tp.
+13:39:03 INFO  : Clearing existing target manager status.
+13:40:56 INFO  : Registering command handlers for SDK TCF services
+13:40:58 INFO  : Launching XSCT server: xsct -n -interactive /home/pslavkin/mse_3_21sdc/tp/tp.sdk/temp_xsdb_launch_script.tcl
+13:41:00 INFO  : XSCT server has started successfully.
+13:41:00 INFO  : Successfully done setting XSCT server connection channel  
+13:41:00 INFO  : Successfully done setting SDK workspace  
+13:41:00 INFO  : Processing command line option -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+13:41:00 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+13:45:37 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+13:45:37 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+13:45:37 INFO  : 'jtag frequency' command is executed.
+13:45:37 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+13:45:37 INFO  : Context for 'APU' is selected.
+13:45:37 INFO  : System reset is completed.
+13:45:40 INFO  : 'after 3000' command is executed.
+13:45:40 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+13:45:43 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+13:45:43 INFO  : Context for 'APU' is selected.
+13:45:43 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+13:45:43 INFO  : 'configparams force-mem-access 1' command is executed.
+13:45:43 INFO  : Context for 'APU' is selected.
+13:45:44 INFO  : 'ps7_init' command is executed.
+13:45:44 INFO  : 'ps7_post_config' command is executed.
+13:45:44 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:45:45 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+13:45:45 INFO  : 'configparams force-mem-access 0' command is executed.
+13:45:45 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+13:45:45 INFO  : Memory regions updated for context APU
+13:45:45 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:45:45 INFO  : 'con' command is executed.
+13:45:45 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+13:45:45 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+13:47:12 INFO  : Disconnected from the channel tcfchan#1.
+13:47:25 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+13:47:26 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+13:47:26 INFO  : 'jtag frequency' command is executed.
+13:47:26 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+13:47:26 INFO  : Context for 'APU' is selected.
+13:47:26 INFO  : System reset is completed.
+13:47:29 INFO  : 'after 3000' command is executed.
+13:47:29 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+13:47:32 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+13:47:32 INFO  : Context for 'APU' is selected.
+13:47:32 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+13:47:32 INFO  : 'configparams force-mem-access 1' command is executed.
+13:47:32 INFO  : Context for 'APU' is selected.
+13:47:34 INFO  : 'ps7_init' command is executed.
+13:47:34 INFO  : 'ps7_post_config' command is executed.
+13:47:34 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:47:34 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+13:47:34 INFO  : 'configparams force-mem-access 0' command is executed.
+13:47:34 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+13:47:35 INFO  : Memory regions updated for context APU
+13:47:35 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:47:35 INFO  : 'con' command is executed.
+13:47:35 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+13:47:35 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+13:50:55 INFO  : Disconnected from the channel tcfchan#2.
+13:51:01 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+13:51:02 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+13:51:02 INFO  : 'jtag frequency' command is executed.
+13:51:02 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+13:51:02 INFO  : Context for 'APU' is selected.
+13:51:02 INFO  : System reset is completed.
+13:51:05 INFO  : 'after 3000' command is executed.
+13:51:05 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+13:51:07 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+13:51:08 INFO  : Context for 'APU' is selected.
+13:51:09 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+13:51:09 INFO  : 'configparams force-mem-access 1' command is executed.
+13:51:09 INFO  : Context for 'APU' is selected.
+13:51:11 INFO  : 'ps7_init' command is executed.
+13:51:11 INFO  : 'ps7_post_config' command is executed.
+13:51:11 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:51:11 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+13:51:11 INFO  : 'configparams force-mem-access 0' command is executed.
+13:51:11 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+13:51:11 INFO  : Memory regions updated for context APU
+13:51:11 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:51:12 INFO  : 'con' command is executed.
+13:51:12 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+13:51:12 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+13:54:00 INFO  : Disconnected from the channel tcfchan#3.
+16:39:35 INFO  : Registering command handlers for SDK TCF services
+16:39:36 INFO  : Launching XSCT server: xsct -n -interactive /home/pslavkin/mse_3_21sdc/tp/tp.sdk/temp_xsdb_launch_script.tcl
+16:39:38 INFO  : XSCT server has started successfully.
+16:39:38 INFO  : Successfully done setting XSCT server connection channel  
+16:39:38 INFO  : Successfully done setting SDK workspace  
+16:39:38 INFO  : Processing command line option -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+16:39:38 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+16:39:40 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1575571161000,  Project:1575563893000
+16:39:40 INFO  : The hardware specification for project 'design_1_wrapper_hw_platform_0' is different from /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+16:39:40 INFO  : Copied contents of /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf into /design_1_wrapper_hw_platform_0/system.hdf.
+16:39:42 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+16:39:43 INFO  : 
+16:39:43 INFO  : Updating hardware inferred compiler options for tp.
+16:39:43 INFO  : Clearing existing target manager status.
+16:40:11 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+16:40:11 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+16:40:11 INFO  : 'jtag frequency' command is executed.
+16:40:11 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+16:40:11 INFO  : Context for 'APU' is selected.
+16:40:12 INFO  : System reset is completed.
+16:40:15 INFO  : 'after 3000' command is executed.
+16:40:15 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+16:40:17 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+16:40:17 INFO  : Context for 'APU' is selected.
+16:40:17 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+16:40:17 INFO  : 'configparams force-mem-access 1' command is executed.
+16:40:17 INFO  : Context for 'APU' is selected.
+16:40:19 INFO  : 'ps7_init' command is executed.
+16:40:19 INFO  : 'ps7_post_config' command is executed.
+16:40:19 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:40:19 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+16:40:19 INFO  : 'configparams force-mem-access 0' command is executed.
+16:40:19 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+16:40:20 INFO  : Memory regions updated for context APU
+16:40:20 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+16:40:20 INFO  : 'con' command is executed.
+16:40:20 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+16:40:20 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+16:47:16 INFO  : Disconnected from the channel tcfchan#1.
+17:13:17 INFO  : Registering command handlers for SDK TCF services
+17:13:18 INFO  : Launching XSCT server: xsct -n -interactive /home/pslavkin/mse_3_21sdc/tp/tp.sdk/temp_xsdb_launch_script.tcl
+17:13:20 INFO  : XSCT server has started successfully.
+17:13:20 INFO  : Successfully done setting XSCT server connection channel  
+17:13:20 INFO  : Successfully done setting SDK workspace  
+17:13:20 INFO  : Processing command line option -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+17:13:20 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+17:13:23 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1575575431000,  Project:1575571161000
+17:13:23 INFO  : The hardware specification for project 'design_1_wrapper_hw_platform_0' is different from /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+17:13:23 INFO  : Copied contents of /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf into /design_1_wrapper_hw_platform_0/system.hdf.
+17:13:24 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+17:13:25 INFO  : 
+17:13:26 INFO  : Updating hardware inferred compiler options for tp.
+17:13:26 INFO  : Clearing existing target manager status.
+17:13:58 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+17:13:59 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+17:13:59 INFO  : 'jtag frequency' command is executed.
+17:13:59 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+17:13:59 INFO  : Context for 'APU' is selected.
+17:13:59 INFO  : System reset is completed.
+17:14:02 INFO  : 'after 3000' command is executed.
+17:14:02 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+17:14:05 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+17:14:05 INFO  : Context for 'APU' is selected.
+17:14:05 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+17:14:05 INFO  : 'configparams force-mem-access 1' command is executed.
+17:14:05 INFO  : Context for 'APU' is selected.
+17:14:06 INFO  : 'ps7_init' command is executed.
+17:14:06 INFO  : 'ps7_post_config' command is executed.
+17:14:07 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+17:14:07 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+17:14:07 INFO  : 'configparams force-mem-access 0' command is executed.
+17:14:07 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+17:14:07 INFO  : Memory regions updated for context APU
+17:14:07 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+17:14:07 INFO  : 'con' command is executed.
+17:14:07 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+17:14:07 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+17:20:07 INFO  : Disconnected from the channel tcfchan#1.
+17:20:58 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+17:20:58 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+17:20:58 INFO  : 'jtag frequency' command is executed.
+17:20:58 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+17:20:58 INFO  : Context for 'APU' is selected.
+17:20:58 INFO  : System reset is completed.
+17:21:01 INFO  : 'after 3000' command is executed.
+17:21:01 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+17:21:04 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+17:21:04 INFO  : Context for 'APU' is selected.
+17:21:05 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+17:21:05 INFO  : 'configparams force-mem-access 1' command is executed.
+17:21:05 INFO  : Context for 'APU' is selected.
+17:21:07 INFO  : 'ps7_init' command is executed.
+17:21:07 INFO  : 'ps7_post_config' command is executed.
+17:21:07 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+17:21:07 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+17:21:07 INFO  : 'configparams force-mem-access 0' command is executed.
+17:21:07 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+17:21:07 INFO  : Memory regions updated for context APU
+17:21:07 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+17:21:07 INFO  : 'con' command is executed.
+17:21:07 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+17:21:07 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+17:23:10 INFO  : Disconnected from the channel tcfchan#2.
+17:23:11 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+17:23:11 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+17:23:11 INFO  : 'jtag frequency' command is executed.
+17:23:11 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+17:23:11 INFO  : Context for 'APU' is selected.
+17:23:11 INFO  : System reset is completed.
+17:23:14 INFO  : 'after 3000' command is executed.
+17:23:15 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+17:23:17 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+17:23:17 INFO  : Context for 'APU' is selected.
+17:23:17 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+17:23:17 INFO  : 'configparams force-mem-access 1' command is executed.
+17:23:17 INFO  : Context for 'APU' is selected.
+17:23:19 INFO  : 'ps7_init' command is executed.
+17:23:19 INFO  : 'ps7_post_config' command is executed.
+17:23:19 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+17:23:19 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+17:23:19 INFO  : 'configparams force-mem-access 0' command is executed.
+17:23:19 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+17:23:19 INFO  : Memory regions updated for context APU
+17:23:19 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+17:23:19 INFO  : 'con' command is executed.
+17:23:19 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+17:23:19 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+17:23:56 INFO  : Disconnected from the channel tcfchan#3.
+18:11:08 INFO  : Registering command handlers for SDK TCF services
+18:11:09 INFO  : Launching XSCT server: xsct -n -interactive /home/pslavkin/mse_3_21sdc/tp/tp.sdk/temp_xsdb_launch_script.tcl
+18:11:11 INFO  : XSCT server has started successfully.
+18:11:11 INFO  : Successfully done setting XSCT server connection channel  
+18:11:11 INFO  : Successfully done setting SDK workspace  
+18:11:11 INFO  : Processing command line option -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+18:11:11 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+18:11:14 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1575577917000,  Project:1575575431000
+18:11:14 INFO  : The hardware specification for project 'design_1_wrapper_hw_platform_0' is different from /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+18:11:14 INFO  : Copied contents of /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf into /design_1_wrapper_hw_platform_0/system.hdf.
+18:11:16 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+18:11:17 INFO  : 
+18:11:18 INFO  : Updating hardware inferred compiler options for tp.
+18:11:18 INFO  : Clearing existing target manager status.
+18:11:18 INFO  : Closing and re-opening the MSS file of ther project tp_bsp
+18:13:23 INFO  : Registering command handlers for SDK TCF services
+18:13:25 INFO  : Launching XSCT server: xsct -n -interactive /home/pslavkin/mse_3_21sdc/tp/tp.sdk/temp_xsdb_launch_script.tcl
+18:13:27 INFO  : XSCT server has started successfully.
+18:13:27 INFO  : Successfully done setting XSCT server connection channel  
+18:13:27 INFO  : Successfully done setting SDK workspace  
+18:13:27 INFO  : Processing command line option -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+18:13:27 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+18:13:58 INFO  : Registering command handlers for SDK TCF services
+18:13:59 INFO  : Launching XSCT server: xsct -n -interactive /home/pslavkin/mse_3_21sdc/tp/tp.sdk/temp_xsdb_launch_script.tcl
+18:14:01 INFO  : XSCT server has started successfully.
+18:14:01 INFO  : Successfully done setting XSCT server connection channel  
+18:14:01 INFO  : Successfully done setting SDK workspace  
+18:14:01 INFO  : Processing command line option -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+18:14:01 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+18:19:27 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+18:19:27 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+18:19:27 INFO  : 'jtag frequency' command is executed.
+18:19:27 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+18:19:28 INFO  : Context for 'APU' is selected.
+18:19:28 INFO  : System reset is completed.
+18:19:31 INFO  : 'after 3000' command is executed.
+18:19:31 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+18:19:33 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+18:19:33 INFO  : Context for 'APU' is selected.
+18:19:33 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+18:19:33 INFO  : 'configparams force-mem-access 1' command is executed.
+18:19:33 INFO  : Context for 'APU' is selected.
+18:19:35 INFO  : 'ps7_init' command is executed.
+18:19:35 INFO  : 'ps7_post_config' command is executed.
+18:19:35 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:19:35 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+18:19:35 INFO  : 'configparams force-mem-access 0' command is executed.
+18:19:35 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+18:19:36 INFO  : Memory regions updated for context APU
+18:19:36 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:19:36 INFO  : 'con' command is executed.
+18:19:36 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+18:19:36 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+18:20:10 INFO  : Disconnected from the channel tcfchan#1.
+18:20:11 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+18:20:11 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+18:20:11 INFO  : 'jtag frequency' command is executed.
+18:20:11 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+18:20:11 INFO  : Context for 'APU' is selected.
+18:20:11 INFO  : System reset is completed.
+18:20:14 INFO  : 'after 3000' command is executed.
+18:20:14 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+18:20:17 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+18:20:17 INFO  : Context for 'APU' is selected.
+18:20:17 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+18:20:17 INFO  : 'configparams force-mem-access 1' command is executed.
+18:20:17 INFO  : Context for 'APU' is selected.
+18:20:19 INFO  : 'ps7_init' command is executed.
+18:20:19 INFO  : 'ps7_post_config' command is executed.
+18:20:19 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:20:19 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+18:20:19 INFO  : 'configparams force-mem-access 0' command is executed.
+18:20:19 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+18:20:19 INFO  : Memory regions updated for context APU
+18:20:20 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:20:20 INFO  : 'con' command is executed.
+18:20:20 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+18:20:20 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+18:21:50 INFO  : Disconnected from the channel tcfchan#2.
+18:21:51 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+18:21:51 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+18:21:51 INFO  : 'jtag frequency' command is executed.
+18:21:51 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+18:21:51 INFO  : Context for 'APU' is selected.
+18:21:52 INFO  : System reset is completed.
+18:21:55 INFO  : 'after 3000' command is executed.
+18:21:55 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+18:21:57 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+18:21:57 INFO  : Context for 'APU' is selected.
+18:21:58 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+18:21:58 INFO  : 'configparams force-mem-access 1' command is executed.
+18:21:58 INFO  : Context for 'APU' is selected.
+18:22:00 INFO  : 'ps7_init' command is executed.
+18:22:00 INFO  : 'ps7_post_config' command is executed.
+18:22:00 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:22:00 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+18:22:00 INFO  : 'configparams force-mem-access 0' command is executed.
+18:22:00 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+18:22:00 INFO  : Memory regions updated for context APU
+18:22:00 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:22:00 INFO  : 'con' command is executed.
+18:22:00 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+18:22:00 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+18:23:01 INFO  : Disconnected from the channel tcfchan#3.
+18:23:02 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+18:23:02 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+18:23:02 INFO  : 'jtag frequency' command is executed.
+18:23:02 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+18:23:02 INFO  : Context for 'APU' is selected.
+18:23:03 INFO  : System reset is completed.
+18:23:06 INFO  : 'after 3000' command is executed.
+18:23:06 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+18:23:08 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+18:23:08 INFO  : Context for 'APU' is selected.
+18:23:09 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+18:23:09 INFO  : 'configparams force-mem-access 1' command is executed.
+18:23:09 INFO  : Context for 'APU' is selected.
+18:23:11 INFO  : 'ps7_init' command is executed.
+18:23:11 INFO  : 'ps7_post_config' command is executed.
+18:23:11 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:23:11 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+18:23:11 INFO  : 'configparams force-mem-access 0' command is executed.
+18:23:11 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+18:23:11 INFO  : Memory regions updated for context APU
+18:23:11 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:23:11 INFO  : 'con' command is executed.
+18:23:11 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+18:23:11 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+18:23:58 INFO  : Disconnected from the channel tcfchan#4.
+18:24:00 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+18:24:00 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+18:24:00 INFO  : 'jtag frequency' command is executed.
+18:24:00 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+18:24:00 INFO  : Context for 'APU' is selected.
+18:24:00 INFO  : System reset is completed.
+18:24:03 INFO  : 'after 3000' command is executed.
+18:24:03 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+18:24:05 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+18:24:05 INFO  : Context for 'APU' is selected.
+18:24:06 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+18:24:06 INFO  : 'configparams force-mem-access 1' command is executed.
+18:24:06 INFO  : Context for 'APU' is selected.
+18:24:08 INFO  : 'ps7_init' command is executed.
+18:24:08 INFO  : 'ps7_post_config' command is executed.
+18:24:08 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:24:08 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+18:24:08 INFO  : 'configparams force-mem-access 0' command is executed.
+18:24:08 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+18:24:08 INFO  : Memory regions updated for context APU
+18:24:09 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:24:09 INFO  : 'con' command is executed.
+18:24:09 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+18:24:09 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+18:24:35 INFO  : Disconnected from the channel tcfchan#5.
+18:24:36 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+18:24:36 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+18:24:36 INFO  : 'jtag frequency' command is executed.
+18:24:36 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+18:24:36 INFO  : Context for 'APU' is selected.
+18:24:36 INFO  : System reset is completed.
+18:24:39 INFO  : 'after 3000' command is executed.
+18:24:39 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+18:24:42 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+18:24:42 INFO  : Context for 'APU' is selected.
+18:24:43 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+18:24:43 INFO  : 'configparams force-mem-access 1' command is executed.
+18:24:43 INFO  : Context for 'APU' is selected.
+18:24:45 INFO  : 'ps7_init' command is executed.
+18:24:45 INFO  : 'ps7_post_config' command is executed.
+18:24:45 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:24:45 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+18:24:45 INFO  : 'configparams force-mem-access 0' command is executed.
+18:24:45 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+18:24:45 INFO  : Memory regions updated for context APU
+18:24:45 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:24:45 INFO  : 'con' command is executed.
+18:24:45 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+18:24:45 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+18:25:08 INFO  : Disconnected from the channel tcfchan#6.
+18:25:09 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+18:25:09 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+18:25:09 INFO  : 'jtag frequency' command is executed.
+18:25:09 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+18:25:09 INFO  : Context for 'APU' is selected.
+18:25:10 INFO  : System reset is completed.
+18:25:13 INFO  : 'after 3000' command is executed.
+18:25:13 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+18:25:15 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+18:25:15 INFO  : Context for 'APU' is selected.
+18:25:16 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+18:25:16 INFO  : 'configparams force-mem-access 1' command is executed.
+18:25:16 INFO  : Context for 'APU' is selected.
+18:25:18 INFO  : 'ps7_init' command is executed.
+18:25:18 INFO  : 'ps7_post_config' command is executed.
+18:25:18 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:25:18 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+18:25:18 INFO  : 'configparams force-mem-access 0' command is executed.
+18:25:18 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+18:25:18 INFO  : Memory regions updated for context APU
+18:25:18 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:25:18 INFO  : 'con' command is executed.
+18:25:18 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+18:25:18 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+18:25:43 INFO  : Disconnected from the channel tcfchan#7.
+18:35:36 INFO  : Registering command handlers for SDK TCF services
+18:35:37 INFO  : Launching XSCT server: xsct -n -interactive /home/pslavkin/mse_3_21sdc/tp/tp.sdk/temp_xsdb_launch_script.tcl
+18:35:39 INFO  : XSCT server has started successfully.
+18:35:39 INFO  : Successfully done setting XSCT server connection channel  
+18:35:39 INFO  : Successfully done setting SDK workspace  
+18:35:39 INFO  : Processing command line option -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+18:35:39 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+18:35:41 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1575581429000,  Project:1575577917000
+18:35:41 INFO  : The hardware specification for project 'design_1_wrapper_hw_platform_0' is different from /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+18:35:41 INFO  : Copied contents of /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf into /design_1_wrapper_hw_platform_0/system.hdf.
+18:35:43 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+18:35:44 INFO  : 
+18:35:45 INFO  : Updating hardware inferred compiler options for tp.
+18:35:45 INFO  : Clearing existing target manager status.
+18:36:14 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+18:36:14 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+18:36:14 INFO  : 'jtag frequency' command is executed.
+18:36:14 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+18:36:15 INFO  : Context for 'APU' is selected.
+18:36:15 INFO  : System reset is completed.
+18:36:18 INFO  : 'after 3000' command is executed.
+18:36:18 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+18:36:20 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+18:36:20 INFO  : Context for 'APU' is selected.
+18:36:20 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+18:36:20 INFO  : 'configparams force-mem-access 1' command is executed.
+18:36:20 INFO  : Context for 'APU' is selected.
+18:36:22 INFO  : 'ps7_init' command is executed.
+18:36:22 INFO  : 'ps7_post_config' command is executed.
+18:36:22 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:36:22 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+18:36:22 INFO  : 'configparams force-mem-access 0' command is executed.
+18:36:22 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+18:36:22 INFO  : Memory regions updated for context APU
+18:36:22 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+18:36:22 INFO  : 'con' command is executed.
+18:36:22 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+18:36:22 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+18:46:26 INFO  : Disconnected from the channel tcfchan#1.
+19:07:25 INFO  : Registering command handlers for SDK TCF services
+19:07:26 INFO  : Launching XSCT server: xsct -n -interactive /home/pslavkin/mse_3_21sdc/tp/tp.sdk/temp_xsdb_launch_script.tcl
+19:07:28 INFO  : XSCT server has started successfully.
+19:07:28 INFO  : Successfully done setting XSCT server connection channel  
+19:07:28 INFO  : Successfully done setting SDK workspace  
+19:07:28 INFO  : Processing command line option -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+19:07:28 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+19:07:31 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1575582925000,  Project:1575581429000
+19:07:31 INFO  : The hardware specification for project 'design_1_wrapper_hw_platform_0' is different from /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+19:07:31 INFO  : Copied contents of /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf into /design_1_wrapper_hw_platform_0/system.hdf.
+19:07:32 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+19:07:33 INFO  : 
+19:07:34 INFO  : Updating hardware inferred compiler options for tp.
+19:07:34 INFO  : Clearing existing target manager status.
+19:07:51 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+19:07:51 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+19:07:51 INFO  : 'jtag frequency' command is executed.
+19:07:51 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+19:07:52 INFO  : Context for 'APU' is selected.
+19:07:52 INFO  : System reset is completed.
+19:07:55 INFO  : 'after 3000' command is executed.
+19:07:55 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+19:07:57 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+19:07:57 INFO  : Context for 'APU' is selected.
+19:07:57 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+19:07:57 INFO  : 'configparams force-mem-access 1' command is executed.
+19:07:57 INFO  : Context for 'APU' is selected.
+19:07:59 INFO  : 'ps7_init' command is executed.
+19:07:59 INFO  : 'ps7_post_config' command is executed.
+19:07:59 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:07:59 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+19:07:59 INFO  : 'configparams force-mem-access 0' command is executed.
+19:07:59 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+19:08:00 INFO  : Memory regions updated for context APU
+19:08:00 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:08:00 INFO  : 'con' command is executed.
+19:08:00 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+19:08:00 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+19:08:36 INFO  : Disconnected from the channel tcfchan#1.
+19:08:37 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+19:08:37 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+19:08:37 INFO  : 'jtag frequency' command is executed.
+19:08:37 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+19:08:38 INFO  : Context for 'APU' is selected.
+19:08:38 INFO  : System reset is completed.
+19:08:41 INFO  : 'after 3000' command is executed.
+19:08:41 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+19:08:43 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+19:08:43 INFO  : Context for 'APU' is selected.
+19:08:44 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+19:08:44 INFO  : 'configparams force-mem-access 1' command is executed.
+19:08:44 INFO  : Context for 'APU' is selected.
+19:08:46 INFO  : 'ps7_init' command is executed.
+19:08:46 INFO  : 'ps7_post_config' command is executed.
+19:08:46 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:08:46 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+19:08:46 INFO  : 'configparams force-mem-access 0' command is executed.
+19:08:46 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+19:08:47 INFO  : Memory regions updated for context APU
+19:08:47 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+19:08:47 INFO  : 'con' command is executed.
+19:08:47 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+19:08:47 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+19:58:41 INFO  : Disconnected from the channel tcfchan#2.
+20:03:29 INFO  : Registering command handlers for SDK TCF services
+20:03:30 INFO  : Launching XSCT server: xsct -n -interactive /home/pslavkin/mse_3_21sdc/tp/tp.sdk/temp_xsdb_launch_script.tcl
+20:03:32 INFO  : XSCT server has started successfully.
+20:03:32 INFO  : Successfully done setting XSCT server connection channel  
+20:03:32 INFO  : Successfully done setting SDK workspace  
+20:03:32 INFO  : Processing command line option -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+20:03:32 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+20:08:57 INFO  : Registering command handlers for SDK TCF services
+20:08:58 INFO  : Launching XSCT server: xsct -n -interactive /home/pslavkin/mse_3_21sdc/tp/tp.sdk/temp_xsdb_launch_script.tcl
+20:09:00 INFO  : XSCT server has started successfully.
+20:09:00 INFO  : Successfully done setting XSCT server connection channel  
+20:09:01 INFO  : Successfully done setting SDK workspace  
+20:09:01 INFO  : Processing command line option -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+20:09:01 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+20:09:03 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1575587107000,  Project:1575582925000
+20:09:03 INFO  : The hardware specification for project 'design_1_wrapper_hw_platform_0' is different from /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+20:09:03 INFO  : Copied contents of /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf into /design_1_wrapper_hw_platform_0/system.hdf.
+20:09:05 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+20:09:06 INFO  : 
+20:09:07 INFO  : Updating hardware inferred compiler options for tp.
+20:09:07 INFO  : Clearing existing target manager status.
+20:09:28 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+20:09:28 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+20:09:28 INFO  : 'jtag frequency' command is executed.
+20:09:28 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+20:09:28 INFO  : Context for 'APU' is selected.
+20:09:28 INFO  : System reset is completed.
+20:09:31 INFO  : 'after 3000' command is executed.
+20:09:31 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+20:09:34 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+20:09:34 INFO  : Context for 'APU' is selected.
+20:09:34 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+20:09:34 INFO  : 'configparams force-mem-access 1' command is executed.
+20:09:34 INFO  : Context for 'APU' is selected.
+20:09:36 INFO  : 'ps7_init' command is executed.
+20:09:36 INFO  : 'ps7_post_config' command is executed.
+20:09:36 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:09:36 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:09:36 INFO  : 'configparams force-mem-access 0' command is executed.
+20:09:36 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:09:36 INFO  : Memory regions updated for context APU
+20:09:36 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:09:36 INFO  : 'con' command is executed.
+20:09:36 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+20:09:36 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+20:10:55 INFO  : Disconnected from the channel tcfchan#1.
+20:10:56 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+20:10:56 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+20:10:56 INFO  : 'jtag frequency' command is executed.
+20:10:56 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+20:10:56 INFO  : Context for 'APU' is selected.
+20:10:57 INFO  : System reset is completed.
+20:11:00 INFO  : 'after 3000' command is executed.
+20:11:00 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+20:11:02 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+20:11:02 INFO  : Context for 'APU' is selected.
+20:11:03 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+20:11:03 INFO  : 'configparams force-mem-access 1' command is executed.
+20:11:03 INFO  : Context for 'APU' is selected.
+20:11:05 INFO  : 'ps7_init' command is executed.
+20:11:05 INFO  : 'ps7_post_config' command is executed.
+20:11:05 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:11:05 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:11:05 INFO  : 'configparams force-mem-access 0' command is executed.
+20:11:05 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:11:05 INFO  : Memory regions updated for context APU
+20:11:05 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:11:05 INFO  : 'con' command is executed.
+20:11:05 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+20:11:05 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+20:11:19 INFO  : Disconnected from the channel tcfchan#2.
+20:11:20 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+20:11:20 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+20:11:20 INFO  : 'jtag frequency' command is executed.
+20:11:20 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+20:11:20 INFO  : Context for 'APU' is selected.
+20:11:20 INFO  : System reset is completed.
+20:11:23 INFO  : 'after 3000' command is executed.
+20:11:24 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+20:11:26 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+20:11:26 INFO  : Context for 'APU' is selected.
+20:11:26 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+20:11:26 INFO  : 'configparams force-mem-access 1' command is executed.
+20:11:26 INFO  : Context for 'APU' is selected.
+20:11:28 INFO  : 'ps7_init' command is executed.
+20:11:28 INFO  : 'ps7_post_config' command is executed.
+20:11:28 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:11:28 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:11:28 INFO  : 'configparams force-mem-access 0' command is executed.
+20:11:28 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:11:28 INFO  : Memory regions updated for context APU
+20:11:28 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:11:28 INFO  : 'con' command is executed.
+20:11:28 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+20:11:28 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+20:12:22 INFO  : Disconnected from the channel tcfchan#3.
+20:50:25 INFO  : Registering command handlers for SDK TCF services
+20:50:26 INFO  : Launching XSCT server: xsct -n -interactive /home/pslavkin/mse_3_21sdc/tp/tp.sdk/temp_xsdb_launch_script.tcl
+20:50:28 INFO  : XSCT server has started successfully.
+20:50:28 INFO  : Successfully done setting XSCT server connection channel  
+20:50:28 INFO  : Successfully done setting SDK workspace  
+20:50:28 INFO  : Processing command line option -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+20:50:28 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+20:50:30 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1575589737000,  Project:1575587107000
+20:50:30 INFO  : The hardware specification for project 'design_1_wrapper_hw_platform_0' is different from /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+20:50:30 INFO  : Copied contents of /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf into /design_1_wrapper_hw_platform_0/system.hdf.
+20:50:32 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+20:50:33 INFO  : 
+20:50:34 INFO  : Updating hardware inferred compiler options for tp.
+20:50:34 INFO  : Clearing existing target manager status.
+20:51:19 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+20:51:19 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+20:51:19 INFO  : 'jtag frequency' command is executed.
+20:51:19 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+20:51:19 INFO  : Context for 'APU' is selected.
+20:51:19 INFO  : System reset is completed.
+20:51:22 INFO  : 'after 3000' command is executed.
+20:51:23 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+20:51:25 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+20:51:25 INFO  : Context for 'APU' is selected.
+20:51:25 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+20:51:25 INFO  : 'configparams force-mem-access 1' command is executed.
+20:51:25 INFO  : Context for 'APU' is selected.
+20:51:27 INFO  : 'ps7_init' command is executed.
+20:51:27 INFO  : 'ps7_post_config' command is executed.
+20:51:27 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:51:27 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+20:51:27 INFO  : 'configparams force-mem-access 0' command is executed.
+20:51:27 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+20:51:28 INFO  : Memory regions updated for context APU
+20:51:28 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+20:51:28 INFO  : 'con' command is executed.
+20:51:28 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+20:51:28 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+21:03:01 INFO  : Disconnected from the channel tcfchan#1.
+21:07:35 INFO  : Registering command handlers for SDK TCF services
+21:07:36 INFO  : Launching XSCT server: xsct -n -interactive /home/pslavkin/mse_3_21sdc/tp/tp.sdk/temp_xsdb_launch_script.tcl
+21:07:38 INFO  : XSCT server has started successfully.
+21:07:38 INFO  : Successfully done setting XSCT server connection channel  
+21:07:38 INFO  : Successfully done setting SDK workspace  
+21:07:38 INFO  : Processing command line option -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+21:07:38 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+21:07:41 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1575590836000,  Project:1575589737000
+21:07:41 INFO  : The hardware specification for project 'design_1_wrapper_hw_platform_0' is different from /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+21:07:41 INFO  : Copied contents of /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf into /design_1_wrapper_hw_platform_0/system.hdf.
+21:07:42 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+21:07:43 INFO  : 
+21:07:44 INFO  : Updating hardware inferred compiler options for tp.
+21:07:44 INFO  : Clearing existing target manager status.
+21:08:10 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+21:08:10 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+21:08:10 INFO  : 'jtag frequency' command is executed.
+21:08:10 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+21:08:11 INFO  : Context for 'APU' is selected.
+21:08:11 INFO  : System reset is completed.
+21:08:14 INFO  : 'after 3000' command is executed.
+21:08:14 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+21:08:16 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+21:08:16 INFO  : Context for 'APU' is selected.
+21:08:16 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+21:08:16 INFO  : 'configparams force-mem-access 1' command is executed.
+21:08:16 INFO  : Context for 'APU' is selected.
+21:08:18 INFO  : 'ps7_init' command is executed.
+21:08:18 INFO  : 'ps7_post_config' command is executed.
+21:08:18 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:08:19 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:08:19 INFO  : 'configparams force-mem-access 0' command is executed.
+21:08:19 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:08:19 INFO  : Memory regions updated for context APU
+21:08:19 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:08:19 INFO  : 'con' command is executed.
+21:08:19 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+21:08:19 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+21:08:40 INFO  : Disconnected from the channel tcfchan#1.
+21:09:13 INFO  : Registering command handlers for SDK TCF services
+21:09:14 INFO  : Launching XSCT server: xsct -n -interactive /home/pslavkin/mse_3_21sdc/tp/tp.sdk/temp_xsdb_launch_script.tcl
+21:09:16 INFO  : XSCT server has started successfully.
+21:09:16 INFO  : Successfully done setting XSCT server connection channel  
+21:09:16 INFO  : Successfully done setting SDK workspace  
+21:09:16 INFO  : Processing command line option -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+21:09:16 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+01:29:03 INFO  : Registering command handlers for SDK TCF services
+01:29:04 INFO  : Launching XSCT server: xsct -n -interactive /home/pslavkin/mse_3_21sdc/tp/tp.sdk/temp_xsdb_launch_script.tcl
+01:29:06 INFO  : XSCT server has started successfully.
+01:29:06 INFO  : Successfully done setting XSCT server connection channel  
+01:29:06 INFO  : Successfully done setting SDK workspace  
+01:29:06 INFO  : Processing command line option -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+01:29:06 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+01:29:09 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1575865198000,  Project:1575590836000
+01:29:09 INFO  : The hardware specification for project 'design_1_wrapper_hw_platform_0' is different from /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+01:29:09 INFO  : Copied contents of /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf into /design_1_wrapper_hw_platform_0/system.hdf.
+01:29:10 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+01:29:11 INFO  : 
+01:29:12 INFO  : Updating hardware inferred compiler options for tp.
+01:29:43 INFO  : Clearing existing target manager status.
+01:36:21 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+01:36:21 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+01:36:21 INFO  : 'jtag frequency' command is executed.
+01:36:21 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+01:36:21 INFO  : Context for 'APU' is selected.
+01:36:22 INFO  : System reset is completed.
+01:36:25 INFO  : 'after 3000' command is executed.
+01:36:25 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+01:36:27 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+01:36:27 INFO  : Context for 'APU' is selected.
+01:36:27 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+01:36:27 INFO  : 'configparams force-mem-access 1' command is executed.
+01:36:27 INFO  : Context for 'APU' is selected.
+01:36:29 INFO  : 'ps7_init' command is executed.
+01:36:29 INFO  : 'ps7_post_config' command is executed.
+01:36:29 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+01:36:29 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+01:36:29 INFO  : 'configparams force-mem-access 0' command is executed.
+01:36:29 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+01:36:29 INFO  : Memory regions updated for context APU
+01:36:29 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+01:36:29 INFO  : 'con' command is executed.
+01:36:29 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+01:36:29 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+01:39:14 INFO  : Disconnected from the channel tcfchan#1.
+01:39:15 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+01:39:15 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+01:39:15 INFO  : 'jtag frequency' command is executed.
+01:39:15 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+01:39:15 INFO  : Context for 'APU' is selected.
+01:39:15 INFO  : System reset is completed.
+01:39:18 INFO  : 'after 3000' command is executed.
+01:39:18 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+01:39:21 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+01:39:21 INFO  : Context for 'APU' is selected.
+01:39:22 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+01:39:22 INFO  : 'configparams force-mem-access 1' command is executed.
+01:39:22 INFO  : Context for 'APU' is selected.
+01:39:23 INFO  : 'ps7_init' command is executed.
+01:39:23 INFO  : 'ps7_post_config' command is executed.
+01:39:23 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+01:39:24 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+01:39:24 INFO  : 'configparams force-mem-access 0' command is executed.
+01:39:24 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+01:39:24 INFO  : Memory regions updated for context APU
+01:39:24 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+01:39:24 INFO  : 'con' command is executed.
+01:39:24 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+01:39:24 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+01:40:55 INFO  : Disconnected from the channel tcfchan#2.
+01:55:52 INFO  : Registering command handlers for SDK TCF services
+01:55:53 INFO  : Launching XSCT server: xsct -n -interactive /home/pslavkin/mse_3_21sdc/tp/tp.sdk/temp_xsdb_launch_script.tcl
+01:55:55 INFO  : XSCT server has started successfully.
+01:55:55 INFO  : Successfully done setting XSCT server connection channel  
+01:55:55 INFO  : Successfully done setting SDK workspace  
+01:55:55 INFO  : Processing command line option -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+01:55:55 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+01:55:58 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1575867067000,  Project:1575865198000
+01:55:58 INFO  : The hardware specification for project 'design_1_wrapper_hw_platform_0' is different from /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+01:55:58 INFO  : Copied contents of /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf into /design_1_wrapper_hw_platform_0/system.hdf.
+01:55:59 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+01:56:00 INFO  : 
+01:56:01 INFO  : Updating hardware inferred compiler options for tp.
+01:56:01 INFO  : Clearing existing target manager status.
+01:56:25 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+01:56:25 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+01:56:25 INFO  : 'jtag frequency' command is executed.
+01:56:25 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+01:56:25 INFO  : Context for 'APU' is selected.
+01:56:25 INFO  : System reset is completed.
+01:56:28 INFO  : 'after 3000' command is executed.
+01:56:28 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+01:56:31 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+01:56:31 INFO  : Context for 'APU' is selected.
+01:56:31 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+01:56:31 INFO  : 'configparams force-mem-access 1' command is executed.
+01:56:31 INFO  : Context for 'APU' is selected.
+01:56:33 INFO  : 'ps7_init' command is executed.
+01:56:33 INFO  : 'ps7_post_config' command is executed.
+01:56:33 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+01:56:33 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+01:56:33 INFO  : 'configparams force-mem-access 0' command is executed.
+01:56:33 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+01:56:33 INFO  : Memory regions updated for context APU
+01:56:33 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+01:56:33 INFO  : 'con' command is executed.
+01:56:33 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+01:56:33 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+01:58:39 INFO  : Disconnected from the channel tcfchan#1.
+01:58:40 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+01:58:40 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+01:58:40 INFO  : 'jtag frequency' command is executed.
+01:58:40 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+01:58:40 INFO  : Context for 'APU' is selected.
+01:58:40 INFO  : System reset is completed.
+01:58:43 INFO  : 'after 3000' command is executed.
+01:58:43 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+01:58:46 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+01:58:46 INFO  : Context for 'APU' is selected.
+01:58:47 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+01:58:47 INFO  : 'configparams force-mem-access 1' command is executed.
+01:58:47 INFO  : Context for 'APU' is selected.
+01:58:48 INFO  : 'ps7_init' command is executed.
+01:58:48 INFO  : 'ps7_post_config' command is executed.
+01:58:48 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+01:58:49 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+01:58:49 INFO  : 'configparams force-mem-access 0' command is executed.
+01:58:49 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+01:58:49 INFO  : Memory regions updated for context APU
+01:58:49 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+01:58:49 INFO  : 'con' command is executed.
+01:58:49 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+01:58:49 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+02:01:21 INFO  : Disconnected from the channel tcfchan#2.
+02:12:04 INFO  : Registering command handlers for SDK TCF services
+02:12:05 INFO  : Launching XSCT server: xsct -n -interactive /home/pslavkin/mse_3_21sdc/tp/tp.sdk/temp_xsdb_launch_script.tcl
+02:12:07 INFO  : XSCT server has started successfully.
+02:12:07 INFO  : Successfully done setting XSCT server connection channel  
+02:12:07 INFO  : Successfully done setting SDK workspace  
+02:12:07 INFO  : Processing command line option -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+02:12:08 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+02:12:10 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1575868069000,  Project:1575867067000
+02:12:10 INFO  : The hardware specification for project 'design_1_wrapper_hw_platform_0' is different from /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+02:12:10 INFO  : Copied contents of /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf into /design_1_wrapper_hw_platform_0/system.hdf.
+02:12:11 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+02:12:12 INFO  : 
+02:12:13 INFO  : Updating hardware inferred compiler options for tp.
+02:12:13 INFO  : Clearing existing target manager status.
+02:12:34 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+02:12:34 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+02:12:34 INFO  : 'jtag frequency' command is executed.
+02:12:34 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+02:12:34 INFO  : Context for 'APU' is selected.
+02:12:35 INFO  : System reset is completed.
+02:12:38 INFO  : 'after 3000' command is executed.
+02:12:38 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+02:12:40 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+02:12:40 INFO  : Context for 'APU' is selected.
+02:12:40 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+02:12:40 INFO  : 'configparams force-mem-access 1' command is executed.
+02:12:40 INFO  : Context for 'APU' is selected.
+02:12:42 INFO  : 'ps7_init' command is executed.
+02:12:42 INFO  : 'ps7_post_config' command is executed.
+02:12:42 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:12:42 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+02:12:42 INFO  : 'configparams force-mem-access 0' command is executed.
+02:12:42 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+02:12:42 INFO  : Memory regions updated for context APU
+02:12:42 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:12:42 INFO  : 'con' command is executed.
+02:12:42 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+02:12:42 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+02:14:18 INFO  : Disconnected from the channel tcfchan#1.
+02:33:47 INFO  : Registering command handlers for SDK TCF services
+02:33:48 INFO  : Launching XSCT server: xsct -n -interactive /home/pslavkin/mse_3_21sdc/tp/tp.sdk/temp_xsdb_launch_script.tcl
+02:33:50 INFO  : XSCT server has started successfully.
+02:33:50 INFO  : Successfully done setting XSCT server connection channel  
+02:33:50 INFO  : Successfully done setting SDK workspace  
+02:33:50 INFO  : Processing command line option -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+02:33:50 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+02:33:52 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1575869421000,  Project:1575868069000
+02:33:52 INFO  : The hardware specification for project 'design_1_wrapper_hw_platform_0' is different from /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+02:33:52 INFO  : Copied contents of /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf into /design_1_wrapper_hw_platform_0/system.hdf.
+02:33:54 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+02:33:55 INFO  : 
+02:33:56 INFO  : Updating hardware inferred compiler options for tp.
+02:33:56 INFO  : Clearing existing target manager status.
+02:34:20 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+02:34:20 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+02:34:20 INFO  : 'jtag frequency' command is executed.
+02:34:20 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+02:34:20 INFO  : Context for 'APU' is selected.
+02:34:20 INFO  : System reset is completed.
+02:34:23 INFO  : 'after 3000' command is executed.
+02:34:23 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+02:34:26 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+02:34:26 INFO  : Context for 'APU' is selected.
+02:34:26 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+02:34:26 INFO  : 'configparams force-mem-access 1' command is executed.
+02:34:26 INFO  : Context for 'APU' is selected.
+02:34:27 INFO  : 'ps7_init' command is executed.
+02:34:27 INFO  : 'ps7_post_config' command is executed.
+02:34:27 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:34:28 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+02:34:28 INFO  : 'configparams force-mem-access 0' command is executed.
+02:34:28 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+02:34:28 INFO  : Memory regions updated for context APU
+02:34:28 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:34:28 INFO  : 'con' command is executed.
+02:34:28 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+02:34:28 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+02:41:24 INFO  : Disconnected from the channel tcfchan#1.
+02:54:28 INFO  : Registering command handlers for SDK TCF services
+02:54:29 INFO  : Launching XSCT server: xsct -n -interactive /home/pslavkin/mse_3_21sdc/tp/tp.sdk/temp_xsdb_launch_script.tcl
+02:54:31 INFO  : XSCT server has started successfully.
+02:54:31 INFO  : Successfully done setting XSCT server connection channel  
+02:54:31 INFO  : Successfully done setting SDK workspace  
+02:54:31 INFO  : Processing command line option -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf.
+02:54:31 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+02:55:06 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+02:55:06 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+02:55:06 INFO  : 'jtag frequency' command is executed.
+02:55:06 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+02:55:06 INFO  : Context for 'APU' is selected.
+02:55:07 INFO  : System reset is completed.
+02:55:10 INFO  : 'after 3000' command is executed.
+02:55:10 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+02:55:12 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+02:55:12 INFO  : Context for 'APU' is selected.
+02:55:12 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+02:55:12 INFO  : 'configparams force-mem-access 1' command is executed.
+02:55:12 INFO  : Context for 'APU' is selected.
+02:55:14 INFO  : 'ps7_init' command is executed.
+02:55:14 INFO  : 'ps7_post_config' command is executed.
+02:55:14 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:55:14 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+02:55:14 INFO  : 'configparams force-mem-access 0' command is executed.
+02:55:14 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+02:55:14 INFO  : Memory regions updated for context APU
+02:55:14 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:55:14 INFO  : 'con' command is executed.
+02:55:14 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+02:55:14 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+02:56:24 INFO  : Disconnected from the channel tcfchan#1.
+02:56:25 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+02:56:25 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+02:56:25 INFO  : 'jtag frequency' command is executed.
+02:56:25 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+02:56:26 INFO  : Context for 'APU' is selected.
+02:56:26 INFO  : System reset is completed.
+02:56:29 INFO  : 'after 3000' command is executed.
+02:56:29 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+02:56:31 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+02:56:31 INFO  : Context for 'APU' is selected.
+02:56:32 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+02:56:32 INFO  : 'configparams force-mem-access 1' command is executed.
+02:56:32 INFO  : Context for 'APU' is selected.
+02:56:34 INFO  : 'ps7_init' command is executed.
+02:56:34 INFO  : 'ps7_post_config' command is executed.
+02:56:34 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:56:34 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+02:56:34 INFO  : 'configparams force-mem-access 0' command is executed.
+02:56:34 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+02:56:34 INFO  : Memory regions updated for context APU
+02:56:34 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:56:34 INFO  : 'con' command is executed.
+02:56:34 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+02:56:34 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+02:57:19 INFO  : Disconnected from the channel tcfchan#2.
+02:57:20 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+02:57:20 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+02:57:20 INFO  : 'jtag frequency' command is executed.
+02:57:20 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+02:57:20 INFO  : Context for 'APU' is selected.
+02:57:20 INFO  : System reset is completed.
+02:57:23 INFO  : 'after 3000' command is executed.
+02:57:23 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+02:57:26 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+02:57:26 INFO  : Context for 'APU' is selected.
+02:57:27 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+02:57:27 INFO  : 'configparams force-mem-access 1' command is executed.
+02:57:27 INFO  : Context for 'APU' is selected.
+02:57:28 INFO  : 'ps7_init' command is executed.
+02:57:28 INFO  : 'ps7_post_config' command is executed.
+02:57:29 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:57:29 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+02:57:29 INFO  : 'configparams force-mem-access 0' command is executed.
+02:57:29 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+02:57:29 INFO  : Memory regions updated for context APU
+02:57:29 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:57:29 INFO  : 'con' command is executed.
+02:57:29 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+02:57:29 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+02:59:32 INFO  : Disconnected from the channel tcfchan#3.
+02:59:33 INFO  : Connected to target on host '192.168.2.3' and port '3121'.
+02:59:33 INFO  : Jtag cable 'Digilent Arty Z7 003017A5C53CA' is selected.
+02:59:33 INFO  : 'jtag frequency' command is executed.
+02:59:33 INFO  : Sourcing of '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+02:59:33 INFO  : Context for 'APU' is selected.
+02:59:33 INFO  : System reset is completed.
+02:59:36 INFO  : 'after 3000' command is executed.
+02:59:36 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1' command is executed.
+02:59:39 INFO  : FPGA configured successfully with bitstream "/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit"
+02:59:39 INFO  : Context for 'APU' is selected.
+02:59:39 INFO  : Hardware design information is loaded from '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf'.
+02:59:40 INFO  : 'configparams force-mem-access 1' command is executed.
+02:59:40 INFO  : Context for 'APU' is selected.
+02:59:41 INFO  : 'ps7_init' command is executed.
+02:59:41 INFO  : 'ps7_post_config' command is executed.
+02:59:41 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:59:41 INFO  : The application '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+02:59:41 INFO  : 'configparams force-mem-access 0' command is executed.
+02:59:41 INFO  : ----------------XSDB Script----------------
+connect -url tcp:192.168.2.3:3121
+source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA" && level==0} -index 1
+fpga -file /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+loadhw -hw /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+dow /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/Debug/tp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+02:59:42 INFO  : Memory regions updated for context APU
+02:59:42 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:59:42 INFO  : 'con' command is executed.
+02:59:42 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
+con
+----------------End of Script----------------
+
+02:59:42 INFO  : Launch script is exported to file '/home/pslavkin/mse_3_21sdc/tp/tp.sdk/.sdk/launch_scripts/xilinx_c-c++_application_(system_debugger)/system_debugger_using_debug_tp.elf_on_local.tcl'
+03:46:40 INFO  : Disconnected from the channel tcfchan#4.
