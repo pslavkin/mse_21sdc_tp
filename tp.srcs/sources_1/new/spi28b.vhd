@@ -7,7 +7,7 @@ entity spi28b is
            spi_miso : out   STD_LOGIC;
            cs       : in    std_logic;
            outData  : out   std_logic_vector (7 downto 0);
-           inData   : in    std_logic_vector (7 downto 0),
+           inData   : in    std_logic_vector (7 downto 0);
            ledsData : out   std_logic_vector (3 downto 0);
            clk      : in    STD_LOGIC);
 end spi28b;

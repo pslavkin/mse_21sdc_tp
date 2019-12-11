@@ -1,7 +1,7 @@
 v 4
-file . "spi28b.vhd" "1d987d7ca9125c7104e2490004477c27b4c02662" "20191210235651.873":
-  entity spi28b at 1( 0) + 0 on 73;
-  architecture behavioral of spi28b at 15( 434) + 0 on 74;
-file . "tp_tb.vhdl" "8ec229141b1967765273cc53ae7a659a92488266" "20191210235651.860":
-  entity tp_tb at 1( 0) + 0 on 71;
-  architecture arq of tp_tb at 8( 92) + 0 on 72;
+file . "../tp.srcs/sources_1/new/spi28b.vhd" "8a3f779717c60cdcfd1a7360173362d7f3781779" "20191211113026.659":
+  entity spi28b at 1( 0) + 0 on 89;
+  architecture behavioral of spi28b at 15( 434) + 0 on 90;
+file . "tp_tb.vhdl" "07ce09fba631c0000fbb5f80706fb464726c1044" "20191211113026.640":
+  entity tp_tb at 1( 0) + 0 on 87;
+  architecture arq of tp_tb at 8( 92) + 0 on 88;
