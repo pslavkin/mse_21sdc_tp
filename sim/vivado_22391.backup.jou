@@ -1,0 +1,23 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Sun Dec 29 14:32:50 2019
+# Process ID: 22391
+# Current directory: /home/pslavkin/mse_3_21sdc/tp/sim
+# Command line: vivado
+# Log file: /home/pslavkin/mse_3_21sdc/tp/sim/vivado.log
+# Journal file: /home/pslavkin/mse_3_21sdc/tp/sim/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/pslavkin/mse_3_21sdc/tp/tp.xpr
+update_compile_order -fileset sources_1
+file copy -force /home/pslavkin/mse_3_21sdc/tp/tp.runs/impl_1/design_1_wrapper.sysdef /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf
+
+launch_sdk -workspace /home/pslavkin/mse_3_21sdc/tp/tp.sdk -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf
+open_bd_design {/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd}
+connect_bd_net [get_bd_pins processing_system7_0/SPI0_SS_O] [get_bd_pins axi_gpio_0/gpio_io_i]
+save_bd_design
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1

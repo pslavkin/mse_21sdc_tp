@@ -1,4 +1,4 @@
-connect -url tcp:192.168.2.3:3121
+connect -url tcp:127.0.0.1:3121
 source /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
 targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Arty Z7 003017A5C53CA"} -index 0
 rst -system
