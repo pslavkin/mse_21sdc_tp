@@ -1,7 +1,7 @@
 // Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-// Date        : Mon Dec 30 06:02:47 2019
+// Date        : Tue Dec 31 10:18:21 2019
 // Host        : work1 running 64-bit Debian GNU/Linux 10 (buster)
 // Command     : write_verilog -force -mode funcsim
 //               /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0_sim_netlist.v
@@ -94,9 +94,9 @@ module design_1_processing_system7_0_0
     PS_SRSTB,
     PS_CLK,
     PS_PORB);
-  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 GPIO_0 TRI_I" *) input [0:0]GPIO_I;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 GPIO_0 TRI_O" *) output [0:0]GPIO_O;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 GPIO_0 TRI_T" *) output [0:0]GPIO_T;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 GPIO_0 TRI_I" *) input [7:0]GPIO_I;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 GPIO_0 TRI_O" *) output [7:0]GPIO_O;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 GPIO_0 TRI_T" *) output [7:0]GPIO_T;
   (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 SPI_0 SCK_I" *) input SPI0_SCLK_I;
   (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 SPI_0 SCK_O" *) output SPI0_SCLK_O;
   (* X_INTERFACE_INFO = "xilinx.com:interface:spi:1.0 SPI_0 SCK_T" *) output SPI0_SCLK_T;
@@ -193,9 +193,9 @@ module design_1_processing_system7_0_0
   wire DDR_WEB;
   wire FCLK_CLK0;
   wire FCLK_RESET0_N;
-  wire [0:0]GPIO_I;
-  wire [0:0]GPIO_O;
-  wire [0:0]GPIO_T;
+  wire [7:0]GPIO_I;
+  wire [7:0]GPIO_O;
+  wire [7:0]GPIO_T;
   wire [53:0]MIO;
   wire M_AXI_GP0_ACLK;
   wire [31:0]M_AXI_GP0_ARADDR;
@@ -538,7 +538,7 @@ module design_1_processing_system7_0_0
   (* C_DM_WIDTH = "4" *) 
   (* C_DQS_WIDTH = "4" *) 
   (* C_DQ_WIDTH = "32" *) 
-  (* C_EMIO_GPIO_WIDTH = "1" *) 
+  (* C_EMIO_GPIO_WIDTH = "8" *) 
   (* C_EN_EMIO_ENET0 = "0" *) 
   (* C_EN_EMIO_ENET1 = "0" *) 
   (* C_EN_EMIO_PJTAG = "0" *) 
@@ -1282,7 +1282,7 @@ module design_1_processing_system7_0_0
 endmodule
 
 (* C_DM_WIDTH = "4" *) (* C_DQS_WIDTH = "4" *) (* C_DQ_WIDTH = "32" *) 
-(* C_EMIO_GPIO_WIDTH = "1" *) (* C_EN_EMIO_ENET0 = "0" *) (* C_EN_EMIO_ENET1 = "0" *) 
+(* C_EMIO_GPIO_WIDTH = "8" *) (* C_EN_EMIO_ENET0 = "0" *) (* C_EN_EMIO_ENET1 = "0" *) 
 (* C_EN_EMIO_PJTAG = "0" *) (* C_EN_EMIO_TRACE = "0" *) (* C_FCLK_CLK0_BUF = "TRUE" *) 
 (* C_FCLK_CLK1_BUF = "FALSE" *) (* C_FCLK_CLK2_BUF = "FALSE" *) (* C_FCLK_CLK3_BUF = "FALSE" *) 
 (* C_GP0_EN_MODIFIABLE_TXN = "1" *) (* C_GP1_EN_MODIFIABLE_TXN = "1" *) (* C_INCLUDE_ACP_TRANS_CHECK = "0" *) 
@@ -2041,9 +2041,9 @@ module design_1_processing_system7_0_0_processing_system7_v5_5_processing_system
   input ENET1_MDIO_I;
   input ENET1_EXT_INTIN;
   input [7:0]ENET1_GMII_RXD;
-  input [0:0]GPIO_I;
-  output [0:0]GPIO_O;
-  output [0:0]GPIO_T;
+  input [7:0]GPIO_I;
+  output [7:0]GPIO_O;
+  output [7:0]GPIO_T;
   input I2C0_SDA_I;
   output I2C0_SDA_O;
   output I2C0_SDA_T;
@@ -2806,9 +2806,9 @@ module design_1_processing_system7_0_0_processing_system7_v5_5_processing_system
   wire FTMT_P2F_TRIG_1;
   wire FTMT_P2F_TRIG_2;
   wire FTMT_P2F_TRIG_3;
-  wire [0:0]GPIO_I;
-  wire [0:0]GPIO_O;
-  wire [0:0]GPIO_T;
+  wire [7:0]GPIO_I;
+  wire [7:0]GPIO_O;
+  wire [7:0]GPIO_T;
   wire I2C0_SCL_I;
   wire I2C0_SCL_O;
   wire I2C0_SCL_T;
@@ -3389,7 +3389,7 @@ module design_1_processing_system7_0_0_processing_system7_v5_5_processing_system
   wire buffered_PS_CLK;
   wire buffered_PS_PORB;
   wire buffered_PS_SRSTB;
-  wire gpio_out_t_n;
+  wire [7:0]gpio_out_t_n;
   wire NLW_PS7_i_EMIOENET0GMIITXEN_UNCONNECTED;
   wire NLW_PS7_i_EMIOENET0GMIITXER_UNCONNECTED;
   wire NLW_PS7_i_EMIOENET1GMIITXEN_UNCONNECTED;
@@ -3399,8 +3399,8 @@ module design_1_processing_system7_0_0_processing_system7_v5_5_processing_system
   wire NLW_PS7_i_EMIOTRACECTL_UNCONNECTED;
   wire [7:0]NLW_PS7_i_EMIOENET0GMIITXD_UNCONNECTED;
   wire [7:0]NLW_PS7_i_EMIOENET1GMIITXD_UNCONNECTED;
-  wire [63:1]NLW_PS7_i_EMIOGPIOO_UNCONNECTED;
-  wire [63:1]NLW_PS7_i_EMIOGPIOTN_UNCONNECTED;
+  wire [63:8]NLW_PS7_i_EMIOGPIOO_UNCONNECTED;
+  wire [63:8]NLW_PS7_i_EMIOGPIOTN_UNCONNECTED;
   wire [31:0]NLW_PS7_i_EMIOTRACEDATA_UNCONNECTED;
   wire [1:1]NLW_PS7_i_MAXIGP0ARCACHE_UNCONNECTED;
   wire [1:1]NLW_PS7_i_MAXIGP0AWCACHE_UNCONNECTED;
@@ -3510,8 +3510,43 @@ module design_1_processing_system7_0_0_processing_system7_v5_5_processing_system
   LUT1 #(
     .INIT(2'h1)) 
     \GPIO_T[0]_INST_0 
-       (.I0(gpio_out_t_n),
-        .O(GPIO_T));
+       (.I0(gpio_out_t_n[0]),
+        .O(GPIO_T[0]));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \GPIO_T[1]_INST_0 
+       (.I0(gpio_out_t_n[1]),
+        .O(GPIO_T[1]));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \GPIO_T[2]_INST_0 
+       (.I0(gpio_out_t_n[2]),
+        .O(GPIO_T[2]));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \GPIO_T[3]_INST_0 
+       (.I0(gpio_out_t_n[3]),
+        .O(GPIO_T[3]));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \GPIO_T[4]_INST_0 
+       (.I0(gpio_out_t_n[4]),
+        .O(GPIO_T[4]));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \GPIO_T[5]_INST_0 
+       (.I0(gpio_out_t_n[5]),
+        .O(GPIO_T[5]));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \GPIO_T[6]_INST_0 
+       (.I0(gpio_out_t_n[6]),
+        .O(GPIO_T[6]));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \GPIO_T[7]_INST_0 
+       (.I0(gpio_out_t_n[7]),
+        .O(GPIO_T[7]));
   LUT1 #(
     .INIT(2'h1)) 
     I2C0_SCL_T_INST_0
@@ -3642,9 +3677,9 @@ module design_1_processing_system7_0_0_processing_system7_v5_5_processing_system
         .EMIOENET1PTPSYNCFRAMETX(ENET1_PTP_SYNC_FRAME_TX),
         .EMIOENET1SOFRX(ENET1_SOF_RX),
         .EMIOENET1SOFTX(ENET1_SOF_TX),
-        .EMIOGPIOI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,GPIO_I}),
-        .EMIOGPIOO({NLW_PS7_i_EMIOGPIOO_UNCONNECTED[63:1],GPIO_O}),
-        .EMIOGPIOTN({NLW_PS7_i_EMIOGPIOTN_UNCONNECTED[63:1],gpio_out_t_n}),
+        .EMIOGPIOI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,GPIO_I}),
+        .EMIOGPIOO({NLW_PS7_i_EMIOGPIOO_UNCONNECTED[63:8],GPIO_O}),
+        .EMIOGPIOTN({NLW_PS7_i_EMIOGPIOTN_UNCONNECTED[63:8],gpio_out_t_n}),
         .EMIOI2C0SCLI(I2C0_SCL_I),
         .EMIOI2C0SCLO(I2C0_SCL_O),
         .EMIOI2C0SCLTN(I2C0_SCL_T_n),

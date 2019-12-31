@@ -1,7 +1,7 @@
 --Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
---Date        : Mon Dec 30 09:23:48 2019
+--Date        : Tue Dec 31 11:25:03 2019
 --Host        : work1 running 64-bit Debian GNU/Linux 10 (buster)
 --Command     : generate_target design_1.bd
 --Design      : design_1
@@ -1889,7 +1889,7 @@ entity design_1 is
     rgb_led_tri_t : out STD_LOGIC_VECTOR ( 5 downto 0 )
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of design_1 : entity is "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=11,numReposBlks=7,numNonXlnxBlks=0,numHierBlks=4,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=2,da_board_cnt=4,da_clkrst_cnt=2,da_ps7_cnt=1,synth_mode=OOC_per_IP}";
+  attribute CORE_GENERATION_INFO of design_1 : entity is "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=13,numReposBlks=9,numNonXlnxBlks=0,numHierBlks=4,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=2,da_board_cnt=4,da_clkrst_cnt=2,da_ps7_cnt=1,synth_mode=OOC_per_IP}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of design_1 : entity is "design_1.hwdef";
 end design_1;
@@ -1897,9 +1897,9 @@ end design_1;
 architecture STRUCTURE of design_1 is
   component design_1_processing_system7_0_0 is
   port (
-    GPIO_I : in STD_LOGIC_VECTOR ( 0 to 0 );
-    GPIO_O : out STD_LOGIC_VECTOR ( 0 to 0 );
-    GPIO_T : out STD_LOGIC_VECTOR ( 0 to 0 );
+    GPIO_I : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    GPIO_O : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    GPIO_T : out STD_LOGIC_VECTOR ( 7 downto 0 );
     SPI0_SCLK_I : in STD_LOGIC;
     SPI0_SCLK_O : out STD_LOGIC;
     SPI0_SCLK_T : out STD_LOGIC;
@@ -2019,15 +2019,36 @@ architecture STRUCTURE of design_1 is
     peripheral_aresetn : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component design_1_rst_ps7_0_10M_0;
+  component design_1_xlslice_0_0 is
+  port (
+    Din : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    Dout : out STD_LOGIC_VECTOR ( 0 to 0 )
+  );
+  end component design_1_xlslice_0_0;
+  component design_1_xlconcat_0_0 is
+  port (
+    In0 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    In1 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    In2 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    In3 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    In4 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    In5 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    In6 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    In7 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    dout : out STD_LOGIC_VECTOR ( 7 downto 0 )
+  );
+  end component design_1_xlconcat_0_0;
   component design_1_spi28b_0_0 is
   port (
     spi_mosi : in STD_LOGIC;
+    stop_data : out STD_LOGIC;
     spi_miso : out STD_LOGIC;
     cs : in STD_LOGIC;
     outData : out STD_LOGIC_VECTOR ( 7 downto 0 );
     inData : in STD_LOGIC_VECTOR ( 7 downto 0 );
     ledsData : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    clk : in STD_LOGIC
+    spi_clk : in STD_LOGIC;
+    sys_clk : in STD_LOGIC
   );
   end component design_1_spi28b_0_0;
   signal axi_gpio_0_GPIO2_TRI_I : STD_LOGIC_VECTOR ( 5 downto 0 );
@@ -2057,7 +2078,7 @@ architecture STRUCTURE of design_1 is
   signal processing_system7_0_FIXED_IO_PS_CLK : STD_LOGIC;
   signal processing_system7_0_FIXED_IO_PS_PORB : STD_LOGIC;
   signal processing_system7_0_FIXED_IO_PS_SRSTB : STD_LOGIC;
-  signal processing_system7_0_GPIO_O : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal processing_system7_0_GPIO_O : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal processing_system7_0_M_AXI_GP0_ARADDR : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal processing_system7_0_M_AXI_GP0_ARBURST : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal processing_system7_0_M_AXI_GP0_ARCACHE : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -2119,6 +2140,9 @@ architecture STRUCTURE of design_1 is
   signal spi28b_0_ledsData : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal spi28b_0_outData : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal spi28b_0_spi_miso : STD_LOGIC;
+  signal spi28b_0_stop_data : STD_LOGIC;
+  signal xlconcat_0_dout : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal xlslice_0_Dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_processing_system7_0_SPI0_MISO_O_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_SPI0_MISO_T_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_SPI0_MOSI_T_UNCONNECTED : STD_LOGIC;
@@ -2127,7 +2151,7 @@ architecture STRUCTURE of design_1 is
   signal NLW_processing_system7_0_SPI0_SS2_O_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_SPI0_SS_O_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_SPI0_SS_T_UNCONNECTED : STD_LOGIC;
-  signal NLW_processing_system7_0_GPIO_T_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal NLW_processing_system7_0_GPIO_T_UNCONNECTED : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal NLW_ps7_0_axi_periph_M01_AXI_araddr_UNCONNECTED : STD_LOGIC;
   signal NLW_ps7_0_axi_periph_M01_AXI_arburst_UNCONNECTED : STD_LOGIC;
   signal NLW_ps7_0_axi_periph_M01_AXI_arcache_UNCONNECTED : STD_LOGIC;
@@ -2242,9 +2266,9 @@ processing_system7_0: component design_1_processing_system7_0_0
       DDR_WEB => DDR_we_n,
       FCLK_CLK0 => processing_system7_0_FCLK_CLK0,
       FCLK_RESET0_N => processing_system7_0_FCLK_RESET0_N,
-      GPIO_I(0) => '0',
-      GPIO_O(0) => processing_system7_0_GPIO_O(0),
-      GPIO_T(0) => NLW_processing_system7_0_GPIO_T_UNCONNECTED(0),
+      GPIO_I(7 downto 0) => xlconcat_0_dout(7 downto 0),
+      GPIO_O(7 downto 0) => processing_system7_0_GPIO_O(7 downto 0),
+      GPIO_T(7 downto 0) => NLW_processing_system7_0_GPIO_T_UNCONNECTED(7 downto 0),
       MIO(53 downto 0) => FIXED_IO_mio(53 downto 0),
       M_AXI_GP0_ACLK => processing_system7_0_FCLK_CLK0,
       M_AXI_GP0_ARADDR(31 downto 0) => processing_system7_0_M_AXI_GP0_ARADDR(31 downto 0),
@@ -2423,12 +2447,31 @@ rst_ps7_0_10M: component design_1_rst_ps7_0_10M_0
     );
 spi28b_0: component design_1_spi28b_0_0
      port map (
-      clk => processing_system7_0_SPI0_SCLK_O,
-      cs => processing_system7_0_GPIO_O(0),
+      cs => xlslice_0_Dout(0),
       inData(7 downto 0) => spi28b_0_outData(7 downto 0),
       ledsData(3 downto 0) => spi28b_0_ledsData(3 downto 0),
       outData(7 downto 0) => spi28b_0_outData(7 downto 0),
+      spi_clk => processing_system7_0_SPI0_SCLK_O,
       spi_miso => spi28b_0_spi_miso,
-      spi_mosi => processing_system7_0_SPI0_MOSI_O
+      spi_mosi => processing_system7_0_SPI0_MOSI_O,
+      stop_data => spi28b_0_stop_data,
+      sys_clk => processing_system7_0_FCLK_CLK0
+    );
+xlconcat_0: component design_1_xlconcat_0_0
+     port map (
+      In0(0) => '0',
+      In1(0) => spi28b_0_stop_data,
+      In2(0) => '0',
+      In3(0) => '0',
+      In4(0) => '0',
+      In5(0) => '0',
+      In6(0) => '0',
+      In7(0) => '0',
+      dout(7 downto 0) => xlconcat_0_dout(7 downto 0)
+    );
+xlslice_0: component design_1_xlslice_0_0
+     port map (
+      Din(7 downto 0) => processing_system7_0_GPIO_O(7 downto 0),
+      Dout(0) => xlslice_0_Dout(0)
     );
 end STRUCTURE;

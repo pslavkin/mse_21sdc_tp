@@ -56,12 +56,14 @@ USE ieee.numeric_std.ALL;
 ENTITY design_1_spi28b_0_0 IS
   PORT (
     spi_mosi : IN STD_LOGIC;
+    stop_data : OUT STD_LOGIC;
     spi_miso : OUT STD_LOGIC;
     cs : IN STD_LOGIC;
     outData : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     inData : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
     ledsData : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-    clk : IN STD_LOGIC
+    spi_clk : IN STD_LOGIC;
+    sys_clk : IN STD_LOGIC
   );
 END design_1_spi28b_0_0;
 
@@ -71,29 +73,35 @@ ARCHITECTURE design_1_spi28b_0_0_arch OF design_1_spi28b_0_0 IS
   COMPONENT spi28b IS
     PORT (
       spi_mosi : IN STD_LOGIC;
+      stop_data : OUT STD_LOGIC;
       spi_miso : OUT STD_LOGIC;
       cs : IN STD_LOGIC;
       outData : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
       inData : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
       ledsData : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-      clk : IN STD_LOGIC
+      spi_clk : IN STD_LOGIC;
+      sys_clk : IN STD_LOGIC
     );
   END COMPONENT spi28b;
   ATTRIBUTE IP_DEFINITION_SOURCE : STRING;
   ATTRIBUTE IP_DEFINITION_SOURCE OF design_1_spi28b_0_0_arch: ARCHITECTURE IS "module_ref";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
-  ATTRIBUTE X_INTERFACE_PARAMETER OF clk: SIGNAL IS "XIL_INTERFACENAME clk, FREQ_HZ 100000000, PHASE 0.000, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF clk: SIGNAL IS "xilinx.com:signal:clock:1.0 clk CLK";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF sys_clk: SIGNAL IS "XIL_INTERFACENAME sys_clk, FREQ_HZ 10000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF sys_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 sys_clk CLK";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF spi_clk: SIGNAL IS "XIL_INTERFACENAME spi_clk, FREQ_HZ 100000000, PHASE 0.000, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF spi_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 spi_clk CLK";
 BEGIN
   U0 : spi28b
     PORT MAP (
       spi_mosi => spi_mosi,
+      stop_data => stop_data,
       spi_miso => spi_miso,
       cs => cs,
       outData => outData,
       inData => inData,
       ledsData => ledsData,
-      clk => clk
+      spi_clk => spi_clk,
+      sys_clk => sys_clk
     );
 END design_1_spi28b_0_0_arch;

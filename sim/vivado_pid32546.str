@@ -2650,3 +2650,75 @@ dismissDialog("Export Hardware"); // X (cl)
 // WARNING: HEventQueue.dispatchEvent() is taking  1160 ms.
 // HMemoryUtils.trashcanNow. Engine heap size: 3,067 MB. GUI used memory: 187 MB. Current time: 12/30/19, 1:25:00 PM ART
 // HMemoryUtils.trashcanNow. Engine heap size: 3,067 MB. GUI used memory: 186 MB. Current time: 12/30/19, 1:55:00 PM ART
+// HMemoryUtils.trashcanNow. Engine heap size: 3,067 MB. GUI used memory: 186 MB. Current time: 12/30/19, 2:25:00 PM ART
+// HMemoryUtils.trashcanNow. Engine heap size: 3,067 MB. GUI used memory: 186 MB. Current time: 12/30/19, 2:55:00 PM ART
+// HMemoryUtils.trashcanNow. Engine heap size: 3,067 MB. GUI used memory: 186 MB. Current time: 12/30/19, 3:25:00 PM ART
+// Elapsed time: 21576 seconds
+selectMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // Z (q, cl)
+selectMenu(PAResourceItoN.MainMenuMgr_PROJECT, "Project"); // ae (cl, Popup.HeavyWeightWindow)
+selectMenu(PAResourceItoN.MainMenuMgr_CHECKPOINT, "Checkpoint"); // ae (cl, Popup.HeavyWeightWindow)
+selectMenu(PAResourceItoN.MainMenuMgr_IP, "IP"); // ae (cl, Popup.HeavyWeightWindow)
+selectMenu(PAResourceItoN.MainMenuMgr_TEXT_EDITOR, "Text Editor"); // ae (cl, Popup.HeavyWeightWindow)
+selectMenu(PAResourceItoN.MainMenuMgr_EXPORT, "Export"); // ae (cl, Popup.HeavyWeightWindow)
+selectMenuItem(PAResourceCommand.PACommandNames_LAUNCH_HARDWARE, "Launch SDK"); // ah (cl, Popup.HeavyWeightWindow)
+dismissMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // Z (q, cl)
+// Run Command: PAResourceCommand.PACommandNames_LAUNCH_HARDWARE
+// aa (cl): Launch SDK: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aa)
+dismissDialog("Launch SDK"); // aa (cl)
+// Tcl Message: launch_sdk -workspace /home/pslavkin/mse_3_21sdc/tp/tp.sdk -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf 
+// Tcl Message: INFO: [Vivado 12-393] Launching SDK... INFO: [Vivado 12-417] Running xsdk -workspace /home/pslavkin/mse_3_21sdc/tp/tp.sdk -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages. 
+// WARNING: HEventQueue.dispatchEvent() is taking  2414 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1865 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  3267 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  2132 ms.
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 8389ms to process. Increasing delay to 3000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  8389 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1332 ms.
+// WARNING: HTimer (FileMgr Design Graph Update Timer) is taking 4418ms to process. Increasing delay to 6000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  4425 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1591 ms.
+// WARNING: HTimer (HMemoryUtils Timer) is taking 1511ms to process. Increasing delay to 6000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1511 ms.
+// WARNING: HTimer (StateMonitor Timer) is taking 5207ms to process. Increasing delay to 5000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  5207 ms.
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 1518ms to process. Increasing delay to 4000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1518 ms.
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 34809 ms. Increasing delay to 104427 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  2428 ms.
+// WARNING: HSwingWorker (Update Runs Swing Worker) is taking 36521 ms. Increasing delay to 5000 ms.
+// WARNING: HTimer (StateMonitor Timer) is taking 2436ms to process. Increasing delay to 6000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  2436 ms.
+// WARNING: HTimer (StateMonitor Timer) is taking 16597ms to process. Increasing delay to 7000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  16625 ms.
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 3608ms to process. Increasing delay to 5000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  3608 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  2656 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1954 ms.
+// WARNING: HTimer (FileMgr Design Graph Update Timer) is taking 2548ms to process. Increasing delay to 7000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  3427 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1590 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  5034 ms.
+// WARNING: HTimer (StateMonitor Timer) is taking 23073ms to process. Increasing delay to 8000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  23091 ms.
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 2296ms to process. Increasing delay to 6000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  2446 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1318 ms.
+// WARNING: HTimer (FileMgr Design Graph Update Timer) is taking 1717ms to process. Increasing delay to 8000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  2100 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1484 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  3228 ms.
+// WARNING: HTimer (StateMonitor Timer) is taking 13787ms to process. Increasing delay to 9000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  13798 ms.
+// WARNING: HSwingWorker (Update Runs Swing Worker) is taking 93017 ms. Increasing delay to 6000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1036 ms.
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 61 ms. Decreasing delay to 2061 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  4247 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 3,067 MB. GUI used memory: 187 MB. Current time: 12/30/19, 3:55:06 PM ART
+// WARNING: HEventQueue.dispatchEvent() is taking  1826 ms.
+// WARNING: HTimer (ExpRunMgr Pending Runs Timer) is taking 1697ms to process. Increasing delay to 5000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1697 ms.
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 16805ms to process. Increasing delay to 7000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  16855 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  2480 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  4596 ms.
