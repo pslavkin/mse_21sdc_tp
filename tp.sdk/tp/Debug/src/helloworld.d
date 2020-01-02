@@ -15,11 +15,9 @@ src/helloworld.o src/helloworld.o: ../src/helloworld.c \
  ../../tp_bsp/ps7_cortexa9_0/include/xpseudo_asm.h \
  ../../tp_bsp/ps7_cortexa9_0/include/xreg_cortexa9.h \
  ../../tp_bsp/ps7_cortexa9_0/include/xpseudo_asm_gcc.h \
- ../../tp_bsp/ps7_cortexa9_0/include/xspips.h \
- ../../tp_bsp/ps7_cortexa9_0/include/xspips_hw.h \
  ../../tp_bsp/ps7_cortexa9_0/include/xgpiops.h \
  ../../tp_bsp/ps7_cortexa9_0/include/xgpiops_hw.h \
- ../../tp_bsp/ps7_cortexa9_0/include/xplatform_info.h
+ ../../tp_bsp/ps7_cortexa9_0/include/xplatform_info.h ../src/helloworld.h
 
 ../../tp_bsp/ps7_cortexa9_0/include/xparameters.h:
 
@@ -55,12 +53,10 @@ src/helloworld.o src/helloworld.o: ../src/helloworld.c \
 
 ../../tp_bsp/ps7_cortexa9_0/include/xpseudo_asm_gcc.h:
 
-../../tp_bsp/ps7_cortexa9_0/include/xspips.h:
-
-../../tp_bsp/ps7_cortexa9_0/include/xspips_hw.h:
-
 ../../tp_bsp/ps7_cortexa9_0/include/xgpiops.h:
 
 ../../tp_bsp/ps7_cortexa9_0/include/xgpiops_hw.h:
 
 ../../tp_bsp/ps7_cortexa9_0/include/xplatform_info.h:
+
+../src/helloworld.h:

@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date             : Tue Dec 31 11:29:07 2019
+| Date             : Thu Jan  2 06:07:20 2020
 | Host             : work1 running 64-bit unknown
 | Command          : report_power -file design_1_wrapper_power_routed.rpt -pb design_1_wrapper_power_summary_routed.pb -rpx design_1_wrapper_power_routed.rpx
 | Design           : design_1_wrapper
@@ -53,14 +53,14 @@ Table of Contents
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
 | Clocks                  |    <0.001 |        3 |       --- |             --- |
-| Slice Logic             |    <0.001 |     2748 |       --- |             --- |
-|   LUT as Logic          |    <0.001 |      900 |     53200 |            1.69 |
-|   Register              |    <0.001 |     1270 |    106400 |            1.19 |
-|   CARRY4                |    <0.001 |       64 |     13300 |            0.48 |
-|   F7/F8 Muxes           |    <0.001 |        1 |     53200 |           <0.01 |
+| Slice Logic             |    <0.001 |     2952 |       --- |             --- |
+|   LUT as Logic          |    <0.001 |     1016 |     53200 |            1.91 |
+|   Register              |    <0.001 |     1319 |    106400 |            1.24 |
+|   CARRY4                |    <0.001 |       50 |     13300 |            0.38 |
 |   LUT as Shift Register |    <0.001 |       61 |     17400 |            0.35 |
-|   Others                |     0.000 |      227 |       --- |             --- |
-| Signals                 |    <0.001 |     2034 |       --- |             --- |
+|   Others                |     0.000 |      258 |       --- |             --- |
+| Signals                 |    <0.001 |     2146 |       --- |             --- |
+| Block RAM               |    <0.001 |      0.5 |       140 |            0.36 |
 | I/O                     |    <0.001 |       14 |       125 |           11.20 |
 | PS7                     |     1.247 |        1 |       --- |             --- |
 | Static Power            |     0.137 |          |           |                 |

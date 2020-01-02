@@ -2,13 +2,212 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Wed Dec  4 18:02:23 2019
-# Process ID: 16277
+# Start of session at: Thu Jan  2 05:27:33 2020
+# Process ID: 4344
 # Current directory: /home/pslavkin/mse_3_21sdc/tp
 # Command line: vivado
 # Log file: /home/pslavkin/mse_3_21sdc/tp/vivado.log
 # Journal file: /home/pslavkin/mse_3_21sdc/tp/vivado.jou
 #-----------------------------------------------------------
 start_gui
-exit
-INFO: [Common 17-206] Exiting Vivado at Wed Dec  4 20:53:37 2019...
+open_project /home/pslavkin/mse_3_21sdc/tp/tp.xpr
+WARNING: [Board 49-91] Board repository path '/home/pslavkin/.Xilinx/Vivado/2019.1/xhub/board_store' does not exist, it will not be used to search board files.
+Scanning sources...
+Finished scanning sources
+WARNING: [filemgmt 56-3] Board Part Repository Path: Could not find the directory '/home/pslavkin/.Xilinx/Vivado/2019.1/xhub/board_store'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx_2019/Vivado/2019.1/data/ip'.
+open_project: Time (s): cpu = 00:00:30 ; elapsed = 00:00:12 . Memory (MB): peak = 6397.988 ; gain = 109.184 ; free physical = 1098 ; free virtual = 3463
+update_compile_order -fileset sources_1
+open_bd_design {/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd}
+Adding component instance block -- xilinx.com:ip:processing_system7:5.5 - processing_system7_0
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - rst_ps7_0_10M
+Adding component instance block -- xilinx.com:ip:axi_interconnect:2.1 - ps7_0_axi_periph
+Adding component instance block -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding component instance block -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Adding component instance block -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Adding component instance block -- xilinx.com:ip:axi_gpio:2.0 - axi_gpio_0
+Adding component instance block -- xilinx.com:module_ref:paralell2axi:1.0 - paralell2axi_0
+Adding component instance block -- xilinx.com:ip:axis_data_fifo:2.0 - axis_data_fifo_0
+WARNING: [BD 41-1731] Type mismatch between connected pins: /paralell2axi_0/s_clk(clk) and /paralell2axi_0/s_clk_in(undef)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /paralell2axi_0/m_clk(clk) and /paralell2axi_0/m_clk_in(undef)
+Successfully read diagram <design_1> from BD file </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd>
+open_bd_design: Time (s): cpu = 00:00:14 ; elapsed = 00:00:08 . Memory (MB): peak = 6560.145 ; gain = 48.113 ; free physical = 912 ; free virtual = 3330
+file copy -force /home/pslavkin/mse_3_21sdc/tp/tp.runs/impl_1/design_1_wrapper.sysdef /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf
+
+file copy -force /home/pslavkin/mse_3_21sdc/tp/tp.runs/impl_1/design_1_wrapper.sysdef /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf
+
+launch_sdk -workspace /home/pslavkin/mse_3_21sdc/tp/tp.sdk -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf
+INFO: [Vivado 12-393] Launching SDK...
+INFO: [Vivado 12-417] Running xsdk -workspace /home/pslavkin/mse_3_21sdc/tp/tp.sdk -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf
+INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
+CRITICAL WARNING: [PSU-1]  Parameter : PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_2 has negative value -0.009 . PS DDR interfaces might fail when entering negative DQS skew values. 
+CRITICAL WARNING: [PSU-2]  Parameter : PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_3 has negative value -0.033 . PS DDR interfaces might fail when entering negative DQS skew values. 
+CRITICAL WARNING: [PSU-1]  Parameter : PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_2 has negative value -0.009 . PS DDR interfaces might fail when entering negative DQS skew values. 
+CRITICAL WARNING: [PSU-2]  Parameter : PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_3 has negative value -0.033 . PS DDR interfaces might fail when entering negative DQS skew values. 
+WARNING: [IP_Flow 19-474] Invalid Parameter 'Component_Name'
+CRITICAL WARNING: [HDL 9-806] Syntax error near ":". [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/new/paralell2axi.vhd:30]
+CRITICAL WARNING: [HDL 9-806] Syntax error near ":". [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/new/paralell2axi.vhd:30]
+CRITICAL WARNING: [HDL 9-806] Syntax error near ":". [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/new/paralell2axi.vhd:30]
+CRITICAL WARNING: [HDL 9-806] Syntax error near ":". [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/new/paralell2axi.vhd:30]
+update_module_reference design_1_paralell2axi_0_0
+CRITICAL WARNING: [HDL 9-806] Syntax error near ":". [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/new/paralell2axi.vhd:30]
+ERROR: [IP_Flow 19-259] [HDL Parser] Failed analyze operation while parsing HDL.
+ERROR: [IP_Flow 19-258] [HDL Parser] Error parsing HDL file '../../../new/paralell2axi.vhd'.
+WARNING: [IP_Flow 19-378] There are no ports found from top-level file '/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/new/paralell2axi.vhd'.
+ERROR: [IP_Flow 19-4668] Failed to infer definition from module 'paralell2axi'.
+ERROR: [Common 17-39] 'update_module_reference' failed due to earlier errors.
+CRITICAL WARNING: [HDL 9-806] Syntax error near ":". [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/new/paralell2axi.vhd:30]
+CRITICAL WARNING: [HDL 9-806] Syntax error near ":". [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/new/paralell2axi.vhd:30]
+CRITICAL WARNING: [HDL 9-806] Syntax error near ":". [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/new/paralell2axi.vhd:30]
+CRITICAL WARNING: [HDL 9-806] Syntax error near ":". [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/new/paralell2axi.vhd:30]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "signal". [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/new/paralell2axi.vhd:31]
+CRITICAL WARNING: [HDL 9-806] Syntax error near "signal". [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/new/paralell2axi.vhd:31]
+update_module_reference design_1_paralell2axi_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-3153] Bus Interface 'm_clk': ASSOCIATED_BUSIF bus parameter is missing.
+CRITICAL WARNING: [IP_Flow 19-4751] Bus Interface 'm_clk': FREQ_HZ bus parameter is missing for output clock interface.
+WARNING: [IP_Flow 19-3153] Bus Interface 's_clk': ASSOCIATED_BUSIF bus parameter is missing.
+CRITICAL WARNING: [IP_Flow 19-4751] Bus Interface 's_clk': FREQ_HZ bus parameter is missing for output clock interface.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+Upgrading '/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-3420] Updated design_1_paralell2axi_0_0 to use current project options
+WARNING: [BD 41-1731] Type mismatch between connected pins: /paralell2axi_0/m_clk_in(undef) and /paralell2axi_0_upgraded_ipi/m_clk(clk)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /paralell2axi_0_upgraded_ipi/m_clk(clk) and /paralell2axi_0_upgraded_ipi/m_clk_in(undef)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /paralell2axi_0/s_clk_in(undef) and /paralell2axi_0_upgraded_ipi/s_clk(clk)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /paralell2axi_0_upgraded_ipi/s_clk(clk) and /paralell2axi_0_upgraded_ipi/s_clk_in(undef)
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+generate_target all [get_files  /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd]
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+WARNING: [BD 41-927] Following properties on pin /paralell2axi_0/m_clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=design_1_paralell2axi_0_0_m_clk 
+WARNING: [BD 41-927] Following properties on pin /paralell2axi_0/s_clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=design_1_paralell2axi_0_0_s_clk 
+CRITICAL WARNING: [BD 41-759] The input pins (listed below) are either not connected or do not have a source port, and they don't have a tie-off specified. These pins are tied-off to all 0's to avoid error in Implementation flow.
+Please check your design and connect them as needed: 
+/paralell2axi_0/s_last
+
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/s00_couplers/auto_pc/m_axi_bid'(12) to net 'auto_pc_to_s00_couplers_BID'(13) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/s00_couplers/auto_pc/m_axi_rid'(12) to net 'auto_pc_to_s00_couplers_RID'(13) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/xbar/s_axi_awid'(13) to net 's00_couplers_to_xbar_AWID'(12) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/xbar/s_axi_arid'(13) to net 's00_couplers_to_xbar_ARID'(12) - Only lower order bits will be connected.
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/s00_couplers/auto_pc/m_axi_bid'(12) to net 'auto_pc_to_s00_couplers_BID'(13) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/s00_couplers/auto_pc/m_axi_rid'(12) to net 'auto_pc_to_s00_couplers_RID'(13) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/xbar/s_axi_awid'(13) to net 's00_couplers_to_xbar_AWID'(12) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/xbar/s_axi_arid'(13) to net 's00_couplers_to_xbar_ARID'(12) - Only lower order bits will be connected.
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_ps7_0_10M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/xbar .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block paralell2axi_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axis_data_fifo_0 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/m00_couplers/auto_pc .
+Exporting to file /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.hwdef
+generate_target: Time (s): cpu = 00:00:25 ; elapsed = 00:00:24 . Memory (MB): peak = 6965.602 ; gain = 111.961 ; free physical = 117 ; free virtual = 2438
+catch { config_ip_cache -export [get_ips -all design_1_processing_system7_0_0] }
+catch { config_ip_cache -export [get_ips -all design_1_auto_pc_1] }
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_pc_1, cache-ID = e94176c3b28323b2; cache size = 20.629 MB.
+catch { config_ip_cache -export [get_ips -all design_1_auto_pc_0] }
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_pc_0, cache-ID = 0d55c71657273e51; cache size = 20.629 MB.
+export_ip_user_files -of_objects [get_files /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd]
+launch_runs -jobs 4 {design_1_processing_system7_0_0_synth_1 design_1_paralell2axi_0_0_synth_1}
+[Thu Jan  2 05:57:03 2020] Launched design_1_processing_system7_0_0_synth_1, design_1_paralell2axi_0_0_synth_1...
+Run output will be captured here:
+design_1_processing_system7_0_0_synth_1: /home/pslavkin/mse_3_21sdc/tp/tp.runs/design_1_processing_system7_0_0_synth_1/runme.log
+design_1_paralell2axi_0_0_synth_1: /home/pslavkin/mse_3_21sdc/tp/tp.runs/design_1_paralell2axi_0_0_synth_1/runme.log
+export_simulation -of_objects [get_files /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd] -directory /home/pslavkin/mse_3_21sdc/tp/tp.ip_user_files/sim_scripts -ip_user_files_dir /home/pslavkin/mse_3_21sdc/tp/tp.ip_user_files -ipstatic_source_dir /home/pslavkin/mse_3_21sdc/tp/tp.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/modelsim} {questa=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/questa} {ies=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/ies} {xcelium=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/xcelium} {vcs=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/vcs} {riviera=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+update_module_reference design_1_paralell2axi_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+WARNING: [IP_Flow 19-3153] Bus Interface 'clk': ASSOCIATED_BUSIF bus parameter is missing.
+WARNING: [IP_Flow 19-3153] Bus Interface 'm_clk': ASSOCIATED_BUSIF bus parameter is missing.
+CRITICAL WARNING: [IP_Flow 19-4751] Bus Interface 'm_clk': FREQ_HZ bus parameter is missing for output clock interface.
+WARNING: [IP_Flow 19-3153] Bus Interface 's_clk': ASSOCIATED_BUSIF bus parameter is missing.
+CRITICAL WARNING: [IP_Flow 19-4751] Bus Interface 's_clk': FREQ_HZ bus parameter is missing for output clock interface.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+Upgrading '/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-3420] Updated design_1_paralell2axi_0_0 to use current project options
+WARNING: [IP_Flow 19-4697] Upgrade has added interface 'clk' (xilinx.com:signal:clock:1.0)
+WARNING: [IP_Flow 19-3670] Detected external interface differences while upgrading 'design_1_paralell2axi_0_0'.
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'clk'
+WARNING: [IP_Flow 19-3298] Detected external port differences while upgrading 'design_1_paralell2axi_0_0'. These changes may impact your design.
+WARNING: [BD 41-1731] Type mismatch between connected pins: /paralell2axi_0/m_clk_in(undef) and /paralell2axi_0_upgraded_ipi/m_clk(clk)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /paralell2axi_0_upgraded_ipi/m_clk(clk) and /paralell2axi_0_upgraded_ipi/m_clk_in(undef)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /paralell2axi_0/s_clk_in(undef) and /paralell2axi_0_upgraded_ipi/s_clk(clk)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /paralell2axi_0_upgraded_ipi/s_clk(clk) and /paralell2axi_0_upgraded_ipi/s_clk_in(undef)
+CRITICAL WARNING: [Coretcl 2-1280] The upgrade of 'design_1_paralell2axi_0_0' has identified issues that may require user intervention. Please verify that the instance is correctly configured, and review any upgrade messages.
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config {Clk "/processing_system7_0/FCLK_CLK0 (10 MHz)" }  [get_bd_pins paralell2axi_0/clk]
+delete_bd_objs [get_bd_nets paralell2axi_0_m_clk]
+delete_bd_objs [get_bd_nets paralell2axi_0_s_clk]
+connect_bd_net [get_bd_pins paralell2axi_0/s_clk_in] [get_bd_pins paralell2axi_0/s_ready]
+connect_bd_net [get_bd_pins paralell2axi_0/m_valid] [get_bd_pins paralell2axi_0/m_clk_in]
+save_bd_design
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+WARNING: [BD 41-927] Following properties on pin /paralell2axi_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=design_1_processing_system7_0_0_FCLK_CLK0 
+CRITICAL WARNING: [BD 41-759] The input pins (listed below) are either not connected or do not have a source port, and they don't have a tie-off specified. These pins are tied-off to all 0's to avoid error in Implementation flow.
+Please check your design and connect them as needed: 
+/paralell2axi_0/s_last
+
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/s00_couplers/auto_pc/m_axi_bid'(12) to net 'auto_pc_to_s00_couplers_BID'(13) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/s00_couplers/auto_pc/m_axi_rid'(12) to net 'auto_pc_to_s00_couplers_RID'(13) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/xbar/s_axi_awid'(13) to net 's00_couplers_to_xbar_AWID'(12) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/xbar/s_axi_arid'(13) to net 's00_couplers_to_xbar_ARID'(12) - Only lower order bits will be connected.
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/s00_couplers/auto_pc/m_axi_bid'(12) to net 'auto_pc_to_s00_couplers_BID'(13) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/s00_couplers/auto_pc/m_axi_rid'(12) to net 'auto_pc_to_s00_couplers_RID'(13) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/xbar/s_axi_awid'(13) to net 's00_couplers_to_xbar_AWID'(12) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/xbar/s_axi_arid'(13) to net 's00_couplers_to_xbar_ARID'(12) - Only lower order bits will be connected.
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_ps7_0_10M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/xbar .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block paralell2axi_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axis_data_fifo_0 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/m00_couplers/auto_pc .
+Exporting to file /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.hwdef
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_pc_0, cache-ID = 0d55c71657273e51; cache size = 21.324 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_pc_1, cache-ID = e94176c3b28323b2; cache size = 21.324 MB.
+CRITICAL WARNING: [HDL 9-806] Syntax error near ":". [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/new/paralell2axi.vhd:30]
+[Thu Jan  2 06:03:46 2020] Launched design_1_paralell2axi_0_0_synth_1...
+Run output will be captured here: /home/pslavkin/mse_3_21sdc/tp/tp.runs/design_1_paralell2axi_0_0_synth_1/runme.log
+[Thu Jan  2 06:03:46 2020] Launched synth_1...
+Run output will be captured here: /home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/runme.log
+launch_runs: Time (s): cpu = 00:00:14 ; elapsed = 00:00:10 . Memory (MB): peak = 7151.535 ; gain = 88.887 ; free physical = 1050 ; free virtual = 2246
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Thu Jan  2 06:05:41 2020] Launched impl_1...
+Run output will be captured here: /home/pslavkin/mse_3_21sdc/tp/tp.runs/impl_1/runme.log
+file copy -force /home/pslavkin/mse_3_21sdc/tp/tp.runs/impl_1/design_1_wrapper.sysdef /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf
+
