@@ -1,7 +1,7 @@
 // Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-// Date        : Thu Jan  2 06:38:18 2020
+// Date        : Thu Jan  2 14:31:27 2020
 // Host        : work1 running 64-bit Debian GNU/Linux 10 (buster)
 // Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 //               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ design_1_paralell2axi_0_0_sim_netlist.v
@@ -18,80 +18,110 @@
 module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
    (emi,
     emo,
-    m_data,
-    m_valid,
-    m_last,
-    m_ready,
-    s_data,
-    s_valid,
-    s_last,
-    s_ready,
+    axi_m_tdata,
+    axi_m_tvalid,
+    axi_m_tlast,
+    axi_m_tready,
+    axi_s_tdata,
+    axi_s_tvalid,
+    axi_s_tlast,
+    axi_s_tready,
     clk,
     leds,
     rst);
   input [31:0]emi;
   output [31:0]emo;
-  output [7:0]m_data;
-  output m_valid;
-  output m_last;
-  input m_ready;
-  input [7:0]s_data;
-  input s_valid;
-  input s_last;
-  output s_ready;
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 clk CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 10000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0" *) input clk;
+  (* x_interface_info = "xilinx.com:interface:axis:1.0 axi_m TDATA" *) (* x_interface_parameter = "XIL_INTERFACENAME axi_m, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 10000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef, INSERT_VIP 0" *) output [7:0]axi_m_tdata;
+  (* x_interface_info = "xilinx.com:interface:axis:1.0 axi_m TVALID" *) output axi_m_tvalid;
+  (* x_interface_info = "xilinx.com:interface:axis:1.0 axi_m TLAST" *) output axi_m_tlast;
+  (* x_interface_info = "xilinx.com:interface:axis:1.0 axi_m TREADY" *) input axi_m_tready;
+  (* x_interface_info = "xilinx.com:interface:axis:1.0 axi_s TDATA" *) (* x_interface_parameter = "XIL_INTERFACENAME axi_s, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 10000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data_out} bitwidth {attribs {resolve_type generated dependency data_out_bitwidth format long minimum {} maximum {}} value 2} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 8}, INSERT_VIP 0" *) input [7:0]axi_s_tdata;
+  (* x_interface_info = "xilinx.com:interface:axis:1.0 axi_s TVALID" *) input axi_s_tvalid;
+  (* x_interface_info = "xilinx.com:interface:axis:1.0 axi_s TLAST" *) input axi_s_tlast;
+  (* x_interface_info = "xilinx.com:interface:axis:1.0 axi_s TREADY" *) output axi_s_tready;
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 clk CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF axi_m:axi_s, ASSOCIATED_RESET rst, FREQ_HZ 10000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0" *) input clk;
   output [3:0]leds;
   (* x_interface_info = "xilinx.com:signal:reset:1.0 rst RST" *) (* x_interface_parameter = "XIL_INTERFACENAME rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input rst;
 
+  wire axi_m_tready;
+  wire axi_m_tvalid;
+  wire [7:0]axi_s_tdata;
+  wire axi_s_tlast;
+  wire axi_s_tready;
+  wire axi_s_tvalid;
   wire clk;
   wire [31:0]emi;
-  wire m_ready;
-  wire m_valid;
   wire rst;
-  wire [7:0]s_data;
-  wire s_last;
-  wire s_ready;
-  wire s_valid;
 
-  assign emo[12] = s_last;
-  assign emo[11] = s_valid;
-  assign emo[10] = m_ready;
-  assign emo[7:0] = s_data;
+  assign axi_m_tdata[7:0] = emi[7:0];
+  assign axi_m_tlast = emi[9];
+  assign emo[12] = axi_s_tlast;
+  assign emo[11] = axi_s_tvalid;
+  assign emo[10] = axi_m_tready;
+  assign emo[7:0] = axi_s_tdata;
   assign leds[3:0] = emi[17:14];
-  assign m_data[7:0] = emi[7:0];
-  assign m_last = emi[9];
   decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_paralell2axi U0
-       (.clk(clk),
+       (.axi_m_tvalid(axi_m_tvalid),
+        .axi_s_tready(axi_s_tready),
+        .clk(clk),
         .emi({emi[13],emi[8]}),
-        .m_valid(m_valid),
-        .rst(rst),
-        .s_ready(s_ready));
+        .rst(rst));
 endmodule
 
 module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_paralell2axi
-   (m_valid,
-    s_ready,
+   (axi_m_tvalid,
+    axi_s_tready,
     emi,
     rst,
     clk);
-  output m_valid;
-  output s_ready;
+  output axi_m_tvalid;
+  output axi_s_tready;
   input [1:0]emi;
   input rst;
   input clk;
 
+  wire axi_m_tvalid;
+  wire axi_m_tvalid_i_1_n_0;
+  wire axi_s_tready;
+  wire axi_s_tready_i_1_n_0;
   wire clk;
   wire [1:0]emi;
   wire last_m_valid;
   wire last_m_valid_i_1_n_0;
   wire last_s_ready;
   wire last_s_ready_i_1_n_0;
-  wire m_valid;
-  wire m_valid_i_1_n_0;
   wire rst;
-  wire s_ready;
-  wire s_ready_i_1_n_0;
 
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT4 #(
+    .INIT(16'h0EAA)) 
+    axi_m_tvalid_i_1
+       (.I0(axi_m_tvalid),
+        .I1(emi[0]),
+        .I2(last_m_valid),
+        .I3(rst),
+        .O(axi_m_tvalid_i_1_n_0));
+  FDRE axi_m_tvalid_reg
+       (.C(clk),
+        .CE(1'b1),
+        .D(axi_m_tvalid_i_1_n_0),
+        .Q(axi_m_tvalid),
+        .R(1'b0));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT4 #(
+    .INIT(16'h0EAA)) 
+    axi_s_tready_i_1
+       (.I0(axi_s_tready),
+        .I1(emi[1]),
+        .I2(last_s_ready),
+        .I3(rst),
+        .O(axi_s_tready_i_1_n_0));
+  FDRE axi_s_tready_reg
+       (.C(clk),
+        .CE(1'b1),
+        .D(axi_s_tready_i_1_n_0),
+        .Q(axi_s_tready),
+        .R(1'b0));
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT2 #(
     .INIT(4'h8)) 
@@ -121,36 +151,6 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_paralell2axi
         .CE(1'b1),
         .D(last_s_ready_i_1_n_0),
         .Q(last_s_ready),
-        .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT4 #(
-    .INIT(16'h0EAA)) 
-    m_valid_i_1
-       (.I0(m_valid),
-        .I1(emi[0]),
-        .I2(last_m_valid),
-        .I3(rst),
-        .O(m_valid_i_1_n_0));
-  FDRE m_valid_reg
-       (.C(clk),
-        .CE(1'b1),
-        .D(m_valid_i_1_n_0),
-        .Q(m_valid),
-        .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
-  LUT4 #(
-    .INIT(16'h0EAA)) 
-    s_ready_i_1
-       (.I0(s_ready),
-        .I1(emi[1]),
-        .I2(last_s_ready),
-        .I3(rst),
-        .O(s_ready_i_1_n_0));
-  FDRE s_ready_reg
-       (.C(clk),
-        .CE(1'b1),
-        .D(s_ready_i_1_n_0),
-        .Q(s_ready),
         .R(1'b0));
 endmodule
 `ifndef GLBL

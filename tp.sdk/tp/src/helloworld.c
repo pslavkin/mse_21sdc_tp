@@ -1,7 +1,6 @@
 #include "xparameters.h"
 #include "platform.h"
 #include "xil_printf.h"
-#include "xgpio.h"
 #include <stdio.h>
 #include <stdbool.h>
 #include "xgpiops.h"
@@ -27,7 +26,6 @@ enum ports {/*{{{*/
    LED3_PIN                       ,//17 -----> led3
 };/*}}}*/
 
-static            XGpio            led_btn;
 static            XGpioPs          xgpioInstance; // instancia de gpioPS 0 (no confundir con AXI GPIO)
 XGpioPs_Config *  xgpioConfigPtr;                 // para configurar el gpioPS
 
@@ -36,11 +34,6 @@ void delay(unsigned int d){/*{{{*/
    for(i=0;i<d;i++)
       ;
 }/*}}}*/
-void initBtnRgb(void)
-{
-   XGpio_Initialize       ( &led_btn,XPAR_AXI_GPIO_0_DEVICE_ID );
-   XGpio_SetDataDirection ( &led_btn,1,0x0F                    ); // botones como entrada (1 es entrada)
-}
 void initEmio(void)
 {
    xgpioConfigPtr  = XGpioPs_LookupConfig(XPAR_PS7_GPIO_0_DEVICE_ID);
@@ -52,7 +45,6 @@ int main(void)
 {
    int data,i;
    init_platform (                         );
-   initBtnRgb    (                         );
    initEmio      (                         );
    printf        ( "mse 3 21 - cordic\n\r" );
 
@@ -61,7 +53,7 @@ int main(void)
 
    while(readM_Ready()==0) 
       ;
-   data=3;
+   data=4;
    for(i=0;i<5 && readM_Ready()==1;i++) {
       writeData  ( data                       );
       setLeds    ( data                       );
@@ -75,7 +67,7 @@ int main(void)
    readData ( ); //para poner el bus como entrada solamente
    while(readS_Valid()==0) 
       ;
-   for(i=0;i<16 && readS_Valid()==1;i++) {
+   for(i=0;i<100 && readS_Valid()==1;i++) {
       data=readData (                          ); // primero lee lo que esta en el bus y despues le indica que pase al siguiente
       setLeds       ( data                     );
       printf        ( "dato leido=%i\n\r",data );
@@ -85,7 +77,7 @@ int main(void)
    printf ( "listo rx\n\r" );
    while(1) {
       delay  ( 0xFFFFFFF   );
-      printf ( "listo\n\r" );
+//      printf ( "listo\n\r" );
    }
    cleanup_platform();
    return 0;
@@ -109,18 +101,18 @@ void writeData         ( unsigned char data )
    XGpioPs_WritePin(&xgpioInstance,BANK2_PIN_OFFSET+6,(data>>6)&0x01);
    XGpioPs_WritePin(&xgpioInstance,BANK2_PIN_OFFSET+7,(data>>7)&0x01);
 }
-void setM_Valid  ( bool s                  ) { XGpioPs_WritePin(&xgpioInstance       ,M_VALID_PIN ,s)                                    ;}
-void setM_Last   ( bool s                  ) { XGpioPs_WritePin(&xgpioInstance       ,M_LAST_PIN  ,s)                                    ;}
-bool readM_Ready ( void                    ) { return XGpioPs_ReadPin(&xgpioInstance ,M_READY_PIN)                                       ;}
-bool readS_Valid ( void                    ) { return XGpioPs_ReadPin(&xgpioInstance ,S_VALID_PIN)                                       ;}
-bool readS_Last  ( void                    ) { return XGpioPs_ReadPin(&xgpioInstance ,S_LAST_PIN)                                        ;}
-void setS_Ready  ( bool s                  ) { XGpioPs_WritePin(&xgpioInstance       ,S_READY_PIN ,s)                                    ;}
+void setM_Valid  ( bool s                  ) { XGpioPs_WritePin(&xgpioInstance       ,M_VALID_PIN ,s);}
+void setM_Last   ( bool s                  ) { XGpioPs_WritePin(&xgpioInstance       ,M_LAST_PIN  ,s);}
+bool readM_Ready ( void                    ) { return XGpioPs_ReadPin(&xgpioInstance ,M_READY_PIN)   ;}
+bool readS_Valid ( void                    ) { return XGpioPs_ReadPin(&xgpioInstance ,S_VALID_PIN)   ;}
+bool readS_Last  ( void                    ) { return XGpioPs_ReadPin(&xgpioInstance ,S_LAST_PIN)    ;}
+void setS_Ready  ( bool s                  ) { XGpioPs_WritePin(&xgpioInstance       ,S_READY_PIN ,s);}
+void setLed      ( unsigned char p, bool s ) { XGpioPs_WritePin(&xgpioInstance,p,s)                  ;}
 void setLeds     ( unsigned int l          ) {
    setLed(LED0_PIN,l&0x01);
    setLed(LED1_PIN,l&0x02);
    setLed(LED2_PIN,l&0x04);
    setLed(LED3_PIN,l&0x08);
 }
-void setLed ( unsigned char p, bool s ) { XGpioPs_WritePin(&xgpioInstance,p,s);}
 
 

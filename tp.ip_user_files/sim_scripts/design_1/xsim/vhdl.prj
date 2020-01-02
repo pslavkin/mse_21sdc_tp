@@ -1,7 +1,8 @@
 vhdl xil_defaultlib  \
 "../../../bd/design_1/ip/design_1_rst_ps7_0_10M_0/sim/design_1_rst_ps7_0_10M_0.vhd" \
-"../../../bd/design_1/ip/design_1_axi_gpio_0_0/sim/design_1_axi_gpio_0_0.vhd" \
 "../../../bd/design_1/ip/design_1_paralell2axi_0_0/sim/design_1_paralell2axi_0_0.vhd" \
+"../../../bd/design_1/ip/design_1_stretcher_0_0/sim/design_1_stretcher_0_0.vhd" \
+"../../../bd/design_1/ip/design_1_convolution_0_0/sim/design_1_convolution_0_0.vhd" \
 "../../../bd/design_1/sim/design_1.vhd" \
 
 nosort

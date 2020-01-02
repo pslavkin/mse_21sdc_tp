@@ -57,14 +57,14 @@ ENTITY design_1_paralell2axi_0_0 IS
   PORT (
     emi : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     emo : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-    m_data : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-    m_valid : OUT STD_LOGIC;
-    m_last : OUT STD_LOGIC;
-    m_ready : IN STD_LOGIC;
-    s_data : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-    s_valid : IN STD_LOGIC;
-    s_last : IN STD_LOGIC;
-    s_ready : OUT STD_LOGIC;
+    axi_m_tdata : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+    axi_m_tvalid : OUT STD_LOGIC;
+    axi_m_tlast : OUT STD_LOGIC;
+    axi_m_tready : IN STD_LOGIC;
+    axi_s_tdata : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+    axi_s_tvalid : IN STD_LOGIC;
+    axi_s_tlast : IN STD_LOGIC;
+    axi_s_tready : OUT STD_LOGIC;
     clk : IN STD_LOGIC;
     leds : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     rst : IN STD_LOGIC
@@ -78,14 +78,14 @@ ARCHITECTURE design_1_paralell2axi_0_0_arch OF design_1_paralell2axi_0_0 IS
     PORT (
       emi : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
       emo : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-      m_data : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-      m_valid : OUT STD_LOGIC;
-      m_last : OUT STD_LOGIC;
-      m_ready : IN STD_LOGIC;
-      s_data : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-      s_valid : IN STD_LOGIC;
-      s_last : IN STD_LOGIC;
-      s_ready : OUT STD_LOGIC;
+      axi_m_tdata : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+      axi_m_tvalid : OUT STD_LOGIC;
+      axi_m_tlast : OUT STD_LOGIC;
+      axi_m_tready : IN STD_LOGIC;
+      axi_s_tdata : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+      axi_s_tvalid : IN STD_LOGIC;
+      axi_s_tlast : IN STD_LOGIC;
+      axi_s_tready : OUT STD_LOGIC;
       clk : IN STD_LOGIC;
       leds : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
       rst : IN STD_LOGIC
@@ -97,21 +97,32 @@ ARCHITECTURE design_1_paralell2axi_0_0_arch OF design_1_paralell2axi_0_0 IS
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER OF rst: SIGNAL IS "XIL_INTERFACENAME rst, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF rst: SIGNAL IS "xilinx.com:signal:reset:1.0 rst RST";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF clk: SIGNAL IS "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 10000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF clk: SIGNAL IS "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF axi_m:axi_s, ASSOCIATED_RESET rst, FREQ_HZ 10000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF clk: SIGNAL IS "xilinx.com:signal:clock:1.0 clk CLK";
+  ATTRIBUTE X_INTERFACE_INFO OF axi_s_tready: SIGNAL IS "xilinx.com:interface:axis:1.0 axi_s TREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF axi_s_tlast: SIGNAL IS "xilinx.com:interface:axis:1.0 axi_s TLAST";
+  ATTRIBUTE X_INTERFACE_INFO OF axi_s_tvalid: SIGNAL IS "xilinx.com:interface:axis:1.0 axi_s TVALID";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF axi_s_tdata: SIGNAL IS "XIL_INTERFACENAME axi_s, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 10000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data_out} bitwidth {attribs {resolve_type generated dependency data_out_bitwidth format long minimum {} maximu" & 
+"m {}} value 2} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 8}, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF axi_s_tdata: SIGNAL IS "xilinx.com:interface:axis:1.0 axi_s TDATA";
+  ATTRIBUTE X_INTERFACE_INFO OF axi_m_tready: SIGNAL IS "xilinx.com:interface:axis:1.0 axi_m TREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF axi_m_tlast: SIGNAL IS "xilinx.com:interface:axis:1.0 axi_m TLAST";
+  ATTRIBUTE X_INTERFACE_INFO OF axi_m_tvalid: SIGNAL IS "xilinx.com:interface:axis:1.0 axi_m TVALID";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF axi_m_tdata: SIGNAL IS "XIL_INTERFACENAME axi_m, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 10000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF axi_m_tdata: SIGNAL IS "xilinx.com:interface:axis:1.0 axi_m TDATA";
 BEGIN
   U0 : paralell2axi
     PORT MAP (
       emi => emi,
       emo => emo,
-      m_data => m_data,
-      m_valid => m_valid,
-      m_last => m_last,
-      m_ready => m_ready,
-      s_data => s_data,
-      s_valid => s_valid,
-      s_last => s_last,
-      s_ready => s_ready,
+      axi_m_tdata => axi_m_tdata,
+      axi_m_tvalid => axi_m_tvalid,
+      axi_m_tlast => axi_m_tlast,
+      axi_m_tready => axi_m_tready,
+      axi_s_tdata => axi_s_tdata,
+      axi_s_tvalid => axi_s_tvalid,
+      axi_s_tlast => axi_s_tlast,
+      axi_s_tready => axi_s_tready,
       clk => clk,
       leds => leds,
       rst => rst

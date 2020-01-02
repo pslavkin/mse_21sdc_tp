@@ -37,44 +37,6 @@
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/design_1/ip/design_1_rst_ps7_0_10M_0/sim/design_1_rst_ps7_0_10M_0.vhd" \
--endlib
--makelib xcelium_lib/axi_lite_ipif_v3_0_4 \
-  "../../../../tp.srcs/sources_1/bd/design_1/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd" \
--endlib
--makelib xcelium_lib/interrupt_control_v3_1_4 \
-  "../../../../tp.srcs/sources_1/bd/design_1/ipshared/a040/hdl/interrupt_control_v3_1_vh_rfs.vhd" \
--endlib
--makelib xcelium_lib/axi_gpio_v2_0_21 \
-  "../../../../tp.srcs/sources_1/bd/design_1/ipshared/9c6e/hdl/axi_gpio_v2_0_vh_rfs.vhd" \
--endlib
--makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/design_1/ip/design_1_axi_gpio_0_0/sim/design_1_axi_gpio_0_0.vhd" \
--endlib
--makelib xcelium_lib/generic_baseblocks_v2_1_0 \
-  "../../../../tp.srcs/sources_1/bd/design_1/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v" \
--endlib
--makelib xcelium_lib/axi_register_slice_v2_1_19 \
-  "../../../../tp.srcs/sources_1/bd/design_1/ipshared/4d88/hdl/axi_register_slice_v2_1_vl_rfs.v" \
--endlib
--makelib xcelium_lib/fifo_generator_v13_2_4 \
-  "../../../../tp.srcs/sources_1/bd/design_1/ipshared/1f5a/simulation/fifo_generator_vlog_beh.v" \
--endlib
--makelib xcelium_lib/fifo_generator_v13_2_4 \
-  "../../../../tp.srcs/sources_1/bd/design_1/ipshared/1f5a/hdl/fifo_generator_v13_2_rfs.vhd" \
--endlib
--makelib xcelium_lib/fifo_generator_v13_2_4 \
-  "../../../../tp.srcs/sources_1/bd/design_1/ipshared/1f5a/hdl/fifo_generator_v13_2_rfs.v" \
--endlib
--makelib xcelium_lib/axi_data_fifo_v2_1_18 \
-  "../../../../tp.srcs/sources_1/bd/design_1/ipshared/5b9c/hdl/axi_data_fifo_v2_1_vl_rfs.v" \
--endlib
--makelib xcelium_lib/axi_crossbar_v2_1_20 \
-  "../../../../tp.srcs/sources_1/bd/design_1/ipshared/ace7/hdl/axi_crossbar_v2_1_vl_rfs.v" \
--endlib
--makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/design_1/ip/design_1_xbar_0/sim/design_1_xbar_0.v" \
--endlib
--makelib xcelium_lib/xil_defaultlib \
   "../../../bd/design_1/ip/design_1_paralell2axi_0_0/sim/design_1_paralell2axi_0_0.vhd" \
 -endlib
 -makelib xcelium_lib/axis_infrastructure_v1_1_0 \
@@ -85,15 +47,61 @@
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/design_1/ip/design_1_axis_data_fifo_0_1/sim/design_1_axis_data_fifo_0_1.v" \
--endlib
--makelib xcelium_lib/axi_protocol_converter_v2_1_19 \
-  "../../../../tp.srcs/sources_1/bd/design_1/ipshared/c83a/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
+  "../../../bd/design_1/ip/design_1_axis_data_fifo_0_2/sim/design_1_axis_data_fifo_0_2.v" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/design_1/ip/design_1_auto_pc_1/sim/design_1_auto_pc_1.v" \
-  "../../../bd/design_1/ip/design_1_auto_pc_0/sim/design_1_auto_pc_0.v" \
+  "../../../bd/design_1/ip/design_1_stretcher_0_0/sim/design_1_stretcher_0_0.vhd" \
+-endlib
+-makelib xcelium_lib/xbip_utils_v3_0_10 \
+  "../../../../tp.srcs/sources_1/bd/design_1/ipshared/1123/hdl/xbip_utils_v3_0_vh_rfs.vhd" \
+-endlib
+-makelib xcelium_lib/axi_utils_v2_0_6 \
+  "../../../../tp.srcs/sources_1/bd/design_1/ipshared/1971/hdl/axi_utils_v2_0_vh_rfs.vhd" \
+-endlib
+-makelib xcelium_lib/c_reg_fd_v12_0_6 \
+  "../../../../tp.srcs/sources_1/bd/design_1/ipshared/edec/hdl/c_reg_fd_v12_0_vh_rfs.vhd" \
+-endlib
+-makelib xcelium_lib/c_gate_bit_v12_0_6 \
+  "../../../../tp.srcs/sources_1/bd/design_1/ipshared/7161/hdl/c_gate_bit_v12_0_vh_rfs.vhd" \
+-endlib
+-makelib xcelium_lib/c_compare_v12_0_6 \
+  "../../../../tp.srcs/sources_1/bd/design_1/ipshared/27af/hdl/c_compare_v12_0_vh_rfs.vhd" \
+-endlib
+-makelib xcelium_lib/xbip_dsp48_wrapper_v3_0_4 \
+  "../../../../tp.srcs/sources_1/bd/design_1/ipshared/cdbf/hdl/xbip_dsp48_wrapper_v3_0_vh_rfs.vhd" \
+-endlib
+-makelib xcelium_lib/xbip_pipe_v3_0_6 \
+  "../../../../tp.srcs/sources_1/bd/design_1/ipshared/7468/hdl/xbip_pipe_v3_0_vh_rfs.vhd" \
+-endlib
+-makelib xcelium_lib/xbip_dsp48_addsub_v3_0_6 \
+  "../../../../tp.srcs/sources_1/bd/design_1/ipshared/910d/hdl/xbip_dsp48_addsub_v3_0_vh_rfs.vhd" \
+-endlib
+-makelib xcelium_lib/xbip_addsub_v3_0_6 \
+  "../../../../tp.srcs/sources_1/bd/design_1/ipshared/cfdd/hdl/xbip_addsub_v3_0_vh_rfs.vhd" \
+-endlib
+-makelib xcelium_lib/c_addsub_v12_0_13 \
+  "../../../../tp.srcs/sources_1/bd/design_1/ipshared/cbe4/hdl/c_addsub_v12_0_vh_rfs.vhd" \
+-endlib
+-makelib xcelium_lib/xbip_counter_v3_0_6 \
+  "../../../../tp.srcs/sources_1/bd/design_1/ipshared/9ac8/hdl/xbip_counter_v3_0_vh_rfs.vhd" \
+-endlib
+-makelib xcelium_lib/c_counter_binary_v12_0_13 \
+  "../../../../tp.srcs/sources_1/bd/design_1/ipshared/23f1/hdl/c_counter_binary_v12_0_vh_rfs.vhd" \
+-endlib
+-makelib xcelium_lib/c_mux_bit_v12_0_6 \
+  "../../../../tp.srcs/sources_1/bd/design_1/ipshared/ecb4/hdl/c_mux_bit_v12_0_vh_rfs.vhd" \
+-endlib
+-makelib xcelium_lib/c_mux_bus_v12_0_6 \
+  "../../../../tp.srcs/sources_1/bd/design_1/ipshared/a0cc/hdl/c_mux_bus_v12_0_vh_rfs.vhd" \
+-endlib
+-makelib xcelium_lib/c_shift_ram_v12_0_13 \
+  "../../../../tp.srcs/sources_1/bd/design_1/ipshared/cd8a/hdl/c_shift_ram_v12_0_vh_rfs.vhd" \
+-endlib
+-makelib xcelium_lib/convolution_v9_0_14 \
+  "../../../../tp.srcs/sources_1/bd/design_1/ipshared/9d3d/hdl/convolution_v9_0_vh_rfs.vhd" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/design_1/ip/design_1_convolution_0_0/sim/design_1_convolution_0_0.vhd" \
   "../../../bd/design_1/sim/design_1.vhd" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \

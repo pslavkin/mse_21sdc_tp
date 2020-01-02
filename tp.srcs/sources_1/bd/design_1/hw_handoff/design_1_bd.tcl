@@ -40,7 +40,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # The design that will be created by this Tcl script contains the following 
 # module references:
-# paralell2axi
+# paralell2axi, stretcher
 
 # Please add the sources of those modules before sourcing this Tcl script.
 
@@ -167,32 +167,30 @@ proc create_root_design { parentCell } {
 
   set FIXED_IO [ create_bd_intf_port -mode Master -vlnv xilinx.com:display_processing_system7:fixedio_rtl:1.0 FIXED_IO ]
 
-  set btns_4bits [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:gpio_rtl:1.0 btns_4bits ]
-
-  set rgb_led [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:gpio_rtl:1.0 rgb_led ]
-
 
   # Create ports
   set outData_0 [ create_bd_port -dir O -from 3 -to 0 outData_0 ]
 
-  # Create instance: axi_gpio_0, and set properties
-  set axi_gpio_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_0 ]
+  # Create instance: axis_data_fifo_In, and set properties
+  set axis_data_fifo_In [ create_bd_cell -type ip -vlnv xilinx.com:ip:axis_data_fifo:2.0 axis_data_fifo_In ]
   set_property -dict [ list \
-   CONFIG.C_GPIO2_WIDTH {6} \
-   CONFIG.C_IS_DUAL {1} \
-   CONFIG.GPIO2_BOARD_INTERFACE {rgb_led} \
-   CONFIG.GPIO_BOARD_INTERFACE {btns_4bits} \
-   CONFIG.USE_BOARD_FLOW {true} \
- ] $axi_gpio_0
-
-  # Create instance: axis_data_fifo_0, and set properties
-  set axis_data_fifo_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axis_data_fifo:2.0 axis_data_fifo_0 ]
-  set_property -dict [ list \
-   CONFIG.FIFO_DEPTH {16} \
+   CONFIG.FIFO_DEPTH {512} \
    CONFIG.FIFO_MEMORY_TYPE {block} \
-   CONFIG.IS_ACLK_ASYNC {1} \
+   CONFIG.IS_ACLK_ASYNC {0} \
    CONFIG.SYNCHRONIZATION_STAGES {2} \
- ] $axis_data_fifo_0
+ ] $axis_data_fifo_In
+
+  # Create instance: axis_data_fifo_Out, and set properties
+  set axis_data_fifo_Out [ create_bd_cell -type ip -vlnv xilinx.com:ip:axis_data_fifo:2.0 axis_data_fifo_Out ]
+  set_property -dict [ list \
+   CONFIG.FIFO_DEPTH {512} \
+   CONFIG.FIFO_MEMORY_TYPE {block} \
+   CONFIG.IS_ACLK_ASYNC {0} \
+   CONFIG.SYNCHRONIZATION_STAGES {3} \
+ ] $axis_data_fifo_Out
+
+  # Create instance: convolution_0, and set properties
+  set convolution_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:convolution:9.0 convolution_0 ]
 
   # Create instance: paralell2axi_0, and set properties
   set block_name paralell2axi
@@ -983,40 +981,38 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_WDT_PERIPHERAL_FREQMHZ {133.333333} \
  ] $processing_system7_0
 
-  # Create instance: ps7_0_axi_periph, and set properties
-  set ps7_0_axi_periph [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 ps7_0_axi_periph ]
-  set_property -dict [ list \
-   CONFIG.NUM_MI {2} \
-   CONFIG.NUM_SI {2} \
- ] $ps7_0_axi_periph
-
   # Create instance: rst_ps7_0_10M, and set properties
   set rst_ps7_0_10M [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_ps7_0_10M ]
 
+  # Create instance: stretcher_0, and set properties
+  set block_name stretcher
+  set block_cell_name stretcher_0
+  if { [catch {set stretcher_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $stretcher_0 eq "" } {
+     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
   # Create interface connections
-  connect_bd_intf_net -intf_net axi_gpio_0_GPIO [get_bd_intf_ports btns_4bits] [get_bd_intf_pins axi_gpio_0/GPIO]
-  connect_bd_intf_net -intf_net axi_gpio_0_GPIO2 [get_bd_intf_ports rgb_led] [get_bd_intf_pins axi_gpio_0/GPIO2]
+  connect_bd_intf_net -intf_net axis_data_fifo_In_M_AXIS [get_bd_intf_pins axis_data_fifo_In/M_AXIS] [get_bd_intf_pins stretcher_0/s_axis]
+  connect_bd_intf_net -intf_net axis_data_fifo_Out_M_AXIS [get_bd_intf_pins axis_data_fifo_Out/M_AXIS] [get_bd_intf_pins paralell2axi_0/axi_s]
+  connect_bd_intf_net -intf_net convolution_0_M_AXIS_DATA [get_bd_intf_pins axis_data_fifo_Out/S_AXIS] [get_bd_intf_pins convolution_0/M_AXIS_DATA]
+  connect_bd_intf_net -intf_net paralell2axi_0_axi_m [get_bd_intf_pins axis_data_fifo_In/S_AXIS] [get_bd_intf_pins paralell2axi_0/axi_m]
   connect_bd_intf_net -intf_net processing_system7_0_DDR [get_bd_intf_ports DDR] [get_bd_intf_pins processing_system7_0/DDR]
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_ports FIXED_IO] [get_bd_intf_pins processing_system7_0/FIXED_IO]
-  connect_bd_intf_net -intf_net processing_system7_0_M_AXI_GP0 [get_bd_intf_pins processing_system7_0/M_AXI_GP0] [get_bd_intf_pins ps7_0_axi_periph/S00_AXI]
-  connect_bd_intf_net -intf_net ps7_0_axi_periph_M00_AXI [get_bd_intf_pins axi_gpio_0/S_AXI] [get_bd_intf_pins ps7_0_axi_periph/M00_AXI]
+  connect_bd_intf_net -intf_net stretcher_0_m_axis [get_bd_intf_pins convolution_0/S_AXIS_DATA] [get_bd_intf_pins stretcher_0/m_axis]
 
   # Create port connections
-  connect_bd_net -net axis_data_fifo_0_m_axis_tdata [get_bd_pins axis_data_fifo_0/m_axis_tdata] [get_bd_pins paralell2axi_0/s_data]
-  connect_bd_net -net axis_data_fifo_0_m_axis_tvalid [get_bd_pins axis_data_fifo_0/m_axis_tvalid] [get_bd_pins paralell2axi_0/s_valid]
-  connect_bd_net -net axis_data_fifo_0_s_axis_tready [get_bd_pins axis_data_fifo_0/s_axis_tready] [get_bd_pins paralell2axi_0/m_ready]
   connect_bd_net -net paralell2axi_0_emo [get_bd_pins paralell2axi_0/emo] [get_bd_pins processing_system7_0/GPIO_I]
   connect_bd_net -net paralell2axi_0_leds [get_bd_ports outData_0] [get_bd_pins paralell2axi_0/leds]
-  connect_bd_net -net paralell2axi_0_m_data [get_bd_pins axis_data_fifo_0/s_axis_tdata] [get_bd_pins paralell2axi_0/m_data]
-  connect_bd_net -net paralell2axi_0_m_valid [get_bd_pins axis_data_fifo_0/s_axis_tvalid] [get_bd_pins paralell2axi_0/m_valid]
-  connect_bd_net -net paralell2axi_0_s_ready [get_bd_pins axis_data_fifo_0/m_axis_tready] [get_bd_pins paralell2axi_0/s_ready]
-  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axi_gpio_0/s_axi_aclk] [get_bd_pins axis_data_fifo_0/m_axis_aclk] [get_bd_pins axis_data_fifo_0/s_axis_aclk] [get_bd_pins paralell2axi_0/clk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/M01_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK] [get_bd_pins ps7_0_axi_periph/S01_ACLK] [get_bd_pins rst_ps7_0_10M/slowest_sync_clk]
+  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axis_data_fifo_In/s_axis_aclk] [get_bd_pins axis_data_fifo_Out/s_axis_aclk] [get_bd_pins convolution_0/aclk] [get_bd_pins paralell2axi_0/clk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins rst_ps7_0_10M/slowest_sync_clk] [get_bd_pins stretcher_0/clk]
   connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins rst_ps7_0_10M/ext_reset_in]
   connect_bd_net -net processing_system7_0_GPIO_O [get_bd_pins paralell2axi_0/emi] [get_bd_pins processing_system7_0/GPIO_O]
-  connect_bd_net -net rst_ps7_0_10M_peripheral_aresetn [get_bd_pins axi_gpio_0/s_axi_aresetn] [get_bd_pins axis_data_fifo_0/s_axis_aresetn] [get_bd_pins paralell2axi_0/rst] [get_bd_pins ps7_0_axi_periph/ARESETN] [get_bd_pins ps7_0_axi_periph/M00_ARESETN] [get_bd_pins ps7_0_axi_periph/M01_ARESETN] [get_bd_pins ps7_0_axi_periph/S00_ARESETN] [get_bd_pins ps7_0_axi_periph/S01_ARESETN] [get_bd_pins rst_ps7_0_10M/peripheral_aresetn]
+  connect_bd_net -net rst_ps7_0_10M_peripheral_aresetn [get_bd_pins axis_data_fifo_In/s_axis_aresetn] [get_bd_pins axis_data_fifo_Out/s_axis_aresetn] [get_bd_pins convolution_0/aresetn] [get_bd_pins paralell2axi_0/rst] [get_bd_pins rst_ps7_0_10M/peripheral_aresetn] [get_bd_pins stretcher_0/rst]
 
   # Create address segments
-  create_bd_addr_seg -range 0x00010000 -offset 0x41200000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_gpio_0/S_AXI/Reg] SEG_axi_gpio_0_Reg
 
 
   # Restore current instance

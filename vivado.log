@@ -309,3 +309,970 @@ synth_1: /home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/runme.log
 Run output will be captured here: /home/pslavkin/mse_3_21sdc/tp/tp.runs/impl_1/runme.log
 file copy -force /home/pslavkin/mse_3_21sdc/tp/tp.runs/impl_1/design_1_wrapper.sysdef /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf
 
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:convolution:9.0 convolution_0
+endgroup
+set_property location {3.5 1429 270} [get_bd_cells convolution_0]
+connect_bd_net [get_bd_pins convolution_0/aresetn] [get_bd_pins rst_ps7_0_10M/peripheral_aresetn]
+set_property location {4 1455 -52} [get_bd_cells convolution_0]
+connect_bd_net [get_bd_pins convolution_0/aclk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+delete_bd_objs [get_bd_nets paralell2axi_0_m_data]
+connect_bd_net [get_bd_pins paralell2axi_0/m_data] [get_bd_pins convolution_0/s_axis_data_tdata]
+WARNING: [BD 41-1306] The connection to interface pin /convolution_0/s_axis_data_tdata is being overridden by the user. This pin will not be connected as a part of interface connection S_AXIS_DATA
+delete_bd_objs [get_bd_nets axis_data_fifo_0_m_axis_tdata]
+delete_bd_objs [get_bd_nets paralell2axi_0_m_data]
+connect_bd_net [get_bd_pins axis_data_fifo_0/s_axis_tdata] [get_bd_pins paralell2axi_0/m_data]
+WARNING: [BD 41-1306] The connection to interface pin /axis_data_fifo_0/s_axis_tdata is being overridden by the user. This pin will not be connected as a part of interface connection S_AXIS
+connect_bd_net [get_bd_pins axis_data_fifo_0/m_axis_tdata] [get_bd_pins convolution_0/s_axis_data_tdata]
+WARNING: [BD 41-1306] The connection to interface pin /axis_data_fifo_0/m_axis_tdata is being overridden by the user. This pin will not be connected as a part of interface connection M_AXIS
+WARNING: [BD 41-1306] The connection to interface pin /convolution_0/s_axis_data_tdata is being overridden by the user. This pin will not be connected as a part of interface connection S_AXIS_DATA
+delete_bd_objs [get_bd_nets paralell2axi_0_s_ready]
+connect_bd_net [get_bd_pins axis_data_fifo_0/m_axis_tready] [get_bd_pins convolution_0/s_axis_data_tready]
+WARNING: [BD 41-1306] The connection to interface pin /axis_data_fifo_0/m_axis_tready is being overridden by the user. This pin will not be connected as a part of interface connection M_AXIS
+WARNING: [BD 41-1306] The connection to interface pin /convolution_0/s_axis_data_tready is being overridden by the user. This pin will not be connected as a part of interface connection S_AXIS_DATA
+connect_bd_net [get_bd_pins convolution_0/s_axis_data_tvalid] [get_bd_pins axis_data_fifo_0/m_axis_tvalid]
+WARNING: [BD 41-1306] The connection to interface pin /convolution_0/s_axis_data_tvalid is being overridden by the user. This pin will not be connected as a part of interface connection S_AXIS_DATA
+delete_bd_objs [get_bd_nets axis_data_fifo_0_m_axis_tvalid]
+connect_bd_net [get_bd_pins convolution_0/s_axis_data_tvalid] [get_bd_pins axis_data_fifo_0/m_axis_tvalid]
+WARNING: [BD 41-1306] The connection to interface pin /convolution_0/s_axis_data_tvalid is being overridden by the user. This pin will not be connected as a part of interface connection S_AXIS_DATA
+WARNING: [BD 41-1306] The connection to interface pin /axis_data_fifo_0/m_axis_tvalid is being overridden by the user. This pin will not be connected as a part of interface connection M_AXIS
+connect_bd_net [get_bd_pins paralell2axi_0/s_data] [get_bd_pins convolution_0/m_axis_data_tdata]
+WARNING: [BD 41-1306] The connection to interface pin /convolution_0/m_axis_data_tdata is being overridden by the user. This pin will not be connected as a part of interface connection M_AXIS_DATA
+set_property location {4 1375 321} [get_bd_cells paralell2axi_0]
+connect_bd_net [get_bd_pins convolution_0/m_axis_data_tvalid] [get_bd_pins paralell2axi_0/s_valid]
+WARNING: [BD 41-1306] The connection to interface pin /convolution_0/m_axis_data_tvalid is being overridden by the user. This pin will not be connected as a part of interface connection M_AXIS_DATA
+connect_bd_net [get_bd_pins paralell2axi_0/s_ready] [get_bd_pins convolution_0/m_axis_data_tready]
+WARNING: [BD 41-1306] The connection to interface pin /convolution_0/m_axis_data_tready is being overridden by the user. This pin will not be connected as a part of interface connection M_AXIS_DATA
+regenerate_bd_layout
+startgroup
+set_property -dict [list CONFIG.IS_ACLK_ASYNC {0}] [get_bd_cells axis_data_fifo_0]
+WARNING: [BD 41-1684] Pin /axis_data_fifo_0/m_axis_aclk is now disabled. All connections to this pin have been removed. 
+endgroup
+save_bd_design
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+reset_run synth_1
+reset_run design_1_axis_data_fifo_0_1_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+WARNING: [BD 41-927] Following properties on pin /paralell2axi_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=design_1_processing_system7_0_0_FCLK_CLK0 
+CRITICAL WARNING: [BD 41-759] The input pins (listed below) are either not connected or do not have a source port, and they don't have a tie-off specified. These pins are tied-off to all 0's to avoid error in Implementation flow.
+Please check your design and connect them as needed: 
+/paralell2axi_0/s_last
+
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/s00_couplers/auto_pc/m_axi_bid'(12) to net 'auto_pc_to_s00_couplers_BID'(13) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/s00_couplers/auto_pc/m_axi_rid'(12) to net 'auto_pc_to_s00_couplers_RID'(13) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/xbar/s_axi_awid'(13) to net 's00_couplers_to_xbar_AWID'(12) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/xbar/s_axi_arid'(13) to net 's00_couplers_to_xbar_ARID'(12) - Only lower order bits will be connected.
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/s00_couplers/auto_pc/m_axi_bid'(12) to net 'auto_pc_to_s00_couplers_BID'(13) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/s00_couplers/auto_pc/m_axi_rid'(12) to net 'auto_pc_to_s00_couplers_RID'(13) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/xbar/s_axi_awid'(13) to net 's00_couplers_to_xbar_AWID'(12) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/xbar/s_axi_arid'(13) to net 's00_couplers_to_xbar_ARID'(12) - Only lower order bits will be connected.
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_ps7_0_10M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/xbar .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block paralell2axi_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axis_data_fifo_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block convolution_0 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/m00_couplers/auto_pc .
+Exporting to file /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.hwdef
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_pc_0, cache-ID = 0d55c71657273e51; cache size = 21.324 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_pc_1, cache-ID = e94176c3b28323b2; cache size = 21.324 MB.
+[Thu Jan  2 08:31:38 2020] Launched design_1_axis_data_fifo_0_1_synth_1, design_1_convolution_0_0_synth_1, synth_1...
+Run output will be captured here:
+design_1_axis_data_fifo_0_1_synth_1: /home/pslavkin/mse_3_21sdc/tp/tp.runs/design_1_axis_data_fifo_0_1_synth_1/runme.log
+design_1_convolution_0_0_synth_1: /home/pslavkin/mse_3_21sdc/tp/tp.runs/design_1_convolution_0_0_synth_1/runme.log
+synth_1: /home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/runme.log
+[Thu Jan  2 08:31:38 2020] Launched impl_1...
+Run output will be captured here: /home/pslavkin/mse_3_21sdc/tp/tp.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:16 ; elapsed = 00:00:14 . Memory (MB): peak = 7418.289 ; gain = 81.359 ; free physical = 928 ; free virtual = 2165
+file copy -force /home/pslavkin/mse_3_21sdc/tp/tp.runs/impl_1/design_1_wrapper.sysdef /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf
+
+file copy -force /home/pslavkin/mse_3_21sdc/tp/tp.runs/impl_1/design_1_wrapper.sysdef /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf
+
+copy_bd_objs /  [get_bd_cells {axis_data_fifo_0}]
+WARNING: [IP_Flow 19-3374] An attempt to modify the value of disabled parameter 'SYNCHRONIZATION_STAGES' from '3' to '2' has been ignored for IP 'axis_data_fifo_0'
+set_property location {4.5 1839 400} [get_bd_cells axis_data_fifo_1]
+set_property location {5 1857 532} [get_bd_cells axis_data_fifo_1]
+set_property location {1 -9 306} [get_bd_cells axis_data_fifo_1]
+delete_bd_objs [get_bd_nets convolution_0_m_axis_data_tdata]
+connect_bd_net [get_bd_pins axis_data_fifo_1/s_axis_tdata] [get_bd_pins convolution_0/m_axis_data_tdata]
+WARNING: [BD 41-1306] The connection to interface pin /axis_data_fifo_1/s_axis_tdata is being overridden by the user. This pin will not be connected as a part of interface connection S_AXIS
+WARNING: [BD 41-1306] The connection to interface pin /convolution_0/m_axis_data_tdata is being overridden by the user. This pin will not be connected as a part of interface connection M_AXIS_DATA
+delete_bd_objs [get_bd_nets paralell2axi_0_s_ready]
+delete_bd_objs [get_bd_nets convolution_0_m_axis_data_tvalid]
+connect_bd_net [get_bd_pins convolution_0/m_axis_data_tready] [get_bd_pins axis_data_fifo_1/s_axis_tready]
+WARNING: [BD 41-1306] The connection to interface pin /convolution_0/m_axis_data_tready is being overridden by the user. This pin will not be connected as a part of interface connection M_AXIS_DATA
+WARNING: [BD 41-1306] The connection to interface pin /axis_data_fifo_1/s_axis_tready is being overridden by the user. This pin will not be connected as a part of interface connection S_AXIS
+connect_bd_net [get_bd_pins axis_data_fifo_1/s_axis_tvalid] [get_bd_pins convolution_0/m_axis_data_tvalid]
+WARNING: [BD 41-1306] The connection to interface pin /axis_data_fifo_1/s_axis_tvalid is being overridden by the user. This pin will not be connected as a part of interface connection S_AXIS
+WARNING: [BD 41-1306] The connection to interface pin /convolution_0/m_axis_data_tvalid is being overridden by the user. This pin will not be connected as a part of interface connection M_AXIS_DATA
+connect_bd_net [get_bd_pins axis_data_fifo_1/s_axis_aresetn] [get_bd_pins rst_ps7_0_10M/peripheral_aresetn]
+connect_bd_net [get_bd_pins axis_data_fifo_1/s_axis_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+connect_bd_net [get_bd_pins axis_data_fifo_1/m_axis_tdata] [get_bd_pins paralell2axi_0/s_data]
+WARNING: [BD 41-1306] The connection to interface pin /axis_data_fifo_1/m_axis_tdata is being overridden by the user. This pin will not be connected as a part of interface connection M_AXIS
+startgroup
+connect_bd_net [get_bd_pins axis_data_fifo_1/m_axis_tready] [get_bd_pins axis_data_fifo_1/m_axis_tvalid]
+WARNING: [BD 41-1306] The connection to interface pin /axis_data_fifo_1/m_axis_tready is being overridden by the user. This pin will not be connected as a part of interface connection M_AXIS
+WARNING: [BD 41-1306] The connection to interface pin /axis_data_fifo_1/m_axis_tvalid is being overridden by the user. This pin will not be connected as a part of interface connection M_AXIS
+endgroup
+undo
+INFO: [Common 17-17] undo 'endgroup'
+INFO: [Common 17-17] undo 'connect_bd_net [get_bd_pins axis_data_fifo_1/m_axis_tready] [get_bd_pins axis_data_fifo_1/m_axis_tvalid]'
+INFO: [Common 17-17] undo 'startgroup'
+connect_bd_net [get_bd_pins axis_data_fifo_1/m_axis_tready] [get_bd_pins paralell2axi_0/s_ready]
+WARNING: [BD 41-1306] The connection to interface pin /axis_data_fifo_1/m_axis_tready is being overridden by the user. This pin will not be connected as a part of interface connection M_AXIS
+connect_bd_net [get_bd_pins paralell2axi_0/s_valid] [get_bd_pins axis_data_fifo_1/m_axis_tvalid]
+WARNING: [BD 41-1306] The connection to interface pin /axis_data_fifo_1/m_axis_tvalid is being overridden by the user. This pin will not be connected as a part of interface connection M_AXIS
+set_property name axis_data_fifo_OUT [get_bd_cells axis_data_fifo_1]
+set_property name axis_data_fifo_Oou [get_bd_cells axis_data_fifo_OUT]
+set_property name axis_data_fifo_Out [get_bd_cells axis_data_fifo_Oou]
+set_property name axis_data_fifo_In [get_bd_cells axis_data_fifo_0]
+regenerate_bd_layout
+save_bd_design
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+WARNING: [BD 41-927] Following properties on pin /paralell2axi_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=design_1_processing_system7_0_0_FCLK_CLK0 
+CRITICAL WARNING: [BD 41-759] The input pins (listed below) are either not connected or do not have a source port, and they don't have a tie-off specified. These pins are tied-off to all 0's to avoid error in Implementation flow.
+Please check your design and connect them as needed: 
+/paralell2axi_0/s_last
+
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/s00_couplers/auto_pc/m_axi_bid'(12) to net 'auto_pc_to_s00_couplers_BID'(13) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/s00_couplers/auto_pc/m_axi_rid'(12) to net 'auto_pc_to_s00_couplers_RID'(13) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/xbar/s_axi_awid'(13) to net 's00_couplers_to_xbar_AWID'(12) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/xbar/s_axi_arid'(13) to net 's00_couplers_to_xbar_ARID'(12) - Only lower order bits will be connected.
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/s00_couplers/auto_pc/m_axi_bid'(12) to net 'auto_pc_to_s00_couplers_BID'(13) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/s00_couplers/auto_pc/m_axi_rid'(12) to net 'auto_pc_to_s00_couplers_RID'(13) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/xbar/s_axi_awid'(13) to net 's00_couplers_to_xbar_AWID'(12) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps7_0_axi_periph/xbar/s_axi_arid'(13) to net 's00_couplers_to_xbar_ARID'(12) - Only lower order bits will be connected.
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_ps7_0_10M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/xbar .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block paralell2axi_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axis_data_fifo_In .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block convolution_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axis_data_fifo_Out .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/m00_couplers/auto_pc .
+Exporting to file /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.hwdef
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_pc_0, cache-ID = 0d55c71657273e51; cache size = 21.710 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_pc_1, cache-ID = e94176c3b28323b2; cache size = 21.710 MB.
+[Thu Jan  2 09:11:34 2020] Launched design_1_axis_data_fifo_0_2_synth_1, synth_1...
+Run output will be captured here:
+design_1_axis_data_fifo_0_2_synth_1: /home/pslavkin/mse_3_21sdc/tp/tp.runs/design_1_axis_data_fifo_0_2_synth_1/runme.log
+synth_1: /home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/runme.log
+[Thu Jan  2 09:11:35 2020] Launched impl_1...
+Run output will be captured here: /home/pslavkin/mse_3_21sdc/tp/tp.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:17 ; elapsed = 00:00:15 . Memory (MB): peak = 7523.773 ; gain = 76.875 ; free physical = 181 ; free virtual = 1654
+file copy -force /home/pslavkin/mse_3_21sdc/tp/tp.runs/impl_1/design_1_wrapper.sysdef /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf
+
+ERROR: [xilinx.com:ip:convolution:9.0-911] design_1_convolution_0_0: M_AXIS_DATA TDATA: Invalid value, , for format long returned from callback: ::ipgui_design_1_convolution_0_0_1::vip_design_1_convolution_0_0::updateDataType_M_AXIS_DATA_TDATA_data_out_bitwidth
+can't use empty string as operand of "+"
+ERROR: [xilinx.com:ip:convolution:9.0-911] design_1_convolution_0_0: M_AXIS_DATA TDATA: Invalid value, , for format long returned from callback: ::ipgui_design_1_convolution_0_0_1::vip_design_1_convolution_0_0::updateDataType_M_AXIS_DATA_TDATA_data_out_bitwidth
+can't use empty string as operand of "+"
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axis_dwidth_converter:1.1 axis_dwidth_converter_0
+endgroup
+set_property -dict [list CONFIG.TDEST_WIDTH.VALUE_SRC USER CONFIG.TUSER_BITS_PER_BYTE.VALUE_SRC USER CONFIG.TID_WIDTH.VALUE_SRC USER CONFIG.S_TDATA_NUM_BYTES.VALUE_SRC PROPAGATED] [get_bd_cells axis_dwidth_converter_0]
+set_property -dict [list CONFIG.M_TDATA_NUM_BYTES {8} CONFIG.TID_WIDTH {1} CONFIG.TDEST_WIDTH {1} CONFIG.TUSER_BITS_PER_BYTE {8} CONFIG.HAS_MI_TKEEP {1}] [get_bd_cells axis_dwidth_converter_0]
+set_property -dict [list CONFIG.TID_WIDTH.VALUE_SRC PROPAGATED CONFIG.TDEST_WIDTH.VALUE_SRC PROPAGATED CONFIG.TUSER_BITS_PER_BYTE.VALUE_SRC PROPAGATED] [get_bd_cells axis_dwidth_converter_0]
+set_property -dict [list CONFIG.HAS_MI_TKEEP {0}] [get_bd_cells axis_dwidth_converter_0]
+ERROR: [xilinx.com:ip:convolution:9.0-911] design_1_convolution_0_0: M_AXIS_DATA TDATA: Invalid value, , for format long returned from callback: ::ipgui_design_1_convolution_0_0_1::vip_design_1_convolution_0_0::updateDataType_M_AXIS_DATA_TDATA_data_out_bitwidth
+can't use empty string as operand of "+"
+ERROR: [xilinx.com:ip:convolution:9.0-911] design_1_convolution_0_0: M_AXIS_DATA TDATA: Invalid value, , for format long returned from callback: ::ipgui_design_1_convolution_0_0_1::vip_design_1_convolution_0_0::updateDataType_M_AXIS_DATA_TDATA_data_out_bitwidth
+can't use empty string as operand of "+"
+delete_bd_objs [get_bd_cells axis_dwidth_converter_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_fifo_mm_s:4.2 axi_fifo_mm_s_0
+endgroup
+delete_bd_objs [get_bd_cells axi_fifo_mm_s_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axis_data_fifo:2.0 axis_data_fifo_0
+endgroup
+delete_bd_objs [get_bd_cells axis_data_fifo_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_data_fifo:2.1 axi_data_fifo_0
+endgroup
+delete_bd_objs [get_bd_cells axi_data_fifo_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_vfifo_ctrl:2.0 axi_vfifo_ctrl_0
+endgroup
+delete_bd_objs [get_bd_cells axi_vfifo_ctrl_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:fifo_generator:13.2 fifo_generator_0
+INFO: [xilinx.com:ip:fifo_generator:13.2-5968] /fifo_generator_0Executing the post_config_ip from bd
+endgroup
+delete_bd_objs [get_bd_cells fifo_generator_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axis_data_fifo:2.0 axis_data_fifo_0
+endgroup
+delete_bd_objs [get_bd_cells axis_data_fifo_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:fifo_generator:13.2 fifo_generator_0
+INFO: [xilinx.com:ip:fifo_generator:13.2-5968] /fifo_generator_0Executing the post_config_ip from bd
+endgroup
+set_property -dict [list CONFIG.Input_Data_Width {8} CONFIG.Output_Data_Width {16} CONFIG.Output_Depth {512} CONFIG.Use_Extra_Logic {true} CONFIG.Write_Data_Count_Width {11} CONFIG.Full_Threshold_Assert_Value {1021} CONFIG.Full_Threshold_Negate_Value {1020}] [get_bd_cells fifo_generator_0]
+INFO: [xilinx.com:ip:fifo_generator:13.2-5968] /fifo_generator_0Executing the post_config_ip from bd
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config {Clk "/processing_system7_0/FCLK_CLK0 (10 MHz)" }  [get_bd_pins fifo_generator_0/clk]
+startgroup
+set_property -dict [list CONFIG.INTERFACE_TYPE {AXI_STREAM} CONFIG.Reset_Type {Asynchronous_Reset} CONFIG.Full_Flags_Reset_Value {1} CONFIG.FIFO_Implementation_wach {Common_Clock_Distributed_RAM} CONFIG.Full_Threshold_Assert_Value_wach {15} CONFIG.Empty_Threshold_Assert_Value_wach {14} CONFIG.FIFO_Implementation_wrch {Common_Clock_Distributed_RAM} CONFIG.Full_Threshold_Assert_Value_wrch {15} CONFIG.Empty_Threshold_Assert_Value_wrch {14} CONFIG.FIFO_Implementation_rach {Common_Clock_Distributed_RAM} CONFIG.Full_Threshold_Assert_Value_rach {15} CONFIG.Empty_Threshold_Assert_Value_rach {14} CONFIG.Enable_Safety_Circuit {true}] [get_bd_cells fifo_generator_0]
+WARNING: [BD 41-1684] Pin /fifo_generator_0/clk is now disabled. All connections to this pin have been removed. 
+INFO: [xilinx.com:ip:fifo_generator:13.2-5968] /fifo_generator_0Executing the post_config_ip from bd
+endgroup
+delete_bd_objs [get_bd_cells fifo_generator_0]
+delete_bd_objs [get_bd_nets convolution_0_m_axis_data_tdata]
+delete_bd_objs [get_bd_nets axis_data_fifo_1_s_axis_tready]
+delete_bd_objs [get_bd_nets convolution_0_m_axis_data_tvalid]
+connect_bd_intf_net [get_bd_intf_pins convolution_0/M_AXIS_DATA] [get_bd_intf_pins axis_data_fifo_Out/S_AXIS]
+delete_bd_objs [get_bd_nets axis_data_fifo_0_m_axis_tdata]
+delete_bd_objs [get_bd_nets convolution_0_s_axis_data_tready]
+delete_bd_objs [get_bd_nets axis_data_fifo_0_m_axis_tvalid]
+connect_bd_intf_net [get_bd_intf_pins convolution_0/S_AXIS_DATA] [get_bd_intf_pins axis_data_fifo_In/M_AXIS]
+regenerate_bd_layout
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+regenerate_bd_layout
+update_module_reference design_1_paralell2axi_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'rst'.
+WARNING: [IP_Flow 19-3153] Bus Interface 'clk': ASSOCIATED_BUSIF bus parameter is missing.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+Upgrading '/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-3420] Updated design_1_paralell2axi_0_0 to use current project options
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+regenerate_bd_layout
+add_files -norecurse /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/new/8to1.vhd
+update_compile_order -fileset sources_1
+save_bd_design
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+create_bd_cell -type module -reference stretcher stretcher_0
+ERROR: [IP_Flow 19-259] [HDL Parser] Failed analyze operation while parsing HDL.
+ERROR: [IP_Flow 19-258] [HDL Parser] Error parsing HDL file '../../../new/8to1.vhd'.
+WARNING: [IP_Flow 19-378] There are no ports found from top-level file '/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/new/8to1.vhd'.
+ERROR: [IP_Flow 19-4668] Failed to infer definition from module 'stretcher'.
+ERROR: [BD 41-1699] Unable to add reference type cell for reference-module 'stretcher'
+ERROR: [BD 5-7] Error: running create_bd_cell  -type module -reference stretcher -name stretcher_0 .
+ERROR: [Common 17-39] 'create_bd_cell' failed due to earlier errors.
+create_bd_cell -type module -reference stretcher stretcher_0
+ERROR: [IP_Flow 19-259] [HDL Parser] Failed analyze operation while parsing HDL.
+ERROR: [IP_Flow 19-258] [HDL Parser] Error parsing HDL file '../../../new/8to1.vhd'.
+WARNING: [IP_Flow 19-378] There are no ports found from top-level file '/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/new/8to1.vhd'.
+ERROR: [IP_Flow 19-4668] Failed to infer definition from module 'stretcher'.
+ERROR: [BD 41-1699] Unable to add reference type cell for reference-module 'stretcher'
+ERROR: [BD 5-7] Error: running create_bd_cell  -type module -reference stretcher -name stretcher_0 .
+ERROR: [Common 17-39] 'create_bd_cell' failed due to earlier errors.
+export_ip_user_files -of_objects  [get_files /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/new/8to1.vhd] -no_script -reset -force -quiet
+remove_files  /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/new/8to1.vhd
+add_files -norecurse /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/new/stretcher.vhd
+update_compile_order -fileset sources_1
+create_bd_cell -type module -reference stretcher stretcher_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'rst'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+delete_bd_objs [get_bd_cells stretcher_0]
+update_module_reference design_1_paralell2axi_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'rst'.
+WARNING: [IP_Flow 19-3153] Bus Interface 'clk': ASSOCIATED_BUSIF bus parameter is missing.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+Upgrading '/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-3420] Updated design_1_paralell2axi_0_0 to use current project options
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'm_data'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'm_last'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'm_ready'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'm_valid'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's_data'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's_last'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's_ready'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's_valid'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'axi_m_data'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'axi_m_last'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'axi_m_ready'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'axi_m_valid'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'axi_s_data'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'axi_s_last'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'axi_s_ready'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'axi_s_valid'
+WARNING: [IP_Flow 19-3298] Detected external port differences while upgrading 'design_1_paralell2axi_0_0'. These changes may impact your design.
+CRITICAL WARNING: [BD 41-1167] The pin 'm_data' is not found on the upgraded version of the cell '/paralell2axi_0'. Its connection to the net 'paralell2axi_0_m_data' has been removed.
+CRITICAL WARNING: [BD 41-1167] The pin 'm_valid' is not found on the upgraded version of the cell '/paralell2axi_0'. Its connection to the net 'paralell2axi_0_m_valid' has been removed.
+CRITICAL WARNING: [BD 41-1167] The pin 'm_ready' is not found on the upgraded version of the cell '/paralell2axi_0'. Its connection to the net 'axis_data_fifo_0_s_axis_tready' has been removed.
+CRITICAL WARNING: [BD 41-1167] The pin 's_data' is not found on the upgraded version of the cell '/paralell2axi_0'. Its connection to the net 'axis_data_fifo_1_m_axis_tdata' has been removed.
+CRITICAL WARNING: [BD 41-1167] The pin 's_valid' is not found on the upgraded version of the cell '/paralell2axi_0'. Its connection to the net 'axis_data_fifo_1_m_axis_tvalid' has been removed.
+CRITICAL WARNING: [BD 41-1167] The pin 's_ready' is not found on the upgraded version of the cell '/paralell2axi_0'. Its connection to the net 'paralell2axi_0_s_ready' has been removed.
+CRITICAL WARNING: [Coretcl 2-1280] The upgrade of 'design_1_paralell2axi_0_0' has identified issues that may require user intervention. Please verify that the instance is correctly configured, and review any upgrade messages.
+WARNING: [BD 41-597] NET <paralell2axi_0_m_valid> has no source
+WARNING: [BD 41-597] NET <paralell2axi_0_m_data> has no source
+WARNING: [BD 41-597] NET <paralell2axi_0_s_ready> has no source
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_module_reference design_1_paralell2axi_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'axi_m' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'axi_s' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'axi_m'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'rst'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+Upgrading '/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-3420] Updated design_1_paralell2axi_0_0 to use current project options
+WARNING: [IP_Flow 19-4697] Upgrade has added interface 'axi_m' (xilinx.com:interface:axis:1.0)
+WARNING: [IP_Flow 19-4697] Upgrade has added interface 'axi_s' (xilinx.com:interface:axis:1.0)
+WARNING: [IP_Flow 19-3670] Detected external interface differences while upgrading 'design_1_paralell2axi_0_0'.
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'axi_m_data'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'axi_m_last'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'axi_m_ready'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'axi_m_valid'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'axi_s_data'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'axi_s_last'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'axi_s_ready'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'axi_s_valid'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'axi_m_tdata'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'axi_m_tlast'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'axi_m_tready'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'axi_m_tvalid'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'axi_s_tdata'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'axi_s_tlast'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'axi_s_tready'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'axi_s_tvalid'
+WARNING: [IP_Flow 19-3298] Detected external port differences while upgrading 'design_1_paralell2axi_0_0'. These changes may impact your design.
+CRITICAL WARNING: [Coretcl 2-1280] The upgrade of 'design_1_paralell2axi_0_0' has identified issues that may require user intervention. Please verify that the instance is correctly configured, and review any upgrade messages.
+WARNING: [BD 41-597] NET <paralell2axi_0_m_valid> has no source
+WARNING: [BD 41-597] NET <paralell2axi_0_m_data> has no source
+WARNING: [BD 41-597] NET <paralell2axi_0_s_ready> has no source
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+delete_bd_objs [get_bd_nets axis_data_fifo_0_s_axis_tready]
+delete_bd_objs [get_bd_nets paralell2axi_0_m_valid]
+delete_bd_objs [get_bd_nets paralell2axi_0_m_data]
+connect_bd_intf_net [get_bd_intf_pins axis_data_fifo_In/S_AXIS] [get_bd_intf_pins paralell2axi_0/axi_m]
+connect_bd_intf_net [get_bd_intf_pins paralell2axi_0/axi_s] [get_bd_intf_pins axis_data_fifo_Out/M_AXIS]
+delete_bd_objs [get_bd_nets axis_data_fifo_1_m_axis_tdata]
+delete_bd_objs [get_bd_nets paralell2axi_0_s_ready]
+delete_bd_objs [get_bd_nets axis_data_fifo_1_m_axis_tvalid]
+regenerate_bd_layout
+set_property location {3 1021 1139} [get_bd_cells paralell2axi_0]
+set_property location {4 1437 715} [get_bd_cells axis_data_fifo_In]
+set_property location {4 1384 1046} [get_bd_cells axis_data_fifo_Out]
+set_property location {4.5 1725 898} [get_bd_cells convolution_0]
+set_property location {5 1731 725} [get_bd_cells convolution_0]
+set_property location {2 522 1174} [get_bd_cells processing_system7_0]
+set_property location {2 1056 941} [get_bd_cells paralell2axi_0]
+set_property location {1 690 991} [get_bd_cells processing_system7_0]
+set_property location {1 672 978} [get_bd_cells processing_system7_0]
+delete_bd_objs [get_bd_intf_nets ps7_0_axi_periph_M00_AXI] [get_bd_intf_nets axi_gpio_0_GPIO] [get_bd_intf_nets axi_gpio_0_GPIO2] [get_bd_cells axi_gpio_0]
+delete_bd_objs [get_bd_intf_ports rgb_led]
+delete_bd_objs [get_bd_intf_ports btns_4bits]
+set_property location {1673 965} [get_bd_ports outData_0]
+set_property location {1424 909} [get_bd_ports outData_0]
+set_property location {1266 901} [get_bd_ports outData_0]
+regenerate_bd_layout
+regenerate_bd_layout
+set_property location {1681 651} [get_bd_ports outData_0]
+regenerate_bd_layout
+delete_bd_objs [get_bd_intf_nets processing_system7_0_M_AXI_GP0] [get_bd_cells ps7_0_axi_periph]
+regenerate_bd_layout
+create_bd_cell -type module -reference stretcher stretcher_0
+set_property location {5 1565 480} [get_bd_cells stretcher_0]
+update_module_reference design_1_paralell2axi_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'axi_m' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'axi_s' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'axi_m'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'rst'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+Upgrading '/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-3420] Updated design_1_paralell2axi_0_0 to use current project options
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_module_reference {design_1_stretcher_0_0 design_1_stretcher_0_1}
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'rst'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+Upgrading '/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-3420] Updated design_1_stretcher_0_1 to use current project options
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+ERROR: [BD 41-758] The following clock pins are not connected to a valid clock source: 
+/stretcher_0/clk
+
+ERROR: [BD 41-1031] Hdl Generation failed for the IP Integrator design /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd 
+ERROR: [Vivado 12-4756] Launch of runs aborted due to earlier errors while preparing sub-designs for run execution.
+delete_bd_objs [get_bd_cells stretcher_0]
+save_bd_design
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+WARNING: [BD 41-926] Following properties on interface pin /paralell2axi_0/axi_s have been updated from connected ip. They may not be synchronized with cell properties. You can set property on interface pin directly to confirm the value and resolve the warning.
+	LAYERED_METADATA=xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data_out} bitwidth {attribs {resolve_type generated dependency data_out_bitwidth format long minimum {} maximum {}} value 2} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 8}
+
+WARNING: [BD 41-927] Following properties on pin /paralell2axi_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=design_1_processing_system7_0_0_FCLK_CLK0 
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_ps7_0_10M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block paralell2axi_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axis_data_fifo_In .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block convolution_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axis_data_fifo_Out .
+Exporting to file /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.hwdef
+[Thu Jan  2 12:22:24 2020] Launched design_1_axis_data_fifo_0_1_synth_1, design_1_paralell2axi_0_0_synth_1, synth_1...
+Run output will be captured here:
+design_1_axis_data_fifo_0_1_synth_1: /home/pslavkin/mse_3_21sdc/tp/tp.runs/design_1_axis_data_fifo_0_1_synth_1/runme.log
+design_1_paralell2axi_0_0_synth_1: /home/pslavkin/mse_3_21sdc/tp/tp.runs/design_1_paralell2axi_0_0_synth_1/runme.log
+synth_1: /home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/runme.log
+[Thu Jan  2 12:22:24 2020] Launched impl_1...
+Run output will be captured here: /home/pslavkin/mse_3_21sdc/tp/tp.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:21 ; elapsed = 00:00:25 . Memory (MB): peak = 8061.125 ; gain = 32.016 ; free physical = 218 ; free virtual = 2047
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+generate_target all [get_files  /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd]
+INFO: [BD 41-1637] Generated targets are already up-to-date for block design 'design_1' - hence not re-generating.
+export_ip_user_files -of_objects [get_files /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd]
+launch_runs -jobs 4 design_1_paralell2axi_0_0_synth_1
+[Thu Jan  2 14:17:30 2020] Launched design_1_paralell2axi_0_0_synth_1...
+Run output will be captured here: /home/pslavkin/mse_3_21sdc/tp/tp.runs/design_1_paralell2axi_0_0_synth_1/runme.log
+export_simulation -of_objects [get_files /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd] -directory /home/pslavkin/mse_3_21sdc/tp/tp.ip_user_files/sim_scripts -ip_user_files_dir /home/pslavkin/mse_3_21sdc/tp/tp.ip_user_files -ipstatic_source_dir /home/pslavkin/mse_3_21sdc/tp/tp.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/modelsim} {questa=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/questa} {ies=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/ies} {xcelium=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/xcelium} {vcs=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/vcs} {riviera=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+reset_run design_1_paralell2axi_0_0_synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Thu Jan  2 14:18:42 2020] Launched design_1_paralell2axi_0_0_synth_1...
+Run output will be captured here: /home/pslavkin/mse_3_21sdc/tp/tp.runs/design_1_paralell2axi_0_0_synth_1/runme.log
+[Thu Jan  2 14:18:42 2020] Launched synth_1...
+Run output will be captured here: /home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/runme.log
+launch_runs: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 8159.156 ; gain = 11.996 ; free physical = 840 ; free virtual = 2272
+update_module_reference design_1_paralell2axi_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'axi_m' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'axi_s' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'axi_m'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'rst'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+Upgrading '/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-3420] Updated design_1_paralell2axi_0_0 to use current project options
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+generate_target all [get_files  /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd]
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+WARNING: [BD 41-926] Following properties on interface pin /paralell2axi_0/axi_s have been updated from connected ip. They may not be synchronized with cell properties. You can set property on interface pin directly to confirm the value and resolve the warning.
+	LAYERED_METADATA=xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data_out} bitwidth {attribs {resolve_type generated dependency data_out_bitwidth format long minimum {} maximum {}} value 2} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 8}
+
+WARNING: [BD 41-927] Following properties on pin /paralell2axi_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=design_1_processing_system7_0_0_FCLK_CLK0 
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_ps7_0_10M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block paralell2axi_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axis_data_fifo_In .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block convolution_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axis_data_fifo_Out .
+Exporting to file /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.hwdef
+export_ip_user_files -of_objects [get_files /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd]
+launch_runs -jobs 4 design_1_paralell2axi_0_0_synth_1
+[Thu Jan  2 14:26:09 2020] Launched design_1_paralell2axi_0_0_synth_1...
+Run output will be captured here: /home/pslavkin/mse_3_21sdc/tp/tp.runs/design_1_paralell2axi_0_0_synth_1/runme.log
+export_simulation -of_objects [get_files /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd] -directory /home/pslavkin/mse_3_21sdc/tp/tp.ip_user_files/sim_scripts -ip_user_files_dir /home/pslavkin/mse_3_21sdc/tp/tp.ip_user_files -ipstatic_source_dir /home/pslavkin/mse_3_21sdc/tp/tp.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/modelsim} {questa=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/questa} {ies=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/ies} {xcelium=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/xcelium} {vcs=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/vcs} {riviera=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+update_module_reference design_1_paralell2axi_0_0
+CRITICAL WARNING: [HDL 9-806] Syntax error near "+". [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/new/paralell2axi.vhd:61]
+ERROR: [IP_Flow 19-259] [HDL Parser] Failed analyze operation while parsing HDL.
+ERROR: [IP_Flow 19-258] [HDL Parser] Error parsing HDL file '../../../new/paralell2axi.vhd'.
+WARNING: [IP_Flow 19-378] There are no ports found from top-level file '/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/new/paralell2axi.vhd'.
+ERROR: [IP_Flow 19-4668] Failed to infer definition from module 'paralell2axi'.
+ERROR: [Common 17-39] 'update_module_reference' failed due to earlier errors.
+update_module_reference design_1_paralell2axi_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'axi_m' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'axi_s' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'axi_m'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'rst'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+Upgrading '/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-3420] Updated design_1_paralell2axi_0_0 to use current project options
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+update_module_reference: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 8302.801 ; gain = 29.008 ; free physical = 765 ; free virtual = 2386
+generate_target all [get_files  /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd]
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+WARNING: [BD 41-926] Following properties on interface pin /paralell2axi_0/axi_s have been updated from connected ip. They may not be synchronized with cell properties. You can set property on interface pin directly to confirm the value and resolve the warning.
+	LAYERED_METADATA=xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data_out} bitwidth {attribs {resolve_type generated dependency data_out_bitwidth format long minimum {} maximum {}} value 2} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 8}
+
+WARNING: [BD 41-927] Following properties on pin /paralell2axi_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=design_1_processing_system7_0_0_FCLK_CLK0 
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_ps7_0_10M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block paralell2axi_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axis_data_fifo_In .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block convolution_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axis_data_fifo_Out .
+Exporting to file /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.hwdef
+export_ip_user_files -of_objects [get_files /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd]
+launch_runs -jobs 4 design_1_paralell2axi_0_0_synth_1
+[Thu Jan  2 14:30:39 2020] Launched design_1_paralell2axi_0_0_synth_1...
+Run output will be captured here: /home/pslavkin/mse_3_21sdc/tp/tp.runs/design_1_paralell2axi_0_0_synth_1/runme.log
+export_simulation -of_objects [get_files /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd] -directory /home/pslavkin/mse_3_21sdc/tp/tp.ip_user_files/sim_scripts -ip_user_files_dir /home/pslavkin/mse_3_21sdc/tp/tp.ip_user_files -ipstatic_source_dir /home/pslavkin/mse_3_21sdc/tp/tp.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/modelsim} {questa=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/questa} {ies=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/ies} {xcelium=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/xcelium} {vcs=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/vcs} {riviera=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+generate_target all [get_files  /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd]
+INFO: [BD 41-1637] Generated targets are already up-to-date for block design 'design_1' - hence not re-generating.
+export_ip_user_files -of_objects [get_files /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd]
+export_simulation -of_objects [get_files /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd] -directory /home/pslavkin/mse_3_21sdc/tp/tp.ip_user_files/sim_scripts -ip_user_files_dir /home/pslavkin/mse_3_21sdc/tp/tp.ip_user_files -ipstatic_source_dir /home/pslavkin/mse_3_21sdc/tp/tp.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/modelsim} {questa=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/questa} {ies=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/ies} {xcelium=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/xcelium} {vcs=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/vcs} {riviera=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Thu Jan  2 15:00:36 2020] Launched synth_1...
+Run output will be captured here: /home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Thu Jan  2 15:02:43 2020] Launched impl_1...
+Run output will be captured here: /home/pslavkin/mse_3_21sdc/tp/tp.runs/impl_1/runme.log
+delete_bd_objs [get_bd_intf_nets axis_data_fifo_In_M_AXIS]
+delete_bd_objs [get_bd_intf_nets convolution_0_M_AXIS_DATA]
+connect_bd_intf_net [get_bd_intf_pins convolution_0/M_AXIS_DATA] [get_bd_intf_pins convolution_0/S_AXIS_DATA]
+create_bd_cell -type module -reference stretcher stretcher_0
+set_property location {3 758 508} [get_bd_cells stretcher_0]
+connect_bd_net [get_bd_pins stretcher_0/rst] [get_bd_pins rst_ps7_0_10M/peripheral_aresetn]
+connect_bd_net [get_bd_pins stretcher_0/clk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+connect_bd_intf_net [get_bd_intf_pins stretcher_0/s_axis] [get_bd_intf_pins stretcher_0/m_axis]
+connect_bd_intf_net [get_bd_intf_pins axis_data_fifo_Out/S_AXIS] [get_bd_intf_pins axis_data_fifo_In/M_AXIS]
+regenerate_bd_layout
+set_property location {2 530 123} [get_bd_cells stretcher_0]
+set_property location {5 1489 438} [get_bd_cells axis_data_fifo_Out]
+regenerate_bd_layout
+set_property location {3.5 1487 370} [get_bd_cells paralell2axi_0]
+set_property location {4 1527 172} [get_bd_cells axis_data_fifo_Out]
+set_property location {3.5 1774 521} [get_bd_cells axis_data_fifo_Out]
+set_property location {4 1754 254} [get_bd_cells axis_data_fifo_In]
+set_property location {1975 391} [get_bd_ports outData_0]
+set_property location {1982 606} [get_bd_intf_ports FIXED_IO]
+set_property location {1979 582} [get_bd_intf_ports DDR]
+set_property location {1979 590} [get_bd_intf_ports DDR]
+set_property location {1.5 494 817} [get_bd_cells stretcher_0]
+set_property location {3 784 159} [get_bd_cells convolution_0]
+set_property location {2 537 161} [get_bd_cells convolution_0]
+save_bd_design
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+INFO: [xilinx.com:ip:convolution:9.0-308] /convolution_0 S_AXIS_DATA-TDATA: Validating field: data_in(1:0): bit1 against /convolution_0 M_AXIS_DATA-TDATA: data_out(2:0): uint2.
+ERROR: [xilinx.com:ip:convolution:9.0-309] /convolution_0 S_AXIS_DATA-TDATA: Field width mismatch: data_in = 1. /convolution_0 M_AXIS_DATA-TDATA: data_out = 2.
+INFO: [xilinx.com:ip:convolution:9.0-914] /convolution_0 Refer to Port Structure details on the GUI informational tab, when available, to help resolve bus mismatches. Alternatively use intermediary blocks to rearrange the bus appropriately.
+WARNING: [BD 41-237] Bus Interface property LAYERED_METADATA does not match between /axis_data_fifo_Out/S_AXIS(xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data_out} bitwidth {attribs {resolve_type generated dependency data_out_bitwidth format long minimum {} maximum {}} value 2} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 8}) and /axis_data_fifo_In/M_AXIS(undef)
+WARNING: [BD 41-926] Following properties on interface pin /paralell2axi_0/axi_s have been updated from connected ip. They may not be synchronized with cell properties. You can set property on interface pin directly to confirm the value and resolve the warning.
+	LAYERED_METADATA=xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data_out} bitwidth {attribs {resolve_type generated dependency data_out_bitwidth format long minimum {} maximum {}} value 2} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 8}
+
+WARNING: [BD 41-927] Following properties on pin /paralell2axi_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=design_1_processing_system7_0_0_FCLK_CLK0 
+WARNING: [BD 41-927] Following properties on pin /stretcher_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=design_1_processing_system7_0_0_FCLK_CLK0 
+ERROR: [BD 41-1031] Hdl Generation failed for the IP Integrator design /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd 
+ERROR: [Vivado 12-4756] Launch of runs aborted due to earlier errors while preparing sub-designs for run execution.
+generate_target all [get_files  /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd]
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+INFO: [xilinx.com:ip:convolution:9.0-308] /convolution_0 S_AXIS_DATA-TDATA: Validating field: data_in(1:0): bit1 against /convolution_0 M_AXIS_DATA-TDATA: data_out(2:0): uint2.
+ERROR: [xilinx.com:ip:convolution:9.0-309] /convolution_0 S_AXIS_DATA-TDATA: Field width mismatch: data_in = 1. /convolution_0 M_AXIS_DATA-TDATA: data_out = 2.
+INFO: [xilinx.com:ip:convolution:9.0-914] /convolution_0 Refer to Port Structure details on the GUI informational tab, when available, to help resolve bus mismatches. Alternatively use intermediary blocks to rearrange the bus appropriately.
+WARNING: [BD 41-237] Bus Interface property LAYERED_METADATA does not match between /axis_data_fifo_Out/S_AXIS(xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data_out} bitwidth {attribs {resolve_type generated dependency data_out_bitwidth format long minimum {} maximum {}} value 2} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 8}) and /axis_data_fifo_In/M_AXIS(undef)
+WARNING: [BD 41-926] Following properties on interface pin /paralell2axi_0/axi_s have been updated from connected ip. They may not be synchronized with cell properties. You can set property on interface pin directly to confirm the value and resolve the warning.
+	LAYERED_METADATA=xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data_out} bitwidth {attribs {resolve_type generated dependency data_out_bitwidth format long minimum {} maximum {}} value 2} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 8}
+
+WARNING: [BD 41-927] Following properties on pin /paralell2axi_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=design_1_processing_system7_0_0_FCLK_CLK0 
+WARNING: [BD 41-927] Following properties on pin /stretcher_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=design_1_processing_system7_0_0_FCLK_CLK0 
+ERROR: [BD 41-1031] Hdl Generation failed for the IP Integrator design /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd 
+ERROR: [Common 17-39] 'generate_target' failed due to earlier errors.
+update_compile_order -fileset sources_1
+generate_target all [get_files  /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd]
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+INFO: [xilinx.com:ip:convolution:9.0-308] /convolution_0 S_AXIS_DATA-TDATA: Validating field: data_in(1:0): bit1 against /convolution_0 M_AXIS_DATA-TDATA: data_out(2:0): uint2.
+ERROR: [xilinx.com:ip:convolution:9.0-309] /convolution_0 S_AXIS_DATA-TDATA: Field width mismatch: data_in = 1. /convolution_0 M_AXIS_DATA-TDATA: data_out = 2.
+INFO: [xilinx.com:ip:convolution:9.0-914] /convolution_0 Refer to Port Structure details on the GUI informational tab, when available, to help resolve bus mismatches. Alternatively use intermediary blocks to rearrange the bus appropriately.
+WARNING: [BD 41-237] Bus Interface property LAYERED_METADATA does not match between /axis_data_fifo_Out/S_AXIS(xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data_out} bitwidth {attribs {resolve_type generated dependency data_out_bitwidth format long minimum {} maximum {}} value 2} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 8}) and /axis_data_fifo_In/M_AXIS(undef)
+WARNING: [BD 41-926] Following properties on interface pin /paralell2axi_0/axi_s have been updated from connected ip. They may not be synchronized with cell properties. You can set property on interface pin directly to confirm the value and resolve the warning.
+	LAYERED_METADATA=xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data_out} bitwidth {attribs {resolve_type generated dependency data_out_bitwidth format long minimum {} maximum {}} value 2} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 8}
+
+WARNING: [BD 41-927] Following properties on pin /paralell2axi_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=design_1_processing_system7_0_0_FCLK_CLK0 
+WARNING: [BD 41-927] Following properties on pin /stretcher_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=design_1_processing_system7_0_0_FCLK_CLK0 
+ERROR: [BD 41-1031] Hdl Generation failed for the IP Integrator design /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd 
+ERROR: [Common 17-39] 'generate_target' failed due to earlier errors.
+delete_bd_objs [get_bd_intf_nets convolution_0_M_AXIS_DATA]
+save_bd_design
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+generate_target all [get_files  /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd]
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+INFO: [xilinx.com:ip:convolution:9.0-308] /convolution_0 S_AXIS_DATA-TDATA: Validating field: data_in(1:0): bit1 against  -TDATA: data_out(2:0): uint2.
+ERROR: [xilinx.com:ip:convolution:9.0-309] /convolution_0 S_AXIS_DATA-TDATA: Field width mismatch: data_in = 1.  -TDATA: data_out = 2.
+INFO: [xilinx.com:ip:convolution:9.0-914] /convolution_0 Refer to Port Structure details on the GUI informational tab, when available, to help resolve bus mismatches. Alternatively use intermediary blocks to rearrange the bus appropriately.
+WARNING: [BD 41-237] Bus Interface property LAYERED_METADATA does not match between /axis_data_fifo_Out/S_AXIS(xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data_out} bitwidth {attribs {resolve_type generated dependency data_out_bitwidth format long minimum {} maximum {}} value 2} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 8}) and /axis_data_fifo_In/M_AXIS(undef)
+WARNING: [BD 41-926] Following properties on interface pin /paralell2axi_0/axi_s have been updated from connected ip. They may not be synchronized with cell properties. You can set property on interface pin directly to confirm the value and resolve the warning.
+	LAYERED_METADATA=xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data_out} bitwidth {attribs {resolve_type generated dependency data_out_bitwidth format long minimum {} maximum {}} value 2} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 8}
+
+WARNING: [BD 41-927] Following properties on pin /paralell2axi_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=design_1_processing_system7_0_0_FCLK_CLK0 
+WARNING: [BD 41-927] Following properties on pin /stretcher_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=design_1_processing_system7_0_0_FCLK_CLK0 
+ERROR: [BD 41-1031] Hdl Generation failed for the IP Integrator design /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd 
+ERROR: [Common 17-39] 'generate_target' failed due to earlier errors.
+delete_bd_objs [get_bd_cells convolution_0]
+generate_target all [get_files  /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd]
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+WARNING: [BD 41-237] Bus Interface property LAYERED_METADATA does not match between /axis_data_fifo_Out/S_AXIS(xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data_out} bitwidth {attribs {resolve_type generated dependency data_out_bitwidth format long minimum {} maximum {}} value 2} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 8}) and /axis_data_fifo_In/M_AXIS(undef)
+WARNING: [BD 41-926] Following properties on interface pin /paralell2axi_0/axi_s have been updated from connected ip. They may not be synchronized with cell properties. You can set property on interface pin directly to confirm the value and resolve the warning.
+	LAYERED_METADATA=xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data_out} bitwidth {attribs {resolve_type generated dependency data_out_bitwidth format long minimum {} maximum {}} value 2} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 8}
+
+WARNING: [BD 41-927] Following properties on pin /paralell2axi_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=design_1_processing_system7_0_0_FCLK_CLK0 
+WARNING: [BD 41-927] Following properties on pin /stretcher_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=design_1_processing_system7_0_0_FCLK_CLK0 
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_ps7_0_10M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block paralell2axi_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axis_data_fifo_In .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axis_data_fifo_Out .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block stretcher_0 .
+Exporting to file /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.hwdef
+catch { config_ip_cache -export [get_ips -all design_1_axis_data_fifo_0_2] }
+export_ip_user_files -of_objects [get_files /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd]
+launch_runs -jobs 4 {design_1_axis_data_fifo_0_2_synth_1 design_1_stretcher_0_0_synth_1}
+[Thu Jan  2 15:58:45 2020] Launched design_1_axis_data_fifo_0_2_synth_1, design_1_stretcher_0_0_synth_1...
+Run output will be captured here:
+design_1_axis_data_fifo_0_2_synth_1: /home/pslavkin/mse_3_21sdc/tp/tp.runs/design_1_axis_data_fifo_0_2_synth_1/runme.log
+design_1_stretcher_0_0_synth_1: /home/pslavkin/mse_3_21sdc/tp/tp.runs/design_1_stretcher_0_0_synth_1/runme.log
+launch_runs: Time (s): cpu = 00:00:13 ; elapsed = 00:00:08 . Memory (MB): peak = 8614.715 ; gain = 12.000 ; free physical = 274 ; free virtual = 1818
+export_simulation -of_objects [get_files /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd] -directory /home/pslavkin/mse_3_21sdc/tp/tp.ip_user_files/sim_scripts -ip_user_files_dir /home/pslavkin/mse_3_21sdc/tp/tp.ip_user_files -ipstatic_source_dir /home/pslavkin/mse_3_21sdc/tp/tp.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/modelsim} {questa=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/questa} {ies=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/ies} {xcelium=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/xcelium} {vcs=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/vcs} {riviera=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+ERROR: [Common 17-179] Fork failed: Cannot allocate memory
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Thu Jan  2 16:00:03 2020] Launched synth_1...
+Run output will be captured here: /home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/runme.log
+[Thu Jan  2 16:00:03 2020] Launched impl_1...
+Run output will be captured here: /home/pslavkin/mse_3_21sdc/tp/tp.runs/impl_1/runme.log
+file copy -force /home/pslavkin/mse_3_21sdc/tp/tp.runs/impl_1/design_1_wrapper.sysdef /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf
+
+launch_sdk -workspace /home/pslavkin/mse_3_21sdc/tp/tp.sdk -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf
+INFO: [Vivado 12-393] Launching SDK...
+INFO: [Vivado 12-417] Running xsdk -workspace /home/pslavkin/mse_3_21sdc/tp/tp.sdk -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf
+INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
+delete_bd_objs [get_bd_intf_nets stretcher_0_m_axis]
+set_property location {1227 607} [get_bd_intf_ports FIXED_IO]
+set_property location {2038 601} [get_bd_intf_ports FIXED_IO]
+set_property location {1987 641} [get_bd_intf_ports FIXED_IO]
+delete_bd_objs [get_bd_intf_nets axis_data_fifo_In_M_AXIS]
+set_property location {5.5 2079 380} [get_bd_cells stretcher_0]
+connect_bd_intf_net [get_bd_intf_pins axis_data_fifo_In/M_AXIS] [get_bd_intf_pins stretcher_0/s_axis]
+connect_bd_intf_net [get_bd_intf_pins stretcher_0/m_axis] [get_bd_intf_pins axis_data_fifo_Out/S_AXIS]
+save_bd_design
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+WARNING: [BD 41-237] Bus Interface property LAYERED_METADATA does not match between /axis_data_fifo_Out/S_AXIS(xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data_out} bitwidth {attribs {resolve_type generated dependency data_out_bitwidth format long minimum {} maximum {}} value 2} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 8}) and /stretcher_0/m_axis(undef)
+WARNING: [BD 41-926] Following properties on interface pin /paralell2axi_0/axi_s have been updated from connected ip. They may not be synchronized with cell properties. You can set property on interface pin directly to confirm the value and resolve the warning.
+	LAYERED_METADATA=xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data_out} bitwidth {attribs {resolve_type generated dependency data_out_bitwidth format long minimum {} maximum {}} value 2} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 8}
+
+WARNING: [BD 41-927] Following properties on pin /paralell2axi_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=design_1_processing_system7_0_0_FCLK_CLK0 
+WARNING: [BD 41-927] Following properties on pin /stretcher_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=design_1_processing_system7_0_0_FCLK_CLK0 
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_ps7_0_10M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block paralell2axi_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axis_data_fifo_In .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axis_data_fifo_Out .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block stretcher_0 .
+Exporting to file /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.hwdef
+[Thu Jan  2 16:07:41 2020] Launched synth_1...
+Run output will be captured here: /home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/runme.log
+[Thu Jan  2 16:07:41 2020] Launched impl_1...
+Run output will be captured here: /home/pslavkin/mse_3_21sdc/tp/tp.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:16 ; elapsed = 00:00:13 . Memory (MB): peak = 8799.969 ; gain = 111.215 ; free physical = 268 ; free virtual = 1216
+file copy -force /home/pslavkin/mse_3_21sdc/tp/tp.runs/impl_1/design_1_wrapper.sysdef /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf
+
+launch_sdk -workspace /home/pslavkin/mse_3_21sdc/tp/tp.sdk -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf
+INFO: [Vivado 12-393] Launching SDK...
+INFO: [Vivado 12-417] Running xsdk -workspace /home/pslavkin/mse_3_21sdc/tp/tp.sdk -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf
+INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
+startgroup
+set_property -dict [list CONFIG.FIFO_DEPTH {512}] [get_bd_cells axis_data_fifo_In]
+endgroup
+startgroup
+set_property -dict [list CONFIG.FIFO_DEPTH {512}] [get_bd_cells axis_data_fifo_Out]
+endgroup
+save_bd_design
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+reset_run synth_1
+reset_run design_1_axis_data_fifo_0_1_synth_1
+reset_run design_1_axis_data_fifo_0_2_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+WARNING: [BD 41-237] Bus Interface property LAYERED_METADATA does not match between /axis_data_fifo_Out/S_AXIS(xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data_out} bitwidth {attribs {resolve_type generated dependency data_out_bitwidth format long minimum {} maximum {}} value 2} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 8}) and /stretcher_0/m_axis(undef)
+WARNING: [BD 41-926] Following properties on interface pin /paralell2axi_0/axi_s have been updated from connected ip. They may not be synchronized with cell properties. You can set property on interface pin directly to confirm the value and resolve the warning.
+	LAYERED_METADATA=xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data_out} bitwidth {attribs {resolve_type generated dependency data_out_bitwidth format long minimum {} maximum {}} value 2} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 8}
+
+WARNING: [BD 41-927] Following properties on pin /paralell2axi_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=design_1_processing_system7_0_0_FCLK_CLK0 
+WARNING: [BD 41-927] Following properties on pin /stretcher_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=design_1_processing_system7_0_0_FCLK_CLK0 
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_ps7_0_10M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block paralell2axi_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axis_data_fifo_In .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axis_data_fifo_Out .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block stretcher_0 .
+Exporting to file /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.hwdef
+[Thu Jan  2 16:41:21 2020] Launched design_1_axis_data_fifo_0_1_synth_1, design_1_axis_data_fifo_0_2_synth_1, synth_1...
+Run output will be captured here:
+design_1_axis_data_fifo_0_1_synth_1: /home/pslavkin/mse_3_21sdc/tp/tp.runs/design_1_axis_data_fifo_0_1_synth_1/runme.log
+design_1_axis_data_fifo_0_2_synth_1: /home/pslavkin/mse_3_21sdc/tp/tp.runs/design_1_axis_data_fifo_0_2_synth_1/runme.log
+synth_1: /home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/runme.log
+[Thu Jan  2 16:41:21 2020] Launched impl_1...
+Run output will be captured here: /home/pslavkin/mse_3_21sdc/tp/tp.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:17 ; elapsed = 00:00:13 . Memory (MB): peak = 8812.789 ; gain = 12.820 ; free physical = 259 ; free virtual = 1480
+file copy -force /home/pslavkin/mse_3_21sdc/tp/tp.runs/impl_1/design_1_wrapper.sysdef /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf
+
+launch_sdk -workspace /home/pslavkin/mse_3_21sdc/tp/tp.sdk -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf
+INFO: [Vivado 12-393] Launching SDK...
+INFO: [Vivado 12-417] Running xsdk -workspace /home/pslavkin/mse_3_21sdc/tp/tp.sdk -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf
+INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Thu Jan  2 16:48:45 2020] Launched synth_1...
+Run output will be captured here: /home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/runme.log
+[Thu Jan  2 16:48:45 2020] Launched impl_1...
+Run output will be captured here: /home/pslavkin/mse_3_21sdc/tp/tp.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:20 ; elapsed = 00:00:13 . Memory (MB): peak = 8812.789 ; gain = 0.000 ; free physical = 1035 ; free virtual = 2088
+file copy -force /home/pslavkin/mse_3_21sdc/tp/tp.runs/impl_1/design_1_wrapper.sysdef /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf
+
+update_module_reference design_1_stretcher_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'rst'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+Upgrading '/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-3420] Updated design_1_stretcher_0_0 to use current project options
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+update_module_reference: Time (s): cpu = 00:00:13 ; elapsed = 00:00:07 . Memory (MB): peak = 8816.621 ; gain = 3.832 ; free physical = 1139 ; free virtual = 1745
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+WARNING: [BD 41-237] Bus Interface property LAYERED_METADATA does not match between /axis_data_fifo_Out/S_AXIS(xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data_out} bitwidth {attribs {resolve_type generated dependency data_out_bitwidth format long minimum {} maximum {}} value 2} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 8}) and /stretcher_0/m_axis(undef)
+WARNING: [BD 41-926] Following properties on interface pin /paralell2axi_0/axi_s have been updated from connected ip. They may not be synchronized with cell properties. You can set property on interface pin directly to confirm the value and resolve the warning.
+	LAYERED_METADATA=xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data_out} bitwidth {attribs {resolve_type generated dependency data_out_bitwidth format long minimum {} maximum {}} value 2} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 8}
+
+WARNING: [BD 41-927] Following properties on pin /paralell2axi_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=design_1_processing_system7_0_0_FCLK_CLK0 
+WARNING: [BD 41-927] Following properties on pin /stretcher_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=design_1_processing_system7_0_0_FCLK_CLK0 
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_ps7_0_10M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block paralell2axi_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axis_data_fifo_In .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axis_data_fifo_Out .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block stretcher_0 .
+Exporting to file /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.hwdef
+[Thu Jan  2 16:58:47 2020] Launched design_1_stretcher_0_0_synth_1, synth_1...
+Run output will be captured here:
+design_1_stretcher_0_0_synth_1: /home/pslavkin/mse_3_21sdc/tp/tp.runs/design_1_stretcher_0_0_synth_1/runme.log
+synth_1: /home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/runme.log
+[Thu Jan  2 16:58:47 2020] Launched impl_1...
+Run output will be captured here: /home/pslavkin/mse_3_21sdc/tp/tp.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:29 ; elapsed = 00:00:23 . Memory (MB): peak = 8921.738 ; gain = 105.113 ; free physical = 1113 ; free virtual = 1707
+file copy -force /home/pslavkin/mse_3_21sdc/tp/tp.runs/impl_1/design_1_wrapper.sysdef /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf
+
+update_module_reference design_1_stretcher_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'm_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 's_axis' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rst' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'm_axis'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'rst'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+Upgrading '/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd'
+INFO: [IP_Flow 19-3420] Updated design_1_stretcher_0_0 to use current project options
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+update_module_reference: Time (s): cpu = 00:00:15 ; elapsed = 00:00:08 . Memory (MB): peak = 8933.742 ; gain = 0.000 ; free physical = 1833 ; free virtual = 2435
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:convolution:9.0 convolution_0
+endgroup
+set_property location {3.5 1404 193} [get_bd_cells convolution_0]
+connect_bd_net [get_bd_pins convolution_0/aresetn] [get_bd_pins rst_ps7_0_10M/peripheral_aresetn]
+connect_bd_net [get_bd_pins convolution_0/aclk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+set_property location {3 1561 228} [get_bd_cells convolution_0]
+connect_bd_intf_net [get_bd_intf_pins convolution_0/S_AXIS_DATA] [get_bd_intf_pins convolution_0/M_AXIS_DATA]
+save_bd_design
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+generate_target all [get_files  /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd]
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+INFO: [xilinx.com:ip:convolution:9.0-308] /convolution_0 S_AXIS_DATA-TDATA: Validating field: data_in(1:0): bit1 against /convolution_0 M_AXIS_DATA-TDATA: data_out(2:0): uint2.
+ERROR: [xilinx.com:ip:convolution:9.0-309] /convolution_0 S_AXIS_DATA-TDATA: Field width mismatch: data_in = 1. /convolution_0 M_AXIS_DATA-TDATA: data_out = 2.
+INFO: [xilinx.com:ip:convolution:9.0-914] /convolution_0 Refer to Port Structure details on the GUI informational tab, when available, to help resolve bus mismatches. Alternatively use intermediary blocks to rearrange the bus appropriately.
+WARNING: [BD 41-237] Bus Interface property LAYERED_METADATA does not match between /axis_data_fifo_Out/S_AXIS(xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data_out} bitwidth {attribs {resolve_type generated dependency data_out_bitwidth format long minimum {} maximum {}} value 2} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 8}) and /stretcher_0/m_axis(undef)
+WARNING: [BD 41-926] Following properties on interface pin /paralell2axi_0/axi_s have been updated from connected ip. They may not be synchronized with cell properties. You can set property on interface pin directly to confirm the value and resolve the warning.
+	LAYERED_METADATA=xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data_out} bitwidth {attribs {resolve_type generated dependency data_out_bitwidth format long minimum {} maximum {}} value 2} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 8}
+
+WARNING: [BD 41-927] Following properties on pin /paralell2axi_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=design_1_processing_system7_0_0_FCLK_CLK0 
+WARNING: [BD 41-927] Following properties on pin /stretcher_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=design_1_processing_system7_0_0_FCLK_CLK0 
+ERROR: [BD 41-1031] Hdl Generation failed for the IP Integrator design /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd 
+ERROR: [Common 17-39] 'generate_target' failed due to earlier errors.
+delete_bd_objs [get_bd_intf_nets convolution_0_M_AXIS_DATA]
+delete_bd_objs [get_bd_intf_nets stretcher_0_m_axis]
+connect_bd_intf_net [get_bd_intf_pins stretcher_0/m_axis] [get_bd_intf_pins convolution_0/S_AXIS_DATA]
+set_property location {6.5 2444 333} [get_bd_cells convolution_0]
+set_property location {5 2175 331} [get_bd_cells stretcher_0]
+connect_bd_intf_net [get_bd_intf_pins convolution_0/M_AXIS_DATA] [get_bd_intf_pins axis_data_fifo_Out/S_AXIS]
+save_bd_design
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+generate_target all [get_files  /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd]
+WARNING: [#UNDEF] When using EMIO pins for SPI_0 tie SSIN High in the PL bitstream
+WARNING: [BD 41-926] Following properties on interface pin /paralell2axi_0/axi_s have been updated from connected ip. They may not be synchronized with cell properties. You can set property on interface pin directly to confirm the value and resolve the warning.
+	LAYERED_METADATA=xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data_out} bitwidth {attribs {resolve_type generated dependency data_out_bitwidth format long minimum {} maximum {}} value 2} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 8}
+
+WARNING: [BD 41-927] Following properties on pin /paralell2axi_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=design_1_processing_system7_0_0_FCLK_CLK0 
+WARNING: [BD 41-927] Following properties on pin /stretcher_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=design_1_processing_system7_0_0_FCLK_CLK0 
+Wrote  : </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_ps7_0_10M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block paralell2axi_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axis_data_fifo_In .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axis_data_fifo_Out .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block stretcher_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block convolution_0 .
+Exporting to file /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/synth/design_1.hwdef
+catch { config_ip_cache -export [get_ips -all design_1_axis_data_fifo_0_2] }
+catch { config_ip_cache -export [get_ips -all design_1_convolution_0_0] }
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_convolution_0_0, cache-ID = 90aaf1f0989be1fe; cache size = 23.032 MB.
+export_ip_user_files -of_objects [get_files /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd]
+launch_runs -jobs 4 {design_1_axis_data_fifo_0_2_synth_1 design_1_stretcher_0_0_synth_1}
+[Thu Jan  2 17:14:02 2020] Launched design_1_axis_data_fifo_0_2_synth_1, design_1_stretcher_0_0_synth_1...
+Run output will be captured here:
+design_1_axis_data_fifo_0_2_synth_1: /home/pslavkin/mse_3_21sdc/tp/tp.runs/design_1_axis_data_fifo_0_2_synth_1/runme.log
+design_1_stretcher_0_0_synth_1: /home/pslavkin/mse_3_21sdc/tp/tp.runs/design_1_stretcher_0_0_synth_1/runme.log
+export_simulation -of_objects [get_files /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd] -directory /home/pslavkin/mse_3_21sdc/tp/tp.ip_user_files/sim_scripts -ip_user_files_dir /home/pslavkin/mse_3_21sdc/tp/tp.ip_user_files -ipstatic_source_dir /home/pslavkin/mse_3_21sdc/tp/tp.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/modelsim} {questa=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/questa} {ies=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/ies} {xcelium=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/xcelium} {vcs=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/vcs} {riviera=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+generate_target all [get_files  /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd]
+INFO: [BD 41-1637] Generated targets are already up-to-date for block design 'design_1' - hence not re-generating.
+export_ip_user_files -of_objects [get_files /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd]
+export_simulation -of_objects [get_files /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd] -directory /home/pslavkin/mse_3_21sdc/tp/tp.ip_user_files/sim_scripts -ip_user_files_dir /home/pslavkin/mse_3_21sdc/tp/tp.ip_user_files -ipstatic_source_dir /home/pslavkin/mse_3_21sdc/tp/tp.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/modelsim} {questa=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/questa} {ies=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/ies} {xcelium=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/xcelium} {vcs=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/vcs} {riviera=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Thu Jan  2 17:15:16 2020] Launched synth_1...
+Run output will be captured here: /home/pslavkin/mse_3_21sdc/tp/tp.runs/synth_1/runme.log
+[Thu Jan  2 17:15:16 2020] Launched impl_1...
+Run output will be captured here: /home/pslavkin/mse_3_21sdc/tp/tp.runs/impl_1/runme.log
