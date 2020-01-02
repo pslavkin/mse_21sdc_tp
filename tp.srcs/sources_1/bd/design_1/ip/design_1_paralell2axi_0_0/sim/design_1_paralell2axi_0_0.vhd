@@ -61,17 +61,13 @@ ENTITY design_1_paralell2axi_0_0 IS
     m_valid : OUT STD_LOGIC;
     m_last : OUT STD_LOGIC;
     m_ready : IN STD_LOGIC;
-    m_clk : OUT STD_LOGIC;
-    m_clk_in : IN STD_LOGIC;
     s_data : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
     s_valid : IN STD_LOGIC;
     s_last : IN STD_LOGIC;
     s_ready : OUT STD_LOGIC;
-    s_clk : OUT STD_LOGIC;
-    s_clk_in : IN STD_LOGIC;
     clk : IN STD_LOGIC;
     leds : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-    rst : OUT STD_LOGIC
+    rst : IN STD_LOGIC
   );
 END design_1_paralell2axi_0_0;
 
@@ -86,17 +82,13 @@ ARCHITECTURE design_1_paralell2axi_0_0_arch OF design_1_paralell2axi_0_0 IS
       m_valid : OUT STD_LOGIC;
       m_last : OUT STD_LOGIC;
       m_ready : IN STD_LOGIC;
-      m_clk : OUT STD_LOGIC;
-      m_clk_in : IN STD_LOGIC;
       s_data : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
       s_valid : IN STD_LOGIC;
       s_last : IN STD_LOGIC;
       s_ready : OUT STD_LOGIC;
-      s_clk : OUT STD_LOGIC;
-      s_clk_in : IN STD_LOGIC;
       clk : IN STD_LOGIC;
       leds : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-      rst : OUT STD_LOGIC
+      rst : IN STD_LOGIC
     );
   END COMPONENT paralell2axi;
   ATTRIBUTE IP_DEFINITION_SOURCE : STRING;
@@ -105,12 +97,8 @@ ARCHITECTURE design_1_paralell2axi_0_0_arch OF design_1_paralell2axi_0_0 IS
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER OF rst: SIGNAL IS "XIL_INTERFACENAME rst, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF rst: SIGNAL IS "xilinx.com:signal:reset:1.0 rst RST";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF clk: SIGNAL IS "XIL_INTERFACENAME clk, FREQ_HZ 10000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF clk: SIGNAL IS "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 10000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF clk: SIGNAL IS "xilinx.com:signal:clock:1.0 clk CLK";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF s_clk: SIGNAL IS "XIL_INTERFACENAME s_clk, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_paralell2axi_0_0_s_clk, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF s_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 s_clk CLK";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF m_clk: SIGNAL IS "XIL_INTERFACENAME m_clk, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_paralell2axi_0_0_m_clk, INSERT_VIP 0";
-  ATTRIBUTE X_INTERFACE_INFO OF m_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 m_clk CLK";
 BEGIN
   U0 : paralell2axi
     PORT MAP (
@@ -120,14 +108,10 @@ BEGIN
       m_valid => m_valid,
       m_last => m_last,
       m_ready => m_ready,
-      m_clk => m_clk,
-      m_clk_in => m_clk_in,
       s_data => s_data,
       s_valid => s_valid,
       s_last => s_last,
       s_ready => s_ready,
-      s_clk => s_clk,
-      s_clk_in => s_clk_in,
       clk => clk,
       leds => leds,
       rst => rst

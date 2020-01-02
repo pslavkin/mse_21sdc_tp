@@ -1817,16 +1817,16 @@
               }
             },
             "interface_nets": {
-              "auto_pc_to_s00_couplers": {
-                "interface_ports": [
-                  "M_AXI",
-                  "auto_pc/M_AXI"
-                ]
-              },
               "s00_couplers_to_auto_pc": {
                 "interface_ports": [
                   "S_AXI",
                   "auto_pc/S_AXI"
+                ]
+              },
+              "auto_pc_to_s00_couplers": {
+                "interface_ports": [
+                  "M_AXI",
+                  "auto_pc/M_AXI"
                 ]
               }
             },
@@ -2049,16 +2049,10 @@
               "xbar/S01_AXI"
             ]
           },
-          "m00_couplers_to_ps7_0_axi_periph": {
+          "xbar_to_m01_couplers": {
             "interface_ports": [
-              "M00_AXI",
-              "m00_couplers/M_AXI"
-            ]
-          },
-          "s00_couplers_to_xbar": {
-            "interface_ports": [
-              "s00_couplers/M_AXI",
-              "xbar/S00_AXI"
+              "xbar/M01_AXI",
+              "m01_couplers/S_AXI"
             ]
           },
           "xbar_to_m00_couplers": {
@@ -2067,10 +2061,10 @@
               "m00_couplers/S_AXI"
             ]
           },
-          "ps7_0_axi_periph_to_s01_couplers": {
+          "s00_couplers_to_xbar": {
             "interface_ports": [
-              "S01_AXI",
-              "s01_couplers/S_AXI"
+              "s00_couplers/M_AXI",
+              "xbar/S00_AXI"
             ]
           },
           "ps7_0_axi_periph_to_s00_couplers": {
@@ -2085,10 +2079,16 @@
               "m01_couplers/M_AXI"
             ]
           },
-          "xbar_to_m01_couplers": {
+          "ps7_0_axi_periph_to_s01_couplers": {
             "interface_ports": [
-              "xbar/M01_AXI",
-              "m01_couplers/S_AXI"
+              "S01_AXI",
+              "s01_couplers/S_AXI"
+            ]
+          },
+          "m00_couplers_to_ps7_0_axi_periph": {
+            "interface_ports": [
+              "M00_AXI",
+              "m00_couplers/M_AXI"
             ]
           }
         },
@@ -2165,18 +2165,14 @@
           "boundary_crc": "0x0"
         },
         "ports": {
-          "m_clk": {
-            "type": "clk",
-            "direction": "O"
-          },
-          "s_clk": {
-            "type": "clk",
-            "direction": "O"
-          },
           "clk": {
             "type": "clk",
             "direction": "I",
             "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
               "CLK_DOMAIN": {
                 "value": "design_1_processing_system7_0_0_FCLK_CLK0",
                 "value_src": "default_prop"
@@ -2189,7 +2185,13 @@
           },
           "rst": {
             "type": "rst",
-            "direction": "O"
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "const_prop"
+              }
+            }
           },
           "emi": {
             "direction": "I",
@@ -2215,9 +2217,6 @@
           "m_ready": {
             "direction": "I"
           },
-          "m_clk_in": {
-            "direction": "I"
-          },
           "s_data": {
             "direction": "I",
             "left": "7",
@@ -2231,9 +2230,6 @@
           },
           "s_ready": {
             "direction": "O"
-          },
-          "s_clk_in": {
-            "direction": "I"
           },
           "leds": {
             "direction": "O",
@@ -2297,7 +2293,8 @@
           "axi_gpio_0/s_axi_aresetn",
           "ps7_0_axi_periph/M01_ARESETN",
           "ps7_0_axi_periph/S01_ARESETN",
-          "axis_data_fifo_0/s_axis_aresetn"
+          "axis_data_fifo_0/s_axis_aresetn",
+          "paralell2axi_0/rst"
         ]
       },
       "processing_system7_0_FCLK_CLK0": {
@@ -2349,8 +2346,7 @@
       "paralell2axi_0_m_valid": {
         "ports": [
           "paralell2axi_0/m_valid",
-          "axis_data_fifo_0/s_axis_tvalid",
-          "paralell2axi_0/m_clk_in"
+          "axis_data_fifo_0/s_axis_tvalid"
         ]
       },
       "axis_data_fifo_0_m_axis_tdata": {
@@ -2362,8 +2358,7 @@
       "paralell2axi_0_s_ready": {
         "ports": [
           "paralell2axi_0/s_ready",
-          "axis_data_fifo_0/m_axis_tready",
-          "paralell2axi_0/s_clk_in"
+          "axis_data_fifo_0/m_axis_tready"
         ]
       },
       "axis_data_fifo_0_m_axis_tvalid": {

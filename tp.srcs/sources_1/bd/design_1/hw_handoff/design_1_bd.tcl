@@ -1008,12 +1008,12 @@ proc create_root_design { parentCell } {
   connect_bd_net -net paralell2axi_0_emo [get_bd_pins paralell2axi_0/emo] [get_bd_pins processing_system7_0/GPIO_I]
   connect_bd_net -net paralell2axi_0_leds [get_bd_ports outData_0] [get_bd_pins paralell2axi_0/leds]
   connect_bd_net -net paralell2axi_0_m_data [get_bd_pins axis_data_fifo_0/s_axis_tdata] [get_bd_pins paralell2axi_0/m_data]
-  connect_bd_net -net paralell2axi_0_m_valid [get_bd_pins axis_data_fifo_0/s_axis_tvalid] [get_bd_pins paralell2axi_0/m_clk_in] [get_bd_pins paralell2axi_0/m_valid]
-  connect_bd_net -net paralell2axi_0_s_ready [get_bd_pins axis_data_fifo_0/m_axis_tready] [get_bd_pins paralell2axi_0/s_clk_in] [get_bd_pins paralell2axi_0/s_ready]
+  connect_bd_net -net paralell2axi_0_m_valid [get_bd_pins axis_data_fifo_0/s_axis_tvalid] [get_bd_pins paralell2axi_0/m_valid]
+  connect_bd_net -net paralell2axi_0_s_ready [get_bd_pins axis_data_fifo_0/m_axis_tready] [get_bd_pins paralell2axi_0/s_ready]
   connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axi_gpio_0/s_axi_aclk] [get_bd_pins axis_data_fifo_0/m_axis_aclk] [get_bd_pins axis_data_fifo_0/s_axis_aclk] [get_bd_pins paralell2axi_0/clk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/M01_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK] [get_bd_pins ps7_0_axi_periph/S01_ACLK] [get_bd_pins rst_ps7_0_10M/slowest_sync_clk]
   connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins rst_ps7_0_10M/ext_reset_in]
   connect_bd_net -net processing_system7_0_GPIO_O [get_bd_pins paralell2axi_0/emi] [get_bd_pins processing_system7_0/GPIO_O]
-  connect_bd_net -net rst_ps7_0_10M_peripheral_aresetn [get_bd_pins axi_gpio_0/s_axi_aresetn] [get_bd_pins axis_data_fifo_0/s_axis_aresetn] [get_bd_pins ps7_0_axi_periph/ARESETN] [get_bd_pins ps7_0_axi_periph/M00_ARESETN] [get_bd_pins ps7_0_axi_periph/M01_ARESETN] [get_bd_pins ps7_0_axi_periph/S00_ARESETN] [get_bd_pins ps7_0_axi_periph/S01_ARESETN] [get_bd_pins rst_ps7_0_10M/peripheral_aresetn]
+  connect_bd_net -net rst_ps7_0_10M_peripheral_aresetn [get_bd_pins axi_gpio_0/s_axi_aresetn] [get_bd_pins axis_data_fifo_0/s_axis_aresetn] [get_bd_pins paralell2axi_0/rst] [get_bd_pins ps7_0_axi_periph/ARESETN] [get_bd_pins ps7_0_axi_periph/M00_ARESETN] [get_bd_pins ps7_0_axi_periph/M01_ARESETN] [get_bd_pins ps7_0_axi_periph/S00_ARESETN] [get_bd_pins ps7_0_axi_periph/S01_ARESETN] [get_bd_pins rst_ps7_0_10M/peripheral_aresetn]
 
   # Create address segments
   create_bd_addr_seg -range 0x00010000 -offset 0x41200000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_gpio_0/S_AXI/Reg] SEG_axi_gpio_0_Reg

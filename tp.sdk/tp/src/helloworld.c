@@ -7,27 +7,24 @@
 #include "xgpiops.h"
 #include "helloworld.h"
 
-#define PORT_DIR_DATA_OUT 0x000FC7FF
-#define PORT_DIR_DATA_IN  0x000FC700 
+#define PORT_DIR_DATA_OUT 0x0003E3FF
+#define PORT_DIR_DATA_IN  0x0003E300 
 #define BANK2_PIN_OFFSET  54 
 
 enum ports {/*{{{*/
    //0-7<---->i/odata
-   M_VALID_PIN=BANK2_PIN_OFFSET+8 ,//8  -----> m_valid  1111 1100 0111 1111 1111 =  0x000FC7FF
+   M_VALID_PIN=BANK2_PIN_OFFSET+8 ,//8  -----> m_valid 11 1110 0011 1111 1111 =  0x0003E3FF
    M_LAST_PIN                     ,//9  -----> m_last
-   M_CLK_PIN                      ,//10 -----> m_clk
-   M_READY_PIN                    ,//11 <----- m_ready
+   M_READY_PIN                    ,//10 <----- m_ready
 
-   S_VALID_PIN                    ,//12 <----- s_valid
-   S_LAST_PIN                     ,//13 <----- s_last
-   S_CLK_PIN                      ,//14 -----> clk
-   S_READY_PIN                    ,//15 -----> s_ready
+   S_VALID_PIN                    ,//11 <----- s_valid
+   S_LAST_PIN                     ,//12 <----- s_last
+   S_READY_PIN                    ,//13 -----> s_ready
 
-   LED0_PIN                       ,//16 -----> led0
-   LED1_PIN                       ,//17 -----> led1
-   LED2_PIN                       ,//18 -----> led2
-   LED3_PIN                       ,//19 -----> led3
-   RST_PIN                        ,//20 -----> rst
+   LED0_PIN                       ,//14 -----> led0
+   LED1_PIN                       ,//15 -----> led1
+   LED2_PIN                       ,//16 -----> led2
+   LED3_PIN                       ,//17 -----> led3
 };/*}}}*/
 
 static            XGpio            led_btn;
@@ -59,86 +56,35 @@ int main(void)
    initEmio      (                         );
    printf        ( "mse 3 21 - cordic\n\r" );
 
-   delay      ( 0xFFFFFF );
    setS_Ready ( 0 );
-   delay      ( 0xFFFFFF );
    setM_Valid ( 0 );
-   delay      ( 0xFFFFFF );
-   setS_Clk   ( 1 );
-   delay      ( 0xFFFFFF );
-   setM_Clk   ( 1 );
-   delay      ( 0xFFFFFF );
 
-   while(readM_Ready()==0) {
-      printf ( "esperando al axi master ready clk 0\n\r" );
-      setM_Clk ( 0      );
-      delay    ( 0xFFFFFF );
-      if(readM_Ready()==1) 
-         break;
-      printf ( "esperando al axi master ready clk 1\n\r" );
-      setM_Clk ( 1        );
-      delay    ( 0xFFFFFF );
-   }
+   while(readM_Ready()==0) 
+      ;
    data=3;
-      writeData ( data                       );
-      setLeds   ( data                       );
-      printf    ( "escribo data=%d\n\r",data );
-   setM_Valid ( 1      );
-   delay      ( 0xFFFF );
    for(i=0;i<5 && readM_Ready()==1;i++) {
-      writeData ( data                       );
-      setLeds   ( data                       );
-      printf    ( "escribo data=%d\n\r",data );
-      delay     ( 0x2FFFFFF                   );
-      setM_Clk  ( 0                          );
-      delay     ( 0xFFFFFF                   );
-      setM_Clk  ( 1                          );
-      delay     ( 0xFFFFFF                   );
+      writeData  ( data                       );
+      setLeds    ( data                       );
+      printf     ( "escribo data=%d\n\r",data );
+      setM_Valid ( 1                          ); // PL hace con esto un one shot segun el clk
+      setM_Valid ( 0                          );
       data++;
-      while(readM_Ready()==0) {
-         printf ( "esperando al axi master ready\n\r" );
-         setM_Clk ( 0        );
-         setS_Clk ( 0        );
-         delay    ( 0xFFFFFF );
-         if(readM_Ready()==1) 
-            break;
-         setM_Clk ( 1        );
-         setS_Clk ( 1        );
-         delay    ( 0xFFFFFF );
-      }
    }
-   setM_Valid ( 0        );
-   delay      ( 0xFFFFFF );
    printf ( "listo tx\n\r" );
-//-------------------------------------------
-   readData ( );
-   while(readS_Valid()==0) {
-      printf ( "esperando al axi slave valid\n\r" );
-      setS_Clk ( 0        );
-      delay    ( 0xFFFFFF );
-      if(readS_Valid()==1)
-         break;
-      setS_Clk ( 1        );
-      delay    ( 0xFFFFFF );
-   }
-   setS_Ready ( 1        );
-   delay      ( 0xFFFF   );
-      data=readData (                          );
-      setLeds       ( data                     );
-      printf        ( "dato leido=%i\n\r",data );
+   //-------------------------------------------
+   readData ( ); //para poner el bus como entrada solamente
+   while(readS_Valid()==0) 
+      ;
    for(i=0;i<16 && readS_Valid()==1;i++) {
-      data=readData (                          );
+      data=readData (                          ); // primero lee lo que esta en el bus y despues le indica que pase al siguiente
       setLeds       ( data                     );
       printf        ( "dato leido=%i\n\r",data );
-      setM_Clk      ( 0                        );
-      delay         ( 0xFFFFFF                 );
-      setM_Clk      ( 1                        );
-      delay         ( 0xFFFFFF                 );
+      setS_Ready    ( 1                        ); // PL hace con esto un one shot segun el clk
+      setS_Ready    ( 0                        );
    }
-   setS_Ready ( 0      );
-   delay      ( 0xFFFF );
+   printf ( "listo rx\n\r" );
    while(1) {
-      delay  ( 0xFFFFFF    );
+      delay  ( 0xFFFFFFF   );
       printf ( "listo\n\r" );
    }
    cleanup_platform();
@@ -166,12 +112,9 @@ void writeData         ( unsigned char data )
 void setM_Valid  ( bool s                  ) { XGpioPs_WritePin(&xgpioInstance       ,M_VALID_PIN ,s)                                    ;}
 void setM_Last   ( bool s                  ) { XGpioPs_WritePin(&xgpioInstance       ,M_LAST_PIN  ,s)                                    ;}
 bool readM_Ready ( void                    ) { return XGpioPs_ReadPin(&xgpioInstance ,M_READY_PIN)                                       ;}
-void setM_Clk    ( bool s                  ) { XGpioPs_WritePin(&xgpioInstance       ,M_CLK_PIN     ,s)                                    ;}
 bool readS_Valid ( void                    ) { return XGpioPs_ReadPin(&xgpioInstance ,S_VALID_PIN)                                       ;}
 bool readS_Last  ( void                    ) { return XGpioPs_ReadPin(&xgpioInstance ,S_LAST_PIN)                                        ;}
 void setS_Ready  ( bool s                  ) { XGpioPs_WritePin(&xgpioInstance       ,S_READY_PIN ,s)                                    ;}
-void setS_Clk    ( bool s                  ) { XGpioPs_WritePin(&xgpioInstance       ,S_CLK_PIN     ,s)                                    ;}
-void setRst    ( bool s                  ) { XGpioPs_WritePin(&xgpioInstance       ,RST_PIN     ,s)                                    ;}
 void setLeds     ( unsigned int l          ) {
    setLed(LED0_PIN,l&0x01);
    setLed(LED1_PIN,l&0x02);

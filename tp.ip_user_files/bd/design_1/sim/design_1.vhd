@@ -1,7 +1,7 @@
 --Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
---Date        : Thu Jan  2 05:56:39 2020
+--Date        : Thu Jan  2 06:37:11 2020
 --Host        : work1 running 64-bit Debian GNU/Linux 10 (buster)
 --Command     : generate_target design_1.bd
 --Design      : design_1
@@ -2518,7 +2518,7 @@ entity design_1 is
     rgb_led_tri_t : out STD_LOGIC_VECTOR ( 5 downto 0 )
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of design_1 : entity is "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=13,numReposBlks=8,numNonXlnxBlks=0,numHierBlks=5,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=7,da_board_cnt=4,da_clkrst_cnt=6,da_ps7_cnt=1,synth_mode=OOC_per_IP}";
+  attribute CORE_GENERATION_INFO of design_1 : entity is "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=13,numReposBlks=8,numNonXlnxBlks=0,numHierBlks=5,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=7,da_board_cnt=4,da_clkrst_cnt=7,da_ps7_cnt=1,synth_mode=OOC_per_IP}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of design_1 : entity is "design_1.hwdef";
 end design_1;
@@ -2669,16 +2669,13 @@ architecture STRUCTURE of design_1 is
     m_valid : out STD_LOGIC;
     m_last : out STD_LOGIC;
     m_ready : in STD_LOGIC;
-    m_clk : out STD_LOGIC;
-    m_clk_in : in STD_LOGIC;
     s_data : in STD_LOGIC_VECTOR ( 7 downto 0 );
     s_valid : in STD_LOGIC;
     s_last : in STD_LOGIC;
     s_ready : out STD_LOGIC;
-    s_clk : out STD_LOGIC;
-    s_clk_in : in STD_LOGIC;
+    clk : in STD_LOGIC;
     leds : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    rst : out STD_LOGIC
+    rst : in STD_LOGIC
   );
   end component design_1_paralell2axi_0_0;
   signal axi_gpio_0_GPIO2_TRI_I : STD_LOGIC_VECTOR ( 5 downto 0 );
@@ -2690,10 +2687,8 @@ architecture STRUCTURE of design_1 is
   signal axis_data_fifo_0_s_axis_tready : STD_LOGIC;
   signal paralell2axi_0_emo : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal paralell2axi_0_leds : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal paralell2axi_0_m_clk : STD_LOGIC;
   signal paralell2axi_0_m_data : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal paralell2axi_0_m_valid : STD_LOGIC;
-  signal paralell2axi_0_s_clk : STD_LOGIC;
   signal paralell2axi_0_s_ready : STD_LOGIC;
   signal processing_system7_0_DDR_ADDR : STD_LOGIC_VECTOR ( 14 downto 0 );
   signal processing_system7_0_DDR_BA : STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -2776,7 +2771,6 @@ architecture STRUCTURE of design_1 is
   signal ps7_0_axi_periph_M00_AXI_WVALID : STD_LOGIC;
   signal rst_ps7_0_10M_peripheral_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_paralell2axi_0_m_last_UNCONNECTED : STD_LOGIC;
-  signal NLW_paralell2axi_0_rst_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_SPI0_MISO_O_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_SPI0_MISO_T_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_SPI0_MOSI_O_UNCONNECTED : STD_LOGIC;
@@ -2906,18 +2900,15 @@ axis_data_fifo_0: component design_1_axis_data_fifo_0_1
     );
 paralell2axi_0: component design_1_paralell2axi_0_0
      port map (
+      clk => processing_system7_0_FCLK_CLK0,
       emi(31 downto 0) => processing_system7_0_GPIO_O(31 downto 0),
       emo(31 downto 0) => paralell2axi_0_emo(31 downto 0),
       leds(3 downto 0) => paralell2axi_0_leds(3 downto 0),
-      m_clk => paralell2axi_0_m_clk,
-      m_clk_in => paralell2axi_0_m_clk,
       m_data(7 downto 0) => paralell2axi_0_m_data(7 downto 0),
       m_last => NLW_paralell2axi_0_m_last_UNCONNECTED,
       m_ready => axis_data_fifo_0_s_axis_tready,
       m_valid => paralell2axi_0_m_valid,
-      rst => NLW_paralell2axi_0_rst_UNCONNECTED,
-      s_clk => paralell2axi_0_s_clk,
-      s_clk_in => paralell2axi_0_s_clk,
+      rst => rst_ps7_0_10M_peripheral_aresetn(0),
       s_data(7 downto 0) => axis_data_fifo_0_m_axis_tdata(7 downto 0),
       s_last => '0',
       s_ready => paralell2axi_0_s_ready,

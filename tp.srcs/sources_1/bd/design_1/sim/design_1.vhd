@@ -1,7 +1,7 @@
 --Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
---Date        : Thu Jan  2 06:03:39 2020
+--Date        : Thu Jan  2 06:37:11 2020
 --Host        : work1 running 64-bit Debian GNU/Linux 10 (buster)
 --Command     : generate_target design_1.bd
 --Design      : design_1
@@ -2669,17 +2669,13 @@ architecture STRUCTURE of design_1 is
     m_valid : out STD_LOGIC;
     m_last : out STD_LOGIC;
     m_ready : in STD_LOGIC;
-    m_clk : out STD_LOGIC;
-    m_clk_in : in STD_LOGIC;
     s_data : in STD_LOGIC_VECTOR ( 7 downto 0 );
     s_valid : in STD_LOGIC;
     s_last : in STD_LOGIC;
     s_ready : out STD_LOGIC;
-    s_clk : out STD_LOGIC;
-    s_clk_in : in STD_LOGIC;
     clk : in STD_LOGIC;
     leds : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    rst : out STD_LOGIC
+    rst : in STD_LOGIC
   );
   end component design_1_paralell2axi_0_0;
   signal axi_gpio_0_GPIO2_TRI_I : STD_LOGIC_VECTOR ( 5 downto 0 );
@@ -2774,10 +2770,7 @@ architecture STRUCTURE of design_1 is
   signal ps7_0_axi_periph_M00_AXI_WSTRB : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal ps7_0_axi_periph_M00_AXI_WVALID : STD_LOGIC;
   signal rst_ps7_0_10M_peripheral_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal NLW_paralell2axi_0_m_clk_UNCONNECTED : STD_LOGIC;
   signal NLW_paralell2axi_0_m_last_UNCONNECTED : STD_LOGIC;
-  signal NLW_paralell2axi_0_rst_UNCONNECTED : STD_LOGIC;
-  signal NLW_paralell2axi_0_s_clk_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_SPI0_MISO_O_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_SPI0_MISO_T_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_SPI0_MOSI_O_UNCONNECTED : STD_LOGIC;
@@ -2911,15 +2904,11 @@ paralell2axi_0: component design_1_paralell2axi_0_0
       emi(31 downto 0) => processing_system7_0_GPIO_O(31 downto 0),
       emo(31 downto 0) => paralell2axi_0_emo(31 downto 0),
       leds(3 downto 0) => paralell2axi_0_leds(3 downto 0),
-      m_clk => NLW_paralell2axi_0_m_clk_UNCONNECTED,
-      m_clk_in => paralell2axi_0_m_valid,
       m_data(7 downto 0) => paralell2axi_0_m_data(7 downto 0),
       m_last => NLW_paralell2axi_0_m_last_UNCONNECTED,
       m_ready => axis_data_fifo_0_s_axis_tready,
       m_valid => paralell2axi_0_m_valid,
-      rst => NLW_paralell2axi_0_rst_UNCONNECTED,
-      s_clk => NLW_paralell2axi_0_s_clk_UNCONNECTED,
-      s_clk_in => paralell2axi_0_s_ready,
+      rst => rst_ps7_0_10M_peripheral_aresetn(0),
       s_data(7 downto 0) => axis_data_fifo_0_m_axis_tdata(7 downto 0),
       s_last => '0',
       s_ready => paralell2axi_0_s_ready,

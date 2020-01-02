@@ -1,7 +1,7 @@
 -- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
--- Date        : Thu Jan  2 06:04:30 2020
+-- Date        : Thu Jan  2 06:38:18 2020
 -- Host        : work1 running 64-bit Debian GNU/Linux 10 (buster)
 -- Command     : write_vhdl -force -mode funcsim
 --               /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_paralell2axi_0_0/design_1_paralell2axi_0_0_sim_netlist.vhdl
@@ -19,6 +19,7 @@ entity design_1_paralell2axi_0_0_paralell2axi is
     m_valid : out STD_LOGIC;
     s_ready : out STD_LOGIC;
     emi : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    rst : in STD_LOGIC;
     clk : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
@@ -27,14 +28,30 @@ end design_1_paralell2axi_0_0_paralell2axi;
 
 architecture STRUCTURE of design_1_paralell2axi_0_0_paralell2axi is
   signal last_m_valid : STD_LOGIC;
+  signal last_m_valid_i_1_n_0 : STD_LOGIC;
   signal last_s_ready : STD_LOGIC;
+  signal last_s_ready_i_1_n_0 : STD_LOGIC;
   signal \^m_valid\ : STD_LOGIC;
   signal m_valid_i_1_n_0 : STD_LOGIC;
   signal \^s_ready\ : STD_LOGIC;
   signal s_ready_i_1_n_0 : STD_LOGIC;
+  attribute SOFT_HLUTNM : string;
+  attribute SOFT_HLUTNM of last_m_valid_i_1 : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of last_s_ready_i_1 : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of m_valid_i_1 : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of s_ready_i_1 : label is "soft_lutpair1";
 begin
   m_valid <= \^m_valid\;
   s_ready <= \^s_ready\;
+last_m_valid_i_1: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => emi(0),
+      I1 => rst,
+      O => last_m_valid_i_1_n_0
+    );
 last_m_valid_reg: unisim.vcomponents.FDRE
     generic map(
       INIT => '0'
@@ -42,9 +59,18 @@ last_m_valid_reg: unisim.vcomponents.FDRE
         port map (
       C => clk,
       CE => '1',
-      D => emi(0),
+      D => last_m_valid_i_1_n_0,
       Q => last_m_valid,
       R => '0'
+    );
+last_s_ready_i_1: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => emi(1),
+      I1 => rst,
+      O => last_s_ready_i_1_n_0
     );
 last_s_ready_reg: unisim.vcomponents.FDRE
     generic map(
@@ -53,18 +79,19 @@ last_s_ready_reg: unisim.vcomponents.FDRE
         port map (
       C => clk,
       CE => '1',
-      D => emi(1),
+      D => last_s_ready_i_1_n_0,
       Q => last_s_ready,
       R => '0'
     );
-m_valid_i_1: unisim.vcomponents.LUT3
+m_valid_i_1: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"32"
+      INIT => X"0EAA"
     )
         port map (
       I0 => \^m_valid\,
-      I1 => last_m_valid,
-      I2 => emi(0),
+      I1 => emi(0),
+      I2 => last_m_valid,
+      I3 => rst,
       O => m_valid_i_1_n_0
     );
 m_valid_reg: unisim.vcomponents.FDRE
@@ -75,14 +102,15 @@ m_valid_reg: unisim.vcomponents.FDRE
       Q => \^m_valid\,
       R => '0'
     );
-s_ready_i_1: unisim.vcomponents.LUT3
+s_ready_i_1: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"32"
+      INIT => X"0EAA"
     )
         port map (
       I0 => \^s_ready\,
-      I1 => last_s_ready,
-      I2 => emi(1),
+      I1 => emi(1),
+      I2 => last_s_ready,
+      I3 => rst,
       O => s_ready_i_1_n_0
     );
 s_ready_reg: unisim.vcomponents.FDRE
@@ -106,17 +134,13 @@ entity design_1_paralell2axi_0_0 is
     m_valid : out STD_LOGIC;
     m_last : out STD_LOGIC;
     m_ready : in STD_LOGIC;
-    m_clk : out STD_LOGIC;
-    m_clk_in : in STD_LOGIC;
     s_data : in STD_LOGIC_VECTOR ( 7 downto 0 );
     s_valid : in STD_LOGIC;
     s_last : in STD_LOGIC;
     s_ready : out STD_LOGIC;
-    s_clk : out STD_LOGIC;
-    s_clk_in : in STD_LOGIC;
     clk : in STD_LOGIC;
     leds : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    rst : out STD_LOGIC
+    rst : in STD_LOGIC
   );
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of design_1_paralell2axi_0_0 : entity is true;
@@ -132,47 +156,33 @@ end design_1_paralell2axi_0_0;
 
 architecture STRUCTURE of design_1_paralell2axi_0_0 is
   signal \^emi\ : STD_LOGIC_VECTOR ( 31 downto 0 );
-  signal \^m_clk_in\ : STD_LOGIC;
   signal \^m_ready\ : STD_LOGIC;
-  signal \^s_clk_in\ : STD_LOGIC;
   signal \^s_data\ : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal \^s_last\ : STD_LOGIC;
   signal \^s_valid\ : STD_LOGIC;
   attribute x_interface_info : string;
   attribute x_interface_info of clk : signal is "xilinx.com:signal:clock:1.0 clk CLK";
   attribute x_interface_parameter : string;
-  attribute x_interface_parameter of clk : signal is "XIL_INTERFACENAME clk, FREQ_HZ 10000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0";
-  attribute x_interface_info of m_clk : signal is "xilinx.com:signal:clock:1.0 m_clk CLK";
-  attribute x_interface_parameter of m_clk : signal is "XIL_INTERFACENAME m_clk, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_paralell2axi_0_0_m_clk, INSERT_VIP 0";
+  attribute x_interface_parameter of clk : signal is "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 10000000, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0";
   attribute x_interface_info of rst : signal is "xilinx.com:signal:reset:1.0 rst RST";
   attribute x_interface_parameter of rst : signal is "XIL_INTERFACENAME rst, POLARITY ACTIVE_LOW, INSERT_VIP 0";
-  attribute x_interface_info of s_clk : signal is "xilinx.com:signal:clock:1.0 s_clk CLK";
-  attribute x_interface_parameter of s_clk : signal is "XIL_INTERFACENAME s_clk, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_1_paralell2axi_0_0_s_clk, INSERT_VIP 0";
 begin
-  \^emi\(20) <= emi(20);
-  \^emi\(17 downto 14) <= emi(17 downto 14);
-  \^emi\(10 downto 0) <= emi(10 downto 0);
-  \^m_clk_in\ <= m_clk_in;
+  \^emi\(17 downto 13) <= emi(17 downto 13);
+  \^emi\(9 downto 0) <= emi(9 downto 0);
   \^m_ready\ <= m_ready;
-  \^s_clk_in\ <= s_clk_in;
   \^s_data\(7 downto 0) <= s_data(7 downto 0);
   \^s_last\ <= s_last;
   \^s_valid\ <= s_valid;
-  emo(13) <= \^s_last\;
-  emo(12) <= \^s_valid\;
-  emo(11) <= \^m_ready\;
+  emo(12) <= \^s_last\;
+  emo(11) <= \^s_valid\;
+  emo(10) <= \^m_ready\;
   emo(7 downto 0) <= \^s_data\(7 downto 0);
-  leds(3) <= \^s_clk_in\;
-  leds(2) <= \^m_clk_in\;
-  leds(1 downto 0) <= \^emi\(17 downto 16);
-  m_clk <= \^emi\(10);
+  leds(3 downto 0) <= \^emi\(17 downto 14);
   m_data(7 downto 0) <= \^emi\(7 downto 0);
   m_last <= \^emi\(9);
-  rst <= \^emi\(20);
-  s_clk <= \^emi\(14);
   emo(8) <= 'Z';
   emo(9) <= 'Z';
-  emo(10) <= 'Z';
+  emo(13) <= 'Z';
   emo(14) <= 'Z';
   emo(15) <= 'Z';
   emo(16) <= 'Z';
@@ -194,9 +204,10 @@ begin
 U0: entity work.design_1_paralell2axi_0_0_paralell2axi
      port map (
       clk => clk,
-      emi(1) => \^emi\(15),
+      emi(1) => \^emi\(13),
       emi(0) => \^emi\(8),
       m_valid => m_valid,
+      rst => rst,
       s_ready => s_ready
     );
 end STRUCTURE;

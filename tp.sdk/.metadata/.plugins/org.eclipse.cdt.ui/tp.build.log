@@ -1,4 +1,4 @@
-06:08:23 **** Build of configuration Debug for project tp ****
+06:49:02 **** Incremental Build of configuration Debug for project tp ****
 make pre-build main-build 
 a9-linaro-pre-build-step
  
@@ -6,11 +6,6 @@ Building file: ../src/helloworld.c
 Invoking: ARM v7 gcc compiler
 arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
 Finished building: ../src/helloworld.c
- 
-Building file: ../src/platform.c
-Invoking: ARM v7 gcc compiler
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../tp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
-Finished building: ../src/platform.c
  
 Building target: tp.elf
 Invoking: ARM v7 gcc linker
@@ -20,9 +15,9 @@ Finished building target: tp.elf
 Invoking: ARM v7 Print Size
 arm-none-eabi-size tp.elf  |tee "tp.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  66932	   2608	  23392	  92932	  16b04	tp.elf
+  66164	   2608	  23392	  92164	  16804	tp.elf
 Finished building: tp.elf.size
  
 
-06:08:24 Build Finished (took 720ms)
+06:49:03 Build Finished (took 617ms)
 
