@@ -381,3 +381,6 @@ export_simulation -of_objects [get_files /home/pslavkin/mse_3_21sdc/tp/tp.srcs/s
 reset_run synth_1
 launch_runs impl_1 -to_step write_bitstream -jobs 4
 wait_on_run impl_1
+file copy -force /home/pslavkin/mse_3_21sdc/tp/tp.runs/impl_1/design_1_wrapper.sysdef /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf
+
+launch_sdk -workspace /home/pslavkin/mse_3_21sdc/tp/tp.sdk -hwspec /home/pslavkin/mse_3_21sdc/tp/tp.sdk/design_1_wrapper.hdf

@@ -3,7 +3,7 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Thu Jan  2 17:15:16 2020">
+<application name="pa" timeStamp="Thu Jan  2 18:05:44 2020">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="e4f05a9d6e634a3aa9646cb6617f449a" type="ProjectID"/>
 <property name="ProjectIteration" value="96" type="ProjectIteration"/>
@@ -33,12 +33,12 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="EditUndo" value="13" type="JavaHandler"/>
 <property name="ExpandCollapseRSBBlock" value="2" type="JavaHandler"/>
 <property name="ExportBitFile" value="1" type="JavaHandler"/>
-<property name="FileExit" value="8" type="JavaHandler"/>
+<property name="FileExit" value="9" type="JavaHandler"/>
 <property name="GenerateOutputForBDFile" value="4" type="JavaHandler"/>
 <property name="MakeRSBConnection" value="2" type="JavaHandler"/>
 <property name="ManageCompositeTargets" value="50" type="JavaHandler"/>
-<property name="NewExportHardware" value="67" type="JavaHandler"/>
-<property name="NewLaunchHardware" value="52" type="JavaHandler"/>
+<property name="NewExportHardware" value="68" type="JavaHandler"/>
+<property name="NewLaunchHardware" value="53" type="JavaHandler"/>
 <property name="NewProject" value="1" type="JavaHandler"/>
 <property name="OpenBlockDesign" value="40" type="JavaHandler"/>
 <property name="OpenSource" value="4" type="JavaHandler"/>
@@ -72,7 +72,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="AddressTreeTablePanel_ADDRESS_TREE_TABLE" value="25" type="GuiHandlerData"/>
 <property name="ApplyRSBMultiAutomationDialog_CHECKBOX_TREE" value="2" type="GuiHandlerData"/>
 <property name="BaseDialog_CANCEL" value="116" type="GuiHandlerData"/>
-<property name="BaseDialog_OK" value="264" type="GuiHandlerData"/>
+<property name="BaseDialog_OK" value="266" type="GuiHandlerData"/>
 <property name="BaseDialog_YES" value="9" type="GuiHandlerData"/>
 <property name="BoardChooser_BOARD_TABLE" value="1" type="GuiHandlerData"/>
 <property name="BoardTreePanel_BOARD_TREE_PANEL" value="6" type="GuiHandlerData"/>
@@ -109,21 +109,21 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="LaunchPanel_DONT_SHOW_THIS_DIALOG_AGAIN" value="1" type="GuiHandlerData"/>
 <property name="MIOConfigTreeTablePanel_MIO_CONFIG_TREE_TABLE" value="82" type="GuiHandlerData"/>
 <property name="MIOTablePagePanel_MIO_TABLE" value="26" type="GuiHandlerData"/>
-<property name="MainMenuMgr_CHECKPOINT" value="126" type="GuiHandlerData"/>
+<property name="MainMenuMgr_CHECKPOINT" value="130" type="GuiHandlerData"/>
 <property name="MainMenuMgr_CONSTRAINTS" value="13" type="GuiHandlerData"/>
 <property name="MainMenuMgr_EDIT" value="10" type="GuiHandlerData"/>
-<property name="MainMenuMgr_EXPORT" value="218" type="GuiHandlerData"/>
-<property name="MainMenuMgr_FILE" value="296" type="GuiHandlerData"/>
+<property name="MainMenuMgr_EXPORT" value="223" type="GuiHandlerData"/>
+<property name="MainMenuMgr_FILE" value="302" type="GuiHandlerData"/>
 <property name="MainMenuMgr_FLOW" value="8" type="GuiHandlerData"/>
 <property name="MainMenuMgr_IMPORT" value="12" type="GuiHandlerData"/>
-<property name="MainMenuMgr_IP" value="127" type="GuiHandlerData"/>
+<property name="MainMenuMgr_IP" value="132" type="GuiHandlerData"/>
 <property name="MainMenuMgr_OPEN" value="1" type="GuiHandlerData"/>
 <property name="MainMenuMgr_OPEN_BLOCK_DESIGN" value="4" type="GuiHandlerData"/>
 <property name="MainMenuMgr_OPEN_RECENT_PROJECT" value="3" type="GuiHandlerData"/>
-<property name="MainMenuMgr_PROJECT" value="132" type="GuiHandlerData"/>
+<property name="MainMenuMgr_PROJECT" value="137" type="GuiHandlerData"/>
 <property name="MainMenuMgr_REPORTS" value="12" type="GuiHandlerData"/>
 <property name="MainMenuMgr_SETTINGS" value="5" type="GuiHandlerData"/>
-<property name="MainMenuMgr_TEXT_EDITOR" value="121" type="GuiHandlerData"/>
+<property name="MainMenuMgr_TEXT_EDITOR" value="125" type="GuiHandlerData"/>
 <property name="MainMenuMgr_TOOLS" value="6" type="GuiHandlerData"/>
 <property name="MainMenuMgr_VIEW" value="2" type="GuiHandlerData"/>
 <property name="MainMenuMgr_WINDOW" value="10" type="GuiHandlerData"/>
@@ -151,10 +151,10 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="PACommandNames_CREATE_TOP_HDL" value="1" type="GuiHandlerData"/>
 <property name="PACommandNames_CUSTOMIZE_RSB_BLOC" value="3" type="GuiHandlerData"/>
 <property name="PACommandNames_DISCONNECT_RSB_PIN" value="1" type="GuiHandlerData"/>
-<property name="PACommandNames_EXIT" value="5" type="GuiHandlerData"/>
+<property name="PACommandNames_EXIT" value="6" type="GuiHandlerData"/>
 <property name="PACommandNames_EXPAND_ALL_RSB_BLOCK" value="1" type="GuiHandlerData"/>
 <property name="PACommandNames_EXPORT_BITSTREAM_FILES" value="1" type="GuiHandlerData"/>
-<property name="PACommandNames_EXPORT_HARDWARE" value="58" type="GuiHandlerData"/>
+<property name="PACommandNames_EXPORT_HARDWARE" value="59" type="GuiHandlerData"/>
 <property name="PACommandNames_GOTO_SOURCE" value="18" type="GuiHandlerData"/>
 <property name="PACommandNames_IP_SETTINGS" value="1" type="GuiHandlerData"/>
 <property name="PACommandNames_LAUNCH_HARDWARE" value="47" type="GuiHandlerData"/>
@@ -220,6 +220,11 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="TclObjectTreeTable_TREETABLE" value="1" type="GuiHandlerData"/>
 <property name="XPG_IPSymbol_SHOW_DISABLED_PORTS" value="4" type="GuiHandlerData"/>
 <property name="XPG_TabbedPane_TABBED_PANE" value="3" type="GuiHandlerData"/>
+</item>
+<item name="Other">
+<property name="GuiMode" value="115" type="GuiMode"/>
+<property name="BatchMode" value="0" type="BatchMode"/>
+<property name="TclMode" value="93" type="TclMode"/>
 </item>
 </section>
 </application>
