@@ -7,7 +7,7 @@ end;
 
 architecture arq of tp_tb is
 
-   component stretcher is
+   component split_1to8 is
     port(
            m_axis_tdata  : out STD_LOGIC_VECTOR (7 downto 0);
            m_axis_tvalid : out STD_LOGIC;
@@ -21,7 +21,7 @@ architecture arq of tp_tb is
 
            clk           : in  STD_LOGIC;
            rst           : in  STD_LOGIC);
-   end component stretcher;
+   end component split_1to8;
 
    signal m_axis_tdata_tb  : STD_LOGIC_VECTOR (7 downto 0):=(others=>'0');
    signal m_axis_tvalid_tb : STD_LOGIC:='0';
@@ -47,7 +47,7 @@ begin
 
    end process test_proc;
 
-stretcher_inst:stretcher
+split_1to8_inst:split_1to8
     port map(  
            m_axis_tdata  =>m_axis_tdata_tb  ,
            m_axis_tvalid =>m_axis_tvalid_tb ,

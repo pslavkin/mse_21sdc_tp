@@ -29,7 +29,7 @@ init: force
 	$(GHDL) -a $(GHDLFLAGS) tp_tb.vhdl
 	# /usr/local/lib/ghdl/std/v93/../../src/std/textio.v93
 	# /usr/local/lib/ghdl/std/v93/../../src/std/textio_body.v93
-	$(GHDL) -a $(GHDLFLAGS) ../tp.srcs/sources_1/new/stretcher.vhd
+	$(GHDL) -a $(GHDLFLAGS) ../tp.srcs/sources_1/new/split_1to8.vhd
 #	$(GHDL) -a $(GHDLFLAGS) spi28b.vhd
 
 force:

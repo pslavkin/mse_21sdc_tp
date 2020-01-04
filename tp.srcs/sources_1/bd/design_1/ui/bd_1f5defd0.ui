@@ -2,31 +2,32 @@
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0.19  2019-03-26 bk=1.5019 VDI=41 GEI=35 GUI=JA:9.0 TLS
 #  -string -flagsOSRD
-preplace port DDR -pg 1 -lvl 7 -x 2630 -y 620 -defaultsOSRD
-preplace port FIXED_IO -pg 1 -lvl 7 -x 2630 -y 640 -defaultsOSRD
-preplace portBus outData_0 -pg 1 -lvl 7 -x 2630 -y 390 -defaultsOSRD
-preplace inst processing_system7_0 -pg 1 -lvl 2 -x 940 -y 570 -defaultsOSRD
-preplace inst rst_ps7_0_10M -pg 1 -lvl 1 -x 60 -y 390 -defaultsOSRD
-preplace inst axis_data_fifo_In -pg 1 -lvl 4 -x 1890 -y 250 -defaultsOSRD
-preplace inst axis_data_fifo_Out -pg 1 -lvl 4 -x 1890 -y 520 -defaultsOSRD -orient R180
-preplace inst paralell2axi_0 -pg 1 -lvl 3 -x 1620 -y 370 -defaultsOSRD
-preplace inst stretcher_0 -pg 1 -lvl 5 -x 2160 -y 330 -defaultsOSRD
-preplace inst convolution_0 -pg 1 -lvl 6 -x 2450 -y 330 -defaultsOSRD
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 3 -120 720 NJ 720 1140
-preplace netloc rst_ps7_0_10M_peripheral_aresetn 1 1 5 N 430 1140 280 1770 340 2030 250 2280
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 6 -130 490 240 710 1150 270 1760 330 2010 240 2300
-preplace netloc processing_system7_0_GPIO_O 1 2 1 1160 360n
-preplace netloc paralell2axi_0_emo 1 2 2 N 510 1750
-preplace netloc paralell2axi_0_leds 1 3 4 1760 410 N 410 N 410 2610
-preplace netloc processing_system7_0_DDR 1 2 5 NJ 550 1770 620 N 620 N 620 N
-preplace netloc processing_system7_0_FIXED_IO 1 2 5 NJ 570 1750 610 N 610 N 610 2610
-preplace netloc paralell2axi_0_axi_m 1 3 1 1750 230n
-preplace netloc axis_data_fifo_Out_M_AXIS 1 2 2 1170 520 N
-preplace netloc axis_data_fifo_In_M_AXIS 1 4 1 2020 250n
-preplace netloc stretcher_0_m_axis 1 5 1 2290 310n
-preplace netloc convolution_0_M_AXIS_DATA 1 4 3 N 540 NJ 540 2600
-levelinfo -pg 1 -150 60 940 1620 1890 2160 2450 2630
-pagesize -pg 1 -db -bbox -sgen -150 -40 2790 1050
+preplace port DDR -pg 1 -lvl 6 -x 2460 -y 620 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -lvl 6 -x 2460 -y 640 -defaultsOSRD
+preplace portBus outData_0 -pg 1 -lvl 6 -x 2460 -y 390 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 1 -x 940 -y 570 -defaultsOSRD
+preplace inst rst_ps7_0_10M -pg 1 -lvl 1 -x 940 -y 310 -defaultsOSRD
+preplace inst axis_data_fifo_In -pg 1 -lvl 3 -x 1760 -y 210 -defaultsOSRD
+preplace inst axis_data_fifo_Out -pg 1 -lvl 3 -x 1760 -y 520 -defaultsOSRD -orient R180
+preplace inst paralell2axi_0 -pg 1 -lvl 2 -x 1490 -y 370 -defaultsOSRD
+preplace inst axis_data_fifo_Out1 -pg 1 -lvl 5 -x 2300 -y 530 -defaultsOSRD -orient R180
+preplace inst join_8to1_0 -pg 1 -lvl 4 -x 2030 -y 530 -defaultsOSRD -orient R180
+preplace inst split_1to8_0 -pg 1 -lvl 4 -x 2030 -y 220 -defaultsOSRD
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 -120 210 1140
+preplace netloc rst_ps7_0_10M_peripheral_aresetn 1 1 5 1170 280 1640 300 1900 610 2170 610 2420
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 6 -130 200 1150 230 1630 290 1880 630 2160 630 2430
+preplace netloc processing_system7_0_GPIO_O 1 1 1 1160 360n
+preplace netloc paralell2axi_0_emo 1 1 2 N 510 1630
+preplace netloc paralell2axi_0_leds 1 2 4 N 390 N 390 N 390 N
+preplace netloc processing_system7_0_DDR 1 1 5 NJ 550 1640 620 N 620 N 620 N
+preplace netloc axis_data_fifo_Out_M_AXIS 1 1 2 1180 520 N
+preplace netloc paralell2axi_0_axi_m 1 2 1 1620 190n
+preplace netloc processing_system7_0_FIXED_IO 1 1 5 NJ 570 1620 640 N 640 N 640 N
+preplace netloc axis_data_fifo_In_M_AXIS 1 3 1 1880 200n
+preplace netloc join_8to1_0_m_axis 1 3 1 1890 530n
+preplace netloc split_1to8_0_m_axis 1 4 1 2150 220n
+levelinfo -pg 1 -150 940 1490 1760 2030 2300 2460
+pagesize -pg 1 -db -bbox -sgen -150 -90 2620 1050
 "
 }
 {

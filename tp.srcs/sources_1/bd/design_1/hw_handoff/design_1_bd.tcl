@@ -40,7 +40,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # The design that will be created by this Tcl script contains the following 
 # module references:
-# paralell2axi, stretcher
+# join_8to1, paralell2axi, split_1to8
 
 # Please add the sources of those modules before sourcing this Tcl script.
 
@@ -189,9 +189,26 @@ proc create_root_design { parentCell } {
    CONFIG.SYNCHRONIZATION_STAGES {3} \
  ] $axis_data_fifo_Out
 
-  # Create instance: convolution_0, and set properties
-  set convolution_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:convolution:9.0 convolution_0 ]
+  # Create instance: axis_data_fifo_Out1, and set properties
+  set axis_data_fifo_Out1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axis_data_fifo:2.0 axis_data_fifo_Out1 ]
+  set_property -dict [ list \
+   CONFIG.FIFO_DEPTH {512} \
+   CONFIG.FIFO_MEMORY_TYPE {block} \
+   CONFIG.IS_ACLK_ASYNC {0} \
+   CONFIG.SYNCHRONIZATION_STAGES {3} \
+ ] $axis_data_fifo_Out1
 
+  # Create instance: join_8to1_0, and set properties
+  set block_name join_8to1
+  set block_cell_name join_8to1_0
+  if { [catch {set join_8to1_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $join_8to1_0 eq "" } {
+     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
   # Create instance: paralell2axi_0, and set properties
   set block_name paralell2axi
   set block_cell_name paralell2axi_0
@@ -984,33 +1001,33 @@ proc create_root_design { parentCell } {
   # Create instance: rst_ps7_0_10M, and set properties
   set rst_ps7_0_10M [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_ps7_0_10M ]
 
-  # Create instance: stretcher_0, and set properties
-  set block_name stretcher
-  set block_cell_name stretcher_0
-  if { [catch {set stretcher_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+  # Create instance: split_1to8_0, and set properties
+  set block_name split_1to8
+  set block_cell_name split_1to8_0
+  if { [catch {set split_1to8_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
      catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
-   } elseif { $stretcher_0 eq "" } {
+   } elseif { $split_1to8_0 eq "" } {
      catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
    }
   
   # Create interface connections
-  connect_bd_intf_net -intf_net axis_data_fifo_In_M_AXIS [get_bd_intf_pins axis_data_fifo_In/M_AXIS] [get_bd_intf_pins stretcher_0/s_axis]
+  connect_bd_intf_net -intf_net axis_data_fifo_In_M_AXIS [get_bd_intf_pins axis_data_fifo_In/M_AXIS] [get_bd_intf_pins split_1to8_0/s_axis]
   connect_bd_intf_net -intf_net axis_data_fifo_Out_M_AXIS [get_bd_intf_pins axis_data_fifo_Out/M_AXIS] [get_bd_intf_pins paralell2axi_0/axi_s]
-  connect_bd_intf_net -intf_net convolution_0_M_AXIS_DATA [get_bd_intf_pins axis_data_fifo_Out/S_AXIS] [get_bd_intf_pins convolution_0/M_AXIS_DATA]
+  connect_bd_intf_net -intf_net join_8to1_0_m_axis [get_bd_intf_pins axis_data_fifo_Out/S_AXIS] [get_bd_intf_pins join_8to1_0/m_axis]
   connect_bd_intf_net -intf_net paralell2axi_0_axi_m [get_bd_intf_pins axis_data_fifo_In/S_AXIS] [get_bd_intf_pins paralell2axi_0/axi_m]
   connect_bd_intf_net -intf_net processing_system7_0_DDR [get_bd_intf_ports DDR] [get_bd_intf_pins processing_system7_0/DDR]
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_ports FIXED_IO] [get_bd_intf_pins processing_system7_0/FIXED_IO]
-  connect_bd_intf_net -intf_net stretcher_0_m_axis [get_bd_intf_pins convolution_0/S_AXIS_DATA] [get_bd_intf_pins stretcher_0/m_axis]
+  connect_bd_intf_net -intf_net split_1to8_0_m_axis [get_bd_intf_pins join_8to1_0/s_axis] [get_bd_intf_pins split_1to8_0/m_axis]
 
   # Create port connections
   connect_bd_net -net paralell2axi_0_emo [get_bd_pins paralell2axi_0/emo] [get_bd_pins processing_system7_0/GPIO_I]
   connect_bd_net -net paralell2axi_0_leds [get_bd_ports outData_0] [get_bd_pins paralell2axi_0/leds]
-  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axis_data_fifo_In/s_axis_aclk] [get_bd_pins axis_data_fifo_Out/s_axis_aclk] [get_bd_pins convolution_0/aclk] [get_bd_pins paralell2axi_0/clk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins rst_ps7_0_10M/slowest_sync_clk] [get_bd_pins stretcher_0/clk]
+  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axis_data_fifo_In/s_axis_aclk] [get_bd_pins axis_data_fifo_Out/s_axis_aclk] [get_bd_pins axis_data_fifo_Out1/s_axis_aclk] [get_bd_pins join_8to1_0/clk] [get_bd_pins paralell2axi_0/clk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins rst_ps7_0_10M/slowest_sync_clk] [get_bd_pins split_1to8_0/clk]
   connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins rst_ps7_0_10M/ext_reset_in]
   connect_bd_net -net processing_system7_0_GPIO_O [get_bd_pins paralell2axi_0/emi] [get_bd_pins processing_system7_0/GPIO_O]
-  connect_bd_net -net rst_ps7_0_10M_peripheral_aresetn [get_bd_pins axis_data_fifo_In/s_axis_aresetn] [get_bd_pins axis_data_fifo_Out/s_axis_aresetn] [get_bd_pins convolution_0/aresetn] [get_bd_pins paralell2axi_0/rst] [get_bd_pins rst_ps7_0_10M/peripheral_aresetn] [get_bd_pins stretcher_0/rst]
+  connect_bd_net -net rst_ps7_0_10M_peripheral_aresetn [get_bd_pins axis_data_fifo_In/s_axis_aresetn] [get_bd_pins axis_data_fifo_Out/s_axis_aresetn] [get_bd_pins axis_data_fifo_Out1/s_axis_aresetn] [get_bd_pins join_8to1_0/rst] [get_bd_pins paralell2axi_0/rst] [get_bd_pins rst_ps7_0_10M/peripheral_aresetn] [get_bd_pins split_1to8_0/rst]
 
   # Create address segments
 
