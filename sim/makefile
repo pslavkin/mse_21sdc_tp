@@ -10,26 +10,33 @@ GHDLRUNFLAGS= --stop-time=1005000ns --vcd=out.vcd
 # Default target : elaborate
 all : elab
 
+
 # Elaborate target.  Almost useless
 elab : force
-	$(GHDL) -c $(GHDLFLAGS) -e tp_tb
+	$(GHDL) -c $(GHDLFLAGS) -e all_tb
 
 # Run target
 run : force
-	$(GHDL) -c $(GHDLFLAGS) -r tp_tb $(GHDLRUNFLAGS)
+	$(GHDL) -c $(GHDLFLAGS) -r all_tb $(GHDLRUNFLAGS)
 
 gtk : 
 	gtkwave out.vcd  &
 
 
 # Targets to analyze libraries
+clean: 
+	rm out.vcd
 init: force
 	# /usr/local/lib/ghdl/ieee/v93/../../src/ieee/std_logic_1164.v93
 	# /usr/local/lib/ghdl/ieee/v93/../../src/ieee/std_logic_1164_body.v93
-	$(GHDL) -a $(GHDLFLAGS) tp_tb.vhdl
+	$(GHDL) -a $(GHDLFLAGS) all_tb.vhdl
 	# /usr/local/lib/ghdl/std/v93/../../src/std/textio.v93
 	# /usr/local/lib/ghdl/std/v93/../../src/std/textio_body.v93
-	$(GHDL) -a $(GHDLFLAGS) ../tp.srcs/sources_1/new/split_1to8.vhd
+	$(GHDL) -a $(GHDLFLAGS) ../tp.srcs/sources_1/new/slice_1from8.vhd
+	$(GHDL) -a $(GHDLFLAGS) ../tp.srcs/sources_1/new/slice_2from8.vhd
+	$(GHDL) -a $(GHDLFLAGS) ../tp.srcs/sources_1/new/mapper.vhd
+	$(GHDL) -a $(GHDLFLAGS) ../tp.srcs/sources_1/new/cordic.vhd
+	$(GHDL) -a $(GHDLFLAGS) ../tp.srcs/sources_1/new/cordic_iter.vhd
 #	$(GHDL) -a $(GHDLFLAGS) spi28b.vhd
 
 force:

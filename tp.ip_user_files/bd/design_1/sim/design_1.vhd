@@ -1,7 +1,7 @@
 --Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
---Date        : Sat Jan  4 18:31:08 2020
+--Date        : Mon Jan  6 09:56:39 2020
 --Host        : work1 running 64-bit Debian GNU/Linux 10 (buster)
 --Command     : generate_target design_1.bd
 --Design      : design_1
@@ -37,7 +37,7 @@ entity design_1 is
     outData_0 : out STD_LOGIC_VECTOR ( 3 downto 0 )
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of design_1 : entity is "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=8,numReposBlks=8,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=3,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=7,da_board_cnt=4,da_clkrst_cnt=8,da_ps7_cnt=1,synth_mode=OOC_per_IP}";
+  attribute CORE_GENERATION_INFO of design_1 : entity is "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=6,numReposBlks=6,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=2,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=7,da_board_cnt=4,da_clkrst_cnt=8,da_ps7_cnt=1,synth_mode=OOC_per_IP}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of design_1 : entity is "design_1.hwdef";
 end design_1;
@@ -185,21 +185,7 @@ architecture STRUCTURE of design_1 is
     rst : in STD_LOGIC
   );
   end component design_1_paralell2axi_0_0;
-  component design_1_axis_data_fifo_Out_0 is
-  port (
-    s_axis_aresetn : in STD_LOGIC;
-    s_axis_aclk : in STD_LOGIC;
-    s_axis_tvalid : in STD_LOGIC;
-    s_axis_tready : out STD_LOGIC;
-    s_axis_tdata : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    s_axis_tlast : in STD_LOGIC;
-    m_axis_tvalid : out STD_LOGIC;
-    m_axis_tready : in STD_LOGIC;
-    m_axis_tdata : out STD_LOGIC_VECTOR ( 7 downto 0 );
-    m_axis_tlast : out STD_LOGIC
-  );
-  end component design_1_axis_data_fifo_Out_0;
-  component design_1_join_8to1_0_0 is
+  component design_1_mapper_0_0 is
   port (
     m_axis_tdata : out STD_LOGIC_VECTOR ( 7 downto 0 );
     m_axis_tvalid : out STD_LOGIC;
@@ -212,37 +198,15 @@ architecture STRUCTURE of design_1 is
     clk : in STD_LOGIC;
     rst : in STD_LOGIC
   );
-  end component design_1_join_8to1_0_0;
-  component design_1_split_1to8_0_0 is
-  port (
-    m_axis_tdata : out STD_LOGIC_VECTOR ( 7 downto 0 );
-    m_axis_tvalid : out STD_LOGIC;
-    m_axis_tlast : out STD_LOGIC;
-    m_axis_tready : in STD_LOGIC;
-    s_axis_tdata : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    s_axis_tvalid : in STD_LOGIC;
-    s_axis_tlast : in STD_LOGIC;
-    s_axis_tready : out STD_LOGIC;
-    clk : in STD_LOGIC;
-    rst : in STD_LOGIC
-  );
-  end component design_1_split_1to8_0_0;
+  end component design_1_mapper_0_0;
   signal axis_data_fifo_In_M_AXIS_TDATA : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal axis_data_fifo_In_M_AXIS_TLAST : STD_LOGIC;
   signal axis_data_fifo_In_M_AXIS_TREADY : STD_LOGIC;
   signal axis_data_fifo_In_M_AXIS_TVALID : STD_LOGIC;
-  signal axis_data_fifo_Out1_M_AXIS_TDATA : STD_LOGIC_VECTOR ( 7 downto 0 );
-  signal axis_data_fifo_Out1_M_AXIS_TLAST : STD_LOGIC;
-  signal axis_data_fifo_Out1_M_AXIS_TREADY : STD_LOGIC;
-  signal axis_data_fifo_Out1_M_AXIS_TVALID : STD_LOGIC;
   signal axis_data_fifo_Out_M_AXIS_TDATA : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal axis_data_fifo_Out_M_AXIS_TLAST : STD_LOGIC;
   signal axis_data_fifo_Out_M_AXIS_TREADY : STD_LOGIC;
   signal axis_data_fifo_Out_M_AXIS_TVALID : STD_LOGIC;
-  signal join_8to1_0_m_axis_TDATA : STD_LOGIC_VECTOR ( 7 downto 0 );
-  signal join_8to1_0_m_axis_TLAST : STD_LOGIC;
-  signal join_8to1_0_m_axis_TREADY : STD_LOGIC;
-  signal join_8to1_0_m_axis_TVALID : STD_LOGIC;
   signal paralell2axi_0_axi_m_TDATA : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal paralell2axi_0_axi_m_TLAST : STD_LOGIC;
   signal paralell2axi_0_axi_m_TREADY : STD_LOGIC;
@@ -274,10 +238,10 @@ architecture STRUCTURE of design_1 is
   signal processing_system7_0_FIXED_IO_PS_SRSTB : STD_LOGIC;
   signal processing_system7_0_GPIO_O : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal rst_ps7_0_10M_peripheral_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal split_1to8_0_m_axis_TDATA : STD_LOGIC_VECTOR ( 7 downto 0 );
-  signal split_1to8_0_m_axis_TLAST : STD_LOGIC;
-  signal split_1to8_0_m_axis_TREADY : STD_LOGIC;
-  signal split_1to8_0_m_axis_TVALID : STD_LOGIC;
+  signal NLW_axis_data_fifo_Out_s_axis_tready_UNCONNECTED : STD_LOGIC;
+  signal NLW_mapper_0_m_axis_tlast_UNCONNECTED : STD_LOGIC;
+  signal NLW_mapper_0_m_axis_tvalid_UNCONNECTED : STD_LOGIC;
+  signal NLW_mapper_0_m_axis_tdata_UNCONNECTED : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal NLW_processing_system7_0_M_AXI_GP0_ARVALID_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_M_AXI_GP0_AWVALID_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_M_AXI_GP0_BREADY_UNCONNECTED : STD_LOGIC;
@@ -368,36 +332,23 @@ axis_data_fifo_Out: component design_1_axis_data_fifo_0_2
       m_axis_tvalid => axis_data_fifo_Out_M_AXIS_TVALID,
       s_axis_aclk => processing_system7_0_FCLK_CLK0,
       s_axis_aresetn => rst_ps7_0_10M_peripheral_aresetn(0),
-      s_axis_tdata(7 downto 0) => join_8to1_0_m_axis_TDATA(7 downto 0),
-      s_axis_tlast => join_8to1_0_m_axis_TLAST,
-      s_axis_tready => join_8to1_0_m_axis_TREADY,
-      s_axis_tvalid => join_8to1_0_m_axis_TVALID
+      s_axis_tdata(7 downto 0) => B"00000000",
+      s_axis_tlast => '0',
+      s_axis_tready => NLW_axis_data_fifo_Out_s_axis_tready_UNCONNECTED,
+      s_axis_tvalid => '0'
     );
-axis_data_fifo_Out1: component design_1_axis_data_fifo_Out_0
-     port map (
-      m_axis_tdata(7 downto 0) => axis_data_fifo_Out1_M_AXIS_TDATA(7 downto 0),
-      m_axis_tlast => axis_data_fifo_Out1_M_AXIS_TLAST,
-      m_axis_tready => axis_data_fifo_Out1_M_AXIS_TREADY,
-      m_axis_tvalid => axis_data_fifo_Out1_M_AXIS_TVALID,
-      s_axis_aclk => processing_system7_0_FCLK_CLK0,
-      s_axis_aresetn => rst_ps7_0_10M_peripheral_aresetn(0),
-      s_axis_tdata(7 downto 0) => split_1to8_0_m_axis_TDATA(7 downto 0),
-      s_axis_tlast => split_1to8_0_m_axis_TLAST,
-      s_axis_tready => split_1to8_0_m_axis_TREADY,
-      s_axis_tvalid => split_1to8_0_m_axis_TVALID
-    );
-join_8to1_0: component design_1_join_8to1_0_0
+mapper_0: component design_1_mapper_0_0
      port map (
       clk => processing_system7_0_FCLK_CLK0,
-      m_axis_tdata(7 downto 0) => join_8to1_0_m_axis_TDATA(7 downto 0),
-      m_axis_tlast => join_8to1_0_m_axis_TLAST,
-      m_axis_tready => join_8to1_0_m_axis_TREADY,
-      m_axis_tvalid => join_8to1_0_m_axis_TVALID,
+      m_axis_tdata(7 downto 0) => NLW_mapper_0_m_axis_tdata_UNCONNECTED(7 downto 0),
+      m_axis_tlast => NLW_mapper_0_m_axis_tlast_UNCONNECTED,
+      m_axis_tready => '1',
+      m_axis_tvalid => NLW_mapper_0_m_axis_tvalid_UNCONNECTED,
       rst => rst_ps7_0_10M_peripheral_aresetn(0),
-      s_axis_tdata(7 downto 0) => axis_data_fifo_Out1_M_AXIS_TDATA(7 downto 0),
-      s_axis_tlast => axis_data_fifo_Out1_M_AXIS_TLAST,
-      s_axis_tready => axis_data_fifo_Out1_M_AXIS_TREADY,
-      s_axis_tvalid => axis_data_fifo_Out1_M_AXIS_TVALID
+      s_axis_tdata(7 downto 0) => axis_data_fifo_In_M_AXIS_TDATA(7 downto 0),
+      s_axis_tlast => axis_data_fifo_In_M_AXIS_TLAST,
+      s_axis_tready => axis_data_fifo_In_M_AXIS_TREADY,
+      s_axis_tvalid => axis_data_fifo_In_M_AXIS_TVALID
     );
 paralell2axi_0: component design_1_paralell2axi_0_0
      port map (
@@ -509,18 +460,5 @@ rst_ps7_0_10M: component design_1_rst_ps7_0_10M_0
       peripheral_aresetn(0) => rst_ps7_0_10M_peripheral_aresetn(0),
       peripheral_reset(0) => NLW_rst_ps7_0_10M_peripheral_reset_UNCONNECTED(0),
       slowest_sync_clk => processing_system7_0_FCLK_CLK0
-    );
-split_1to8_0: component design_1_split_1to8_0_0
-     port map (
-      clk => processing_system7_0_FCLK_CLK0,
-      m_axis_tdata(7 downto 0) => split_1to8_0_m_axis_TDATA(7 downto 0),
-      m_axis_tlast => split_1to8_0_m_axis_TLAST,
-      m_axis_tready => split_1to8_0_m_axis_TREADY,
-      m_axis_tvalid => split_1to8_0_m_axis_TVALID,
-      rst => rst_ps7_0_10M_peripheral_aresetn(0),
-      s_axis_tdata(7 downto 0) => axis_data_fifo_In_M_AXIS_TDATA(7 downto 0),
-      s_axis_tlast => axis_data_fifo_In_M_AXIS_TLAST,
-      s_axis_tready => axis_data_fifo_In_M_AXIS_TREADY,
-      s_axis_tvalid => axis_data_fifo_In_M_AXIS_TVALID
     );
 end STRUCTURE;

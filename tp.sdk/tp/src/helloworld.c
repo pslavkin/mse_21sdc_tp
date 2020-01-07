@@ -43,7 +43,7 @@ void initEmio(void)
 
 int main(void)
 {
-   int data,i;
+   signed char data,i;
    init_platform (                         );
    initEmio      (                         );
    printf        ( "mse 3 21 - cordic\n\r" );
@@ -53,8 +53,8 @@ int main(void)
 
    while(readM_Ready()==0) 
       ;
-   data=4;
-   for(i=0;i<5 && readM_Ready()==1;i++) {
+   data=0;
+   for(i=0;i<16 && readM_Ready()==1;i++) {
       writeData  ( data                       );
       setLeds    ( data                       );
       printf     ( "escribo data=%d\n\r",data );
@@ -67,10 +67,10 @@ int main(void)
    readData ( ); //para poner el bus como entrada solamente
    while(readS_Valid()==0) 
       ;
-   for(i=0;i<100 && readS_Valid()==1;i++) {
+   for(i=0;i<1000 && readS_Valid()==1;i++) {
       data=readData (                          ); // primero lee lo que esta en el bus y despues le indica que pase al siguiente
       setLeds       ( data                     );
-      printf        ( "dato leido=%i\n\r",data );
+      printf        ( "dato leido=%d\n\r",data );
       setS_Ready    ( 1                        ); // PL hace con esto un one shot segun el clk
       setS_Ready    ( 0                        );
    }
@@ -83,13 +83,13 @@ int main(void)
    return 0;
 }
 
-unsigned char readData ( void               ) 
+signed char readData ( void               )
 { 
    XGpioPs_SetDirection ( &xgpioInstance,2,PORT_DIR_DATA_IN );
-   unsigned int value= XGpioPs_Read  ( &xgpioInstance ,2);
-   return value & 0x000000FF;
+   int value= XGpioPs_Read  ( &xgpioInstance ,2);
+   return (value & 0x000000FF);
 }
-void writeData         ( unsigned char data ) 
+void writeData         ( signed char data )
 {
    XGpioPs_SetDirection ( &xgpioInstance,2,PORT_DIR_DATA_OUT );
    XGpioPs_WritePin(&xgpioInstance,BANK2_PIN_OFFSET+0,(data>>0)&0x01);

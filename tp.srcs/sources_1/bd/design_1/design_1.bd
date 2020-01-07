@@ -14,9 +14,7 @@
       "axis_data_fifo_In": "",
       "axis_data_fifo_Out": "",
       "paralell2axi_0": "",
-      "axis_data_fifo_Out1": "",
-      "join_8to1_0": "",
-      "split_1to8_0": ""
+      "mapper_0": ""
     },
     "interface_ports": {
       "DDR": {
@@ -1843,208 +1841,12 @@
           }
         }
       },
-      "axis_data_fifo_Out1": {
-        "vlnv": "xilinx.com:ip:axis_data_fifo:2.0",
-        "xci_name": "design_1_axis_data_fifo_Out_0",
-        "parameters": {
-          "FIFO_DEPTH": {
-            "value": "512"
-          },
-          "FIFO_MEMORY_TYPE": {
-            "value": "block"
-          },
-          "IS_ACLK_ASYNC": {
-            "value": "0"
-          }
-        }
-      },
-      "join_8to1_0": {
-        "vlnv": "xilinx.com:module_ref:join_8to1:1.0",
-        "xci_name": "design_1_join_8to1_0_0",
+      "mapper_0": {
+        "vlnv": "xilinx.com:module_ref:mapper:1.0",
+        "xci_name": "design_1_mapper_0_0",
         "reference_info": {
           "ref_type": "hdl",
-          "ref_name": "join_8to1",
-          "boundary_crc": "0x0"
-        },
-        "interface_ports": {
-          "m_axis": {
-            "mode": "Master",
-            "vlnv": "xilinx.com:interface:axis_rtl:1.0",
-            "parameters": {
-              "CLK_DOMAIN": {
-                "value": "design_1_processing_system7_0_0_FCLK_CLK0",
-                "value_src": "default_prop"
-              },
-              "FREQ_HZ": {
-                "value": "10000000",
-                "value_src": "user_prop"
-              },
-              "HAS_TKEEP": {
-                "value": "0",
-                "value_src": "constant"
-              },
-              "HAS_TLAST": {
-                "value": "1",
-                "value_src": "constant"
-              },
-              "HAS_TREADY": {
-                "value": "1",
-                "value_src": "constant"
-              },
-              "HAS_TSTRB": {
-                "value": "0",
-                "value_src": "constant"
-              },
-              "TDATA_NUM_BYTES": {
-                "value": "1",
-                "value_src": "constant"
-              },
-              "TDEST_WIDTH": {
-                "value": "0",
-                "value_src": "constant"
-              },
-              "TID_WIDTH": {
-                "value": "0",
-                "value_src": "constant"
-              },
-              "TUSER_WIDTH": {
-                "value": "0",
-                "value_src": "constant"
-              }
-            },
-            "port_maps": {
-              "TDATA": {
-                "physical_name": "m_axis_tdata",
-                "direction": "O",
-                "left": "7",
-                "right": "0"
-              },
-              "TLAST": {
-                "physical_name": "m_axis_tlast",
-                "direction": "O"
-              },
-              "TVALID": {
-                "physical_name": "m_axis_tvalid",
-                "direction": "O"
-              },
-              "TREADY": {
-                "physical_name": "m_axis_tready",
-                "direction": "I"
-              }
-            }
-          },
-          "s_axis": {
-            "mode": "Slave",
-            "vlnv": "xilinx.com:interface:axis_rtl:1.0",
-            "parameters": {
-              "CLK_DOMAIN": {
-                "value": "design_1_processing_system7_0_0_FCLK_CLK0",
-                "value_src": "default_prop"
-              },
-              "FREQ_HZ": {
-                "value": "10000000",
-                "value_src": "user_prop"
-              },
-              "HAS_TKEEP": {
-                "value": "0",
-                "value_src": "constant"
-              },
-              "HAS_TLAST": {
-                "value": "1",
-                "value_src": "constant"
-              },
-              "HAS_TREADY": {
-                "value": "1",
-                "value_src": "constant"
-              },
-              "HAS_TSTRB": {
-                "value": "0",
-                "value_src": "constant"
-              },
-              "LAYERED_METADATA": {
-                "value": "undef",
-                "value_src": "default_prop"
-              },
-              "TDATA_NUM_BYTES": {
-                "value": "1",
-                "value_src": "constant"
-              },
-              "TDEST_WIDTH": {
-                "value": "0",
-                "value_src": "constant"
-              },
-              "TID_WIDTH": {
-                "value": "0",
-                "value_src": "constant"
-              },
-              "TUSER_WIDTH": {
-                "value": "0",
-                "value_src": "constant"
-              }
-            },
-            "port_maps": {
-              "TDATA": {
-                "physical_name": "s_axis_tdata",
-                "direction": "I",
-                "left": "7",
-                "right": "0"
-              },
-              "TLAST": {
-                "physical_name": "s_axis_tlast",
-                "direction": "I"
-              },
-              "TVALID": {
-                "physical_name": "s_axis_tvalid",
-                "direction": "I"
-              },
-              "TREADY": {
-                "physical_name": "s_axis_tready",
-                "direction": "O"
-              }
-            }
-          }
-        },
-        "ports": {
-          "clk": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_BUSIF": {
-                "value": "m_axis:s_axis",
-                "value_src": "constant"
-              },
-              "ASSOCIATED_RESET": {
-                "value": "rst",
-                "value_src": "constant"
-              },
-              "CLK_DOMAIN": {
-                "value": "design_1_processing_system7_0_0_FCLK_CLK0",
-                "value_src": "default_prop"
-              },
-              "FREQ_HZ": {
-                "value": "10000000",
-                "value_src": "user_prop"
-              }
-            }
-          },
-          "rst": {
-            "type": "rst",
-            "direction": "I",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_LOW",
-                "value_src": "const_prop"
-              }
-            }
-          }
-        }
-      },
-      "split_1to8_0": {
-        "vlnv": "xilinx.com:module_ref:split_1to8:1.0",
-        "xci_name": "design_1_split_1to8_0_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "split_1to8",
+          "ref_name": "mapper",
           "boundary_crc": "0x0"
         },
         "interface_ports": {
@@ -2218,16 +2020,10 @@
       }
     },
     "interface_nets": {
-      "join_8to1_0_m_axis": {
+      "axis_data_fifo_In_M_AXIS": {
         "interface_ports": [
-          "join_8to1_0/m_axis",
-          "axis_data_fifo_Out/S_AXIS"
-        ]
-      },
-      "processing_system7_0_FIXED_IO": {
-        "interface_ports": [
-          "FIXED_IO",
-          "processing_system7_0/FIXED_IO"
+          "mapper_0/s_axis",
+          "axis_data_fifo_In/M_AXIS"
         ]
       },
       "axis_data_fifo_Out_M_AXIS": {
@@ -2248,16 +2044,16 @@
           "processing_system7_0/DDR"
         ]
       },
-      "split_1to8_0_m_axis": {
+      "processing_system7_0_FIXED_IO": {
         "interface_ports": [
-          "split_1to8_0/m_axis",
-          "join_8to1_0/s_axis"
+          "FIXED_IO",
+          "processing_system7_0/FIXED_IO"
         ]
       },
-      "axis_data_fifo_In_M_AXIS": {
+      "mapper_0_m_axis": {
         "interface_ports": [
-          "axis_data_fifo_In/M_AXIS",
-          "split_1to8_0/s_axis"
+          "mapper_0/m_axis",
+          "axis_data_fifo_Out/S_AXIS"
         ]
       }
     },
@@ -2274,9 +2070,7 @@
           "axis_data_fifo_In/s_axis_aresetn",
           "axis_data_fifo_Out/s_axis_aresetn",
           "paralell2axi_0/rst",
-          "axis_data_fifo_Out1/s_axis_aresetn",
-          "join_8to1_0/rst",
-          "split_1to8_0/rst"
+          "mapper_0/rst"
         ]
       },
       "processing_system7_0_FCLK_CLK0": {
@@ -2287,9 +2081,7 @@
           "axis_data_fifo_In/s_axis_aclk",
           "axis_data_fifo_Out/s_axis_aclk",
           "paralell2axi_0/clk",
-          "axis_data_fifo_Out1/s_axis_aclk",
-          "join_8to1_0/clk",
-          "split_1to8_0/clk"
+          "mapper_0/clk"
         ]
       },
       "processing_system7_0_GPIO_O": {

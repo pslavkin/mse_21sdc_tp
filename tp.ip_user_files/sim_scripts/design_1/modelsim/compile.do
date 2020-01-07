@@ -75,14 +75,8 @@ vlog -work xil_defaultlib -64 -incr "+incdir+../../../../tp.srcs/sources_1/bd/de
 "../../../bd/design_1/ip/design_1_axis_data_fifo_0_2/sim/design_1_axis_data_fifo_0_2.v" \
 
 vcom -work xil_defaultlib -64 -93 \
-"../../../bd/design_1/ip/design_1_split_1to8_0_0/sim/design_1_split_1to8_0_0.vhd" \
-"../../../bd/design_1/ip/design_1_join_8to1_0_0/sim/design_1_join_8to1_0_0.vhd" \
-
-vlog -work xil_defaultlib -64 -incr "+incdir+../../../../tp.srcs/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../tp.srcs/sources_1/bd/design_1/ipshared/8c62/hdl" "+incdir+../../../../tp.srcs/sources_1/bd/design_1/ipshared/8713/hdl" "+incdir+../../../../tp.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0" "+incdir+/opt/Xilinx_2019/Vivado/2019.1/data/xilinx_vip/include" \
-"../../../bd/design_1/ip/design_1_axis_data_fifo_Out_0/sim/design_1_axis_data_fifo_Out_0.v" \
-
-vcom -work xil_defaultlib -64 -93 \
 "../../../bd/design_1/sim/design_1.vhd" \
+"../../../bd/design_1/ip/design_1_mapper_0_0/sim/design_1_mapper_0_0.vhd" \
 
 vlog -work xil_defaultlib \
 "glbl.v"

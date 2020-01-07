@@ -50,14 +50,8 @@
   "../../../bd/design_1/ip/design_1_axis_data_fifo_0_2/sim/design_1_axis_data_fifo_0_2.v" \
 -endlib
 -makelib ies_lib/xil_defaultlib \
-  "../../../bd/design_1/ip/design_1_split_1to8_0_0/sim/design_1_split_1to8_0_0.vhd" \
-  "../../../bd/design_1/ip/design_1_join_8to1_0_0/sim/design_1_join_8to1_0_0.vhd" \
--endlib
--makelib ies_lib/xil_defaultlib \
-  "../../../bd/design_1/ip/design_1_axis_data_fifo_Out_0/sim/design_1_axis_data_fifo_Out_0.v" \
--endlib
--makelib ies_lib/xil_defaultlib \
   "../../../bd/design_1/sim/design_1.vhd" \
+  "../../../bd/design_1/ip/design_1_mapper_0_0/sim/design_1_mapper_0_0.vhd" \
 -endlib
 -makelib ies_lib/xil_defaultlib \
   glbl.v
