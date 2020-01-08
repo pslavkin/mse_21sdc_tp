@@ -60,6 +60,9 @@ architecture Behavioral of cordic is
 begin
    cordic_proc:process (clk) is --{{{
       variable bitCounter :integer range 0 to 8 ;
+
+      variable sign :signed (15 downto 0);
+      variable extension :std_logic_vector (15 downto 0);
    begin
       if rising_edge(clk) then
          if rst = '0' then
@@ -77,14 +80,17 @@ begin
                   if s_axis_tvalid = '1' then                           --espero e que este listo para enviar algo
                      case bitCounter is
                         when 0 =>
-                           wirex(0)             <= (others => '0');
-                           wirex(0)(7 downto 0) <= s_axis_tdata;
+                          wirex(0)(15) <= '0';  --- std_logic_vector(to_signed(to_integer(signed(s_axis_tdata)),16));
+                          wirex(0)(14) <= '0';  --- std_logic_vector(to_signed(to_integer(signed(s_axis_tdata)),16));
+                          wirex(0)(13 downto 7) <= s_axis_tdata(6 downto 0);  --- std_logic_vector(to_signed(to_integer(signed(s_axis_tdata)),16));
+                          wirex(0)(6  downto 0) <= (others =>'0');  --- std_logic_vector(to_signed(to_integer(signed(s_axis_tdata)),16));
                         when 1 =>
-                           wirey(0)             <= (others => '0');
-                           wirey(0)(7 downto 0) <= s_axis_tdata;
+                          wirey(0)(15) <= s_axis_tdata(7);  --- std_logic_vector(to_signed(to_integer(signed(s_axis_tdata)),16));
+                          wirey(0)(14 downto 7) <= s_axis_tdata;  --- std_logic_vector(to_signed(to_integer(signed(s_axis_tdata)),16));
+                          wirey(0)(6  downto 0) <= (others =>'0');  --- std_logic_vector(to_signed(to_integer(signed(s_axis_tdata)),16));
                            wirez(0)             <= (others => '0');
                            en(0)                <= '1';                           --y ya no tengo mas nada
-                           s_axis_tready        <= '0';                              --entonces yo tambien estoy listo
+                           s_axis_tready        <= '0';                           --entonces yo tambien estoy listo
                            m_axis_tvalid        <= '0';                           --y ya no tengo mas nada
                            state                <= waitingCordic;
                         when others =>
@@ -123,7 +129,7 @@ begin
 
    connection_instance: for j in 0 to ITER-1 generate
    begin
-      wireLUT(j) <= std_logic_vector(to_unsigned(atanLUT(j),N));
+      wireLUT(j) <= std_logic_vector(to_unsigned(atanLUT(ITER-1-j),N));
       iteration: cordic_iter
       generic map(N,j)
       port map(

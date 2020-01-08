@@ -5,7 +5,7 @@
 
 GHDL=ghdl
 GHDLFLAGS=
-GHDLRUNFLAGS= --stop-time=1005000ns --vcd=out.vcd
+GHDLRUNFLAGS= --stop-time=150000ns --vcd=out.vcd
 
 # Default target : elaborate
 all : elab

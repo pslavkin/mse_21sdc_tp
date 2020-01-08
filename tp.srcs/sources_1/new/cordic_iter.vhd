@@ -26,19 +26,39 @@ architecture Behavioral of cordic_iter is
    signal state: stateType := waitingEnable;
 begin
    cordic_iter_proc:process (clk) is
+      variable yis: signed (15 downto 0);
+      variable xis: signed (15 downto 0);
+      variable zis: signed (15 downto 0);
+      variable cis: signed (15 downto 0);
    begin
       if rising_edge(clk) then
          if rst = '0' then
-             dv_o  <= '0';
-             xip1  <= (others=>'0');
-             yip1  <= (others=>'0');
-             zip1  <= (others=>'0');
-             state <= waitingEnable;
+            dv_o  <= '0';
+            state <= waitingEnable;
+            xip1  <= (others => '0');
+            yip1  <= (others => '0');
+            zip1  <= (others => '0');
+            yis   := (others=>'0');
+            xis   := (others=>'0');
+            zis   := (others=>'0');
+            cis   := (others=>'0');
          else
             case state is
                when waitingEnable =>
                   if en_i = '1' then
-                     zip1  <= (others => '1');
+                     yis := signed(yi);
+                     xis := signed(xi);
+                     zis := signed(zi);
+                     cis := signed(ci);
+                     if yis < 0 then
+                        xip1 <= std_logic_vector(xis-shift_right(yis,SHIFT));
+                        yip1 <= std_logic_vector(yis+shift_right(xis,SHIFT));
+                        zip1 <= std_logic_vector(zis-cis);
+                        else
+                           xip1 <= std_logic_vector(xis+shift_right(yis,SHIFT));
+                           yip1 <= std_logic_vector(yis-shift_right(xis,SHIFT));
+                           zip1 <= std_logic_vector(zis+cis);
+                        end if;
                      dv_o  <= '1';
                      state <= waitingValid;
                   end if;

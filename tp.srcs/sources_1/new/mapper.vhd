@@ -28,7 +28,7 @@ architecture Behavioral of mapper is
    signal data2Map   :std_logic_vector ( 7 downto 0 ) ;
 
 begin
-   mapper_proc:process (clk) is
+   mapper_proc:process (clk) is --{{{
       variable bitCounter :natural range 0 to 8 ;
       variable index      :natural range 0 to 15;
    begin
@@ -71,6 +71,6 @@ begin
             end case;
          end if;
       end if;
-   end process mapper_proc;
+   end process mapper_proc; --}}}
 
 end Behavioral;

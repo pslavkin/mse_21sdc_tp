@@ -104,6 +104,8 @@ begin
    axi_master_proc:process (clk_tb) is --{{{
       variable bitCounter :integer range 0 to 8;
       variable data :integer range -128 to 127:=0;
+      variable data1 :std_logic_vector (3 downto 0);
+      variable data2 :natural range 0 to 15;
    begin
       if rising_edge(clk_tb) then
          if rst_tb = '0' then
@@ -112,27 +114,32 @@ begin
             s1_axis_tvalid <= '1'; --que haga de cuentqa que siempre tiene un dato
             m1_axis_tvalid <= '0';
             m1_axis_tdata  <= (others => '0');
-            data           := 0;
+            data         := 0;
+            data2         := 0;
          else
             case state is
                when waitingSvalid =>
                   if s1_axis_tvalid= '1' then                           --espero e que este listo para enviar algo
                      s1_axis_tready <='0';
                      bitCounter     := 0;
-                     m1_axis_tdata  <= std_logic_vector(to_signed(data,8));
-                     if data=127 then
-                        data := -128;
+                     data1 := std_logic_vector(to_unsigned(data2,4));
+                     if data2= 3 then
+                        data2 := 0;
                      else
-                        data := to_integer(to_signed(data + 1,8));
+                        data2 := data2 + 1;
                      end if;
+                     --m1_axis_tdata  <= std_logic_vector(to_signed(data,8));
+                     m1_axis_tdata  <= "000000" & data1(1 downto 0);
+                     --m1_axis_tdata  <= "0000" & data1(3 downto 0);
                      m1_axis_tvalid <= '1';                         --como puedo mandar, le avoso que tengo dato
                      state          <= waitingMready;               --cambio de estado, y le doy un clk para que ponga el dato
                   end if;
                when waitingMready =>
                   if m1_axis_tready= '1' then                           --lo puedo empezar a mandar al otro lado?
                      bitCounter := bitCounter+1;                     --incremento
-                     if bitCounter < 1 then                             --perfecto, porque bit voy?   
-                        m1_axis_tdata<= std_logic_vector(to_signed(data,8));
+                     if bitCounter < 2 then                             --perfecto, porque bit voy?   
+                        m1_axis_tdata  <= "000000" & data1(3 downto 2);
+                      --  m1_axis_tdata<= std_logic_vector(to_signed(data,8));
                      else
                         m1_axis_tvalid <= '0';
                         s1_axis_tready <= '1';
@@ -183,7 +190,7 @@ mapper_inst:mapper --{{{
 cordic_inst:cordic --{{{
    generic map(
              N     => 16,
-             ITER  => 5)
+             ITER  => 10)
     port map(  
            m_axis_tdata  =>axisO_tdata,
            m_axis_tvalid =>axisO_tvalid,
