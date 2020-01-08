@@ -123,7 +123,7 @@ begin
                      s1_axis_tready <='0';
                      bitCounter     := 0;
                      data1 := std_logic_vector(to_unsigned(data2,4));
-                     if data2= 3 then
+                     if data2= 15 then
                         data2 := 0;
                      else
                         data2 := data2 + 1;

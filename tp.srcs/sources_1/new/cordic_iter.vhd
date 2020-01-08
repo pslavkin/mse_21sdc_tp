@@ -10,11 +10,13 @@ entity cordic_iter is --{{{
              clk   : in  std_logic;
              rst   : in  std_logic;
              en_i  : in  std_logic;
+             inv_i : in  std_logic;
              xi    : in  std_logic_vector (N-1 downto 0);
              yi    : in  std_logic_vector (N-1 downto 0);
              zi    : in  std_logic_vector (N-1 downto 0);
              ci    : in  std_logic_vector (N-1 downto 0);
              dv_o  : out std_logic;
+             inv_o : out std_logic;
              xip1  : out std_logic_vector (N-1 downto 0);
              yip1  : out std_logic_vector (N-1 downto 0);
              zip1  : out std_logic_vector (N-1 downto 0)
@@ -34,6 +36,7 @@ begin
       if rising_edge(clk) then
          if rst = '0' then
             dv_o  <= '0';
+            inv_o <= '0';
             state <= waitingEnable;
             xip1  <= (others => '0');
             yip1  <= (others => '0');
@@ -60,6 +63,7 @@ begin
                            zip1 <= std_logic_vector(zis+cis);
                         end if;
                      dv_o  <= '1';
+                     inv_o <= inv_i;
                      state <= waitingValid;
                   end if;
                when waitingValid =>

@@ -31,11 +31,13 @@ architecture Behavioral of cordic is
              clk   : in  std_logic;
              rst   : in  std_logic;
              en_i  : in  std_logic;
+             inv_i : in  std_logic;
              xi    : in  std_logic_vector (N-1 downto 0);
              yi    : in  std_logic_vector (N-1 downto 0);
              zi    : in  std_logic_vector (N-1 downto 0);
              ci    : in  std_logic_vector (N-1 downto 0);
              dv_o  : out std_logic;
+             inv_o : out std_logic;
              xip1  : out std_logic_vector (N-1 downto 0);
              yip1  : out std_logic_vector (N-1 downto 0);
              zip1  : out std_logic_vector (N-1 downto 0)
@@ -49,11 +51,12 @@ architecture Behavioral of cordic is
    signal xyData    : xyDataArray;
    signal clockWise : std_logic := '0';
    signal angle     : std_logic_vector(N-1 downto 0):= (others=>'0');
+   
 
    type   handShakeVector is array ( ITER downto 0 )of std_logic                     ;
    type   ConnectVector is array   ( ITER downto 0 )of std_logic_vector(N-1 downto 0);
    type   intLUT is array          ( MAX_ITER-1 downto 0 )of integer range 0 to 5000  ; --la tabla soporta hasta MAX_ITER, pero en la instanciacino del cordic se puede elejir menos o igual.. no mas porque reviente.. la tabla no tendria datos..
-   signal en, dv                      : handShakeVector:= (others=>'0');
+   signal en, dv, inv            : handShakeVector:= (others=>'0');
    signal wirex, wirey, wirez, wireLUT: ConnectVector;
    signal atanLUT                     : intLUT       := (4500, 2657, 1404, 713, 358, 179, 90, 45, 22, 11);
 
@@ -73,6 +76,7 @@ begin
             clockWise     <= '0';
             angle         <= (others => '0');
             en(0)         <= '0';                           --y ya no tengo mas nada
+            inv(0)        <= '0';                           --y ya no tengo mas nada
             bitCounter    := 0;
          else
             case state is
@@ -80,26 +84,37 @@ begin
                   if s_axis_tvalid = '1' then                           --espero e que este listo para enviar algo
                      case bitCounter is
                         when 0 =>
-                          wirex(0)(15) <= '0';  --- std_logic_vector(to_signed(to_integer(signed(s_axis_tdata)),16));
-                          wirex(0)(14) <= '0';  --- std_logic_vector(to_signed(to_integer(signed(s_axis_tdata)),16));
-                          wirex(0)(13 downto 7) <= s_axis_tdata(6 downto 0);  --- std_logic_vector(to_signed(to_integer(signed(s_axis_tdata)),16));
-                          wirex(0)(6  downto 0) <= (others =>'0');  --- std_logic_vector(to_signed(to_integer(signed(s_axis_tdata)),16));
+                          wirex(0) <= (others=>'0');
+                          if s_axis_tdata(7)='1' then
+                             inv(0)   <= '1';
+                             wirex(0) <= std_logic_vector(to_signed(to_integer(-signed(s_axis_tdata)),16));
+                          else
+                             inv(0)   <= '0';
+                             wirex(0) <= std_logic_vector(to_signed(to_integer(signed(s_axis_tdata)),16));
+                          end if;
                         when 1 =>
-                          wirey(0)(15) <= s_axis_tdata(7);  --- std_logic_vector(to_signed(to_integer(signed(s_axis_tdata)),16));
-                          wirey(0)(14 downto 7) <= s_axis_tdata;  --- std_logic_vector(to_signed(to_integer(signed(s_axis_tdata)),16));
-                          wirey(0)(6  downto 0) <= (others =>'0');  --- std_logic_vector(to_signed(to_integer(signed(s_axis_tdata)),16));
-                           wirez(0)             <= (others => '0');
-                           en(0)                <= '1';                           --y ya no tengo mas nada
-                           s_axis_tready        <= '0';                           --entonces yo tambien estoy listo
-                           m_axis_tvalid        <= '0';                           --y ya no tengo mas nada
-                           state                <= waitingCordic;
+                          wirey(0) <= (others=>'0');
+                          wirey(0) <= std_logic_vector(to_signed(to_integer(signed(s_axis_tdata)),16));
+                          if inv(0)='1' then
+                             if s_axis_tdata(7)='1' then
+                                wirez(0) <= std_logic_vector(to_signed(18000,wirez(0)'length));
+                             else 
+                                wirez(0) <= std_logic_vector(to_signed(-18000,wirez(0)'length));
+                             end if;
+                          else 
+                                wirez(0) <= (others=>'0');
+                          end if;
+                          en(0)                <= '1';                           --y ya no tengo mas nada
+                          s_axis_tready        <= '0';                           --entonces yo tambien estoy listo
+                          m_axis_tvalid        <= '0';                           --y ya no tengo mas nada
+                          state                <= waitingCordic;
                         when others =>
                      end case;
                      bitCounter := bitCounter + 1;
                   end if;
                when waitingCordic =>
                   en ( 0 )<= '0';
-                  if dv(ITER-1) = '1' then                           --espero e que este listo para enviar algo
+                  if dv(0) = '1' then                           --espero e que este listo para enviar algo
                      m_axis_tdata  <= wirex(ITER-1)(7 downto 0);
                      m_axis_tvalid <= '1';                           --y ya no tengo mas nada
                      state         <= waitingMready;
@@ -113,7 +128,13 @@ begin
                         when 1 =>
                            m_axis_tdata <= wirey(ITER-1)(7 downto 0);
                         when 2 =>
-                           m_axis_tdata <= wirez(ITER-1)(7 downto 0);
+                           if(inv(ITER-1)='1') then
+                              angle <= std_logic_vector(-signed(wirez(ITER-1)));
+                              m_axis_tdata <= std_logic_vector(-signed(wirez(ITER-1)(14 downto 7)));
+                           else
+                              angle <= std_logic_vector(signed(wirez(ITER-1)));
+                              m_axis_tdata <= wirez(ITER-1)(14 downto 7);
+                           end if;
                            m_axis_tvalid <= '0';                      --y aviso que no tengo mas nada que mandar state         <= waitingSvalid;                 --termine de mandar, vuelvo a esperar
                            s_axis_tready <= '1';
                            bitCounter    := 0;
@@ -133,17 +154,19 @@ begin
       iteration: cordic_iter
       generic map(N,j)
       port map(
-                 clk  => clk,
-                 rst  => rst,
-                 en_i => en(j),
-                 xi   => wirex(j),
-                 yi   => wirey(j),
-                 zi   => wirez(j),
-                 ci   => wireLUT(j),
-                 dv_o => dv(j),
-                 xip1 => wirex(j+1),
-                 yip1 => wirey(j+1),
-                 zip1 => wirez(j+1)
+                 clk   => clk,
+                 rst   => rst,
+                 en_i  => en      ( j   ),
+                 inv_i => inv     ( j   ),
+                 xi    => wirex   ( j   ),
+                 yi    => wirey   ( j   ),
+                 zi    => wirez   ( j   ),
+                 ci    => wireLUT ( j   ),
+                 dv_o  => dv      ( j   ),
+                 inv_o => inv     ( j+1 ),
+                 xip1  => wirex   ( j+1 ),
+                 yip1  => wirey   ( j+1 ),
+                 zip1  => wirez   ( j+1 )
               );
          en(j+1)<=dv(j);
    end generate;
