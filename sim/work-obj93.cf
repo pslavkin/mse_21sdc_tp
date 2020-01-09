@@ -1,19 +1,19 @@
 v 4
-file . "../tp.srcs/sources_1/new/cordic_iter.vhd" "0b1b4a8cb5f206e56a7937d6fa57619e782300c1" "20200107224038.782":
-  entity cordic_iter at 1( 0) + 0 on 187;
-  architecture behavioral of cordic_iter at 24( 888) + 0 on 188;
-file . "../tp.srcs/sources_1/new/mapper.vhd" "7ed3ca4e3c837c89a0e3ce510f2b639900781e2d" "20200107224038.766":
-  entity mapper at 1( 0) + 0 on 183;
-  architecture behavioral of mapper at 21( 587) + 0 on 184;
-file . "../tp.srcs/sources_1/new/slice_2from8.vhd" "a05bcc43361e4f788ba474a89f2b080e5831b681" "20200107224038.758":
-  entity slice_2from8 at 1( 0) + 0 on 181;
-  architecture behavioral of slice_2from8 at 23( 700) + 0 on 182;
-file . "all_tb.vhdl" "b0d96b7718c20a804d295262854eadfb472dfdfb" "20200107224038.745":
-  entity all_tb at 1( 0) + 0 on 177;
-  architecture arq of all_tb at 7( 104) + 0 on 178;
-file . "../tp.srcs/sources_1/new/slice_1from8.vhd" "1e557442c65026dc5718697307ff27d01b83943e" "20200107224038.751":
-  entity slice_1from8 at 1( 0) + 0 on 179;
-  architecture behavioral of slice_1from8 at 23( 700) + 0 on 180;
-file . "../tp.srcs/sources_1/new/cordic.vhd" "f8e561a04fbf15f7530736113cbdd0f62ce83438" "20200107224038.774":
-  entity cordic at 1( 0) + 0 on 185;
-  architecture behavioral of cordic at 24( 718) + 0 on 186;
+file . "../tp.srcs/sources_1/new/cordic_iter.vhd" "d4c393eafeba5dd3b3712e919f9376d5d64ea9f5" "20200109202128.643":
+  entity cordic_iter at 1( 0) + 0 on 199;
+  architecture behavioral of cordic_iter at 29( 1020) + 0 on 200;
+file . "../tp.srcs/sources_1/new/mapper.vhd" "8d09036b9da7009da4a0530ef1a1a99ab96d5efc" "20200109202128.626":
+  entity mapper at 1( 0) + 0 on 195;
+  architecture behavioral of mapper at 21( 587) + 0 on 196;
+file . "../tp.srcs/sources_1/new/slice_2from8.vhd" "a05bcc43361e4f788ba474a89f2b080e5831b681" "20200109202128.615":
+  entity slice_2from8 at 1( 0) + 0 on 193;
+  architecture behavioral of slice_2from8 at 23( 700) + 0 on 194;
+file . "all_tb.vhdl" "4c58281af0275b4a46da7cb2a823d5ec4777e9c9" "20200109202128.585":
+  entity all_tb at 1( 0) + 0 on 189;
+  architecture arq of all_tb at 7( 104) + 0 on 190;
+file . "../tp.srcs/sources_1/new/slice_1from8.vhd" "1e557442c65026dc5718697307ff27d01b83943e" "20200109202128.603":
+  entity slice_1from8 at 1( 0) + 0 on 191;
+  architecture behavioral of slice_1from8 at 23( 700) + 0 on 192;
+file . "../tp.srcs/sources_1/new/cordic.vhd" "c15a3507ab29c62847f59bbae8ec8d728c2d9b1a" "20200109202128.635":
+  entity cordic at 1( 0) + 0 on 197;
+  architecture behavioral of cordic at 24( 718) + 0 on 198;

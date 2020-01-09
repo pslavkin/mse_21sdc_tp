@@ -28,20 +28,23 @@ architecture Behavioral of cordic is
              N     : natural := 16; --Ancho de la palabra
              SHIFT : natural := 1); -- en el for generate va tomando valores en funcion de la posicion en el pipeline 
       port(
-             clk   : in  std_logic;
-             rst   : in  std_logic;
-             en_i  : in  std_logic;
-             inv_i : in  std_logic;
-             xi    : in  std_logic_vector (N-1 downto 0);
-             yi    : in  std_logic_vector (N-1 downto 0);
-             zi    : in  std_logic_vector (N-1 downto 0);
-             ci    : in  std_logic_vector (N-1 downto 0);
-             dv_o  : out std_logic;
-             inv_o : out std_logic;
-             xip1  : out std_logic_vector (N-1 downto 0);
-             yip1  : out std_logic_vector (N-1 downto 0);
-             zip1  : out std_logic_vector (N-1 downto 0)
-          );
+          m_dataX : out STD_LOGIC_VECTOR (N-1 downto 0);
+          m_dataY : out STD_LOGIC_VECTOR (N-1 downto 0);
+          m_dataZ : out STD_LOGIC_VECTOR (N-1 downto 0);
+          m_valid : out STD_LOGIC;
+          m_inv   : out STD_LOGIC;
+          m_ready : in  STD_LOGIC;
+
+          s_dataX : in  STD_LOGIC_VECTOR (N-1 downto 0);
+          s_dataY : in  STD_LOGIC_VECTOR (N-1 downto 0);
+          s_dataZ : in  STD_LOGIC_VECTOR (N-1 downto 0);
+          s_dataT : in  STD_LOGIC_VECTOR (N-1 downto 0);
+          s_valid : in  STD_LOGIC;
+          s_ready : out STD_LOGIC;
+          s_inv   : in  STD_LOGIC;
+
+          clk           : in  STD_LOGIC;
+          rst           : in  STD_LOGIC);
    end component; --}}}
 
    constant MAX_ITER : natural := 10;  -- maximo largo de la tabla. ITER puede ir de aca para abajo 
@@ -51,12 +54,12 @@ architecture Behavioral of cordic is
    signal xyData    : xyDataArray;
    signal clockWise : std_logic := '0';
    signal angle     : std_logic_vector(N-1 downto 0):= (others=>'0');
-   
+
 
    type   handShakeVector is array ( ITER downto 0 )of std_logic                     ;
    type   ConnectVector is array   ( ITER downto 0 )of std_logic_vector(N-1 downto 0);
    type   intLUT is array          ( MAX_ITER-1 downto 0 )of integer range 0 to 5000  ; --la tabla soporta hasta MAX_ITER, pero en la instanciacino del cordic se puede elejir menos o igual.. no mas porque reviente.. la tabla no tendria datos..
-   signal en, dv, inv            : handShakeVector:= (others=>'0');
+   signal validW,  readyW,inv  : handShakeVector:= (others=>'0');
    signal wirex, wirey, wirez, wireLUT: ConnectVector;
    signal atanLUT                     : intLUT       := (4500, 2657, 1404, 713, 358, 179, 90, 45, 22, 11);
 
@@ -75,7 +78,7 @@ begin
             m_axis_tdata  <= (others => '0');
             clockWise     <= '0';
             angle         <= (others => '0');
-            en(0)         <= '0';                           --y ya no tengo mas nada
+            validW(0)     <= '0';                           --y ya no tengo mas nada
             inv(0)        <= '0';                           --y ya no tengo mas nada
             bitCounter    := 0;
          else
@@ -104,17 +107,19 @@ begin
                           else 
                                 wirez(0) <= (others=>'0');
                           end if;
-                          en(0)                <= '1';                           --y ya no tengo mas nada
-                          s_axis_tready        <= '0';                           --entonces yo tambien estoy listo
-                          m_axis_tvalid        <= '0';                           --y ya no tengo mas nada
-                          state                <= waitingCordic;
+                          validW(0)     <= '1';
+                          s_axis_tready <= '0';                           --entonces yo tambien estoy listo
+                          m_axis_tvalid <= '0';                           --y ya no tengo mas nada
+                          state         <= waitingCordic;
                         when others =>
                      end case;
                      bitCounter := bitCounter + 1;
                   end if;
                when waitingCordic =>
-                  en ( 0 )<= '0';
-                  if dv(0) = '1' then                           --espero e que este listo para enviar algo
+                  validW(0)     <= '0';
+                  readyW(ITER)     <= '1';
+                  if validW(ITER) = '1' then                           --espero e que este listo para enviar algo
+                     readyW(ITER)  <= '0';
                      m_axis_tdata  <= wirex(ITER-1)(7 downto 0);
                      m_axis_tvalid <= '1';                           --y ya no tengo mas nada
                      state         <= waitingMready;
@@ -147,28 +152,30 @@ begin
       end if;
    end process cordic_proc; --}}}
 
-
    connection_instance: for j in 0 to ITER-1 generate
    begin
       wireLUT(j) <= std_logic_vector(to_unsigned(atanLUT(ITER-1-j),N));
       iteration: cordic_iter
       generic map(N,j)
-      port map(
-                 clk   => clk,
-                 rst   => rst,
-                 en_i  => en      ( j   ),
-                 inv_i => inv     ( j   ),
-                 xi    => wirex   ( j   ),
-                 yi    => wirey   ( j   ),
-                 zi    => wirez   ( j   ),
-                 ci    => wireLUT ( j   ),
-                 dv_o  => dv      ( j   ),
-                 inv_o => inv     ( j+1 ),
-                 xip1  => wirex   ( j+1 ),
-                 yip1  => wirey   ( j+1 ),
-                 zip1  => wirez   ( j+1 )
-              );
-         en(j+1)<=dv(j);
+      port  map (
+           m_dataX => wirex    ( j+1 ),
+           m_dataY => wirey    ( j+1 ),
+           m_dataZ => wirez    ( j+1 ),
+           m_valid => validW   ( j+1 ),
+           m_inv   => inv      ( j+1 ),
+           m_ready => readyW   ( j+1 ),
+
+           s_dataX => wirex    ( j   ),
+           s_dataY => wirey    ( j   ),
+           s_dataZ => wirez    ( j   ),
+           s_dataT => wireLUT  ( j   ),
+           s_valid => validW   ( j   ),
+           s_ready => readyW   ( j   ),
+           s_inv   => inv      ( j   ),
+
+           clk     => clk,
+           rst     => rst
+         );
    end generate;
 
 end architecture;
