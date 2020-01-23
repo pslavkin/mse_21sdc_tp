@@ -40,7 +40,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # The design that will be created by this Tcl script contains the following 
 # module references:
-# mapper, paralell2axi
+# join_16from8, paralell2axi, slice_8from32
 
 # Please add the sources of those modules before sourcing this Tcl script.
 
@@ -171,6 +171,40 @@ proc create_root_design { parentCell } {
   # Create ports
   set outData_0 [ create_bd_port -dir O -from 3 -to 0 outData_0 ]
 
+  # Create instance: D_xfft_1, and set properties
+  set D_xfft_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xfft:9.1 D_xfft_1 ]
+  set_property -dict [ list \
+   CONFIG.aclken {false} \
+   CONFIG.aresetn {true} \
+   CONFIG.implementation_options {automatically_select} \
+   CONFIG.input_width {15} \
+   CONFIG.number_of_stages_using_block_ram_for_data_and_phase_factors {0} \
+   CONFIG.output_ordering {natural_order} \
+   CONFIG.phase_factor_width {16} \
+   CONFIG.scaling_options {unscaled} \
+   CONFIG.target_clock_frequency {10} \
+   CONFIG.target_data_throughput {10} \
+   CONFIG.transform_length {64} \
+ ] $D_xfft_1
+
+  # Create instance: I_xfft_0, and set properties
+  set I_xfft_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xfft:9.1 I_xfft_0 ]
+  set_property -dict [ list \
+   CONFIG.aclken {false} \
+   CONFIG.aresetn {true} \
+   CONFIG.channels {1} \
+   CONFIG.data_format {fixed_point} \
+   CONFIG.implementation_options {automatically_select} \
+   CONFIG.input_width {8} \
+   CONFIG.number_of_stages_using_block_ram_for_data_and_phase_factors {0} \
+   CONFIG.output_ordering {natural_order} \
+   CONFIG.phase_factor_width {16} \
+   CONFIG.scaling_options {unscaled} \
+   CONFIG.target_clock_frequency {10} \
+   CONFIG.target_data_throughput {10} \
+   CONFIG.transform_length {64} \
+ ] $I_xfft_0
+
   # Create instance: axis_data_fifo_In, and set properties
   set axis_data_fifo_In [ create_bd_cell -type ip -vlnv xilinx.com:ip:axis_data_fifo:2.0 axis_data_fifo_In ]
   set_property -dict [ list \
@@ -189,13 +223,13 @@ proc create_root_design { parentCell } {
    CONFIG.SYNCHRONIZATION_STAGES {3} \
  ] $axis_data_fifo_Out
 
-  # Create instance: mapper_0, and set properties
-  set block_name mapper
-  set block_cell_name mapper_0
-  if { [catch {set mapper_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+  # Create instance: join_16from8_0, and set properties
+  set block_name join_16from8
+  set block_cell_name join_16from8_0
+  if { [catch {set join_16from8_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
      catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
-   } elseif { $mapper_0 eq "" } {
+   } elseif { $join_16from8_0 eq "" } {
      catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
    }
@@ -992,21 +1026,35 @@ proc create_root_design { parentCell } {
   # Create instance: rst_ps7_0_10M, and set properties
   set rst_ps7_0_10M [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_ps7_0_10M ]
 
+  # Create instance: slice_8from32_0, and set properties
+  set block_name slice_8from32
+  set block_cell_name slice_8from32_0
+  if { [catch {set slice_8from32_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $slice_8from32_0 eq "" } {
+     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
   # Create interface connections
-  connect_bd_intf_net -intf_net axis_data_fifo_In_M_AXIS [get_bd_intf_pins axis_data_fifo_In/M_AXIS] [get_bd_intf_pins mapper_0/s_axis]
+  connect_bd_intf_net -intf_net I_xfft_0_M_AXIS_DATA [get_bd_intf_pins I_xfft_0/M_AXIS_DATA] [get_bd_intf_pins slice_8from32_0/s_axis]
+  connect_bd_intf_net -intf_net axis_data_fifo_In_M_AXIS [get_bd_intf_pins axis_data_fifo_In/M_AXIS] [get_bd_intf_pins join_16from8_0/s_axis]
   connect_bd_intf_net -intf_net axis_data_fifo_Out_M_AXIS [get_bd_intf_pins axis_data_fifo_Out/M_AXIS] [get_bd_intf_pins paralell2axi_0/axi_s]
-  connect_bd_intf_net -intf_net mapper_0_m_axis [get_bd_intf_pins axis_data_fifo_Out/S_AXIS] [get_bd_intf_pins mapper_0/m_axis]
+  connect_bd_intf_net -intf_net join_16from8_0_m_axis [get_bd_intf_pins I_xfft_0/S_AXIS_DATA] [get_bd_intf_pins join_16from8_0/m_axis]
   connect_bd_intf_net -intf_net paralell2axi_0_axi_m [get_bd_intf_pins axis_data_fifo_In/S_AXIS] [get_bd_intf_pins paralell2axi_0/axi_m]
   connect_bd_intf_net -intf_net processing_system7_0_DDR [get_bd_intf_ports DDR] [get_bd_intf_pins processing_system7_0/DDR]
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_ports FIXED_IO] [get_bd_intf_pins processing_system7_0/FIXED_IO]
+  connect_bd_intf_net -intf_net slice_8from32_0_m_axis [get_bd_intf_pins axis_data_fifo_Out/S_AXIS] [get_bd_intf_pins slice_8from32_0/m_axis]
+  connect_bd_intf_net -intf_net slice_8from32_0_m_axis_config [get_bd_intf_pins I_xfft_0/S_AXIS_CONFIG] [get_bd_intf_pins slice_8from32_0/m_axis_config]
 
   # Create port connections
   connect_bd_net -net paralell2axi_0_emo [get_bd_pins paralell2axi_0/emo] [get_bd_pins processing_system7_0/GPIO_I]
   connect_bd_net -net paralell2axi_0_leds [get_bd_ports outData_0] [get_bd_pins paralell2axi_0/leds]
-  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axis_data_fifo_In/s_axis_aclk] [get_bd_pins axis_data_fifo_Out/s_axis_aclk] [get_bd_pins mapper_0/clk] [get_bd_pins paralell2axi_0/clk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins rst_ps7_0_10M/slowest_sync_clk]
+  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins D_xfft_1/aclk] [get_bd_pins I_xfft_0/aclk] [get_bd_pins axis_data_fifo_In/s_axis_aclk] [get_bd_pins axis_data_fifo_Out/s_axis_aclk] [get_bd_pins join_16from8_0/clk] [get_bd_pins paralell2axi_0/clk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins rst_ps7_0_10M/slowest_sync_clk] [get_bd_pins slice_8from32_0/clk]
   connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins rst_ps7_0_10M/ext_reset_in]
   connect_bd_net -net processing_system7_0_GPIO_O [get_bd_pins paralell2axi_0/emi] [get_bd_pins processing_system7_0/GPIO_O]
-  connect_bd_net -net rst_ps7_0_10M_peripheral_aresetn [get_bd_pins axis_data_fifo_In/s_axis_aresetn] [get_bd_pins axis_data_fifo_Out/s_axis_aresetn] [get_bd_pins mapper_0/rst] [get_bd_pins paralell2axi_0/rst] [get_bd_pins rst_ps7_0_10M/peripheral_aresetn]
+  connect_bd_net -net rst_ps7_0_10M_peripheral_aresetn [get_bd_pins D_xfft_1/aresetn] [get_bd_pins I_xfft_0/aresetn] [get_bd_pins axis_data_fifo_In/s_axis_aresetn] [get_bd_pins axis_data_fifo_Out/s_axis_aresetn] [get_bd_pins join_16from8_0/rst] [get_bd_pins paralell2axi_0/rst] [get_bd_pins rst_ps7_0_10M/peripheral_aresetn] [get_bd_pins slice_8from32_0/rst]
 
   # Create address segments
 

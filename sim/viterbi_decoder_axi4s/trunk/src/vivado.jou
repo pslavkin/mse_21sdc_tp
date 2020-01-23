@@ -1,0 +1,77 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Sun Jan 12 05:53:44 2020
+# Process ID: 23036
+# Current directory: /home/pslavkin/mse_3_21sdc/tp/sim/viterbi_decoder_axi4s/trunk/src
+# Command line: vivado
+# Log file: /home/pslavkin/mse_3_21sdc/tp/sim/viterbi_decoder_axi4s/trunk/src/vivado.log
+# Journal file: /home/pslavkin/mse_3_21sdc/tp/sim/viterbi_decoder_axi4s/trunk/src/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/pslavkin/mse_3_21sdc/tp/tp.xpr
+update_compile_order -fileset sources_1
+open_bd_design {/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd}
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:xfft:9.1 xfft_0
+endgroup
+set_property location {7 2097 -161} [get_bd_cells xfft_0]
+delete_bd_objs [get_bd_intf_nets axis_data_fifo_In_M_AXIS]
+connect_bd_intf_net [get_bd_intf_pins axis_data_fifo_In/M_AXIS] [get_bd_intf_pins xfft_0/S_AXIS_DATA]
+connect_bd_net [get_bd_pins xfft_0/aclk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+delete_bd_objs [get_bd_intf_nets cordic_0_m_axis]
+connect_bd_intf_net [get_bd_intf_pins axis_data_fifo_Out/S_AXIS] [get_bd_intf_pins xfft_0/M_AXIS_DATA]
+startgroup
+set_property -dict [list CONFIG.input_width.VALUE_SRC USER] [get_bd_cells xfft_0]
+set_property -dict [list CONFIG.transform_length {64} CONFIG.target_clock_frequency {10} CONFIG.target_data_throughput {10} CONFIG.input_width {8} CONFIG.scaling_options {unscaled} CONFIG.aclken {false} CONFIG.aresetn {true} CONFIG.output_ordering {natural_order} CONFIG.implementation_options {automatically_select} CONFIG.number_of_stages_using_block_ram_for_data_and_phase_factors {0}] [get_bd_cells xfft_0]
+endgroup
+copy_bd_objs /  [get_bd_cells {xfft_0}]
+set_property location {6.5 2804 -235} [get_bd_cells xfft_1]
+set_property -dict [list CONFIG.input_width {15}] [get_bd_cells xfft_1]
+connect_bd_net [get_bd_pins xfft_0/aresetn] [get_bd_pins rst_ps7_0_10M/peripheral_aresetn]
+connect_bd_net [get_bd_pins rst_ps7_0_10M/peripheral_aresetn] [get_bd_pins xfft_1/aresetn]
+startgroup
+connect_bd_net [get_bd_pins xfft_1/aclk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+endgroup
+delete_bd_objs [get_bd_intf_nets xfft_0_M_AXIS_DATA]
+set_property location {6 2155 -238} [get_bd_cells xfft_0]
+connect_bd_intf_net [get_bd_intf_pins xfft_0/M_AXIS_DATA] [get_bd_intf_pins xfft_1/S_AXIS_DATA]
+connect_bd_intf_net [get_bd_intf_pins xfft_1/M_AXIS_DATA] [get_bd_intf_pins axis_data_fifo_Out/S_AXIS]
+save_bd_design
+startgroup
+endgroup
+add_files -norecurse {/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/new/join_16from8.vhd /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/new/slice_8from16.vhd}
+update_compile_order -fileset sources_1
+create_bd_cell -type module -reference join_16from8 join_16from8_0
+create_bd_cell -type module -reference slice_8from16 slice_8from16_0
+delete_bd_objs [get_bd_intf_nets axis_data_fifo_In_M_AXIS]
+set_property location {6 1906 -99} [get_bd_cells join_16from8_0]
+connect_bd_intf_net [get_bd_intf_pins axis_data_fifo_In/M_AXIS] [get_bd_intf_pins join_16from8_0/s_axis]
+connect_bd_net [get_bd_pins join_16from8_0/rst] [get_bd_pins rst_ps7_0_10M/peripheral_aresetn]
+connect_bd_net [get_bd_pins join_16from8_0/clk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+set_property location {6 2000 -263} [get_bd_cells join_16from8_0]
+connect_bd_intf_net [get_bd_intf_pins join_16from8_0/m_axis] [get_bd_intf_pins xfft_0/S_AXIS_DATA]
+set_property location {8 2734 201} [get_bd_cells slice_8from16_0]
+connect_bd_net [get_bd_pins slice_8from16_0/clk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+connect_bd_net [get_bd_pins slice_8from16_0/rst] [get_bd_pins rst_ps7_0_10M/peripheral_aresetn]
+connect_bd_intf_net [get_bd_intf_pins slice_8from16_0/s_axis] [get_bd_intf_pins mapper_0/m_axis]
+delete_bd_objs [get_bd_cells cordic_0]
+delete_bd_objs [get_bd_intf_nets xfft_1_M_AXIS_DATA]
+update_compile_order -fileset sources_1
+delete_bd_objs [get_bd_intf_nets mapper_0_m_axis]
+connect_bd_intf_net [get_bd_intf_pins slice_8from16_0/s_axis] [get_bd_intf_pins xfft_1/M_AXIS_DATA]
+connect_bd_intf_net [get_bd_intf_pins slice_8from16_0/m_axis] [get_bd_intf_pins axis_data_fifo_Out/S_AXIS]
+delete_bd_objs [get_bd_cells mapper_0]
+update_compile_order -fileset sources_1
+set_property location {5 2033 98} [get_bd_cells join_16from8_0]
+set_property location {6 2326 97} [get_bd_cells xfft_0]
+set_property location {5 2061 433} [get_bd_cells slice_8from16_0]
+set_property location {5 1984 345} [get_bd_cells slice_8from16_0]
+set_property location {6 2427 363} [get_bd_cells xfft_1]
+set_property location {6.5 2796 131} [get_bd_cells xfft_0]
+set_property location {7 2720 375} [get_bd_cells xfft_1]
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1

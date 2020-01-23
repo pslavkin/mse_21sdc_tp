@@ -1,0 +1,30 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Sun Jan 12 15:13:49 2020
+# Process ID: 25830
+# Current directory: /home/pslavkin/mse_3_21sdc/tp/sim
+# Command line: vivado
+# Log file: /home/pslavkin/mse_3_21sdc/tp/sim/vivado.log
+# Journal file: /home/pslavkin/mse_3_21sdc/tp/sim/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/pslavkin/mse_3_21sdc/cordic/vivado_project/FPGA_interface/FPGA_interface.xpr
+open_project /home/pslavkin/mse_3_21sdc/tp/tp.xpr
+update_compile_order -fileset sources_1
+open_bd_design {/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd}
+update_module_reference design_1_slice_8from16_0_0
+generate_target all [get_files  /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd]
+export_ip_user_files -of_objects [get_files /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd]
+launch_runs -jobs 4 design_1_slice_8from16_0_0_synth_1
+export_simulation -of_objects [get_files /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd] -directory /home/pslavkin/mse_3_21sdc/tp/tp.ip_user_files/sim_scripts -ip_user_files_dir /home/pslavkin/mse_3_21sdc/tp/tp.ip_user_files -ipstatic_source_dir /home/pslavkin/mse_3_21sdc/tp/tp.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/modelsim} {questa=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/questa} {ies=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/ies} {xcelium=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/xcelium} {vcs=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/vcs} {riviera=/home/pslavkin/mse_3_21sdc/tp/tp.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+reset_run design_1_slice_8from16_0_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+update_module_reference design_1_slice_8from16_0_0
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1

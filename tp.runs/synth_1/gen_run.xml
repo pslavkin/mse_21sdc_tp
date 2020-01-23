@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1578319185">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1579670368">
   <File Type="VDS-TIMING-PB" Name="design_1_wrapper_timing_summary_synth.pb"/>
   <File Type="VDS-TIMINGSUMMARY" Name="design_1_wrapper_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="design_1_wrapper.dcp"/>
@@ -17,7 +17,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/mapper.vhd">
+    <File Path="$PSRCDIR/sources_1/new/join_16from8.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/slice_8from32.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -36,28 +42,35 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/split_2to8.vhd">
+    <File Path="$PSRCDIR/sources_1/new/slice_8from48.vhd">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/split_1to8.vhd">
+    <File Path="$PSRCDIR/sources_1/new/join_48from16.vhd">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/join_8to1.vhd">
+    <File Path="$PSRCDIR/sources_1/new/mapper.vhd">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/join_8to2.vhd">
+    <File Path="$PSRCDIR/sources_1/new/cordic_iter.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/cordic.vhd">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -122,7 +135,10 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_mapper_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_join_16from8_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_xfft_0_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_xfft_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_paralell2axi_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_slice_8from32_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_axis_data_fifo_0_1"/>
 </GenRun>

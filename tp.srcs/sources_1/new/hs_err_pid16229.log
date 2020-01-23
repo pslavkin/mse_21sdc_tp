@@ -1,0 +1,19 @@
+#
+# An unexpected error has occurred (11)
+#
+Stack:
+/opt/Xilinx_2019/Vivado/2019.1/tps/lnx64/jre9.0.4/lib//server/libjvm.so(+0xb6aadb) [0x7f0e4eaf3adb]
+/opt/Xilinx_2019/Vivado/2019.1/tps/lnx64/jre9.0.4/lib//server/libjvm.so(JVM_handle_linux_signal+0xbb) [0x7f0e4eaf8e1b]
+/opt/Xilinx_2019/Vivado/2019.1/tps/lnx64/jre9.0.4/lib//server/libjvm.so(+0xb647b8) [0x7f0e4eaed7b8]
+/lib/x86_64-linux-gnu/libc.so.6(+0x37840) [0x7f0e956ec840]
+/opt/Xilinx_2019/Vivado/2019.1/tps/lnx64/jre9.0.4/lib/libjimage.so(+0x3fb2) [0x7f0e4d500fb2]
+/opt/Xilinx_2019/Vivado/2019.1/tps/lnx64/jre9.0.4/lib/libjimage.so(+0x4b8c) [0x7f0e4d501b8c]
+/opt/Xilinx_2019/Vivado/2019.1/tps/lnx64/jre9.0.4/lib/libjimage.so(JIMAGE_FindResource+0xba) [0x7f0e4d50205a]
+/opt/Xilinx_2019/Vivado/2019.1/tps/lnx64/jre9.0.4/lib//server/libjvm.so(+0x5aae8e) [0x7f0e4e533e8e]
+/opt/Xilinx_2019/Vivado/2019.1/tps/lnx64/jre9.0.4/lib//server/libjvm.so(+0x5ae0a0) [0x7f0e4e5370a0]
+/opt/Xilinx_2019/Vivado/2019.1/tps/lnx64/jre9.0.4/lib//server/libjvm.so(+0xcbcd34) [0x7f0e4ec45d34]
+/opt/Xilinx_2019/Vivado/2019.1/tps/lnx64/jre9.0.4/lib//server/libjvm.so(+0xcbd8f1) [0x7f0e4ec468f1]
+/opt/Xilinx_2019/Vivado/2019.1/tps/lnx64/jre9.0.4/lib//server/libjvm.so(+0xcbec4b) [0x7f0e4ec47c4b]
+/opt/Xilinx_2019/Vivado/2019.1/tps/lnx64/jre9.0.4/lib//server/libjvm.so(+0x648c34) [0x7f0e4e5d1c34]
+/opt/Xilinx_2019/Vivado/2019.1/tps/lnx64/jre9.0.4/lib//server/libjvm.so(+0x82b1ca) [0x7f0e4e7b41ca]
+[0x7f0e36e3049b]

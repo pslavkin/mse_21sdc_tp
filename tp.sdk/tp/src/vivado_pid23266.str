@@ -1,0 +1,164 @@
+/*
+
+Xilinx Vivado v2019.1 (64-bit) [Major: 2019, Minor: 1]
+SW Build: 2552052 on Fri May 24 14:47:09 MDT 2019
+IP Build: 2548770 on Fri May 24 18:01:18 MDT 2019
+
+Process ID (PID): 23266
+License: Customer
+
+Current time: 	Thu Jan 23 02:00:23 ART 2020
+Time zone: 	Argentine Time (America/Argentina/Buenos_Aires)
+
+OS: PRETTY_NAME="Debian GNU/Linux 10 (buster)"
+OS Version: 4.19.0-6-amd64
+OS Architecture: amd64
+Available processors (cores): 4
+
+Display: :0.0
+Screen size: 1366x768
+Screen resolution (DPI): 100
+Available screens: 1
+Available disk space: 1 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=15
+
+Java version: 	9.0.4 64-bit
+Java home: 	/opt/Xilinx_2019/Vivado/2019.1/tps/lnx64/jre9.0.4
+Java executable location: 	/opt/Xilinx_2019/Vivado/2019.1/tps/lnx64/jre9.0.4/bin/java
+Java initial memory (-Xms): 	128 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	pslavkin
+User home directory: /home/pslavkin
+User working directory: /home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/src
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /opt/Xilinx_2019/Vivado
+HDI_APPROOT: /opt/Xilinx_2019/Vivado/2019.1
+RDI_DATADIR: /opt/Xilinx_2019/Vivado/2019.1/data
+RDI_BINDIR: /opt/Xilinx_2019/Vivado/2019.1/bin
+
+Vivado preferences file location: /home/pslavkin/.Xilinx/Vivado/2019.1/vivado.xml
+Vivado preferences directory: /home/pslavkin/.Xilinx/Vivado/2019.1/
+Vivado layouts directory: /home/pslavkin/.Xilinx/Vivado/2019.1/layouts
+PlanAhead jar file location: 	/opt/Xilinx_2019/Vivado/2019.1/lib/classes/planAhead.jar
+Vivado log file location: 	/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/src/vivado.log
+Vivado journal file location: 	/home/pslavkin/mse_3_21sdc/tp/tp.sdk/tp/src/vivado.jou
+Engine tmp dir: 	./.Xil/Vivado-23266-work1
+
+Xilinx Environment Variables
+----------------------------
+XILINX: /opt/Xilinx_2019/Vivado/2019.1/ids_lite/ISE
+XILINX_DSP: /opt/Xilinx_2019/Vivado/2019.1/ids_lite/ISE
+XILINX_PLANAHEAD: /opt/Xilinx_2019/Vivado/2019.1
+XILINX_SDK: /opt/Xilinx_2019/SDK/2019.1
+XILINX_VIVADO: /opt/Xilinx_2019/Vivado/2019.1
+XILINX_VIVADO_HLS: /opt/Xilinx_2019/Vivado/2019.1
+
+
+GUI allocated memory:	154 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 780 MB
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// HMemoryUtils.trashcanNow. Engine heap size: 777 MB. GUI used memory: 44 MB. Current time: 1/23/20, 2:00:25 AM ART
+selectList(PAResourceQtoS.SyntheticaGettingStartedView_RECENT_PROJECTS, "/home/pslavkin/mse_3_21sdc/tp/tp.xpr", 0); // q (O, cl)
+// by (cl):  Open Project : addNotify
+// Opening Vivado Project: /home/pslavkin/mse_3_21sdc/tp/tp.xpr. Version: Vivado v2019.1 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project /home/pslavkin/mse_3_21sdc/tp/tp.xpr 
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 89 MB (+90985kb) [00:00:21]
+// [Engine Memory]: 844 MB (+733293kb) [00:00:21]
+// [Engine Memory]: 892 MB (+6685kb) [00:00:23]
+// [GUI Memory]: 94 MB (+189kb) [00:00:23]
+// WARNING: HEventQueue.dispatchEvent() is taking  5802 ms.
+// Tcl Message: open_project /home/pslavkin/mse_3_21sdc/tp/tp.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx_2019/Vivado/2019.1/data/ip'. 
+// WARNING: HEventQueue.dispatchEvent() is taking  1467 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1007 ms.
+// Tcl Message: open_project: Time (s): cpu = 00:00:23 ; elapsed = 00:00:09 . Memory (MB): peak = 6402.559 ; gain = 105.918 ; free physical = 638 ; free virtual = 5249 
+// Project name: tp; location: /home/pslavkin/mse_3_21sdc/tp; part: xc7z020clg400-1
+// [GUI Memory]: 106 MB (+7861kb) [00:00:28]
+// [Engine Memory]: 1,199 MB (+275043kb) [00:00:28]
+// [Engine Memory]: 1,645 MB (+404080kb) [00:00:29]
+// Elapsed time: 13 seconds
+dismissDialog("Open Project"); // by (cl)
+// HMemoryUtils.trashcanNow. Engine heap size: 970 MB. GUI used memory: 55 MB. Current time: 1/23/20, 2:00:40 AM ART
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// [GUI Memory]: 114 MB (+2310kb) [00:00:45]
+// Elapsed time: 20 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, IP Integrator, Open Block Design]", 7, false); // u (O, cl)
+// Run Command: PAResourceCommand.PACommandNames_OPEN_BLOCK_DESIGN
+// by (cl):  Open Block Design : addNotify
+// TclEventType: LOAD_FEATURE
+// Tcl Message: open_bd_design {/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd} 
+// TclEventType: RSB_CHANGE_CURRENT_DIAGRAM
+// TclEventType: RSB_PROPERTY_CHANGE
+// Tcl Message: Adding component instance block -- xilinx.com:ip:processing_system7:5.5 - processing_system7_0 Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - rst_ps7_0_10M Adding component instance block -- xilinx.com:ip:axis_data_fifo:2.0 - axis_data_fifo_In Adding component instance block -- xilinx.com:ip:axis_data_fifo:2.0 - axis_data_fifo_Out Adding component instance block -- xilinx.com:module_ref:paralell2axi:1.0 - paralell2axi_0 Adding component instance block -- xilinx.com:ip:xfft:9.1 - I_xfft_0 Adding component instance block -- xilinx.com:ip:xfft:9.1 - D_xfft_1 
+// TclEventType: LOAD_FEATURE
+// TclEventType: RSB_OPEN_DIAGRAM
+// Tcl Message: Adding component instance block -- xilinx.com:module_ref:join_16from8:1.0 - join_16from8_0 Adding component instance block -- xilinx.com:module_ref:slice_8from32:1.0 - slice_8from32_0 Successfully read diagram <design_1> from BD file </home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1.bd> 
+// TclEventType: RSB_OPEN_DIAGRAM
+// WARNING: HEventQueue.dispatchEvent() is taking  3544 ms.
+// TclEventType: RSB_CONNECTION_CHANGE
+closeView(PAResourceOtoP.PAViews_PROJECT_SUMMARY, "Project Summary"); // v
+// TclEventType: RSB_LOCK_CHANGE
+// Tcl Message: open_bd_design: Time (s): cpu = 00:00:31 ; elapsed = 00:00:10 . Memory (MB): peak = 6620.238 ; gain = 154.648 ; free physical = 301 ; free virtual = 5003 
+// 'bB' command handler elapsed time: 9 seconds
+dismissDialog("Open Block Design"); // by (cl)
+// Tcl Message: update_compile_order -fileset sources_1 

@@ -34,6 +34,10 @@ init: force
 	# /usr/local/lib/ghdl/std/v93/../../src/std/textio_body.v93
 	$(GHDL) -a $(GHDLFLAGS) ../tp.srcs/sources_1/new/slice_1from8.vhd
 	$(GHDL) -a $(GHDLFLAGS) ../tp.srcs/sources_1/new/slice_2from8.vhd
+	$(GHDL) -a $(GHDLFLAGS) ../tp.srcs/sources_1/new/slice_8from48.vhd
+	$(GHDL) -a $(GHDLFLAGS) ../tp.srcs/sources_1/new/slice_8from32.vhd
+	$(GHDL) -a $(GHDLFLAGS) ../tp.srcs/sources_1/new/join_16from8.vhd
+	$(GHDL) -a $(GHDLFLAGS) ../tp.srcs/sources_1/new/join_48from16.vhd
 	$(GHDL) -a $(GHDLFLAGS) ../tp.srcs/sources_1/new/mapper.vhd
 	$(GHDL) -a $(GHDLFLAGS) ../tp.srcs/sources_1/new/cordic.vhd
 	$(GHDL) -a $(GHDLFLAGS) ../tp.srcs/sources_1/new/cordic_iter.vhd

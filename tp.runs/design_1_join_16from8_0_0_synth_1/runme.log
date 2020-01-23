@@ -1,0 +1,303 @@
+
+*** Running vivado
+    with args -log design_1_join_16from8_0_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_join_16from8_0_0.tcl
+
+
+****** Vivado v2019.1 (64-bit)
+  **** SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+  **** IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source design_1_join_16from8_0_0.tcl -notrace
+Command: synth_design -top design_1_join_16from8_0_0 -part xc7z020clg400-1 -mode out_of_context
+Starting synth_design
+WARNING: [IP_Flow 19-3571] IP 'design_1_join_16from8_0_0' is restricted:
+* Module reference is stale and needs refreshing.
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Device 21-403] Loading part xc7z020clg400-1
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 29214 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 1674.891 ; gain = 154.684 ; free physical = 87 ; free virtual = 2062
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'design_1_join_16from8_0_0' [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_join_16from8_0_0/synth/design_1_join_16from8_0_0.vhd:74]
+INFO: [Synth 8-3491] module 'join_16from8' declared at '/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/new/join_16from8.vhd:6' bound to instance 'U0' of component 'join_16from8' [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_join_16from8_0_0/synth/design_1_join_16from8_0_0.vhd:123]
+INFO: [Synth 8-638] synthesizing module 'join_16from8' [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/new/join_16from8.vhd:26]
+WARNING: [Synth 8-3848] Net m_axis_tlast in module/entity join_16from8 does not have driver. [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/new/join_16from8.vhd:10]
+INFO: [Synth 8-256] done synthesizing module 'join_16from8' (1#1) [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/new/join_16from8.vhd:26]
+INFO: [Synth 8-256] done synthesizing module 'design_1_join_16from8_0_0' (2#1) [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_join_16from8_0_0/synth/design_1_join_16from8_0_0.vhd:74]
+WARNING: [Synth 8-3331] design join_16from8 has unconnected port m_axis_tlast
+WARNING: [Synth 8-3331] design join_16from8 has unconnected port s_axis_tlast
+WARNING: [Synth 8-3331] design join_16from8 has unconnected port m_axis_config_tready
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:24 . Memory (MB): peak = 1732.609 ; gain = 212.402 ; free physical = 180 ; free virtual = 1982
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:25 . Memory (MB): peak = 1735.578 ; gain = 215.371 ; free physical = 159 ; free virtual = 1972
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:25 . Memory (MB): peak = 1735.578 ; gain = 215.371 ; free physical = 159 ; free virtual = 1972
+---------------------------------------------------------------------------------
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1847.344 ; gain = 0.000 ; free physical = 139 ; free virtual = 1997
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.23 . Memory (MB): peak = 1847.344 ; gain = 0.000 ; free physical = 115 ; free virtual = 1978
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:43 . Memory (MB): peak = 1847.344 ; gain = 327.137 ; free physical = 136 ; free virtual = 2018
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:43 . Memory (MB): peak = 1847.344 ; gain = 327.137 ; free physical = 136 ; free virtual = 2018
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:43 . Memory (MB): peak = 1847.344 ; gain = 327.137 ; free physical = 134 ; free virtual = 2016
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4471] merging register 'm_axis_tvalid_reg' into 'state_reg' [/home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/new/join_16from8.vhd:38]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:44 . Memory (MB): peak = 1847.344 ; gain = 327.137 ; free physical = 124 ; free virtual = 2011
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      1 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   4 Input     16 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 7     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module join_16from8 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      1 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   4 Input     16 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 7     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-3917] design design_1_join_16from8_0_0 has port m_axis_config_tdata[7] driven by constant 0
+INFO: [Synth 8-3917] design design_1_join_16from8_0_0 has port m_axis_config_tdata[6] driven by constant 0
+INFO: [Synth 8-3917] design design_1_join_16from8_0_0 has port m_axis_config_tdata[5] driven by constant 0
+INFO: [Synth 8-3917] design design_1_join_16from8_0_0 has port m_axis_config_tdata[4] driven by constant 0
+INFO: [Synth 8-3917] design design_1_join_16from8_0_0 has port m_axis_config_tdata[3] driven by constant 0
+INFO: [Synth 8-3917] design design_1_join_16from8_0_0 has port m_axis_config_tdata[2] driven by constant 0
+INFO: [Synth 8-3917] design design_1_join_16from8_0_0 has port m_axis_config_tdata[1] driven by constant 0
+INFO: [Synth 8-3917] design design_1_join_16from8_0_0 has port m_axis_config_tdata[0] driven by constant 1
+INFO: [Synth 8-3917] design design_1_join_16from8_0_0 has port m_axis_config_tvalid driven by constant 1
+WARNING: [Synth 8-3331] design design_1_join_16from8_0_0 has unconnected port m_axis_tlast
+WARNING: [Synth 8-3331] design design_1_join_16from8_0_0 has unconnected port s_axis_tlast
+WARNING: [Synth 8-3331] design design_1_join_16from8_0_0 has unconnected port m_axis_config_tready
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:45 . Memory (MB): peak = 1847.344 ; gain = 327.137 ; free physical = 153 ; free virtual = 2052
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:27 ; elapsed = 00:01:06 . Memory (MB): peak = 1847.344 ; gain = 327.137 ; free physical = 87 ; free virtual = 1736
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:01:06 . Memory (MB): peak = 1847.344 ; gain = 327.137 ; free physical = 87 ; free virtual = 1733
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:27 ; elapsed = 00:01:08 . Memory (MB): peak = 1847.344 ; gain = 327.137 ; free physical = 100 ; free virtual = 1725
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:30 ; elapsed = 00:01:11 . Memory (MB): peak = 1853.281 ; gain = 333.074 ; free physical = 153 ; free virtual = 1688
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:30 ; elapsed = 00:01:11 . Memory (MB): peak = 1853.281 ; gain = 333.074 ; free physical = 153 ; free virtual = 1688
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:30 ; elapsed = 00:01:11 . Memory (MB): peak = 1853.281 ; gain = 333.074 ; free physical = 153 ; free virtual = 1688
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:30 ; elapsed = 00:01:11 . Memory (MB): peak = 1853.281 ; gain = 333.074 ; free physical = 153 ; free virtual = 1688
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:30 ; elapsed = 00:01:11 . Memory (MB): peak = 1853.281 ; gain = 333.074 ; free physical = 153 ; free virtual = 1689
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:30 ; elapsed = 00:01:11 . Memory (MB): peak = 1853.281 ; gain = 333.074 ; free physical = 155 ; free virtual = 1690
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |LUT1 |     1|
+|2     |LUT3 |     2|
+|3     |LUT5 |     2|
+|4     |LUT6 |     1|
+|5     |FDRE |    19|
++------+-----+------+
+
+Report Instance Areas: 
++------+---------+-------------+------+
+|      |Instance |Module       |Cells |
++------+---------+-------------+------+
+|1     |top      |             |    25|
+|2     |  U0     |join_16from8 |    25|
++------+---------+-------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:30 ; elapsed = 00:01:11 . Memory (MB): peak = 1853.281 ; gain = 333.074 ; free physical = 155 ; free virtual = 1690
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 3 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:01:08 . Memory (MB): peak = 1853.281 ; gain = 221.309 ; free physical = 220 ; free virtual = 1769
+Synthesis Optimization Complete : Time (s): cpu = 00:00:30 ; elapsed = 00:01:11 . Memory (MB): peak = 1853.289 ; gain = 333.074 ; free physical = 219 ; free virtual = 1769
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1868.125 ; gain = 0.000 ; free physical = 87 ; free virtual = 1690
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+24 Infos, 9 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:39 ; elapsed = 00:01:21 . Memory (MB): peak = 1868.125 ; gain = 521.273 ; free physical = 273 ; free virtual = 1877
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1868.125 ; gain = 0.000 ; free physical = 270 ; free virtual = 1877
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint '/home/pslavkin/mse_3_21sdc/tp/tp.runs/design_1_join_16from8_0_0_synth_1/design_1_join_16from8_0_0.dcp' has been generated.
+WARNING: [Common 17-576] 'use_project_ipc' is deprecated. This option is deprecated and no longer used.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1892.137 ; gain = 0.000 ; free physical = 345 ; free virtual = 1972
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint '/home/pslavkin/mse_3_21sdc/tp/tp.runs/design_1_join_16from8_0_0_synth_1/design_1_join_16from8_0_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file design_1_join_16from8_0_0_utilization_synth.rpt -pb design_1_join_16from8_0_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Jan 19 07:08:00 2020...

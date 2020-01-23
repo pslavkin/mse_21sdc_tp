@@ -17,7 +17,10 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param synth.incrementalSynthesisCache ./.Xil/Vivado-16229-work1/incrSyn
 set_param chipscope.maxJobs 1
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7z020clg400-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -26,7 +29,7 @@ set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir /home/pslavkin/mse_3_21sdc/tp/tp.cache/wt [current_project]
 set_property parent.project_path /home/pslavkin/mse_3_21sdc/tp/tp.xpr [current_project]
-set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO} [current_project]
+set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
 set_property board_part digilentinc.com:arty-z7-20:part0:1.0 [current_project]
@@ -40,6 +43,8 @@ set_property used_in_implementation false [get_files -all /home/pslavkin/mse_3_2
 set_property used_in_implementation false [get_files -all /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_10M_0/design_1_rst_ps7_0_10M_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_axis_data_fifo_0_1/design_1_axis_data_fifo_0_1_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_axis_data_fifo_0_2/design_1_axis_data_fifo_0_2_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_xfft_0_0/design_1_xfft_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/ip/design_1_xfft_0_1/design_1_xfft_0_1_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/pslavkin/mse_3_21sdc/tp/tp.srcs/sources_1/bd/design_1/design_1_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
